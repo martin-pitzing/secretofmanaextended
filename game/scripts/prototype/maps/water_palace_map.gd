@@ -6,7 +6,7 @@ func get_map_id() -> String:
 
 
 func get_map_title() -> String:
-    var scene := get_scene_record("ch01_sc06_luka_charge")
+    var scene := get_primary_scene_record()
     if scene.is_empty():
         return "Water Palace Inner Chamber"
     return "%s Benchmark" % scene.get("title", "Water Palace Inner Chamber")
@@ -14,7 +14,7 @@ func get_map_title() -> String:
 
 func get_map_subtitle() -> String:
     var quest := get_primary_quest_record()
-    var scene := get_scene_record("ch01_sc06_luka_charge")
+    var scene := get_primary_scene_record()
     if quest.is_empty() and scene.is_empty():
         return "Audience path, archive pocket, and ritual basin blocking benchmark."
 
@@ -94,22 +94,34 @@ func get_wall_rects() -> Array:
 
 
 func get_trigger_specs() -> Array:
-    var approach_scene_lines := scene_lines("ch01_sc05_water_palace_approach", 3)
-    var luka_scene_lines := scene_lines("ch01_sc06_luka_charge", 3)
-    var quest_info_lines := quest_lines("q_ch01_003_seek_water_palace", 3)
-    var luka_dialogue := PackedStringArray()
-    luka_dialogue.append_array(quest_info_lines)
-    luka_dialogue.append_array(luka_scene_lines)
+    var primary_scene := get_primary_scene_record()
+    var primary_scene_id := get_primary_scene_id()
+    var primary_quest_id := get_primary_quest_id()
+    var quest_info_lines := quest_lines(primary_quest_id, 3)
+    var scene_info_lines := scene_lines(primary_scene_id, 3)
+    var audience_lines := PackedStringArray()
+    audience_lines.append_array(quest_info_lines)
+    audience_lines.append_array(scene_info_lines)
+    var speaker := "Palace Attendant"
+    var prompt := "request entry"
+    var participants: Array = primary_scene.get("participants", [])
+    if participants is Array:
+        if participants.has("Luka"):
+            speaker = "Luka"
+            prompt = "speak to Luka"
+        elif participants.has("Archivist Neral"):
+            speaker = "Archivist Neral"
+            prompt = "request archive guidance"
 
     return [
         {
             "id": "luka_audience",
-            "speaker": "Luka",
-            "prompt": "speak to Luka",
+            "speaker": speaker,
+            "prompt": prompt,
             "radius": 22.0,
             "position": Vector2(288, 118),
             "color": Color(0.972549, 0.878431, 0.643137, 0.95),
-            "lines": luka_dialogue
+            "lines": audience_lines
         },
         {
             "id": "neral_archive",
@@ -118,7 +130,11 @@ func get_trigger_specs() -> Array:
             "radius": 20.0,
             "position": Vector2(412, 180),
             "color": Color(0.603922, 0.792157, 0.87451, 0.95),
-            "lines": approach_scene_lines
+            "lines": PackedStringArray([
+                "Location: %s" % str(primary_scene.get("location", "Water Palace inner chamber")),
+                "Beat: %s" % str(primary_scene.get("narrative_beat", "The temple order is organized, strained, and not universally trusted.")),
+                "Art focus: %s" % list_to_sentence(primary_scene.get("art_requirements", []))
+            ])
         },
         {
             "id": "ritual_basin",
@@ -128,8 +144,8 @@ func get_trigger_specs() -> Array:
             "position": Vector2(288, 200),
             "color": Color(0.701961, 0.933333, 0.984314, 0.95),
             "lines": PackedStringArray([
-                "Scene anchor: %s" % str(get_scene_record("ch01_sc06_luka_charge").get("location", "Water Palace inner chamber")),
-                "Art focus: %s" % list_to_sentence(get_scene_record("ch01_sc06_luka_charge").get("art_requirements", [])),
+                "Goal: %s" % str(primary_scene.get("player_goal", "Understand the immediate quest and the limits of what the palace can explain.")),
+                "Play focus: %s" % list_to_sentence(primary_scene.get("gameplay_beat", [])),
                 "The basin remains the benchmark VFX anchor for the Water Palace route."
             ])
         }

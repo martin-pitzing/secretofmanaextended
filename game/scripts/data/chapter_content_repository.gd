@@ -3,6 +3,7 @@ extends RefCounted
 class_name ChapterContentRepository
 
 const EditorialYamlLoaderScript = preload("res://scripts/data/editorial_yaml_loader.gd")
+const CHAPTER_DIR := "res://data/chapters"
 
 const SCENE_DIRS := [
     "res://data/scenes/ch01",
@@ -16,11 +17,15 @@ const QUEST_DIRS := [
 
 var _scenes := {}
 var _quests := {}
+var _chapters := {}
 
 
 func load_default_content() -> void:
     _scenes.clear()
     _quests.clear()
+    _chapters.clear()
+
+    _load_directory(CHAPTER_DIR, _chapters)
 
     for directory in SCENE_DIRS:
         _load_directory(directory, _scenes)
@@ -37,12 +42,20 @@ func get_quest(quest_id: String) -> Dictionary:
     return _quests.get(quest_id, {})
 
 
+func get_chapter(chapter_id: String) -> Dictionary:
+    return _chapters.get(chapter_id, {})
+
+
 func get_scene_count() -> int:
     return _scenes.size()
 
 
 func get_quest_count() -> int:
     return _quests.size()
+
+
+func get_chapter_count() -> int:
+    return _chapters.size()
 
 
 func build_bundle(scene_ids: Array, quest_ids: Array) -> Dictionary:

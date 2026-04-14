@@ -6,7 +6,10 @@ func get_map_id() -> String:
 
 
 func get_map_title() -> String:
-    return "Prototype Test Hall"
+    var scene := get_primary_scene_record()
+    if scene.is_empty():
+        return "Prototype Test Hall"
+    return "%s Staging Room" % scene.get("title", "Prototype Test Hall")
 
 
 func get_map_subtitle() -> String:
@@ -15,8 +18,8 @@ func get_map_subtitle() -> String:
     var scene_title := str(scene.get("title", "No scene data"))
     var quest_title := str(quest.get("title", "No quest data"))
     if get_active_enemy_count() > 0:
-        return "Loaded Chapter 2 sample: %s / %s. One practice echo is active for baseline combat checks." % [scene_title, quest_title]
-    return "Loaded Chapter 2 sample: %s / %s. Dialogue, switching, and baseline combat input are all live." % [scene_title, quest_title]
+        return "%s / %s. One practice echo is active for baseline combat checks." % [scene_title, quest_title]
+    return "%s / %s. Staging map is carrying the current story scene until a dedicated graybox space exists." % [scene_title, quest_title]
 
 
 func get_world_rect() -> Rect2:
@@ -79,8 +82,10 @@ func get_wall_rects() -> Array:
 
 
 func get_trigger_specs() -> Array:
-    var scene_info_lines := scene_lines("ch02_sc06_kroll_offer", 3)
-    var quest_info_lines := quest_lines("q_ch02_003_witness_the_terms_of_peace", 3)
+    var primary_scene_id := get_primary_scene_id()
+    var primary_quest_id := get_primary_quest_id()
+    var scene_info_lines := scene_lines(primary_scene_id, 3)
+    var quest_info_lines := quest_lines(primary_quest_id, 3)
     var archive_lines := PackedStringArray()
     archive_lines.append_array(scene_info_lines)
     archive_lines.append_array(quest_info_lines)
@@ -96,7 +101,8 @@ func get_trigger_specs() -> Array:
             "color": Color(0.556863, 0.74902, 0.85098, 0.95),
             "lines": [
                 "This hall is the first runtime check: movement, collision, prompt range, and camera follow all have to feel stable before art arrives.",
-                "The loader currently has %d scene mirrors and %d quest mirrors from Chapters 1 and 2 available to the prototype." % [counts.get("scene_count", 0), counts.get("quest_count", 0)]
+                "The loader currently has %d scene mirrors and %d quest mirrors from Chapters 1 and 2 available to the prototype." % [counts.get("scene_count", 0), counts.get("quest_count", 0)],
+                "When a Chapter 1 scene does not have a dedicated benchmark map yet, it lands here instead of falling back to placeholder-only UI."
             ]
         },
         {
@@ -116,14 +122,29 @@ func get_trigger_specs() -> Array:
             "position": Vector2(482, 120),
             "color": Color(0.556863, 0.74902, 0.85098, 0.95),
             "lines": [
-                "Press 1, 2, or 3 to jump between the test hall, the Water Palace benchmark, and the Forbidden Falls benchmark.",
-                "Tab also cycles forward if you want to walk the prototype slice in sequence."
+                "Press N to complete the current Chapter 1 scene and advance to the next one in order.",
+                "Press R to restart Chapter 1, C to return to story-driven map routing, or 1, 2, 3 and Tab for manual benchmark inspection."
             ]
         }
     ]
 
 
 func get_enemy_specs() -> Array:
+    var scene := get_primary_scene_record()
+    var scene_title := str(scene.get("title", "")).to_lower()
+    var player_goal := str(scene.get("player_goal", "")).to_lower()
+    var gameplay_beat := list_to_sentence(scene.get("gameplay_beat", [])).to_lower()
+    var should_spawn_echo := (
+        scene_title.contains("forbidden") or
+        scene_title.contains("road") or
+        player_goal.contains("survive") or
+        gameplay_beat.contains("combat") or
+        gameplay_beat.contains("threat")
+    )
+
+    if not should_spawn_echo:
+        return []
+
     return [
         {
             "position": Vector2(320, 250),

@@ -22,11 +22,11 @@ position_smoothing_speed = 8.0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 296.0
-offset_bottom = 104.0
+offset_bottom = 140.0
 
 [node name="TopMargin" type="MarginContainer" parent="CanvasLayer/TopBar"]
 offset_right = 288.0
-offset_bottom = 96.0
+offset_bottom = 132.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 10
@@ -34,7 +34,7 @@ theme_override_constants/margin_bottom = 8
 
 [node name="TopVBox" type="VBoxContainer" parent="CanvasLayer/TopBar/TopMargin"]
 offset_right = 268.0
-offset_bottom = 80.0
+offset_bottom = 116.0
 
 [node name="MapLabel" type="Label" parent="CanvasLayer/TopBar/TopMargin/TopVBox"]
 text = "Prototype loading..."

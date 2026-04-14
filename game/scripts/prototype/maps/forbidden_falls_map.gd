@@ -6,14 +6,14 @@ func get_map_id() -> String:
 
 
 func get_map_title() -> String:
-    var scene := get_scene_record("ch01_sc02_forbidden_falls")
+    var scene := get_primary_scene_record()
     if scene.is_empty():
         return "Forbidden Falls Seal Breach"
     return "%s Benchmark" % scene.get("title", "Forbidden Falls Seal Breach")
 
 
 func get_map_subtitle() -> String:
-    var scene := get_scene_record("ch01_sc02_forbidden_falls")
+    var scene := get_primary_scene_record()
     var quest := get_primary_quest_record()
     var fallback := "Seal breach pressure active. Clear the unstable echoes, then inspect the altar and edge reads."
     var quest_title := str(quest.get("title", "Leave Potos"))
@@ -94,8 +94,11 @@ func get_wall_rects() -> Array:
 
 
 func get_trigger_specs() -> Array:
-    var scene_info_lines := scene_lines("ch01_sc02_forbidden_falls", 3)
-    var quest_info_lines := quest_lines("q_ch01_001_leave_potos", 3)
+    var primary_scene := get_primary_scene_record()
+    var primary_scene_id := get_primary_scene_id()
+    var primary_quest_id := get_primary_quest_id()
+    var scene_info_lines := scene_lines(primary_scene_id, 3)
+    var quest_info_lines := quest_lines(primary_quest_id, 3)
     var altar_dialogue := PackedStringArray()
     altar_dialogue.append_array(quest_info_lines)
     altar_dialogue.append_array(scene_info_lines)
@@ -118,8 +121,8 @@ func get_trigger_specs() -> Array:
             "position": Vector2(494, 124),
             "color": Color(0.694118, 0.815686, 0.901961, 0.95),
             "lines": PackedStringArray([
-                "Scene location: %s" % str(get_scene_record("ch01_sc02_forbidden_falls").get("location", "waterfall approach and seal site")),
-                "Play focus: %s" % list_to_sentence(get_scene_record("ch01_sc02_forbidden_falls").get("gameplay_beat", [])),
+                "Scene location: %s" % str(primary_scene.get("location", "waterfall approach and seal site")),
+                "Play focus: %s" % list_to_sentence(primary_scene.get("gameplay_beat", [])),
                 "The warning remnants keep the benchmark rooted in failed containment, not generic spectacle."
             ])
         }

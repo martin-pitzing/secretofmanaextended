@@ -1,0 +1,28 @@
+id: ch10_the_moon_kept_truth
+title: The Moon-Kept Truth
+source_doc: docs/chapters/chapter-10-the-moon-kept-truth.md
+status: draft_locked
+boundary: Lofty Mountains ascent -> charter scrutiny at the switchbacks -> night-wayhouse refuge -> Moon Palace outer cloister -> curated dream archive breach -> false Dyluck audience -> Moon Seed restoration -> Tasnica high-pass handoff
+scene_ids:
+  - ch10_sc01_charter_at_the_switchbacks
+  - ch10_sc02_white_ropes_sleepless_houses
+  - ch10_sc03_the_kindly_record
+  - ch10_sc04_cloister_of_soft_light
+  - ch10_sc05_dreams_that_answer_too_fast
+  - ch10_sc06_the_chamber_of_edited_nights
+  - ch10_sc07_choose_the_wound
+  - ch10_sc08_pass_to_tasnica
+quest_ids:
+  - q_ch10_001_climb_by_charter
+  - q_ch10_002_take_the_cloister_mark
+  - q_ch10_003_break_the_kindly_lie
+  - q_ch10_004_restore_the_moon_seed
+primary_flags:
+  - flag_region_lofty_mountains_entered
+  - flag_region_night_wayhouse_reached
+  - flag_faction_moon_keepers_contact_established
+  - flag_region_moon_palace_reached
+  - flag_faction_moon_keepers_truth_exposed
+  - flag_temple_moon_seed_restored
+  - flag_route_tasnica_high_pass_open
+  - flag_chapter_ch10_complete

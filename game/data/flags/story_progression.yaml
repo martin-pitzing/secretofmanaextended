@@ -8,6 +8,7 @@ source_docs:
   - docs/chapters/chapter-07-bloom-rot-and-remembrance.md
   - docs/chapters/chapter-08-salt-law-and-empty-wells.md
   - docs/chapters/chapter-09-the-sandship-and-the-split-towns.md
+  - docs/chapters/chapter-10-the-moon-kept-truth.md
 flags:
   - flag_chapter_ch01_started
   - flag_character_randi_has_mana_sword
@@ -112,3 +113,18 @@ flags:
   - flag_faction_empire_transport_calibration_broken
   - flag_route_lofty_mountains_open
   - flag_chapter_ch09_complete
+  - flag_region_lofty_mountains_entered
+  - flag_region_mountain_charter_system_seen
+  - flag_region_night_wayhouse_reached
+  - flag_region_mountain_dream_fever_visible
+  - flag_faction_moon_keepers_contact_established
+  - flag_faction_tasnica_high_pass_agents_seen
+  - flag_region_moon_palace_reached
+  - flag_character_primm_false_dyluck_encounter
+  - flag_character_popoi_moon_memory_overlap
+  - flag_faction_moon_keepers_truth_exposed
+  - flag_region_curated_grief_archive_opened
+  - flag_temple_moon_seed_restored
+  - flag_region_mountain_dreams_unsealed
+  - flag_route_tasnica_high_pass_open
+  - flag_chapter_ch10_complete

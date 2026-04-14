@@ -8,6 +8,7 @@ source_docs:
   - docs/chapters/chapter-07-bloom-rot-and-remembrance.md
   - docs/chapters/chapter-08-salt-law-and-empty-wells.md
   - docs/chapters/chapter-09-the-sandship-and-the-split-towns.md
+  - docs/chapters/chapter-10-the-moon-kept-truth.md
 regions:
   - id: reg_potos
     title: Potos
@@ -51,3 +52,9 @@ regions:
     title: Northtown
   - id: reg_twin_town_transit_core
     title: Twin-Town Transit Core
+  - id: reg_lofty_mountains
+    title: Lofty Mountains
+  - id: reg_night_wayhouse
+    title: Night Wayhouse Network
+  - id: reg_moon_palace
+    title: Moon Palace

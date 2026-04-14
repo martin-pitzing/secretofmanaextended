@@ -14,6 +14,7 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - Chapter 7 is now drafted around the Fire Palace borderland and false-map catastrophe arc
 - Chapter 8 is now drafted around Kakkara's occupation corridor, aquifer diversion, and the sandship manifest handoff
 - Chapter 9 is now drafted around the sandship, split-town occupation, and the route into the Lofty Mountains
+- Chapter 10 is now drafted around Lofty Mountains scrutiny, the Moon Palace curated-grief archive, and the Tasnica high-pass handoff
 - Wind Sanctuary and Fire Palace leadership are now named in the faction layer
 - Tasnica's first concrete contact point is now locked to the reopened sky routes in Chapter 6
 - Portrait Batch 01 is now locked
@@ -23,21 +24,22 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - a playable prototype slice now exists with movement, dialogue, map switching, and the first Water Palace / Forbidden Falls graybox benchmarks
 - a tracked PowerShell wrapper now launches Godot with workspace-scoped appdata for reliable CLI validation
 - the prototype now reads Chapter 1-2 scene and quest YAML mirrors for benchmark labels, prompts, and runtime narrative text
+- the prototype now executes a linear Chapter 1 scene sequence with active quest state and resulting flag updates sourced from the editorial mirrors
 
 ## Immediate Priority Order
 
-### 1. Extend The Prototype From Metadata Loading To Scene Sequencing
+### 1. Replace Debug Scene Advancement With Triggered Runtime State
 
 Reason:
 
-- the runtime slice now reads editorial metadata, so the next useful step is to execute simple scene order, dialogue steps, and quest state from the existing Chapter 1 mirrors
+- the runtime slice now sequences Chapter 1, but completion still depends on manual debug input instead of world triggers, quest objectives, and persistence
 
 ## Pre-Programming Sequence After That
 
-1. Continue narrative production with Chapter 10
-2. Build the first Chapter 1 scene/quest runtime pass against the existing YAML mirrors
-3. Decide which graybox benchmark receives the first tile/blockout art pass
-4. Mirror later stable chapters into deeper scene and quest YAML only when needed
+1. Continue narrative production with Chapter 11
+2. Decide which graybox benchmark receives the first tile/blockout art pass
+3. Mirror later stable chapters into deeper scene and quest YAML only when needed
+4. Start the first persistence-aware controller, dialogue, and quest-state save pass
 
 ## Open Decisions That Still Matter
 

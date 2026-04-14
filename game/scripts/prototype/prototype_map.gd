@@ -147,6 +147,27 @@ func get_primary_quest_record() -> Dictionary:
     return get_quest_record(str(quest_ids[0]))
 
 
+func get_primary_scene_id() -> String:
+    var scene_ids: Array = _content_bundle.get("scene_ids", [])
+    if scene_ids.is_empty():
+        return ""
+    return str(scene_ids[0])
+
+
+func get_primary_quest_id() -> String:
+    var quest_ids: Array = _content_bundle.get("quest_ids", [])
+    if quest_ids.is_empty():
+        return ""
+    return str(quest_ids[0])
+
+
+func get_scene_record_at(index: int) -> Dictionary:
+    var scene_ids: Array = _content_bundle.get("scene_ids", [])
+    if index < 0 or index >= scene_ids.size():
+        return {}
+    return get_scene_record(str(scene_ids[index]))
+
+
 func get_loaded_content_counts() -> Dictionary:
     return {
         "scene_count": int(_content_bundle.get("library_scene_count", _content_bundle.get("scenes", {}).size())),

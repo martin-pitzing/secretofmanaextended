@@ -12,6 +12,9 @@ static func ensure_defaults() -> void:
     _ensure_action("map_test_room", [KEY_1])
     _ensure_action("map_water_palace", [KEY_2])
     _ensure_action("map_forbidden_falls", [KEY_3])
+    _ensure_action("scene_advance", [KEY_N])
+    _ensure_action("chapter_restart", [KEY_R])
+    _ensure_action("chapter_story_mode", [KEY_C])
 
 
 static func _ensure_action(action_name: String, keycodes: Array) -> void:
