@@ -4,14 +4,19 @@ source_docs:
 factions:
   - id: fac_water_palace_order
     title: Water Palace Order
+    leader: Luka
   - id: fac_falls_shrines
     title: Falls Shrines
+    leader: Sister Yselle
   - id: fac_earth_vault_keepers
     title: Earth Vault Keepers
+    leader: Prior Caldus
   - id: fac_fire_palace_keepers
     title: Fire Palace Keepers
+    leader: Furnace Warden Maelis Brann
   - id: fac_wind_sanctuary_order
     title: Wind Sanctuary Custodians
+    leader: Waykeeper Ilyra Sen
   - id: fac_moon_keepers
     title: Moon Keepers
   - id: fac_light_keepers

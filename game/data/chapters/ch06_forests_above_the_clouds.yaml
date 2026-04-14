@@ -1,0 +1,29 @@
+id: ch06_forests_above_the_clouds
+title: Forests Above The Clouds
+source_doc: docs/chapters/chapter-06-forests-above-the-clouds.md
+status: draft_locked
+boundary: Pandora haunted frontier departure -> Upper Land ascent -> Matango canopy exchange -> Wind Sanctuary approach -> memory-tithe revelation -> Wind Seed restoration -> reopened sky routes and first concrete Tasnica correspondence
+scene_ids:
+  - ch06_sc01_climb_to_upper_land
+  - ch06_sc02_matango_canopy_exchange
+  - ch06_sc03_storm_debt_on_the_high_paths
+  - ch06_sc04_house_of_surrendered_names
+  - ch06_sc05_waykeeper_ilyra_truth
+  - ch06_sc06_bridge_of_returning_voices
+  - ch06_sc07_the_wind_seed_rite
+  - ch06_sc08_letters_on_clear_air
+quest_ids:
+  - q_ch06_001_reach_upper_land
+  - q_ch06_002_read_the_storm_debt
+  - q_ch06_003_expose_surrendered_names
+  - q_ch06_004_restore_the_wind_seed
+primary_flags:
+  - flag_region_upper_land_entered
+  - flag_region_high_route_crisis_visible
+  - flag_character_popoi_memory_bargain_resonance
+  - flag_faction_wind_sanctuary_truth_exposed
+  - flag_temple_wind_seed_restored
+  - flag_region_sky_routes_reopened
+  - flag_faction_tasnica_correspondence_established
+  - flag_route_fire_borderland_open
+  - flag_chapter_ch06_complete

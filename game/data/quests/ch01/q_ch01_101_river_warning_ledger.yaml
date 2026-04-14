@@ -18,6 +18,7 @@ fail_or_soft_lock_conditions:
 rewards:
   - later acknowledgment that rural warning networks were ignored
   - stronger continuity between Potos and larger river communities
+  - minor river-ward charm utility item
 resulting_flags:
   - flag_quest_river_warning_ledger_recovered
 related_scene_ids:

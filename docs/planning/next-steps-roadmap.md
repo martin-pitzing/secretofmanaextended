@@ -10,27 +10,33 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - temple arcs were upgraded from progression nodes to layered sacred questlines
 - the project now has a clearer mythic identity beyond the original *Secret of Mana* pacing
 - Chapters 1 and 2 now have structured scene and quest mirrors under `game/data/`
+- Chapter 6 is now drafted around the Upper Land and Wind Sanctuary arc
+- Wind Sanctuary and Fire Palace leadership are now named in the faction layer
+- Tasnica's first concrete contact point is now locked to the reopened sky routes in Chapter 6
+- Portrait Batch 01 is now locked
+- the first Chapter 1 combat benchmark is now locked to the Forbidden Falls seal breach arena
+- early reward variance and Pandora conservative-contact visibility are now defined
 
 ## Immediate Priority Order
 
-### 1. Draft Chapter 6 Package
+### 1. Create The Actual Godot Project Shell
 
 Reason:
 
-- Chapters 1-5 are now editorially stable enough that the next narrative bottleneck is expanding the sacred route beyond Pandora's haunted crisis
+- the preproduction foundation is now stable enough to support a real engine scaffold without immediate rework
 
 ## Pre-Programming Sequence After That
 
-1. Decide whether Chapter 1 needs a benchmark combat room beyond the exile road
-2. Lock the first portrait batch and expression counts
-3. Resolve remaining early temple-leadership and reward-pipeline decisions
-4. Create the actual Godot project shell
+1. Create the actual Godot project shell
+2. Continue narrative production with Chapter 7
+3. Mirror later stable chapters into deeper scene and quest YAML only when needed
+4. Start the first controller, dialogue, and map prototype passes
 
 ## Open Decisions That Still Matter
 
 - how directly to import broader Mana-series peoples versus keeping them as lighter setting influence
 - whether Popoi's people become a major late-game reveal or a distributed mystery
-- how strong Thanatos's first unmistakable fingerprint should be before the player knows his name
+- exact timing of when later overt Pandora conservative-imperial coordination becomes public
 
 ## Recommended Creative Guardrails
 

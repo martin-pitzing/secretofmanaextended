@@ -88,13 +88,14 @@ It turns the already locked benchmark choice into a production task list that ca
 
 ### Expression Count
 
-Each portrait should have at least:
+For benchmark testing, each portrait should have at least:
 
 - neutral
 - determined
 - strained
 - vulnerable
-- anger or shock
+
+Final production counts follow `docs/art/portrait-batch-01-spec.md`.
 
 ### Benchmark Scene Portrait Minimum
 

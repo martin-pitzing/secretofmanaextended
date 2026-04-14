@@ -3,6 +3,8 @@ source_docs:
   - docs/chapters/chapter-02-pandora-under-strain.md
   - docs/chapters/chapter-03-gaias-navel-and-lost-memory.md
   - docs/chapters/chapter-04-the-earth-below-remembers.md
+  - docs/chapters/chapter-05-the-witch-and-the-ruins.md
+  - docs/chapters/chapter-06-forests-above-the-clouds.md
 regions:
   - id: reg_potos
     title: Potos
@@ -18,3 +20,11 @@ regions:
     title: Gaia's Navel
   - id: reg_earth_vault
     title: Earth Vault
+  - id: reg_pandora_haunted_frontier
+    title: Pandora Haunted Frontier
+  - id: reg_upper_land
+    title: Upper Land
+  - id: reg_matango_canopy
+    title: Matango Canopy Exchange
+  - id: reg_wind_sanctuary
+    title: Wind Sanctuary

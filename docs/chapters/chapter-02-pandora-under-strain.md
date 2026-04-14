@@ -40,7 +40,7 @@ Pandora is still standing, but only because every institution inside it is decid
 
 ## Faction Pressures Active In This Chapter
 
-- Pandora conservatives want stability, secrecy, and deniable contact with the Empire
+- Pandora conservatives want stability, secrecy, and deniable contact with the Empire through documents, proxies, and quiet access concessions rather than open collaboration
 - reform voices want transparency and civilian protection
 - military leadership is divided between noble legitimacy and wartime necessity
 - the Water Palace is treated as useful but intrusive
@@ -126,7 +126,7 @@ Pandora is still standing, but only because every institution inside it is decid
 - Trigger: after court split becomes visible
 - Player control state: observation, optional stealth movement, no combat
 - Player goal: witness the first direct imperial intervention
-- Narrative beat: the Empire offers order in language designed to sound humane and inevitable
+- Narrative beat: the Empire offers order in language designed to sound humane and inevitable, and the player can sense that parts of Pandora's conservative apparatus were already prepared for the performance
 - Gameplay beat: overheard diplomacy, crowd reactions, optional pursuit if the player investigates too closely
 - Exit condition: Kroll departs after leaving a formal "peace" proposal and implicit threat
 - Resulting flags: `flag_faction_empire_kroll_seen`, `flag_faction_empire_soft_capture_visible`
@@ -140,7 +140,7 @@ Pandora is still standing, but only because every institution inside it is decid
 - Trigger: after witnessing Kroll's offer
 - Player control state: exploration, puzzle-light infiltration, possible brief combat
 - Player goal: secure a partial ledger showing who authorized Dyluck's route and why
-- Narrative beat: Dyluck was sent on a mission framed as strategic necessity and symbolic sacrifice
+- Narrative beat: Dyluck was sent on a mission framed as strategic necessity and symbolic sacrifice, and the recovered paperwork shows conservative accommodation pressure without an openly signed betrayal
 - Gameplay beat: infiltration, key retrieval, patrol avoidance or small skirmish
 - Exit condition: ledger fragment recovered and escape completed
 - Resulting flags: `flag_character_dyluck_mission_brief_partial_recovered`, `flag_faction_pandora_conservative_complicity_suspected`
@@ -214,11 +214,11 @@ Pandora is still standing, but only because every institution inside it is decid
 
 - Side objective ID: `q_ch02_101_relief_crate_diversion`
 - Purpose: show that Seremne's faction is quietly redirecting palace resources to civilians
-- Outcome: improves later reform contact trust
+- Outcome: improves later reform contact trust and grants a small `relief satchel` utility reward
 
 - Side objective ID: `q_ch02_102_service_passage_map`
 - Purpose: discover old service passages beneath the court district that reveal how often noble crisis and sacred architecture overlap
-- Outcome: unlocks later city reentry shortcuts
+- Outcome: unlocks later city reentry shortcuts and grants a light `court runner sash` route utility reward
 
 ## World-State Outputs
 

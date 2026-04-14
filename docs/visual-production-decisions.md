@@ -42,12 +42,7 @@ This document locks the first visual production decisions that would otherwise k
 - visible portrait target: `96x96`
 - style: hand-authored pixel bust portraits, not painted illustrations and not cropped gameplay sprites
 - framing: shoulders-up or chest-up, slight 3/4 angle by default
-- expression baseline per major character:
-  - neutral
-  - determined
-  - strained
-  - vulnerable
-  - anger or shock
+- expression counts are now locked by tier in `docs/art/portrait-batch-01-spec.md`
 
 ## Why This Format
 
@@ -65,9 +60,14 @@ This document locks the first visual production decisions that would otherwise k
 
 ## First Portrait Production Set
 
+Locked in `docs/art/portrait-batch-01-spec.md`.
+
+Production pass 1:
+
 - Randi
-- Primm
 - Luka
+- Archivist Neral
+- Primm
 - King Regan
 - Chancellor Voss
 - Magistrate Severin Kroll
@@ -75,5 +75,5 @@ This document locks the first visual production decisions that would otherwise k
 ## Art Pipeline Effect
 
 - environment benchmark starts with Water Palace
-- portrait benchmark starts with the first authority-heavy cast
+- portrait benchmark starts with the first authority-heavy cast and the Water Palace benchmark-support set
 - Potos falls remains the best second benchmark because it tests outdoor atmosphere, seal effects, and sacred danger

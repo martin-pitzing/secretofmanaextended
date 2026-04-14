@@ -23,6 +23,7 @@
 | Chapter 3 package | done | Gaia's Navel, Watts, Popoi, and Earth Vault pressure defined |
 | Chapter 4 package | done | Earth Seed restoration, Popoi memory bleed, and first sword restoration pass defined |
 | Chapter 5 package | done | Elinee, haunted ruins, and first unmistakable coordinated corruption arc defined |
+| Chapter 6 package | done | Upper Land expansion, Wind Sanctuary memory-tithe arc, and first Tasnica correspondence defined |
 | Story and setting expansion pass | done | classic Mana-series motifs integrated into the setting direction |
 | Temple turn matrix | done | temples now have layered twists and regional consequences |
 | Core cast sheets | done | Randi, Primm, Popoi, Luka, Jema, and Thanatos aligned to the new mythology |
@@ -34,8 +35,11 @@
 | Subculture briefs | done | world texture converted into scene-ready groups |
 | Visual production decisions | done | first benchmark environment and portrait format are locked |
 | Water Palace benchmark checklist | done | first environment benchmark is now execution-ready |
+| Portrait Batch 01 locked | done | first real portrait production scope and expression tiers are fixed |
+| Chapter 1 combat benchmark locked | done | Forbidden Falls seal breach arena chosen as the first combat reference room |
+| Early progression locks | done | reward variance and Pandora conservative-contact visibility are now defined |
 | Mirrored `game/data/` starter files | done | Chapters 1-3 and core cast/faction manifests now have YAML starter shells |
-| Expanded mirrored `game/data/` manifests | done | Chapters 4-5 plus characters, regions, temples, and flag manifests added |
+| Expanded mirrored `game/data/` manifests | done | Chapters 4-6 plus characters, regions, temples, and flag manifests added |
 | First scene- and quest-level structured mirrors | done | Chapters 1-2 now have per-scene and per-quest YAML mirrors |
 | Content conventions and IDs | done | naming rules and implementation-readiness rules defined |
 | Content templates | done | reusable templates added |
@@ -46,20 +50,19 @@
 
 | Task | Status | Notes |
 | --- | --- | --- |
-| Draft Chapter 6 package | next | should widen from Pandora's haunted crisis into the broader temple cycle |
+| Create the actual Godot project shell | next | preproduction blockers are closed; the repo can now move into a real engine scaffold |
+| Continue narrative production with Chapter 7 | next | Wind Sanctuary handoff now points cleanly into the Fire Palace borderland arc |
 
 ## Open Pre-Programming Items
 
 | Item | Status | Notes |
 | --- | --- | --- |
-| Number of temple orders named early | open | Water, Falls, Earth Vault currently anchored |
-| Thanatos early manifestation style | open | coordinated corruption is implied but not yet dramatized in a dedicated scene brief |
+| No blocking items remain | done | remaining questions are later-story or implementation-sequencing choices rather than preproduction blockers |
 
 ## Deferred Until Programming
 
 | Task | Status | Notes |
 | --- | --- | --- |
-| Create `project.godot` | later | intentionally deferred |
 | Build dialogue system | later | blocked until implementation phase |
 | Build quest system | later | blocked until implementation phase |
 | Implement map and controller framework | later | blocked until implementation phase |

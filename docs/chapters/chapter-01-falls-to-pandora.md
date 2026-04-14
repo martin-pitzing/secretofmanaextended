@@ -207,7 +207,7 @@ The world does not break in one dramatic instant. It reveals that it has already
 - Side objective ID: `q_ch01_101_river_warning_ledger`
 - Purpose: reveal that rural communities track mana irregularities better than courts assume
 - Unlock: after exile during the road sequence
-- Outcome: a recovered ledger can later let Luka or a Pandora contact acknowledge that village knowledge was ignored
+- Outcome: a recovered ledger can later let Luka or a Pandora contact acknowledge that village knowledge was ignored, and grants a minor `river-ward charm` style utility reward
 - Narrative use: reinforces Potos as part of a real river-community network
 
 ## World-State Outputs
@@ -244,6 +244,12 @@ The world does not break in one dramatic instant. It reveals that it has already
 
 - first destabilized monster family
 - low-threat roadside enemy family
+
+## Secondary Combat Benchmark Lock
+
+- locked combat benchmark beyond the exile road: `Forbidden Falls seal breach arena`
+- benchmark source scene: `ch01_sc02_forbidden_falls`
+- reason: it proves sacred-danger combat, seal-break VFX, and early melee readability more clearly than a generic field encounter
 
 ## Character Art Briefs Needed Before Implementation
 

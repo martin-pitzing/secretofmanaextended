@@ -17,6 +17,7 @@ fail_or_soft_lock_conditions:
 rewards:
   - stronger later trust with reform contacts
   - deeper understanding of Pandora's internal survival compromises
+  - small relief satchel utility item
 resulting_flags:
   - flag_faction_pandora_reform_contact_trust_bonus
 related_scene_ids:

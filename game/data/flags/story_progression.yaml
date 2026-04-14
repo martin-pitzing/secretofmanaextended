@@ -4,6 +4,7 @@ source_docs:
   - docs/chapters/chapter-03-gaias-navel-and-lost-memory.md
   - docs/chapters/chapter-04-the-earth-below-remembers.md
   - docs/chapters/chapter-05-the-witch-and-the-ruins.md
+  - docs/chapters/chapter-06-forests-above-the-clouds.md
 flags:
   - flag_chapter_ch01_started
   - flag_character_randi_has_mana_sword
@@ -46,3 +47,24 @@ flags:
   - flag_faction_empire_earth_conduit_detectable
   - flag_weapon_mana_sword_first_restoration_complete
   - flag_route_pandora_haunted_crisis_reopened
+  - flag_region_pandora_haunted_frontier_reached
+  - flag_region_pandora_ruin_testimony_gathered
+  - flag_region_pandora_ruins_pattern_found
+  - flag_region_elinee_forest_crossed
+  - flag_character_elinee_truth_revealed
+  - flag_region_elinee_domain_broken
+  - flag_faction_thanatos_method_visible
+  - flag_character_primm_dyluck_fate_deepened
+  - flag_region_pandora_haunted_frontier_stabilized_partial
+  - flag_chapter_ch05_complete
+  - flag_region_upper_land_entered
+  - flag_region_high_route_crisis_visible
+  - flag_region_wind_sanctuary_reached
+  - flag_character_popoi_memory_bargain_resonance
+  - flag_faction_wind_sanctuary_truth_exposed
+  - flag_region_wind_seed_chamber_reached
+  - flag_temple_wind_seed_restored
+  - flag_region_sky_routes_reopened
+  - flag_faction_tasnica_correspondence_established
+  - flag_route_fire_borderland_open
+  - flag_chapter_ch06_complete

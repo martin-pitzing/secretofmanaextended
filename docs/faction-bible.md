@@ -570,6 +570,30 @@ Use this in plotting:
 - stance on Luka: far too optimistic about restoration
 - stance on Jema: part of the centralizing problem
 
+#### Waykeeper Ilyra Sen of the Wind Sanctuary
+
+- role: high-route custodian and memory-tithe administrator
+- objective: keep the storm lanes survivable without letting the sanctuary collapse into panic or public hatred
+- acceptable sacrifice: her own memories, route secrecy, and delayed disclosure
+- hidden truth: she offered some of the first sanctioned memory tithes herself and no longer remembers parts of the original bargain clearly
+- stance on Randi: dangerous but necessary if the sanctuary is to change without falling
+- stance on Primm: understands institutional burden better than most nobles, but still young enough to reject it
+- stance on Popoi: living proof that memory damage and memory sacrifice are not the same thing
+- stance on Luka: respects her restraint, but distrusts how often central keepers decide what others can survive knowing
+- stance on Jema: sees the Gemma line as one more tradition built on selective burden-sharing
+
+#### Furnace Warden Maelis Brann of the Fire Palace
+
+- role: map-keeper, disaster custodian, and local fire-route authority
+- objective: revive the region's useful furnace flows without allowing another surge catastrophe
+- acceptable sacrifice: public trust, trade convenience, and open map access
+- hidden truth: she personally altered and circulated the false route maps outsiders now resent
+- stance on Randi: possible catalyst for a restoration she both needs and fears
+- stance on Primm: more politically dangerous than she first appears because she asks who gets sacrificed for stability
+- stance on Popoi: sensitive to old flame memory and therefore too risky to dismiss
+- stance on Luka: too willing to reopen systems faster than border keepers can contain them
+- stance on Jema: another old guardian whose truth arrived after the damage
+
 ### Empire High Command
 
 #### Emperor Vandole

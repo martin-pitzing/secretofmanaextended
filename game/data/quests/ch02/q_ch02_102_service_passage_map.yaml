@@ -18,6 +18,7 @@ fail_or_soft_lock_conditions:
 rewards:
   - later city reentry shortcuts
   - stronger sense that sacred and noble architecture overlap
+  - light court runner sash route utility item
 resulting_flags:
   - flag_region_pandora_service_passages_mapped
 related_scene_ids:

@@ -184,12 +184,12 @@ Use these as internal prompt starters for concept generation, paintovers, or bri
 
 ## Immediate Next Step
 
-Produce one illustrated benchmark room:
+Produce the first benchmark pair:
 
-- Water Palace antechamber
-- one playable combat space
+- Water Palace inner chamber
+- Forbidden Falls seal breach arena
 - one altar interaction
 - one lighting pass
 - one spell effect test
 
-If that room looks right, the rest of the production style becomes easier to hold.
+If those spaces look right, the rest of the production style becomes easier to hold.

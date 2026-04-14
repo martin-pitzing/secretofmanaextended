@@ -24,7 +24,7 @@
 
 ## Keeper / Order
 
-- Keeper: Wind Temple pilots, pilgrims, and route sanctifiers
+- Keeper: Waykeeper Ilyra Sen, wind pilots, pilgrims, and route sanctifiers
 - Order: sky-route custodians and memory-bearing pilgrims
 - Public role: preserve safe wind lanes, keep storms away from villages, and maintain the ritual balance of the high paths
 - Hidden strain: the order has normalized forgetting as a price of protection
@@ -58,4 +58,3 @@
 - memorial chimes, route markers, and memory tokens woven into shrine fixtures
 - shifting cloud shadows and strong vertical composition to emphasize height and risk
 - the sanctuary should feel open, airy, and slightly uncanny, as if the sky itself is holding testimony
-

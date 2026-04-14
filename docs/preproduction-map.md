@@ -16,6 +16,8 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `magic doctrine and weapon schools`: `docs/magic-doctrine.md`
 - `visual production decisions`: `docs/visual-production-decisions.md`
 - `Water Palace benchmark checklist`: `docs/art/water-palace-benchmark-checklist.md`
+- `Portrait Batch 01 spec`: `docs/art/portrait-batch-01-spec.md`
+- `Forbidden Falls combat benchmark`: `docs/art/forbidden-falls-combat-benchmark-checklist.md`
 - `content conventions and IDs`: `docs/content-conventions.md`
 - `content templates`: `docs/templates/content-templates.md`
 - `chapter 1 package`: `docs/chapters/chapter-01-falls-to-pandora.md`
@@ -23,11 +25,13 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `chapter 3 package`: `docs/chapters/chapter-03-gaias-navel-and-lost-memory.md`
 - `chapter 4 package`: `docs/chapters/chapter-04-the-earth-below-remembers.md`
 - `chapter 5 package`: `docs/chapters/chapter-05-the-witch-and-the-ruins.md`
+- `chapter 6 package`: `docs/chapters/chapter-06-forests-above-the-clouds.md`
 - `Pandora character sheets`: `docs/characters/pandora-character-sheets.md`
 - `Empire character sheets`: `docs/characters/empire-character-sheets.md`
 - `core cast sheets`: `docs/characters/mana-core-character-sheets.md`
 - `temple dossiers`: `docs/temples/`
 - `Dyluck mission brief`: `docs/briefs/dyluck-mission-brief.md`
+- `early progression locks`: `docs/briefs/early-progression-locks.md`
 - `subculture briefs`: `docs/briefs/subculture-briefs.md`
 - `first temple authority dispute scene`: `docs/scenes/water-palace-vs-falls-shrine-dispute.md`
 - `tracker and open items`: `docs/planning/task-tracker.md`, `docs/planning/open-items.md`
@@ -43,11 +47,14 @@ This is the authoritative map of the pre-programming package. It points to the c
 - Chapter 1 boundary: `Potos -> exile -> wilderness transition -> Water Palace approach -> Pandora arrival and first political contact`
 - Broader Mana-series motifs are being used as inspiration, not assumed direct continuity unless explicitly written into this project
 - First benchmark environment is locked to the `Water Palace inner chamber`
+- First Chapter 1 combat benchmark is locked to the `Forbidden Falls seal breach arena`
 - Dialogue portraits are locked to `96x96` detailed pixel portrait panels
+- Portrait Batch 01 and expression tiers are locked
 - The first benchmark room now has an execution checklist
 - Narrative source of truth remains Markdown during preproduction
 - Structured content should later mirror into JSON or YAML after templates stabilize
 - Chapters 1 and 2 now have scene-level and quest-level YAML mirrors for implementation planning
+- Tasnica remains rumor-only in Chapters 1-2 and becomes concrete through sky-route correspondence in Chapter 6
 - Godot scaffolding is part of pre-programming setup, but gameplay code is still out of scope
 
 ## Canonical Terminology
@@ -80,12 +87,15 @@ The project is ready to begin systems implementation when:
 - Chapter 3 is stable enough to carry the project into Popoi's introduction and the earth-route arc
 - Chapter 4 is stable enough to carry the project back toward the haunted crisis route
 - Chapter 5 is stable enough to reconnect earth-route fallout to Elinee, ruins, and coordinated corruption
+- Chapter 6 is stable enough to widen the story into Upper Land, the Wind Sanctuary, and the first real sky-route political horizon
 - faction leaders and recurring officers are named and placed in story flow
 - core cast sheets are stable enough to drive scene writing
 - temple dossiers define the sacred network in production-ready terms
 - visual benchmark and portrait format are chosen
 - the first benchmark checklist exists and can drive art production
+- the first combat benchmark room is defined
 - art requirements for the first benchmark area are defined
+- the first portrait production batch is defined
 - IDs, flags, and content templates are locked
 - the first mirrored `game/data` manifests exist for chapters, cast, factions, regions, temples, and story flags
 - the first mirrored `game/data` scene and quest files exist for Chapters 1 and 2

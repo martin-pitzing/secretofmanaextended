@@ -24,7 +24,7 @@
 
 ## Keeper / Order
 
-- Keeper: Fire Palace keepers and Salamando-linked ritual wardens
+- Keeper: Furnace Warden Maelis Brann and Salamando-linked ritual wardens
 - Order: furnace wardens, map-keepers, and disaster-prevention custodians
 - Public role: maintain the fire current, keep outsiders moving safely, and limit access to the true heart
 - Hidden strain: the order lies by design because the real history is too dangerous to expose casually
@@ -58,4 +58,3 @@
 - false-route signage, hazard markers, and warded threshold gates
 - the true furnace heart should read as beautiful, ancient, and frightening at the same time
 - strong orange-red highlights against soot-dark stone, with glow visibility pushed through smoke and ash
-
