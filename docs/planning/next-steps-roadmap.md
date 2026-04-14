@@ -12,26 +12,29 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - Chapters 1 and 2 now have structured scene and quest mirrors under `game/data/`
 - Chapter 6 is now drafted around the Upper Land and Wind Sanctuary arc
 - Chapter 7 is now drafted around the Fire Palace borderland and false-map catastrophe arc
+- Chapter 8 is now drafted around Kakkara's occupation corridor, aquifer diversion, and the sandship manifest handoff
 - Wind Sanctuary and Fire Palace leadership are now named in the faction layer
 - Tasnica's first concrete contact point is now locked to the reopened sky routes in Chapter 6
 - Portrait Batch 01 is now locked
 - the first Chapter 1 combat benchmark is now locked to the Forbidden Falls seal breach arena
 - early reward variance and Pandora conservative-contact visibility are now defined
 - the actual Godot project shell now exists under `game/`
+- a playable prototype slice now exists with movement, dialogue, map switching, and the first Water Palace / Forbidden Falls graybox benchmarks
+- a tracked PowerShell wrapper now launches Godot with workspace-scoped appdata for reliable CLI validation
 
 ## Immediate Priority Order
 
-### 1. Start The First Controller, Dialogue, And Map Prototype Passes
+### 1. Turn The Prototype Slice Into Data-Driven Runtime Loading
 
 Reason:
 
-- the engine shell now exists, so the next useful work is implementation rather than more scaffolding
+- the runtime slice now works, so the next useful step is to replace hardcoded scene flow with structured content loading wherever the editorial docs are already stable
 
 ## Pre-Programming Sequence After That
 
-1. Continue narrative production with Chapter 8
-2. Start the first controller, dialogue, and map prototype passes
-3. Build the first playable Chapter 1 Water Palace and Forbidden Falls benchmark spaces
+1. Continue narrative production with Chapter 9
+2. Build the first dialogue and scene loader pass against the existing Chapter 1-2 YAML mirrors
+3. Decide which graybox benchmark receives the first tile/blockout art pass
 4. Mirror later stable chapters into deeper scene and quest YAML only when needed
 
 ## Open Decisions That Still Matter

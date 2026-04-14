@@ -4,7 +4,9 @@ This folder is now the live Godot scene root under `res://scenes/`.
 
 Current contents:
 
-- `main.tscn`: placeholder project entry scene used to verify the shell opens cleanly
+- `main.tscn`: prototype runtime entry scene
+- `prototype/`: player, enemy, and benchmark graybox maps
+- `ui/`: dialogue presentation scene
 
 Future contents:
 

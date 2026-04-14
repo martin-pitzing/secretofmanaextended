@@ -1,0 +1,29 @@
+id: ch08_salt_law_and_empty_wells
+title: Salt, Law, And Empty Wells
+source_doc: docs/chapters/chapter-08-salt-law-and-empty-wells.md
+status: draft_locked
+boundary: fire borderland departure -> desert occupation corridor -> Kakkara ration gates -> water-token market regime -> underwell condenser vault -> exposed aquifer diversion -> sandship manifest recovery -> Southtown route unlock
+scene_ids:
+  - ch08_sc01_blackglass_road
+  - ch08_sc02_gate_of_tallies
+  - ch08_sc03_tokens_for_water
+  - ch08_sc04_court_under_drought_terms
+  - ch08_sc05_dusk_ledger_raid
+  - ch08_sc06_underwell_condenser_vault
+  - ch08_sc07_rourkes_necessary_order
+  - ch08_sc08_manifest_to_the_coast
+quest_ids:
+  - q_ch08_001_cross_blackglass_road
+  - q_ch08_002_read_the_water_regime
+  - q_ch08_003_expose_the_underwell
+  - q_ch08_004_secure_the_sandship_manifest
+primary_flags:
+  - flag_region_desert_occupation_corridor_entered
+  - flag_region_kakkara_entered
+  - flag_faction_empire_supply_regime_seen
+  - flag_region_underwell_vault_reached
+  - flag_region_aquifer_diversion_exposed
+  - flag_faction_empire_bloc_rift_visible
+  - flag_route_sandship_manifest_secured
+  - flag_route_southtown_open
+  - flag_chapter_ch08_complete

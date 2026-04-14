@@ -1,2 +1,7 @@
 # Godot local metadata
 game/.godot/
+
+# Local Godot binaries and workspace-scoped editor data
+tools/godot/*
+!tools/godot/.gitignore
+!tools/godot/README.md

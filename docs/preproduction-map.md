@@ -27,6 +27,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `chapter 5 package`: `docs/chapters/chapter-05-the-witch-and-the-ruins.md`
 - `chapter 6 package`: `docs/chapters/chapter-06-forests-above-the-clouds.md`
 - `chapter 7 package`: `docs/chapters/chapter-07-bloom-rot-and-remembrance.md`
+- `chapter 8 package`: `docs/chapters/chapter-08-salt-law-and-empty-wells.md`
 - `Pandora character sheets`: `docs/characters/pandora-character-sheets.md`
 - `Empire character sheets`: `docs/characters/empire-character-sheets.md`
 - `core cast sheets`: `docs/characters/mana-core-character-sheets.md`
@@ -39,6 +40,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `Godot bootstrap rules`: `docs/godot-bootstrap.md`
 - `local Godot setup guide`: `docs/godot-local-setup.md`
 - `Godot project shell`: `game/project.godot`
+- `playable prototype runtime`: `game/scenes/main.tscn`, `game/scripts/prototype/`
 - `structured scene mirrors`: `game/data/scenes/`
 - `structured quest mirrors`: `game/data/quests/`
 
@@ -57,9 +59,10 @@ This is the authoritative map of the pre-programming package. It points to the c
 - Narrative source of truth remains Markdown during preproduction
 - Structured content should later mirror into JSON or YAML after templates stabilize
 - Chapters 1 and 2 now have scene-level and quest-level YAML mirrors for implementation planning
+- Chapters 1-8 now have chapter-level YAML mirrors for implementation planning
 - Tasnica remains rumor-only in Chapters 1-2 and becomes concrete through sky-route correspondence in Chapter 6
 - the initial Godot shell now exists under `game/`
-- Godot scaffolding is part of pre-programming setup, but gameplay code is still out of scope
+- the first prototype runtime slice now exists for controller, dialogue, and benchmark-map work
 
 ## Canonical Terminology
 
@@ -93,6 +96,7 @@ The project is ready to begin systems implementation when:
 - Chapter 5 is stable enough to reconnect earth-route fallout to Elinee, ruins, and coordinated corruption
 - Chapter 6 is stable enough to widen the story into Upper Land, the Wind Sanctuary, and the first real sky-route political horizon
 - Chapter 7 is stable enough to connect temple restoration to revived regional industry and openly rising imperial attention
+- Chapter 8 is stable enough to make imperial logistics, civic scarcity, and occupation visible as a lived system
 - faction leaders and recurring officers are named and placed in story flow
 - core cast sheets are stable enough to drive scene writing
 - temple dossiers define the sacred network in production-ready terms
@@ -104,5 +108,5 @@ The project is ready to begin systems implementation when:
 - IDs, flags, and content templates are locked
 - the first mirrored `game/data` manifests exist for chapters, cast, factions, regions, temples, and story flags
 - the first mirrored `game/data` scene and quest files exist for Chapters 1 and 2
-- the Godot folder scaffold, bootstrap rules, and initial `project.godot` shell are in place
+- the Godot folder scaffold, bootstrap rules, runtime wrapper, and initial prototype scenes are in place
 - remaining open items are small enough that they do not block controller, dialogue, quest, and map framework work

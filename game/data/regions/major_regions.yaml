@@ -6,6 +6,7 @@ source_docs:
   - docs/chapters/chapter-05-the-witch-and-the-ruins.md
   - docs/chapters/chapter-06-forests-above-the-clouds.md
   - docs/chapters/chapter-07-bloom-rot-and-remembrance.md
+  - docs/chapters/chapter-08-salt-law-and-empty-wells.md
 regions:
   - id: reg_potos
     title: Potos
@@ -33,3 +34,9 @@ regions:
     title: Fire Borderlands
   - id: reg_fire_palace
     title: Fire Palace
+  - id: reg_desert_occupation_corridor
+    title: Desert Occupation Corridor
+  - id: reg_kakkara
+    title: Kakkara
+  - id: reg_underwell_vault
+    title: Underwell Condenser Vault

@@ -6,6 +6,7 @@ source_docs:
   - docs/chapters/chapter-05-the-witch-and-the-ruins.md
   - docs/chapters/chapter-06-forests-above-the-clouds.md
   - docs/chapters/chapter-07-bloom-rot-and-remembrance.md
+  - docs/chapters/chapter-08-salt-law-and-empty-wells.md
 flags:
   - flag_chapter_ch01_started
   - flag_character_randi_has_mana_sword
@@ -82,3 +83,16 @@ flags:
   - flag_faction_empire_fire_interest_visible
   - flag_route_desert_occupation_open
   - flag_chapter_ch07_complete
+  - flag_region_desert_occupation_corridor_entered
+  - flag_region_kakkara_entered
+  - flag_region_kakkara_ration_lines_seen
+  - flag_faction_empire_supply_regime_seen
+  - flag_faction_kakkara_court_divided
+  - flag_character_primm_desert_compromise_hit
+  - flag_region_convoy_ledgers_seized
+  - flag_region_underwell_vault_reached
+  - flag_region_aquifer_diversion_exposed
+  - flag_faction_empire_bloc_rift_visible
+  - flag_route_sandship_manifest_secured
+  - flag_route_southtown_open
+  - flag_chapter_ch08_complete

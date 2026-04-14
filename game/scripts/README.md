@@ -2,9 +2,9 @@
 
 This folder is reserved for lightweight Godot scripts.
 
-Current rule:
+Current contents:
 
-- no gameplay scripts are committed yet
+- `prototype/`: first-pass controller, dialogue, map, and encounter scripts
 
 Future examples:
 
