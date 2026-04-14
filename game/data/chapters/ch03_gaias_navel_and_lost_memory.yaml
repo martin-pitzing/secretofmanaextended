@@ -1,0 +1,26 @@
+id: ch03_gaias_navel_and_lost_memory
+title: Gaia's Navel And Lost Memory
+source_doc: docs/chapters/chapter-03-gaias-navel-and-lost-memory.md
+status: draft_locked
+boundary: Pandora lower gate departure -> salvage road and caravan contact -> Gaia's Navel arrival -> Earth Vault tensions -> Watts and Popoi introduction -> departure toward the deeper ruin route
+scene_ids:
+  - ch03_sc01_road_of_fragments
+  - ch03_sc02_caravan_terms
+  - ch03_sc03_gaias_navel_threshold
+  - ch03_sc04_watts_and_the_blade
+  - ch03_sc05_child_in_the_ruin
+  - ch03_sc06_vault_dispute
+  - ch03_sc07_departure_into_lower_works
+quest_ids:
+  - q_ch03_001_follow_fragment_route
+  - q_ch03_002_enter_gaias_navel
+  - q_ch03_003_find_the_lost_child
+  - q_ch03_004_win_access_to_lower_works
+primary_flags:
+  - flag_faction_salvage_caravans_contact_established
+  - flag_region_gaias_navel_entered
+  - flag_character_watts_contact_established
+  - flag_character_popoi_introduced
+  - flag_character_popoi_joined_party
+  - flag_faction_earth_vault_dispute_visible
+  - flag_region_earth_vault_lower_works_open

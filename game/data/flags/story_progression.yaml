@@ -1,0 +1,31 @@
+source_docs:
+  - docs/chapters/chapter-01-falls-to-pandora.md
+  - docs/chapters/chapter-02-pandora-under-strain.md
+  - docs/chapters/chapter-03-gaias-navel-and-lost-memory.md
+  - docs/chapters/chapter-04-the-earth-below-remembers.md
+flags:
+  - flag_character_randi_exiled
+  - flag_region_potos_panic
+  - flag_faction_water_palace_contact_established
+  - flag_region_pandora_entered
+  - flag_faction_pandora_instability_visible
+  - flag_character_primm_joined_party
+  - flag_faction_pandora_court_split_visible
+  - flag_faction_empire_kroll_seen
+  - flag_faction_empire_soft_capture_visible
+  - flag_character_dyluck_mission_brief_partial_recovered
+  - flag_region_pandora_internal_crisis_active
+  - flag_region_salvage_routes_entered
+  - flag_faction_salvage_caravans_contact_established
+  - flag_region_gaias_navel_entered
+  - flag_character_watts_contact_established
+  - flag_character_popoi_introduced
+  - flag_character_popoi_joined_party
+  - flag_faction_earth_vault_dispute_visible
+  - flag_region_earth_vault_lower_works_open
+  - flag_character_popoi_memory_bleed_first_major
+  - flag_faction_earth_vault_seal_debt_exposed
+  - flag_temple_earth_seed_restored
+  - flag_faction_empire_earth_conduit_detectable
+  - flag_weapon_mana_sword_first_restoration_complete
+  - flag_route_pandora_haunted_crisis_reopened

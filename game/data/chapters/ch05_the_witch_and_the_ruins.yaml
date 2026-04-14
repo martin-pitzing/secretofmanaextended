@@ -1,0 +1,25 @@
+id: ch05_the_witch_and_the_ruins
+title: The Witch And The Ruins
+source_doc: docs/chapters/chapter-05-the-witch-and-the-ruins.md
+status: draft_locked
+boundary: route out of Gaia's Navel -> return pressure toward Pandora's haunted frontier -> ruined district reconnaissance -> Elinee confrontation -> corruption truth escalation -> route toward the next wider temple cycle
+scene_ids:
+  - ch05_sc01_return_to_wounded_frontier
+  - ch05_sc02_survivor_lines
+  - ch05_sc03_the_ruined_district
+  - ch05_sc04_forest_of_managed_fear
+  - ch05_sc05_elinee_bargain
+  - ch05_sc06_name_behind_the_pattern
+  - ch05_sc07_leaving_the_ruins
+quest_ids:
+  - q_ch05_001_return_to_the_frontier
+  - q_ch05_002_read_the_ruins
+  - q_ch05_003_break_the_forest_bargain
+  - q_ch05_004_follow_the_pattern
+primary_flags:
+  - flag_region_pandora_haunted_frontier_reached
+  - flag_region_pandora_ruins_pattern_found
+  - flag_character_elinee_truth_revealed
+  - flag_faction_thanatos_method_visible
+  - flag_character_primm_dyluck_fate_deepened
+  - flag_chapter_ch05_complete

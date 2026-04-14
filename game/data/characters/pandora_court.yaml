@@ -1,0 +1,22 @@
+source_doc: docs/characters/pandora-character-sheets.md
+characters:
+  - id: char_king_regan
+    role: ruling monarch under siege pressure
+    primary_factions:
+      - fac_pandora_court
+  - id: char_dyluck
+    role: field commander and symbolic hero of Pandora
+    primary_factions:
+      - fac_pandora_court
+  - id: char_maelin_voss
+    role: conservative court operator
+    primary_factions:
+      - fac_pandora_court
+  - id: char_seremne_vale
+    role: reform-minded noble voice
+    primary_factions:
+      - fac_pandora_court
+  - id: char_tiber_halwen
+    role: military hardliner attached to the border crisis
+    primary_factions:
+      - fac_pandora_court

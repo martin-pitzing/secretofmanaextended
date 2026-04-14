@@ -1,0 +1,31 @@
+source_doc: docs/characters/mana-core-character-sheets.md
+characters:
+  - id: char_randi
+    role: chosen bearer of the Mana Sword
+    primary_factions:
+      - fac_gemma_lineage
+      - fac_potos_village
+      - fac_water_palace_order
+  - id: char_primm
+    role: royal daughter and magician
+    primary_factions:
+      - fac_pandora_court
+      - fac_water_palace_order
+  - id: char_popoi
+    role: lost mana child and memory fracture
+    primary_factions:
+      - fac_gemma_lineage
+      - fac_tree_palace_order
+  - id: char_luka
+    role: Water Palace authority
+    primary_factions:
+      - fac_water_palace_order
+  - id: char_jema
+    role: Gemma elder and guardian
+    primary_factions:
+      - fac_gemma_lineage
+  - id: char_thanatos
+    role: spiritual antagonist and institutional manipulator
+    primary_factions:
+      - fac_empire_mana_engineering_bureau
+      - fac_empire_unification_doctrine

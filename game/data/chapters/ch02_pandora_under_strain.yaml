@@ -1,0 +1,26 @@
+id: ch02_pandora_under_strain
+title: Pandora Under Strain
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: draft_locked
+boundary: Pandora gate district -> first contact with Primm -> court conflict -> Dyluck mission fallout -> first explicit imperial political pressure -> departure toward the goblin route and deeper Pandora crisis
+scene_ids:
+  - ch02_sc01_gate_district_morning_after
+  - ch02_sc02_rumors_of_dyluck
+  - ch02_sc03_court_wall_garden_breach
+  - ch02_sc04_terms_of_alliance
+  - ch02_sc05_pandora_court_divides
+  - ch02_sc06_kroll_offer
+  - ch02_sc07_mission_ledger
+  - ch02_sc08_departure_lower_gate
+quest_ids:
+  - q_ch02_001_read_the_city
+  - q_ch02_002_aid_the_fugitive_princess
+  - q_ch02_003_witness_the_terms_of_peace
+  - q_ch02_004_recover_the_mission_ledger
+primary_flags:
+  - flag_character_primm_joined_party
+  - flag_faction_pandora_court_split_visible
+  - flag_faction_empire_kroll_seen
+  - flag_faction_empire_soft_capture_visible
+  - flag_character_dyluck_mission_brief_partial_recovered
+  - flag_region_pandora_internal_crisis_active

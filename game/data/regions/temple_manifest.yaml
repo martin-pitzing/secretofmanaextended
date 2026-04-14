@@ -1,0 +1,26 @@
+source_docs:
+  - docs/temples/water-palace.md
+  - docs/temples/earth-vault-underground-palace.md
+  - docs/temples/fire-palace.md
+  - docs/temples/wind-temple-sky-route-sanctuary.md
+  - docs/temples/moon-palace.md
+  - docs/temples/light-palace.md
+  - docs/temples/dark-palace.md
+  - docs/temples/tree-mana-palace.md
+temples:
+  - id: temple_water_palace
+    region: reg_water_palace
+  - id: temple_earth_vault
+    region: reg_earth_vault
+  - id: temple_fire_palace
+    region: reg_fire_palace
+  - id: temple_wind_sanctuary
+    region: reg_wind_sanctuary
+  - id: temple_moon_palace
+    region: reg_moon_palace
+  - id: temple_light_palace
+    region: reg_light_palace
+  - id: temple_dark_palace
+    region: reg_dark_palace
+  - id: temple_tree_mana_palace
+    region: reg_tree_mana_palace

@@ -1,0 +1,26 @@
+id: ch04_the_earth_below_remembers
+title: The Earth Below Remembers
+source_doc: docs/chapters/chapter-04-the-earth-below-remembers.md
+status: draft_locked
+boundary: lower works descent -> extraction complex revelation -> Popoi memory bleed -> Earth Seed restoration -> Watts's first sword restoration pass -> route clue back toward Pandora's haunted crisis
+scene_ids:
+  - ch04_sc01_descent_to_lower_works
+  - ch04_sc02_split_beneath_the_shrine
+  - ch04_sc03_popoi_first_bleed
+  - ch04_sc04_prior_caldus_truth
+  - ch04_sc05_furnace_of_stone
+  - ch04_sc06_earth_seed_rite
+  - ch04_sc07_watts_first_restoration
+  - ch04_sc08_signal_to_the_surface
+quest_ids:
+  - q_ch04_001_descend_lower_works
+  - q_ch04_002_witness_the_first_bleed
+  - q_ch04_003_restore_the_earth_seed
+  - q_ch04_004_restore_the_blade
+primary_flags:
+  - flag_character_popoi_memory_bleed_first_major
+  - flag_faction_earth_vault_seal_debt_exposed
+  - flag_temple_earth_seed_restored
+  - flag_faction_empire_earth_conduit_detectable
+  - flag_weapon_mana_sword_first_restoration_complete
+  - flag_route_pandora_haunted_crisis_reopened

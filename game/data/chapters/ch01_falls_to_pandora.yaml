@@ -1,0 +1,25 @@
+id: ch01_falls_to_pandora
+title: Falls To Pandora
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: draft_locked
+boundary: Potos -> exile -> wilderness transition -> Water Palace approach -> Pandora arrival and first political contact
+scene_ids:
+  - ch01_sc01_potos_morning
+  - ch01_sc02_forbidden_falls
+  - ch01_sc03_judgment_at_potos
+  - ch01_sc04_exile_procession
+  - ch01_sc05_water_palace_approach
+  - ch01_sc06_luka_charge
+  - ch01_sc07_road_to_pandora
+  - ch01_sc08_pandora_gate_district
+quest_ids:
+  - q_ch01_001_leave_potos
+  - q_ch01_002_accept_exile
+  - q_ch01_003_seek_water_palace
+  - q_ch01_004_witness_pandora_strain
+primary_flags:
+  - flag_character_randi_exiled
+  - flag_region_potos_panic
+  - flag_faction_water_palace_contact_established
+  - flag_region_pandora_entered
+  - flag_faction_pandora_instability_visible

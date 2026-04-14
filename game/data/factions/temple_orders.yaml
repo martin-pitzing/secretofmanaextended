@@ -1,0 +1,20 @@
+source_docs:
+  - docs/faction-bible.md
+  - docs/temple-turns.md
+factions:
+  - id: fac_water_palace_order
+    title: Water Palace Order
+  - id: fac_falls_shrines
+    title: Falls Shrines
+  - id: fac_earth_vault_keepers
+    title: Earth Vault Keepers
+  - id: fac_fire_palace_keepers
+    title: Fire Palace Keepers
+  - id: fac_wind_sanctuary_order
+    title: Wind Sanctuary Custodians
+  - id: fac_moon_keepers
+    title: Moon Keepers
+  - id: fac_light_keepers
+    title: Light Keepers
+  - id: fac_dark_keepers
+    title: Dark Keepers

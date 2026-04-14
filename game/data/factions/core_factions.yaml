@@ -1,0 +1,27 @@
+source_docs:
+  - docs/faction-bible.md
+  - docs/characters/pandora-character-sheets.md
+  - docs/characters/empire-character-sheets.md
+factions:
+  - id: fac_potos_village
+    title: Potos And The River Villages
+  - id: fac_water_palace_order
+    title: Water Palace Order
+  - id: fac_pandora_court
+    title: Pandora Court
+  - id: fac_tasnica
+    title: Tasnica
+  - id: fac_empire_court
+    title: Imperial Court
+  - id: fac_empire_expansion_command
+    title: Expansion Command
+  - id: fac_empire_mana_engineering_bureau
+    title: Mana Engineering Bureau
+  - id: fac_empire_unification_doctrine
+    title: Unification Doctrine
+  - id: fac_gemma_lineage
+    title: Gemma Tradition
+  - id: fac_falls_shrines
+    title: Falls Shrines
+  - id: fac_earth_vault_keepers
+    title: Earth Vault Keepers

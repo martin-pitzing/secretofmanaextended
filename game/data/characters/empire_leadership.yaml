@@ -1,0 +1,22 @@
+source_doc: docs/characters/empire-character-sheets.md
+characters:
+  - id: char_emperor_vandole
+    role: sovereign center of imperial reunification
+    primary_factions:
+      - fac_empire_court
+  - id: char_severin_kroll
+    role: court adviser and political operator
+    primary_factions:
+      - fac_empire_court
+  - id: char_cassian_rourke
+    role: Expansion Command field general
+    primary_factions:
+      - fac_empire_expansion_command
+  - id: char_elra_vey
+    role: Mana Engineering Bureau director
+    primary_factions:
+      - fac_empire_mana_engineering_bureau
+  - id: char_malrec_thorne
+    role: Unification Doctrine ideologue
+    primary_factions:
+      - fac_empire_unification_doctrine
