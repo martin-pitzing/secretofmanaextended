@@ -11,6 +11,7 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - the project now has a clearer mythic identity beyond the original *Secret of Mana* pacing
 - Chapters 1 and 2 now have structured scene and quest mirrors under `game/data/`
 - Chapter 6 is now drafted around the Upper Land and Wind Sanctuary arc
+- Chapter 7 is now drafted around the Fire Palace borderland and false-map catastrophe arc
 - Wind Sanctuary and Fire Palace leadership are now named in the faction layer
 - Tasnica's first concrete contact point is now locked to the reopened sky routes in Chapter 6
 - Portrait Batch 01 is now locked
@@ -28,10 +29,10 @@ Reason:
 
 ## Pre-Programming Sequence After That
 
-1. Continue narrative production with Chapter 7
+1. Continue narrative production with Chapter 8
 2. Start the first controller, dialogue, and map prototype passes
-3. Mirror later stable chapters into deeper scene and quest YAML only when needed
-4. Build the first playable Chapter 1 Water Palace and Forbidden Falls benchmark spaces
+3. Build the first playable Chapter 1 Water Palace and Forbidden Falls benchmark spaces
+4. Mirror later stable chapters into deeper scene and quest YAML only when needed
 
 ## Open Decisions That Still Matter
 

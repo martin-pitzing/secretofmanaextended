@@ -5,6 +5,7 @@ source_docs:
   - docs/chapters/chapter-04-the-earth-below-remembers.md
   - docs/chapters/chapter-05-the-witch-and-the-ruins.md
   - docs/chapters/chapter-06-forests-above-the-clouds.md
+  - docs/chapters/chapter-07-bloom-rot-and-remembrance.md
 flags:
   - flag_chapter_ch01_started
   - flag_character_randi_has_mana_sword
@@ -68,3 +69,16 @@ flags:
   - flag_faction_tasnica_correspondence_established
   - flag_route_fire_borderland_open
   - flag_chapter_ch06_complete
+  - flag_region_fire_borderlands_entered
+  - flag_region_fire_border_economy_visible
+  - flag_region_fire_false_maps_confirmed
+  - flag_region_burned_settlement_truth_found
+  - flag_character_popoi_fire_route_resonance
+  - flag_faction_fire_palace_truth_contested
+  - flag_region_fire_seed_chamber_reached
+  - flag_temple_fire_seed_restored
+  - flag_region_fire_borderlands_rekindled
+  - flag_region_fire_border_industry_revived
+  - flag_faction_empire_fire_interest_visible
+  - flag_route_desert_occupation_open
+  - flag_chapter_ch07_complete

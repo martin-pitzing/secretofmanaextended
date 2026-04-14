@@ -1,0 +1,28 @@
+id: ch07_bloom_rot_and_remembrance
+title: Bloom, Rot, And Remembrance
+source_doc: docs/chapters/chapter-07-bloom-rot-and-remembrance.md
+status: draft_locked
+boundary: Upper Land sky-route departure -> fire borderland descent -> ash-bloom settlements -> false-map circuit -> burned settlement revelation -> Fire Palace true furnace heart -> Fire Seed restoration -> revived industry and widened imperial interest
+scene_ids:
+  - ch07_sc01_descent_to_ember_march
+  - ch07_sc02_ash_bloom_market
+  - ch07_sc03_false_map_circuit
+  - ch07_sc04_place_burned_off_map
+  - ch07_sc05_maelis_burden
+  - ch07_sc06_through_the_surge_galleries
+  - ch07_sc07_fire_seed_rite
+  - ch07_sc08_heat_returns_to_borderland
+quest_ids:
+  - q_ch07_001_follow_clear_air_route
+  - q_ch07_002_prove_false_maps
+  - q_ch07_003_name_the_burned_place
+  - q_ch07_004_restore_the_fire_seed
+primary_flags:
+  - flag_region_fire_borderlands_entered
+  - flag_region_fire_false_maps_confirmed
+  - flag_region_burned_settlement_truth_found
+  - flag_faction_fire_palace_truth_contested
+  - flag_temple_fire_seed_restored
+  - flag_region_fire_border_industry_revived
+  - flag_faction_empire_fire_interest_visible
+  - flag_chapter_ch07_complete

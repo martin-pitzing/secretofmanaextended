@@ -26,6 +26,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `chapter 4 package`: `docs/chapters/chapter-04-the-earth-below-remembers.md`
 - `chapter 5 package`: `docs/chapters/chapter-05-the-witch-and-the-ruins.md`
 - `chapter 6 package`: `docs/chapters/chapter-06-forests-above-the-clouds.md`
+- `chapter 7 package`: `docs/chapters/chapter-07-bloom-rot-and-remembrance.md`
 - `Pandora character sheets`: `docs/characters/pandora-character-sheets.md`
 - `Empire character sheets`: `docs/characters/empire-character-sheets.md`
 - `core cast sheets`: `docs/characters/mana-core-character-sheets.md`
@@ -36,6 +37,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `first temple authority dispute scene`: `docs/scenes/water-palace-vs-falls-shrine-dispute.md`
 - `tracker and open items`: `docs/planning/task-tracker.md`, `docs/planning/open-items.md`
 - `Godot bootstrap rules`: `docs/godot-bootstrap.md`
+- `local Godot setup guide`: `docs/godot-local-setup.md`
 - `Godot project shell`: `game/project.godot`
 - `structured scene mirrors`: `game/data/scenes/`
 - `structured quest mirrors`: `game/data/quests/`
@@ -90,6 +92,7 @@ The project is ready to begin systems implementation when:
 - Chapter 4 is stable enough to carry the project back toward the haunted crisis route
 - Chapter 5 is stable enough to reconnect earth-route fallout to Elinee, ruins, and coordinated corruption
 - Chapter 6 is stable enough to widen the story into Upper Land, the Wind Sanctuary, and the first real sky-route political horizon
+- Chapter 7 is stable enough to connect temple restoration to revived regional industry and openly rising imperial attention
 - faction leaders and recurring officers are named and placed in story flow
 - core cast sheets are stable enough to drive scene writing
 - temple dossiers define the sacred network in production-ready terms

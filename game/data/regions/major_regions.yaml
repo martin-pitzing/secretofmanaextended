@@ -5,6 +5,7 @@ source_docs:
   - docs/chapters/chapter-04-the-earth-below-remembers.md
   - docs/chapters/chapter-05-the-witch-and-the-ruins.md
   - docs/chapters/chapter-06-forests-above-the-clouds.md
+  - docs/chapters/chapter-07-bloom-rot-and-remembrance.md
 regions:
   - id: reg_potos
     title: Potos
@@ -28,3 +29,7 @@ regions:
     title: Matango Canopy Exchange
   - id: reg_wind_sanctuary
     title: Wind Sanctuary
+  - id: reg_fire_borderlands
+    title: Fire Borderlands
+  - id: reg_fire_palace
+    title: Fire Palace

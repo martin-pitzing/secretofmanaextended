@@ -24,6 +24,7 @@
 | Chapter 4 package | done | Earth Seed restoration, Popoi memory bleed, and first sword restoration pass defined |
 | Chapter 5 package | done | Elinee, haunted ruins, and first unmistakable coordinated corruption arc defined |
 | Chapter 6 package | done | Upper Land expansion, Wind Sanctuary memory-tithe arc, and first Tasnica correspondence defined |
+| Chapter 7 package | done | Fire borderland route, false-map secrecy, and Fire Seed restoration defined |
 | Story and setting expansion pass | done | classic Mana-series motifs integrated into the setting direction |
 | Temple turn matrix | done | temples now have layered twists and regional consequences |
 | Core cast sheets | done | Randi, Primm, Popoi, Luka, Jema, and Thanatos aligned to the new mythology |
@@ -51,7 +52,7 @@
 
 | Task | Status | Notes |
 | --- | --- | --- |
-| Continue narrative production with Chapter 7 | next | Wind Sanctuary handoff now points cleanly into the Fire Palace borderland arc |
+| Continue narrative production with Chapter 8 | next | Fire Palace revival now points cleanly into the desert occupation and imperial logistics arc |
 | Start the first controller, dialogue, and map prototype passes | next | engine shell now exists, so implementation can begin without more repo-level setup |
 
 ## Open Pre-Programming Items
