@@ -36,6 +36,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `first temple authority dispute scene`: `docs/scenes/water-palace-vs-falls-shrine-dispute.md`
 - `tracker and open items`: `docs/planning/task-tracker.md`, `docs/planning/open-items.md`
 - `Godot bootstrap rules`: `docs/godot-bootstrap.md`
+- `Godot project shell`: `game/project.godot`
 - `structured scene mirrors`: `game/data/scenes/`
 - `structured quest mirrors`: `game/data/quests/`
 
@@ -55,6 +56,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - Structured content should later mirror into JSON or YAML after templates stabilize
 - Chapters 1 and 2 now have scene-level and quest-level YAML mirrors for implementation planning
 - Tasnica remains rumor-only in Chapters 1-2 and becomes concrete through sky-route correspondence in Chapter 6
+- the initial Godot shell now exists under `game/`
 - Godot scaffolding is part of pre-programming setup, but gameplay code is still out of scope
 
 ## Canonical Terminology
@@ -99,5 +101,5 @@ The project is ready to begin systems implementation when:
 - IDs, flags, and content templates are locked
 - the first mirrored `game/data` manifests exist for chapters, cast, factions, regions, temples, and story flags
 - the first mirrored `game/data` scene and quest files exist for Chapters 1 and 2
-- the Godot folder scaffold and bootstrap rules are in place
+- the Godot folder scaffold, bootstrap rules, and initial `project.godot` shell are in place
 - remaining open items are small enough that they do not block controller, dialogue, quest, and map framework work

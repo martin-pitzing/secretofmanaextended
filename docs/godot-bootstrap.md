@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the first project shell to create before gameplay code begins.
+This document defines the first project shell and the boundaries that should still hold after it is created.
 
 ## Engine Target
 
@@ -26,7 +26,7 @@ This document defines the first project shell to create before gameplay code beg
 
 ## Folder Contract
 
-The initial scaffold should exist as empty directories with README placeholders and no gameplay logic:
+The initial scaffold should exist under `game/` with a minimal runnable Godot shell and no gameplay logic:
 
 ```text
 game/
@@ -62,11 +62,19 @@ game/
 - first benchmark room requirements are defined
 - character and faction naming is stable enough to avoid immediate rework
 
-## Explicit Out Of Scope
+## Initial Shell Deliverables
 
-- no `project.godot` yet
+- `game/project.godot`
+- `game/scenes/main.tscn`
+- `game/icon.svg`
+- README placeholders for `scenes`, `scripts`, `systems`, `audio`, and `ui`
+- local Godot metadata ignored via repo `.gitignore`
+
+## Explicitly Still Out Of Scope
+
 - no gameplay scripts yet
-- no data serialization files yet
-- no art imports yet
+- no combat, dialogue, or quest runtime yet
+- no imported production art assets yet
+- no save or serialization runtime yet
 
-This scaffold is meant to keep the repo organized while narrative, art, and content specification finalize.
+This shell exists to let implementation start without reorganizing the repo structure later.

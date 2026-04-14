@@ -45,13 +45,14 @@
 | Content templates | done | reusable templates added |
 | Godot bootstrap rules | done | pre-coding scaffold rules defined |
 | Folder scaffold created | done | repo structure established without gameplay code |
+| Godot project shell created | done | `game/` now contains `project.godot`, placeholder entry scene, and project hygiene files |
 
 ## Immediate Follow-Up Tasks
 
 | Task | Status | Notes |
 | --- | --- | --- |
-| Create the actual Godot project shell | next | preproduction blockers are closed; the repo can now move into a real engine scaffold |
 | Continue narrative production with Chapter 7 | next | Wind Sanctuary handoff now points cleanly into the Fire Palace borderland arc |
+| Start the first controller, dialogue, and map prototype passes | next | engine shell now exists, so implementation can begin without more repo-level setup |
 
 ## Open Pre-Programming Items
 

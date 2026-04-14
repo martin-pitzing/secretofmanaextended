@@ -16,21 +16,22 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - Portrait Batch 01 is now locked
 - the first Chapter 1 combat benchmark is now locked to the Forbidden Falls seal breach arena
 - early reward variance and Pandora conservative-contact visibility are now defined
+- the actual Godot project shell now exists under `game/`
 
 ## Immediate Priority Order
 
-### 1. Create The Actual Godot Project Shell
+### 1. Start The First Controller, Dialogue, And Map Prototype Passes
 
 Reason:
 
-- the preproduction foundation is now stable enough to support a real engine scaffold without immediate rework
+- the engine shell now exists, so the next useful work is implementation rather than more scaffolding
 
 ## Pre-Programming Sequence After That
 
-1. Create the actual Godot project shell
-2. Continue narrative production with Chapter 7
+1. Continue narrative production with Chapter 7
+2. Start the first controller, dialogue, and map prototype passes
 3. Mirror later stable chapters into deeper scene and quest YAML only when needed
-4. Start the first controller, dialogue, and map prototype passes
+4. Build the first playable Chapter 1 Water Palace and Forbidden Falls benchmark spaces
 
 ## Open Decisions That Still Matter
 

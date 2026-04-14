@@ -1,12 +1,12 @@
 # Game Folder
 
-This folder is reserved for the future Godot project shell and runtime content.
+This folder is now the live Godot project root and runtime-content workspace.
 
 Current status:
 
-- folder scaffold only
-- no gameplay code yet
-- no `project.godot` yet
-- no structured content data yet
+- `project.godot` exists
+- placeholder entry scene exists at `scenes/main.tscn`
+- structured editorial YAML mirrors exist under `data/`
+- no gameplay logic or runtime systems are implemented yet
 
-Use the docs in `docs/` as the current source of truth until implementation begins.
+Use the docs in `docs/` as the editorial source of truth while implementation starts.
