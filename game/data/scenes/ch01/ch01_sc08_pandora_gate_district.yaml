@@ -1,0 +1,31 @@
+id: ch01_sc08_pandora_gate_district
+chapter_id: ch01_falls_to_pandora
+title: Pandora At The Edge
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+sequence: 8
+location: Pandora outer district and gate approach
+participants:
+  - Randi
+  - guards
+  - civilians
+  - signs of court strain
+  - indirect Primm setup
+trigger: arrival at Pandora
+player_control_state: walkable social zone with restricted access points
+player_goal: enter, orient, and witness the kingdom's internal strain
+narrative_beat: Pandora is still functioning, but only by forcing crisis inward
+gameplay_beat:
+  - social navigation
+  - access denial
+  - faction pressure visualization
+exit_condition: player reaches a stable inn or safe civic node and receives the next chapter handoff
+resulting_flags:
+  - flag_region_pandora_entered
+  - flag_faction_pandora_instability_visible
+art_requirements:
+  - gate district
+  - guards
+  - civilian crowding
+  - emergency notices
+  - ration props

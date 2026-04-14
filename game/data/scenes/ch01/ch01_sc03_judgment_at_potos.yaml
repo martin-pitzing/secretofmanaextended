@@ -1,0 +1,27 @@
+id: ch01_sc03_judgment_at_potos
+chapter_id: ch01_falls_to_pandora
+title: Judgment At Potos
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+sequence: 3
+location: Potos central gathering space
+participants:
+  - Randi
+  - Elder Truff
+  - villagers
+  - Sister Yselle messenger presence
+trigger: return from the falls
+player_control_state: mostly dialogue scene with short walkable beats
+player_goal: endure the accusation and understand the social rupture
+narrative_beat: fear chooses a scapegoat faster than truth can organize itself
+gameplay_beat:
+  - dialogue navigation
+  - spatial repositioning through an angry crowd
+exit_condition: exile declared and escort to village boundary completed
+resulting_flags:
+  - flag_character_randi_exiled
+  - flag_region_potos_panic
+art_requirements:
+  - crowd variants
+  - village square setup
+  - ritual-mark props

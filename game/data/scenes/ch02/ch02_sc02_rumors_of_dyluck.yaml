@@ -1,0 +1,27 @@
+id: ch02_sc02_rumors_of_dyluck
+chapter_id: ch02_pandora_under_strain
+title: Rumors Of Dyluck
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+sequence: 2
+location: tavern corners, guard posts, and relief district
+participants:
+  - Randi
+  - veterans
+  - commoners
+  - wounded courier
+  - reform sympathizer
+trigger: completing the morning inquiry
+player_control_state: social investigation
+player_goal: collect contradictory accounts of Dyluck's last mission
+narrative_beat: the truth has already been broken into political versions
+gameplay_beat:
+  - optional dialogue routes
+  - note-based clue collection
+exit_condition: player learns Dyluck may have been sent toward a mission no one expected him to survive
+resulting_flags:
+  - flag_character_dyluck_mission_doubt_seeded
+art_requirements:
+  - wounded-soldier props
+  - relief district dressing
+  - casualty notices

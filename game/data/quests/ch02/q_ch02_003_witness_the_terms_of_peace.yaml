@@ -1,0 +1,25 @@
+id: q_ch02_003_witness_the_terms_of_peace
+chapter_id: ch02_pandora_under_strain
+title: Witness The Terms Of Peace
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+quest_type: main
+sequence: 3
+unlock_condition: Primm joins
+objectives:
+  - learn how the court is split
+  - witness Kroll's intervention
+  - understand the shape of imperial soft capture
+optional_branches:
+  - observe crowd reactions in different districts
+fail_or_soft_lock_conditions:
+  - none
+rewards:
+  - explicit imperial antagonist presence
+  - stronger Pandora context
+resulting_flags:
+  - flag_faction_pandora_court_split_visible
+  - flag_faction_empire_kroll_seen
+related_scene_ids:
+  - ch02_sc05_pandora_court_divides
+  - ch02_sc06_kroll_offer

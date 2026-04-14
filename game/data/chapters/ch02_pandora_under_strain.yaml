@@ -17,6 +17,9 @@ quest_ids:
   - q_ch02_002_aid_the_fugitive_princess
   - q_ch02_003_witness_the_terms_of_peace
   - q_ch02_004_recover_the_mission_ledger
+side_quest_ids:
+  - q_ch02_101_relief_crate_diversion
+  - q_ch02_102_service_passage_map
 primary_flags:
   - flag_character_primm_joined_party
   - flag_faction_pandora_court_split_visible
@@ -24,3 +27,5 @@ primary_flags:
   - flag_faction_empire_soft_capture_visible
   - flag_character_dyluck_mission_brief_partial_recovered
   - flag_region_pandora_internal_crisis_active
+scene_data_dir: game/data/scenes/ch02
+quest_data_dir: game/data/quests/ch02

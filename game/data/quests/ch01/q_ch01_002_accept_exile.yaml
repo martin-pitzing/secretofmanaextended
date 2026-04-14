@@ -1,0 +1,25 @@
+id: q_ch01_002_accept_exile
+chapter_id: ch01_falls_to_pandora
+title: Accept Exile
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+quest_type: main
+sequence: 2
+unlock_condition: seal broken
+objectives:
+  - return to Potos
+  - endure judgment
+  - survive the first road beyond the village
+optional_branches:
+  - speak to one sympathetic villager before departure
+fail_or_soft_lock_conditions:
+  - none; exile must occur
+rewards:
+  - independent overworld movement
+  - emotional grounding of Randi's arc
+resulting_flags:
+  - flag_character_randi_exiled
+  - flag_region_potos_panic
+related_scene_ids:
+  - ch01_sc03_judgment_at_potos
+  - ch01_sc04_exile_procession

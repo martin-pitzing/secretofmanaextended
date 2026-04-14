@@ -3,18 +3,35 @@ source_docs:
   - docs/chapters/chapter-02-pandora-under-strain.md
   - docs/chapters/chapter-03-gaias-navel-and-lost-memory.md
   - docs/chapters/chapter-04-the-earth-below-remembers.md
+  - docs/chapters/chapter-05-the-witch-and-the-ruins.md
 flags:
+  - flag_chapter_ch01_started
+  - flag_character_randi_has_mana_sword
+  - flag_region_potos_seal_broken
   - flag_character_randi_exiled
   - flag_region_potos_panic
+  - flag_region_potos_return_locked_initial
+  - flag_region_water_palace_arrived
   - flag_faction_water_palace_contact_established
+  - flag_faction_water_palace_trust_low
+  - flag_region_pandora_approach_seen
   - flag_region_pandora_entered
   - flag_faction_pandora_instability_visible
+  - flag_quest_river_warning_ledger_recovered
+  - flag_region_pandora_civic_pressure_seen
+  - flag_character_dyluck_mission_doubt_seeded
+  - flag_character_primm_contact_made
   - flag_character_primm_joined_party
   - flag_faction_pandora_court_split_visible
+  - flag_character_dyluck_mission_brief_fragment_found
   - flag_faction_empire_kroll_seen
   - flag_faction_empire_soft_capture_visible
   - flag_character_dyluck_mission_brief_partial_recovered
+  - flag_faction_pandora_conservative_complicity_suspected
+  - flag_faction_pandora_reform_contact_trust_bonus
+  - flag_region_pandora_service_passages_mapped
   - flag_region_pandora_internal_crisis_active
+  - flag_chapter_ch02_complete
   - flag_region_salvage_routes_entered
   - flag_faction_salvage_caravans_contact_established
   - flag_region_gaias_navel_entered

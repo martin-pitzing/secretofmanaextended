@@ -36,6 +36,7 @@
 | Water Palace benchmark checklist | done | first environment benchmark is now execution-ready |
 | Mirrored `game/data/` starter files | done | Chapters 1-3 and core cast/faction manifests now have YAML starter shells |
 | Expanded mirrored `game/data/` manifests | done | Chapters 4-5 plus characters, regions, temples, and flag manifests added |
+| First scene- and quest-level structured mirrors | done | Chapters 1-2 now have per-scene and per-quest YAML mirrors |
 | Content conventions and IDs | done | naming rules and implementation-readiness rules defined |
 | Content templates | done | reusable templates added |
 | Godot bootstrap rules | done | pre-coding scaffold rules defined |
@@ -45,7 +46,6 @@
 
 | Task | Status | Notes |
 | --- | --- | --- |
-| Add first scene- and quest-level structured mirrors for stable chapter content | next | start only with Chapters 1-2 if the current YAML manifest layer holds steady |
 | Draft Chapter 6 package | next | should widen from Pandora's haunted crisis into the broader temple cycle |
 
 ## Open Pre-Programming Items

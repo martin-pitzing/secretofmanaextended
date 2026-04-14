@@ -1,0 +1,29 @@
+id: ch02_sc01_gate_district_morning_after
+chapter_id: ch02_pandora_under_strain
+title: Gate District Morning After
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+sequence: 1
+location: Pandora outer district, inn, and ration lines
+participants:
+  - Randi
+  - innkeeper
+  - civilians
+  - guards
+  - aid workers
+trigger: start of Chapter 2
+player_control_state: exploration and social inquiry
+player_goal: orient within Pandora and gather the first coherent picture of the kingdom's crisis
+narrative_beat: the city is orderly on the surface because pain has been pushed outward
+gameplay_beat:
+  - social navigation
+  - information gathering
+  - optional side interactions
+exit_condition: player learns of court restrictions, public fear, and Primm's unrest
+resulting_flags:
+  - flag_region_pandora_civic_pressure_seen
+art_requirements:
+  - market strain props
+  - ration lines
+  - posted decrees
+  - guard checkpoints

@@ -1,0 +1,24 @@
+id: ch02_sc04_terms_of_alliance
+chapter_id: ch02_pandora_under_strain
+title: Terms Of Alliance
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+sequence: 4
+location: abandoned shrine-room or civic safehouse inside Pandora
+participants:
+  - Randi
+  - Primm
+trigger: escape from court pursuit
+player_control_state: dialogue-led with limited movement
+player_goal: decide to travel together for aligned but not identical reasons
+narrative_beat: Primm's rebellion is clarified as political and personal at once
+gameplay_beat:
+  - branch-flavored dialogue
+  - alliance lock-in
+exit_condition: Primm joins the active party
+resulting_flags:
+  - flag_character_primm_joined_party
+art_requirements:
+  - small safehouse interior
+  - improvised shelter props
+  - quiet city ambience

@@ -1,0 +1,27 @@
+id: ch01_sc06_luka_charge
+chapter_id: ch01_falls_to_pandora
+title: Luka's Charge
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+sequence: 6
+location: Water Palace inner chamber
+participants:
+  - Randi
+  - Luka
+  - Archivist Neral
+  - attendants
+trigger: arrival in Luka's chamber
+player_control_state: dialogue-led with single ritual interaction
+player_goal: understand the immediate quest and the limits of what Luka can explain
+narrative_beat: restoration is necessary, but it is also political and partial
+gameplay_beat:
+  - first major lore delivery
+  - ritual activation moment
+  - next-route setup
+exit_condition: player receives direction toward Pandora and the next proof of world instability
+resulting_flags:
+  - flag_faction_water_palace_contact_established
+art_requirements:
+  - benchmark room interior
+  - ritual basin
+  - mana-light effects

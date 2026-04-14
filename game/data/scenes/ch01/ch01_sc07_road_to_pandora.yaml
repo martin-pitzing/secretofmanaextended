@@ -1,0 +1,27 @@
+id: ch01_sc07_road_to_pandora
+chapter_id: ch01_falls_to_pandora
+title: Road To Pandora
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+sequence: 7
+location: route between Water Palace and Pandora outskirts
+participants:
+  - Randi
+  - refugees
+  - merchants
+  - border runners
+trigger: Luka's charge
+player_control_state: exploration plus optional encounters
+player_goal: reach Pandora while gathering evidence of the wider crisis
+narrative_beat: instability is regional, not local
+gameplay_beat:
+  - travel combat
+  - optional side objective
+  - overheard worldbuilding
+exit_condition: player reaches Pandora gate district
+resulting_flags:
+  - flag_region_pandora_approach_seen
+art_requirements:
+  - travel route variants
+  - refugee props
+  - merchant and checkpoint dressing

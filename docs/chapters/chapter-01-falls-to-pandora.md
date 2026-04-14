@@ -121,7 +121,7 @@ The world does not break in one dramatic instant. It reveals that it has already
 - Narrative beat: restoration is necessary, but it is also political and partial
 - Gameplay beat: first major lore delivery, flag setup, ritual activation moment
 - Exit condition: player receives direction toward Pandora and the next proof of world instability
-- Resulting flags: `flag_faction_water_palace_contact_established`, `flag_quest_q_ch01_003_seek_pandora_open`
+- Resulting flags: `flag_faction_water_palace_contact_established`
 - Art requirements: benchmark room interior, ritual basin, mana-light effects
 
 ### Scene: Road To Pandora
@@ -187,7 +187,7 @@ The world does not break in one dramatic instant. It reveals that it has already
 - Optional branches: converse with palace attendants and pilgrims about temple distrust
 - Fail or soft-lock conditions: none
 - Rewards: first macro-story mandate, Water Palace contact, direction toward Pandora
-- Resulting flags: `flag_faction_water_palace_contact_established`
+- Resulting flags: `flag_region_water_palace_arrived`, `flag_faction_water_palace_contact_established`
 - Related scenes: `ch01_sc05_water_palace_approach`, `ch01_sc06_luka_charge`
 
 ## Quest: Witness Pandora's Strain

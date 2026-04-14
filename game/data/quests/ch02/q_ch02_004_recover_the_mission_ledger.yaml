@@ -1,0 +1,27 @@
+id: q_ch02_004_recover_the_mission_ledger
+chapter_id: ch02_pandora_under_strain
+title: Recover The Mission Ledger
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+quest_type: main
+sequence: 4
+unlock_condition: after Kroll's offer
+objectives:
+  - infiltrate the annex or storehouse
+  - recover the Dyluck mission fragment
+  - escape with proof
+optional_branches:
+  - preserve secrecy
+  - deliberately leak parts of the ledger to reform contacts
+fail_or_soft_lock_conditions:
+  - none
+rewards:
+  - Dyluck route confirmation
+  - Pandora departure hook
+  - deeper mistrust of court conservatives
+resulting_flags:
+  - flag_character_dyluck_mission_brief_partial_recovered
+  - flag_region_pandora_internal_crisis_active
+related_scene_ids:
+  - ch02_sc07_mission_ledger
+  - ch02_sc08_departure_lower_gate

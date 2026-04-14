@@ -1,0 +1,26 @@
+id: ch01_sc04_exile_procession
+chapter_id: ch01_falls_to_pandora
+title: Exile Road
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+sequence: 4
+location: forest path beyond Potos
+participants:
+  - Randi
+  - escorting villagers
+  - first roaming monsters
+trigger: exile ruling
+player_control_state: controlled path movement transitioning to combat tutorial
+player_goal: survive outside protection and push forward alone
+narrative_beat: exile becomes practical abandonment, not symbolic punishment
+gameplay_beat:
+  - early combat
+  - path hazards
+  - first survival pacing
+exit_condition: village escorts retreat and player gains independent movement
+resulting_flags:
+  - flag_region_potos_return_locked_initial
+art_requirements:
+  - forest edge tiles
+  - path props
+  - low-threat enemy set

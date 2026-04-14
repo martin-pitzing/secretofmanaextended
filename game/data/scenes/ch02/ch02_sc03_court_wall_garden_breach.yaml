@@ -1,0 +1,28 @@
+id: ch02_sc03_court_wall_garden_breach
+chapter_id: ch02_pandora_under_strain
+title: Court Wall, Garden Breach
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+sequence: 3
+location: restricted court-adjacent district and service gardens
+participants:
+  - Randi
+  - Primm
+  - court guards
+  - servant contact
+trigger: after rumor investigation when the player approaches restricted zones
+player_control_state: exploration into pursuit sequence
+player_goal: avoid arrest or expulsion while helping Primm escape immediate confinement
+narrative_beat: Primm enters as an active political actor, not a passive runaway
+gameplay_beat:
+  - stealth-light route
+  - short chase
+  - gate timing
+  - improvised escape path
+exit_condition: Randi and Primm reach temporary cover in a lower district refuge
+resulting_flags:
+  - flag_character_primm_contact_made
+art_requirements:
+  - walled-garden route
+  - noble and service contrast
+  - pursuit path markers

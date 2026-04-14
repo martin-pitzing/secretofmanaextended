@@ -1,0 +1,26 @@
+id: q_ch02_001_read_the_city
+chapter_id: ch02_pandora_under_strain
+title: Read The City
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+quest_type: main
+sequence: 1
+unlock_condition: chapter start
+objectives:
+  - investigate the gate district
+  - understand relief pressure
+  - gather Dyluck rumors
+optional_branches:
+  - speak with aid workers
+  - speak with displaced merchants
+  - speak with a veteran who blames the court instead of the Empire
+fail_or_soft_lock_conditions:
+  - none
+rewards:
+  - access to the deeper Pandora conflict
+resulting_flags:
+  - flag_region_pandora_civic_pressure_seen
+  - flag_character_dyluck_mission_doubt_seeded
+related_scene_ids:
+  - ch02_sc01_gate_district_morning_after
+  - ch02_sc02_rumors_of_dyluck

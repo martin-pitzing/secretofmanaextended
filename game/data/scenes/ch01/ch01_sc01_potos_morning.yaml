@@ -1,0 +1,28 @@
+id: ch01_sc01_potos_morning
+chapter_id: ch01_falls_to_pandora
+title: Potos Morning
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+sequence: 1
+location: Potos village and river edge
+participants:
+  - Randi
+  - village children
+  - elders
+  - local shrine voices
+trigger: chapter start
+player_control_state: full exploration tutorial-light
+player_goal: move through daily spaces and establish normal relationships
+narrative_beat: Potos feels warm but built around half-understood caution
+gameplay_beat:
+  - light exploration
+  - first object interactions
+  - soft environmental teaching
+exit_condition: party of boys pushes toward the forbidden falls
+resulting_flags:
+  - flag_chapter_ch01_started
+art_requirements:
+  - Potos exterior
+  - homes
+  - river shrine details
+  - village props

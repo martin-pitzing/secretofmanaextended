@@ -1,0 +1,28 @@
+id: ch01_sc05_water_palace_approach
+chapter_id: ch01_falls_to_pandora
+title: Water Palace Approach
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+sequence: 5
+location: river route and palace exterior grounds
+participants:
+  - Randi
+  - palace attendants
+  - wandering pilgrims
+  - Archivist Neral
+trigger: reaching the palace region
+player_control_state: exploration with directed conversations
+player_goal: reach the palace and learn why the sword matters beyond Potos
+narrative_beat: the temple order is organized, strained, and not universally trusted
+gameplay_beat:
+  - navigation
+  - environmental storytelling
+  - side conversations that seed politics
+exit_condition: entry to Luka's chamber granted
+resulting_flags:
+  - flag_region_water_palace_arrived
+art_requirements:
+  - palace exterior
+  - causeways
+  - attendants
+  - archival props

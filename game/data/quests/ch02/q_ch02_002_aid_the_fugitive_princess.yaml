@@ -1,0 +1,25 @@
+id: q_ch02_002_aid_the_fugitive_princess
+chapter_id: ch02_pandora_under_strain
+title: Aid The Fugitive Princess
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+quest_type: main
+sequence: 2
+unlock_condition: Dyluck rumors collected
+objectives:
+  - help Primm escape immediate court recapture
+  - reach cover
+  - form an alliance
+optional_branches:
+  - gather a discarded court token
+  - recover a servant's testimony
+fail_or_soft_lock_conditions:
+  - none; Primm must join here
+rewards:
+  - Primm joins the party
+  - direct access to court-level stakes
+resulting_flags:
+  - flag_character_primm_joined_party
+related_scene_ids:
+  - ch02_sc03_court_wall_garden_breach
+  - ch02_sc04_terms_of_alliance

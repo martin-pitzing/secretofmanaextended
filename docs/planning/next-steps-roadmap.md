@@ -9,27 +9,21 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - classic Mana-series motifs were added to deepen the world
 - temple arcs were upgraded from progression nodes to layered sacred questlines
 - the project now has a clearer mythic identity beyond the original *Secret of Mana* pacing
+- Chapters 1 and 2 now have structured scene and quest mirrors under `game/data/`
 
 ## Immediate Priority Order
 
-### 1. Scene- And Quest-Level Structured Mirrors
-
-Convert the most stable chapter content into deeper structured data for:
-
-- Chapter 1 scenes
-- Chapter 1 quests
-- Chapter 2 scenes
-- Chapter 2 quests
+### 1. Draft Chapter 6 Package
 
 Reason:
 
-- the manifest layer is now stable enough that the next useful bridge is content-level structure
+- Chapters 1-5 are now editorially stable enough that the next narrative bottleneck is expanding the sacred route beyond Pandora's haunted crisis
 
 ## Pre-Programming Sequence After That
 
-1. Expand structured mirrors through Chapter 2 scene and quest files
-2. Draft Chapter 6
-3. Decide whether Chapter 1 needs a benchmark combat room beyond the exile road
+1. Decide whether Chapter 1 needs a benchmark combat room beyond the exile road
+2. Lock the first portrait batch and expression counts
+3. Resolve remaining early temple-leadership and reward-pipeline decisions
 4. Create the actual Godot project shell
 
 ## Open Decisions That Still Matter

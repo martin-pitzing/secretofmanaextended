@@ -1,0 +1,31 @@
+id: ch02_sc05_pandora_court_divides
+chapter_id: ch02_pandora_under_strain
+title: The Court Divides
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+sequence: 5
+location: court chamber, heard partly directly and partly through parallel city rumor
+participants:
+  - Regan
+  - Voss
+  - Seremne
+  - Halwen
+  - guards
+  - messenger staff
+trigger: Primm's escape becomes known
+player_control_state: hybrid cutscene and aftermath exploration
+player_goal: understand what Primm is fleeing and what Pandora is hiding
+narrative_beat: the court is formally split over Dyluck, imperial pressure, and the acceptable cost of survival
+gameplay_beat:
+  - cinematic scene
+  - eavesdropping
+  - document recovery
+exit_condition: player acquires proof that Dyluck's mission was politically contested
+resulting_flags:
+  - flag_faction_pandora_court_split_visible
+  - flag_character_dyluck_mission_brief_fragment_found
+art_requirements:
+  - court chamber
+  - sealed records
+  - messenger props
+  - heraldic damage signs

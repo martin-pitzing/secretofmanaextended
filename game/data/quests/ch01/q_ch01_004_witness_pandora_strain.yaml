@@ -1,0 +1,25 @@
+id: q_ch01_004_witness_pandora_strain
+chapter_id: ch01_falls_to_pandora
+title: Witness Pandora's Strain
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+quest_type: main
+sequence: 4
+unlock_condition: Luka's charge
+objectives:
+  - travel to Pandora
+  - observe crisis markers
+  - secure a foothold in the city edge
+optional_branches:
+  - help a displaced merchant family recover a seized crate or warning ledger
+fail_or_soft_lock_conditions:
+  - none
+rewards:
+  - Pandora entry
+  - faction setup for Primm and court conflict
+resulting_flags:
+  - flag_region_pandora_entered
+  - flag_faction_pandora_instability_visible
+related_scene_ids:
+  - ch01_sc07_road_to_pandora
+  - ch01_sc08_pandora_gate_district

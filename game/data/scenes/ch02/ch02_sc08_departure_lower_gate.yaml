@@ -1,0 +1,29 @@
+id: ch02_sc08_departure_lower_gate
+chapter_id: ch02_pandora_under_strain
+title: Departure Through The Lower Gate
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+sequence: 8
+location: Pandora lower district and outbound road toward the goblin route
+participants:
+  - Randi
+  - Primm
+  - civilians
+  - relief workers
+  - militia remnants
+trigger: ledger fragment recovered
+player_control_state: final social beats into departure
+player_goal: leave Pandora with purpose rather than drift
+narrative_beat: Primm becomes a defector from her own system, and Randi commits to a wider conflict
+gameplay_beat:
+  - shopping and tutorial-lite party changes
+  - optional farewell beats
+  - route handoff
+exit_condition: party departs Pandora and the next route unlocks
+resulting_flags:
+  - flag_chapter_ch02_complete
+  - flag_region_pandora_internal_crisis_active
+art_requirements:
+  - lower gate route
+  - departure props
+  - mixed civilian and military traffic

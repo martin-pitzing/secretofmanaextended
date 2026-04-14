@@ -1,0 +1,29 @@
+id: ch02_sc06_kroll_offer
+chapter_id: ch02_pandora_under_strain
+title: Kroll's Offer
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+sequence: 6
+location: public civic square or diplomatic receiving hall
+participants:
+  - Magistrate Severin Kroll
+  - Pandora officials
+  - civilians
+  - Randi
+  - Primm
+trigger: after court split becomes visible
+player_control_state: observation with optional stealth movement
+player_goal: witness the first direct imperial intervention
+narrative_beat: the Empire offers order in language designed to sound humane and inevitable
+gameplay_beat:
+  - overheard diplomacy
+  - crowd reactions
+  - optional pursuit if the player investigates too closely
+exit_condition: Kroll departs after leaving a formal peace proposal and implicit threat
+resulting_flags:
+  - flag_faction_empire_kroll_seen
+  - flag_faction_empire_soft_capture_visible
+art_requirements:
+  - diplomatic staging
+  - imperial insignia
+  - civilian crowd reaction set

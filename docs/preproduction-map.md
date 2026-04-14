@@ -32,6 +32,8 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `first temple authority dispute scene`: `docs/scenes/water-palace-vs-falls-shrine-dispute.md`
 - `tracker and open items`: `docs/planning/task-tracker.md`, `docs/planning/open-items.md`
 - `Godot bootstrap rules`: `docs/godot-bootstrap.md`
+- `structured scene mirrors`: `game/data/scenes/`
+- `structured quest mirrors`: `game/data/quests/`
 
 ## Canonical Decisions Locked So Far
 
@@ -45,6 +47,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - The first benchmark room now has an execution checklist
 - Narrative source of truth remains Markdown during preproduction
 - Structured content should later mirror into JSON or YAML after templates stabilize
+- Chapters 1 and 2 now have scene-level and quest-level YAML mirrors for implementation planning
 - Godot scaffolding is part of pre-programming setup, but gameplay code is still out of scope
 
 ## Canonical Terminology
@@ -65,7 +68,8 @@ This is the authoritative map of the pre-programming package. It points to the c
 4. Use `character sheets`, the `Dyluck mission brief`, and the temple dispute scene when writing Pandora fallout and Chapter 3.
 5. Use `content conventions` and `templates` before drafting new content docs.
 6. Use the `chapter 1 package` and `chapter 2 package` as the production benchmark for later chapters.
-7. Use `godot-bootstrap` when creating the project shell and mirrored data folders.
+7. Use the structured `game/data/scenes/` and `game/data/quests/` mirrors when turning stable editorial scenes into implementation-facing content.
+8. Use `godot-bootstrap` when creating the project shell and mirrored data folders.
 
 ## Minimum Definition Of "Ready To Start Programming"
 
@@ -84,5 +88,6 @@ The project is ready to begin systems implementation when:
 - art requirements for the first benchmark area are defined
 - IDs, flags, and content templates are locked
 - the first mirrored `game/data` manifests exist for chapters, cast, factions, regions, temples, and story flags
+- the first mirrored `game/data` scene and quest files exist for Chapters 1 and 2
 - the Godot folder scaffold and bootstrap rules are in place
 - remaining open items are small enough that they do not block controller, dialogue, quest, and map framework work

@@ -1,0 +1,24 @@
+id: q_ch01_101_river_warning_ledger
+chapter_id: ch01_falls_to_pandora
+title: River Warning Ledger
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+quest_type: optional
+sequence: 101
+unlock_condition: after exile during the road sequence
+objectives:
+  - find the displaced river-family contact
+  - recover the warning ledger before it is lost or confiscated
+  - carry the ledger forward to a later authority figure
+optional_branches:
+  - return the ledger intact
+  - copy its seal marks before handing it over
+fail_or_soft_lock_conditions:
+  - expires if Pandora Chapter 2 departure is reached without recovery
+rewards:
+  - later acknowledgment that rural warning networks were ignored
+  - stronger continuity between Potos and larger river communities
+resulting_flags:
+  - flag_quest_river_warning_ledger_recovered
+related_scene_ids:
+  - ch01_sc07_road_to_pandora

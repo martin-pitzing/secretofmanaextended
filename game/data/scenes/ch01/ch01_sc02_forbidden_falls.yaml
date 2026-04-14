@@ -1,0 +1,28 @@
+id: ch01_sc02_forbidden_falls
+chapter_id: ch01_falls_to_pandora
+title: The Forbidden Falls
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+sequence: 2
+location: waterfall approach and seal site
+participants:
+  - Randi
+  - village boys
+  - seal-monster encounter
+trigger: leaving Potos during Scene 1
+player_control_state: exploration into first danger beat
+player_goal: survive the encounter and pull the sword during crisis
+narrative_beat: the seal was containment, not mere superstition
+gameplay_beat:
+  - first real threat
+  - scripted pressure
+  - sword acquisition moment
+exit_condition: monster defeated and ritual balance visibly destabilized
+resulting_flags:
+  - flag_character_randi_has_mana_sword
+  - flag_region_potos_seal_broken
+art_requirements:
+  - waterfall map
+  - seal altar
+  - destabilization effects
+  - monster FX

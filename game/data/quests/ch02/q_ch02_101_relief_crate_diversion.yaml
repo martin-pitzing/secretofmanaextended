@@ -1,0 +1,24 @@
+id: q_ch02_101_relief_crate_diversion
+chapter_id: ch02_pandora_under_strain
+title: Relief Crate Diversion
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+quest_type: optional
+sequence: 101
+unlock_condition: after the gate district inquiry exposes ration pressure
+objectives:
+  - trace missing relief crates
+  - decide whether to return them quietly or expose the reroute publicly
+optional_branches:
+  - support Seremne's covert redistribution
+  - force the issue into public view
+fail_or_soft_lock_conditions:
+  - closes when Kroll's public offer scene is completed
+rewards:
+  - stronger later trust with reform contacts
+  - deeper understanding of Pandora's internal survival compromises
+resulting_flags:
+  - flag_faction_pandora_reform_contact_trust_bonus
+related_scene_ids:
+  - ch02_sc01_gate_district_morning_after
+  - ch02_sc05_pandora_court_divides

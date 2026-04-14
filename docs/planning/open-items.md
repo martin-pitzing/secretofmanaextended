@@ -15,6 +15,7 @@
 - First benchmark environment: `Water Palace inner chamber`
 - Dialogue portrait format: `96x96` detailed pixel portrait panels
 - Water Palace benchmark checklist: defined and ready for production use
+- First scene and quest YAML mirrors: Chapters 1-2 complete
 
 ## Open Items That Still Matter Before Programming
 
@@ -40,4 +41,4 @@
 Current default:
 
 - Markdown remains the editorial source of truth
-- YAML starter shells are now allowed for stable chapter and manifest-level content under `game/data/`
+- YAML starter shells are now allowed for stable chapter, scene, quest, and manifest-level content under `game/data/`

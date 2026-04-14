@@ -1,0 +1,29 @@
+id: ch02_sc07_mission_ledger
+chapter_id: ch02_pandora_under_strain
+title: The Mission Ledger
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+sequence: 7
+location: archive annex, military storehouse, or Seremne-linked relief office
+participants:
+  - Randi
+  - Primm
+  - archivist contact
+  - hostile guards
+trigger: after witnessing Kroll's offer
+player_control_state: exploration, puzzle-light infiltration, possible brief combat
+player_goal: secure a partial ledger showing who authorized Dyluck's route and why
+narrative_beat: Dyluck was sent on a mission framed as strategic necessity and symbolic sacrifice
+gameplay_beat:
+  - infiltration
+  - key retrieval
+  - patrol avoidance or small skirmish
+exit_condition: ledger fragment recovered and escape completed
+resulting_flags:
+  - flag_character_dyluck_mission_brief_partial_recovered
+  - flag_faction_pandora_conservative_complicity_suspected
+art_requirements:
+  - archive annex
+  - storage props
+  - guarded corridor tiles
+  - ledger item art

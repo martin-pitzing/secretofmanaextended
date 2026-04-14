@@ -1,0 +1,26 @@
+id: q_ch01_003_seek_water_palace
+chapter_id: ch01_falls_to_pandora
+title: Seek The Water Palace
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+quest_type: main
+sequence: 3
+unlock_condition: exile complete
+objectives:
+  - reach the Water Palace
+  - gain audience with Luka
+  - receive the next directive
+optional_branches:
+  - converse with attendants and pilgrims about temple distrust
+fail_or_soft_lock_conditions:
+  - none
+rewards:
+  - first macro-story mandate
+  - Water Palace contact
+  - direction toward Pandora
+resulting_flags:
+  - flag_region_water_palace_arrived
+  - flag_faction_water_palace_contact_established
+related_scene_ids:
+  - ch01_sc05_water_palace_approach
+  - ch01_sc06_luka_charge

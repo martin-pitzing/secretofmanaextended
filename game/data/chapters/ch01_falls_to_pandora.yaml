@@ -17,9 +17,13 @@ quest_ids:
   - q_ch01_002_accept_exile
   - q_ch01_003_seek_water_palace
   - q_ch01_004_witness_pandora_strain
+side_quest_ids:
+  - q_ch01_101_river_warning_ledger
 primary_flags:
   - flag_character_randi_exiled
   - flag_region_potos_panic
   - flag_faction_water_palace_contact_established
   - flag_region_pandora_entered
   - flag_faction_pandora_instability_visible
+scene_data_dir: game/data/scenes/ch01
+quest_data_dir: game/data/quests/ch01

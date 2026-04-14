@@ -145,6 +145,7 @@ During preproduction:
 When implementation begins:
 
 - mirror stabilized content into JSON or YAML under `game/data/`
+- prefer one file per stable scene or quest under `game/data/scenes/<chapter>/` and `game/data/quests/<chapter>/`
 - preserve IDs exactly
 - keep Markdown docs as the editorial source of intent
 

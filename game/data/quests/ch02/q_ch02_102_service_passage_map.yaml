@@ -1,0 +1,25 @@
+id: q_ch02_102_service_passage_map
+chapter_id: ch02_pandora_under_strain
+title: Service Passage Map
+source_doc: docs/chapters/chapter-02-pandora-under-strain.md
+status: editorial_mirror
+quest_type: optional
+sequence: 102
+unlock_condition: after entering the court-adjacent district
+objectives:
+  - locate the old service route plans
+  - navigate the concealed access points
+  - preserve the map for later return routes
+optional_branches:
+  - steal a clean copy
+  - memorize the route and leave no trace
+fail_or_soft_lock_conditions:
+  - closes once the party departs Pandora at the end of Chapter 2
+rewards:
+  - later city reentry shortcuts
+  - stronger sense that sacred and noble architecture overlap
+resulting_flags:
+  - flag_region_pandora_service_passages_mapped
+related_scene_ids:
+  - ch02_sc03_court_wall_garden_breach
+  - ch02_sc07_mission_ledger

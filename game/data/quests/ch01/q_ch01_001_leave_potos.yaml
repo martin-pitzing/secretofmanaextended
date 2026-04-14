@@ -1,0 +1,25 @@
+id: q_ch01_001_leave_potos
+chapter_id: ch01_falls_to_pandora
+title: Leave Potos
+source_doc: docs/chapters/chapter-01-falls-to-pandora.md
+status: editorial_mirror
+quest_type: main
+sequence: 1
+unlock_condition: chapter start
+objectives:
+  - explore Potos
+  - follow the boys to the falls
+  - survive the seal incident
+optional_branches:
+  - talk to shrine-linked villagers for early lore flavor
+fail_or_soft_lock_conditions:
+  - none; the sequence is linear
+rewards:
+  - Mana Sword acquisition
+  - initial world destabilization
+resulting_flags:
+  - flag_character_randi_has_mana_sword
+  - flag_region_potos_seal_broken
+related_scene_ids:
+  - ch01_sc01_potos_morning
+  - ch01_sc02_forbidden_falls
