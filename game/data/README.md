@@ -1,0 +1,14 @@
+# Data Folder
+
+This folder will later contain structured content mirrored from the Markdown design docs.
+
+Planned subfolders:
+
+- `chapters/`
+- `quests/`
+- `characters/`
+- `factions/`
+- `regions/`
+- `flags/`
+
+Do not add JSON or YAML here until IDs, templates, and Chapter 1 content are considered stable.
