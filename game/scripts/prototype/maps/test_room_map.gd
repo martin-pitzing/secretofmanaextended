@@ -10,9 +10,13 @@ func get_map_title() -> String:
 
 
 func get_map_subtitle() -> String:
+    var scene := get_primary_scene_record()
+    var quest := get_primary_quest_record()
+    var scene_title := str(scene.get("title", "No scene data"))
+    var quest_title := str(quest.get("title", "No quest data"))
     if get_active_enemy_count() > 0:
-        return "One practice echo is active. Confirm movement, interaction, and first-hit readability here."
-    return "Prototype hall clear. Dialogue, switching, and baseline combat input are all live."
+        return "Loaded Chapter 2 sample: %s / %s. One practice echo is active for baseline combat checks." % [scene_title, quest_title]
+    return "Loaded Chapter 2 sample: %s / %s. Dialogue, switching, and baseline combat input are all live." % [scene_title, quest_title]
 
 
 func get_world_rect() -> Rect2:
@@ -75,6 +79,13 @@ func get_wall_rects() -> Array:
 
 
 func get_trigger_specs() -> Array:
+    var scene_info_lines := scene_lines("ch02_sc06_kroll_offer", 3)
+    var quest_info_lines := quest_lines("q_ch02_003_witness_the_terms_of_peace", 3)
+    var archive_lines := PackedStringArray()
+    archive_lines.append_array(scene_info_lines)
+    archive_lines.append_array(quest_info_lines)
+    var counts := get_loaded_content_counts()
+
     return [
         {
             "id": "movement_sign",
@@ -85,7 +96,7 @@ func get_trigger_specs() -> Array:
             "color": Color(0.556863, 0.74902, 0.85098, 0.95),
             "lines": [
                 "This hall is the first runtime check: movement, collision, prompt range, and camera follow all have to feel stable before art arrives.",
-                "Use WASD or the arrow keys to cross the hall. The center lane is intentionally narrow enough to show whether collisions feel sticky or readable."
+                "The loader currently has %d scene mirrors and %d quest mirrors from Chapters 1 and 2 available to the prototype." % [counts.get("scene_count", 0), counts.get("quest_count", 0)]
             ]
         },
         {
@@ -95,10 +106,7 @@ func get_trigger_specs() -> Array:
             "radius": 22.0,
             "position": Vector2(324, 140),
             "color": Color(0.870588, 0.756863, 0.47451, 0.95),
-            "lines": [
-                "Dialogue is now live as a runtime element rather than a document promise.",
-                "This should stay simple: one speaker, readable pacing, and no dependence on final portraits yet."
-            ]
+            "lines": archive_lines
         },
         {
             "id": "switch_console",

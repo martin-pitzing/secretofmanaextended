@@ -26,6 +26,7 @@
 | Chapter 6 package | done | Upper Land expansion, Wind Sanctuary memory-tithe arc, and first Tasnica correspondence defined |
 | Chapter 7 package | done | Fire borderland route, false-map secrecy, and Fire Seed restoration defined |
 | Chapter 8 package | done | Kakkara occupation corridor, aquifer diversion, and sandship manifest handoff defined |
+| Chapter 9 package | done | Sandship transport network, split-town occupation, and mountain-route charter defined |
 | Story and setting expansion pass | done | classic Mana-series motifs integrated into the setting direction |
 | Temple turn matrix | done | temples now have layered twists and regional consequences |
 | Core cast sheets | done | Randi, Primm, Popoi, Luka, Jema, and Thanatos aligned to the new mythology |
@@ -51,13 +52,14 @@
 | Godot local runner wrapper | done | workspace-scoped launcher now supports editor use and headless checks |
 | First controller, dialogue, and map prototype pass | done | playable runtime slice now exists with movement, interaction, and map switching |
 | First playable benchmark spaces | done | Water Palace and Forbidden Falls graybox spaces are now live in-engine |
+| First data-driven runtime loading pass | done | current prototype now reads Chapter 1-2 scene and quest mirrors for benchmark metadata |
 
 ## Immediate Follow-Up Tasks
 
 | Task | Status | Notes |
 | --- | --- | --- |
-| Continue narrative production with Chapter 9 | next | Chapter 8 now points cleanly into the sandship and Southtown occupation theater |
-| Turn the prototype slice into data-driven runtime loading | next | controller, dialogue, and graybox map flow exist, so the next useful step is connecting runtime behavior to structured content |
+| Extend the prototype from metadata loading to scene sequencing and quest state | next | current runtime reads Chapter 1-2 mirrors, but still does not execute scene flow or quest progression from them |
+| Continue narrative production with Chapter 10 | next | the mountain-route charter now points cleanly into the Lofty Mountains and hidden-order phase |
 
 ## Open Pre-Programming Items
 

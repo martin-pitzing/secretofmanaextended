@@ -1,0 +1,29 @@
+id: ch09_the_sandship_and_the_split_towns
+title: The Sandship And The Split Towns
+source_doc: docs/chapters/chapter-09-the-sandship-and-the-split-towns.md
+status: draft_locked
+boundary: Kakkara departure -> sandship rendezvous -> moving cargo deck infiltration -> Southtown permit facade -> Northtown labor underside -> transit core rupture -> mountain-route charter recovery -> Lofty Mountains handoff
+scene_ids:
+  - ch09_sc01_manifest_across_the_dunes
+  - ch09_sc02_hull_on_the_horizon
+  - ch09_sc03_cargo_of_the_disappeared
+  - ch09_sc04_southtown_by_permit_light
+  - ch09_sc05_backstairs_to_northtown
+  - ch09_sc06_northtown_under_load
+  - ch09_sc07_director_veys_calibration
+  - ch09_sc08_charter_to_the_heights
+quest_ids:
+  - q_ch09_001_trace_the_sandship_manifest
+  - q_ch09_002_read_the_cargo_of_the_disappeared
+  - q_ch09_003_expose_the_split_towns
+  - q_ch09_004_break_the_calibration_and_take_the_charter
+primary_flags:
+  - flag_region_sandship_route_entered
+  - flag_region_sandship_manifest_verified
+  - flag_region_southtown_entered
+  - flag_region_northtown_entered
+  - flag_faction_empire_vey_seen
+  - flag_region_transit_core_reached
+  - flag_faction_empire_transport_calibration_broken
+  - flag_route_lofty_mountains_open
+  - flag_chapter_ch09_complete

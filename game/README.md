@@ -9,6 +9,7 @@ Current status:
 - structured editorial YAML mirrors exist under `data/`
 - first-pass gameplay logic now exists for controller, interaction, dialogue, and map switching
 - Water Palace and Forbidden Falls graybox benchmark spaces are live
+- current benchmark text and labels are driven by the Chapter 1-2 scene and quest YAML mirrors
 - the runtime is still prototype-grade and uses drawn shapes rather than imported production art
 
 Use the docs in `docs/` as the editorial source of truth while implementation starts.

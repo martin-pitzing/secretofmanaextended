@@ -12,6 +12,12 @@ var _collision_root: Node2D
 var _enemy_root: Node2D
 var _trigger_root: Node2D
 var _active_enemy_count := 0
+var _content_bundle := {
+    "scene_ids": [],
+    "quest_ids": [],
+    "scenes": {},
+    "quests": {}
+}
 
 
 func _ready() -> void:
@@ -45,6 +51,10 @@ func assign_player(player: Node2D) -> void:
     for enemy in _enemy_root.get_children():
         if enemy.has_method("configure"):
             enemy.configure(player)
+
+
+func apply_content_bundle(content_bundle: Dictionary) -> void:
+    _content_bundle = content_bundle
 
 
 func get_map_id() -> String:
@@ -113,6 +123,94 @@ func get_enemy_specs() -> Array:
 
 func get_active_enemy_count() -> int:
     return _active_enemy_count
+
+
+func get_scene_record(scene_id: String) -> Dictionary:
+    return _content_bundle.get("scenes", {}).get(scene_id, {})
+
+
+func get_quest_record(quest_id: String) -> Dictionary:
+    return _content_bundle.get("quests", {}).get(quest_id, {})
+
+
+func get_primary_scene_record() -> Dictionary:
+    var scene_ids: Array = _content_bundle.get("scene_ids", [])
+    if scene_ids.is_empty():
+        return {}
+    return get_scene_record(str(scene_ids[0]))
+
+
+func get_primary_quest_record() -> Dictionary:
+    var quest_ids: Array = _content_bundle.get("quest_ids", [])
+    if quest_ids.is_empty():
+        return {}
+    return get_quest_record(str(quest_ids[0]))
+
+
+func get_loaded_content_counts() -> Dictionary:
+    return {
+        "scene_count": int(_content_bundle.get("library_scene_count", _content_bundle.get("scenes", {}).size())),
+        "quest_count": int(_content_bundle.get("library_quest_count", _content_bundle.get("quests", {}).size()))
+    }
+
+
+func scene_lines(scene_id: String, max_lines := 3) -> PackedStringArray:
+    var scene := get_scene_record(scene_id)
+    if scene.is_empty():
+        return PackedStringArray()
+
+    var lines := PackedStringArray()
+    lines.append("Scene: %s" % scene.get("title", scene_id))
+
+    var player_goal := str(scene.get("player_goal", ""))
+    if not player_goal.is_empty():
+        lines.append("Goal: %s" % player_goal)
+
+    var narrative_beat := str(scene.get("narrative_beat", ""))
+    if not narrative_beat.is_empty() and lines.size() < max_lines:
+        lines.append("Beat: %s" % narrative_beat)
+
+    var gameplay_beat := list_to_sentence(scene.get("gameplay_beat", []))
+    if not gameplay_beat.is_empty() and lines.size() < max_lines:
+        lines.append("Play: %s" % gameplay_beat)
+
+    return _trim_lines(lines, max_lines)
+
+
+func quest_lines(quest_id: String, max_lines := 3) -> PackedStringArray:
+    var quest := get_quest_record(quest_id)
+    if quest.is_empty():
+        return PackedStringArray()
+
+    var lines := PackedStringArray()
+    lines.append("Quest: %s" % quest.get("title", quest_id))
+
+    var objectives := list_to_sentence(quest.get("objectives", []))
+    if not objectives.is_empty():
+        lines.append("Objectives: %s" % objectives)
+
+    var rewards := list_to_sentence(quest.get("rewards", []))
+    if not rewards.is_empty() and lines.size() < max_lines:
+        lines.append("Rewards: %s" % rewards)
+
+    return _trim_lines(lines, max_lines)
+
+
+func list_to_sentence(values) -> String:
+    if values is PackedStringArray:
+        return ", ".join(values)
+    if values is Array:
+        var normalized := []
+        for value in values:
+            normalized.append(str(value))
+        return ", ".join(normalized)
+    return str(values)
+
+
+func _trim_lines(lines: PackedStringArray, max_lines: int) -> PackedStringArray:
+    if max_lines <= 0 or lines.size() <= max_lines:
+        return lines
+    return PackedStringArray(lines.slice(0, max_lines))
 
 
 func _draw() -> void:

@@ -7,6 +7,7 @@ source_docs:
   - docs/chapters/chapter-06-forests-above-the-clouds.md
   - docs/chapters/chapter-07-bloom-rot-and-remembrance.md
   - docs/chapters/chapter-08-salt-law-and-empty-wells.md
+  - docs/chapters/chapter-09-the-sandship-and-the-split-towns.md
 regions:
   - id: reg_potos
     title: Potos
@@ -40,3 +41,13 @@ regions:
     title: Kakkara
   - id: reg_underwell_vault
     title: Underwell Condenser Vault
+  - id: reg_sandship_route
+    title: Sandship Route
+  - id: reg_sandship
+    title: Sandship
+  - id: reg_southtown
+    title: Southtown
+  - id: reg_northtown
+    title: Northtown
+  - id: reg_twin_town_transit_core
+    title: Twin-Town Transit Core

@@ -13,6 +13,7 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - Chapter 6 is now drafted around the Upper Land and Wind Sanctuary arc
 - Chapter 7 is now drafted around the Fire Palace borderland and false-map catastrophe arc
 - Chapter 8 is now drafted around Kakkara's occupation corridor, aquifer diversion, and the sandship manifest handoff
+- Chapter 9 is now drafted around the sandship, split-town occupation, and the route into the Lofty Mountains
 - Wind Sanctuary and Fire Palace leadership are now named in the faction layer
 - Tasnica's first concrete contact point is now locked to the reopened sky routes in Chapter 6
 - Portrait Batch 01 is now locked
@@ -21,19 +22,20 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - the actual Godot project shell now exists under `game/`
 - a playable prototype slice now exists with movement, dialogue, map switching, and the first Water Palace / Forbidden Falls graybox benchmarks
 - a tracked PowerShell wrapper now launches Godot with workspace-scoped appdata for reliable CLI validation
+- the prototype now reads Chapter 1-2 scene and quest YAML mirrors for benchmark labels, prompts, and runtime narrative text
 
 ## Immediate Priority Order
 
-### 1. Turn The Prototype Slice Into Data-Driven Runtime Loading
+### 1. Extend The Prototype From Metadata Loading To Scene Sequencing
 
 Reason:
 
-- the runtime slice now works, so the next useful step is to replace hardcoded scene flow with structured content loading wherever the editorial docs are already stable
+- the runtime slice now reads editorial metadata, so the next useful step is to execute simple scene order, dialogue steps, and quest state from the existing Chapter 1 mirrors
 
 ## Pre-Programming Sequence After That
 
-1. Continue narrative production with Chapter 9
-2. Build the first dialogue and scene loader pass against the existing Chapter 1-2 YAML mirrors
+1. Continue narrative production with Chapter 10
+2. Build the first Chapter 1 scene/quest runtime pass against the existing YAML mirrors
 3. Decide which graybox benchmark receives the first tile/blockout art pass
 4. Mirror later stable chapters into deeper scene and quest YAML only when needed
 

@@ -7,6 +7,7 @@ source_docs:
   - docs/chapters/chapter-06-forests-above-the-clouds.md
   - docs/chapters/chapter-07-bloom-rot-and-remembrance.md
   - docs/chapters/chapter-08-salt-law-and-empty-wells.md
+  - docs/chapters/chapter-09-the-sandship-and-the-split-towns.md
 flags:
   - flag_chapter_ch01_started
   - flag_character_randi_has_mana_sword
@@ -96,3 +97,18 @@ flags:
   - flag_route_sandship_manifest_secured
   - flag_route_southtown_open
   - flag_chapter_ch08_complete
+  - flag_region_sandship_route_entered
+  - flag_region_sandship_seen
+  - flag_region_sandship_boarded
+  - flag_region_sandship_manifest_verified
+  - flag_faction_empire_transport_system_seen
+  - flag_region_southtown_entered
+  - flag_region_southtown_facade_seen
+  - flag_region_northtown_entered
+  - flag_region_twin_town_link_exposed
+  - flag_region_northtown_system_read
+  - flag_faction_empire_vey_seen
+  - flag_region_transit_core_reached
+  - flag_faction_empire_transport_calibration_broken
+  - flag_route_lofty_mountains_open
+  - flag_chapter_ch09_complete

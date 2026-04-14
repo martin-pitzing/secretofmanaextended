@@ -6,13 +6,21 @@ func get_map_id() -> String:
 
 
 func get_map_title() -> String:
-    return "Forbidden Falls Seal Breach"
+    var scene := get_scene_record("ch01_sc02_forbidden_falls")
+    if scene.is_empty():
+        return "Forbidden Falls Seal Breach"
+    return "%s Benchmark" % scene.get("title", "Forbidden Falls Seal Breach")
 
 
 func get_map_subtitle() -> String:
+    var scene := get_scene_record("ch01_sc02_forbidden_falls")
+    var quest := get_primary_quest_record()
+    var fallback := "Seal breach pressure active. Clear the unstable echoes, then inspect the altar and edge reads."
+    var quest_title := str(quest.get("title", "Leave Potos"))
+    var goal := str(scene.get("player_goal", "survive the encounter and pull the sword during crisis"))
     if get_active_enemy_count() > 0:
-        return "Seal breach pressure active. Clear the unstable echoes, then inspect the altar and edge reads."
-    return "Seal breach pressure stabilised. The altar, approach lane, and hazard edge now read cleanly."
+        return "%s | %s" % [quest_title, goal if not goal.is_empty() else fallback]
+    return "%s | Seal breach cleared, altar and hazard reads stable." % quest_title
 
 
 func get_world_rect() -> Rect2:
@@ -86,6 +94,12 @@ func get_wall_rects() -> Array:
 
 
 func get_trigger_specs() -> Array:
+    var scene_info_lines := scene_lines("ch01_sc02_forbidden_falls", 3)
+    var quest_info_lines := quest_lines("q_ch01_001_leave_potos", 3)
+    var altar_dialogue := PackedStringArray()
+    altar_dialogue.append_array(quest_info_lines)
+    altar_dialogue.append_array(scene_info_lines)
+
     return [
         {
             "id": "altar_read",
@@ -94,10 +108,7 @@ func get_trigger_specs() -> Array:
             "radius": 24.0,
             "position": Vector2(298, 198),
             "color": Color(0.956863, 0.776471, 0.423529, 0.95),
-            "lines": [
-                "This room is the combat benchmark because it has to prove threat, altar readability, and route danger inside one screen read.",
-                "The altar stays centered even while enemies move through the approach lane. That is the core layout test."
-            ]
+            "lines": altar_dialogue
         },
         {
             "id": "warning_markers",
@@ -106,10 +117,11 @@ func get_trigger_specs() -> Array:
             "radius": 18.0,
             "position": Vector2(494, 124),
             "color": Color(0.694118, 0.815686, 0.901961, 0.95),
-            "lines": [
-                "These remnants exist to show that the site was never folklore alone.",
-                "The graybox already needs to communicate prior containment attempts, not just a dramatic boss arena."
-            ]
+            "lines": PackedStringArray([
+                "Scene location: %s" % str(get_scene_record("ch01_sc02_forbidden_falls").get("location", "waterfall approach and seal site")),
+                "Play focus: %s" % list_to_sentence(get_scene_record("ch01_sc02_forbidden_falls").get("gameplay_beat", [])),
+                "The warning remnants keep the benchmark rooted in failed containment, not generic spectacle."
+            ])
         }
     ]
 

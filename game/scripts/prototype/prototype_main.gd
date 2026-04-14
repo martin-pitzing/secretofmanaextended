@@ -1,24 +1,32 @@
 extends Node2D
 
 const PrototypeInput = preload("res://scripts/prototype/prototype_input.gd")
+const ChapterContentRepositoryScript = preload("res://scripts/data/chapter_content_repository.gd")
 
 const MAPS := [
     {
         "title": "Test Hall",
-        "scene": preload("res://scenes/prototype/maps/test_room.tscn")
+        "scene": preload("res://scenes/prototype/maps/test_room.tscn"),
+        "scene_ids": ["ch02_sc06_kroll_offer"],
+        "quest_ids": ["q_ch02_003_witness_the_terms_of_peace"]
     },
     {
         "title": "Water Palace",
-        "scene": preload("res://scenes/prototype/maps/water_palace_benchmark.tscn")
+        "scene": preload("res://scenes/prototype/maps/water_palace_benchmark.tscn"),
+        "scene_ids": ["ch01_sc05_water_palace_approach", "ch01_sc06_luka_charge"],
+        "quest_ids": ["q_ch01_003_seek_water_palace"]
     },
     {
         "title": "Forbidden Falls",
-        "scene": preload("res://scenes/prototype/maps/forbidden_falls_benchmark.tscn")
+        "scene": preload("res://scenes/prototype/maps/forbidden_falls_benchmark.tscn"),
+        "scene_ids": ["ch01_sc02_forbidden_falls"],
+        "quest_ids": ["q_ch01_001_leave_potos"]
     }
 ]
 
 var _current_map_index := 0
 var _current_map
+var _content_repository
 
 @onready var _map_root: Node2D = $MapRoot
 @onready var _player = $Player
@@ -32,6 +40,8 @@ var _current_map
 
 func _ready() -> void:
     PrototypeInput.ensure_defaults()
+    _content_repository = ChapterContentRepositoryScript.new()
+    _content_repository.load_default_content()
 
     _player.interact_requested.connect(_on_player_interact_requested)
     _player.prompt_changed.connect(_on_player_prompt_changed)
@@ -73,7 +83,13 @@ func _load_map(index: int) -> void:
     _player.set_controls_enabled(true)
 
     _current_map_index = wrapped_index
-    _current_map = MAPS[_current_map_index]["scene"].instantiate()
+    var map_config: Dictionary = MAPS[_current_map_index]
+    _current_map = map_config["scene"].instantiate()
+    if _current_map.has_method("apply_content_bundle"):
+        _current_map.apply_content_bundle(_content_repository.build_bundle(
+            map_config.get("scene_ids", []),
+            map_config.get("quest_ids", [])
+        ))
     _current_map.dialogue_requested.connect(_on_map_dialogue_requested)
     _current_map.status_changed.connect(_on_map_status_changed)
     _map_root.add_child(_current_map)

@@ -6,11 +6,21 @@ func get_map_id() -> String:
 
 
 func get_map_title() -> String:
-    return "Water Palace Inner Chamber"
+    var scene := get_scene_record("ch01_sc06_luka_charge")
+    if scene.is_empty():
+        return "Water Palace Inner Chamber"
+    return "%s Benchmark" % scene.get("title", "Water Palace Inner Chamber")
 
 
 func get_map_subtitle() -> String:
-    return "Audience path, archive pocket, and ritual basin blocking benchmark."
+    var quest := get_primary_quest_record()
+    var scene := get_scene_record("ch01_sc06_luka_charge")
+    if quest.is_empty() and scene.is_empty():
+        return "Audience path, archive pocket, and ritual basin blocking benchmark."
+
+    var quest_title := str(quest.get("title", "Quest"))
+    var player_goal := str(scene.get("player_goal", ""))
+    return "%s | %s" % [quest_title, player_goal]
 
 
 func get_world_rect() -> Rect2:
@@ -84,6 +94,13 @@ func get_wall_rects() -> Array:
 
 
 func get_trigger_specs() -> Array:
+    var approach_scene_lines := scene_lines("ch01_sc05_water_palace_approach", 3)
+    var luka_scene_lines := scene_lines("ch01_sc06_luka_charge", 3)
+    var quest_info_lines := quest_lines("q_ch01_003_seek_water_palace", 3)
+    var luka_dialogue := PackedStringArray()
+    luka_dialogue.append_array(quest_info_lines)
+    luka_dialogue.append_array(luka_scene_lines)
+
     return [
         {
             "id": "luka_audience",
@@ -92,10 +109,7 @@ func get_trigger_specs() -> Array:
             "radius": 22.0,
             "position": Vector2(288, 118),
             "color": Color(0.972549, 0.878431, 0.643137, 0.95),
-            "lines": [
-                "This chamber should read as sacred authority, archive burden, and calm pressure all at once.",
-                "The prototype benchmark is proving sightlines: entrance to dais, basin to audience path, and enough open floor for dialogue blocking without burying the ritual center."
-            ]
+            "lines": luka_dialogue
         },
         {
             "id": "neral_archive",
@@ -104,10 +118,7 @@ func get_trigger_specs() -> Array:
             "radius": 20.0,
             "position": Vector2(412, 180),
             "color": Color(0.603922, 0.792157, 0.87451, 0.95),
-            "lines": [
-                "The archive side has to stay visibly different from the ritual axis.",
-                "Even in graybox form, the player should understand that the Water Palace is not just a priestly chamber. It is also an information bottleneck."
-            ]
+            "lines": approach_scene_lines
         },
         {
             "id": "ritual_basin",
@@ -116,9 +127,10 @@ func get_trigger_specs() -> Array:
             "radius": 18.0,
             "position": Vector2(288, 200),
             "color": Color(0.701961, 0.933333, 0.984314, 0.95),
-            "lines": [
-                "This basin is the benchmark VFX anchor.",
-                "Later art passes should add ripple light, selective shimmer, and a restrained activation pulse without losing pixel readability."
-            ]
+            "lines": PackedStringArray([
+                "Scene anchor: %s" % str(get_scene_record("ch01_sc06_luka_charge").get("location", "Water Palace inner chamber")),
+                "Art focus: %s" % list_to_sentence(get_scene_record("ch01_sc06_luka_charge").get("art_requirements", [])),
+                "The basin remains the benchmark VFX anchor for the Water Palace route."
+            ])
         }
     ]
