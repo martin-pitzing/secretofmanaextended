@@ -1,5 +1,9 @@
 extends "res://scripts/prototype/prototype_map.gd"
 
+const PandoraMapPrimitives = preload("res://scripts/prototype/maps/pandora_map_primitives.gd")
+
+var _palette := PandoraMapPrimitives.civic_palette()
+
 
 func get_map_id() -> String:
     return "pandora_gate_district"
@@ -37,51 +41,83 @@ func get_spawn_position() -> Vector2:
 
 
 func get_background_color() -> Color:
-    return Color(0.0745098, 0.0823529, 0.101961, 1)
+    return _palette["background"]
 
 
 func get_wall_color() -> Color:
-    return Color(0.196078, 0.2, 0.223529, 1)
+    return _palette["wall"]
 
 
 func get_wall_outline_color() -> Color:
-    return Color(0.337255, 0.360784, 0.392157, 1)
+    return _palette["wall_outline"]
 
 
 func get_floor_rects() -> Array:
     return [
-        {"rect": Rect2(44, 44, 616, 328), "color": Color(0.537255, 0.52549, 0.490196, 1)},
-        {"rect": Rect2(70, 72, 250, 126), "color": Color(0.647059, 0.607843, 0.482353, 1)},
-        {"rect": Rect2(344, 72, 244, 116), "color": Color(0.584314, 0.568627, 0.513725, 1)},
-        {"rect": Rect2(92, 220, 270, 104), "color": Color(0.564706, 0.541176, 0.482353, 1)},
-        {"rect": Rect2(398, 220, 208, 112), "color": Color(0.490196, 0.462745, 0.419608, 1)},
-        {"rect": Rect2(88, 346, 190, 16), "color": Color(0.384314, 0.317647, 0.203922, 1)}
+        PandoraMapPrimitives.rect_fill(Rect2(44, 44, 616, 328), _palette["plaza_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(70, 78, 166, 104), _palette["inn_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(252, 78, 236, 88), _palette["ration_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(502, 78, 122, 104), _palette["checkpoint_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(86, 216, 222, 96), _palette["relief_yard"]),
+        PandoraMapPrimitives.rect_fill(Rect2(330, 188, 128, 148), _palette["storehouse_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(390, 226, 214, 98), _palette["sealed_store"]),
+        PandoraMapPrimitives.rect_fill(Rect2(88, 336, 238, 18), _palette["timber_main"]),
+        PandoraMapPrimitives.rect_fill(Rect2(332, 336, 168, 18), _palette["timber_mid"]),
+        PandoraMapPrimitives.rect_fill(Rect2(518, 336, 98, 18), _palette["timber_dark"])
     ]
 
 
 func get_overlay_rects() -> Array:
-    return [
-        {"rect": Rect2(96, 96, 150, 18), "color": Color(0.772549, 0.627451, 0.388235, 1)},
-        {"rect": Rect2(140, 244, 120, 38), "color": Color(0.796078, 0.741176, 0.552941, 1), "filled": false, "width": 2.0},
-        {"rect": Rect2(412, 250, 64, 54), "color": Color(0.686275, 0.654902, 0.552941, 1), "filled": false, "width": 2.0},
-        {"rect": Rect2(482, 98, 38, 82), "color": Color(0.392157, 0.466667, 0.54902, 1)},
-        {"rect": Rect2(538, 98, 28, 82), "color": Color(0.392157, 0.466667, 0.54902, 1)}
-    ]
+    var overlays := []
+    overlays.append_array(PandoraMapPrimitives.hanging_banner(Rect2(86, 92, 134, 14), _palette["banner_cloth"], _palette["banner_trim"], 3.0))
+    overlays.append(PandoraMapPrimitives.rect_fill(Rect2(146, 86, 34, 52), _palette["inn_sign"]))
+    overlays.append_array(PandoraMapPrimitives.notice_grid(Vector2(270, 94), 2, 2, Vector2(84, 24), Vector2(10, 8), _palette["notice_paper"]))
+    overlays.append_array(PandoraMapPrimitives.hanging_banner(Rect2(516, 96, 26, 72), _palette["banner_cloth"], _palette["banner_trim"], 5.0))
+    overlays.append_array(PandoraMapPrimitives.hanging_banner(Rect2(584, 96, 26, 72), _palette["banner_cloth"], _palette["banner_trim"], 5.0))
+    overlays.append(PandoraMapPrimitives.rect_outline(Rect2(138, 236, 96, 32), _palette["notice_paper"], 2.0))
+    overlays.append_array(PandoraMapPrimitives.crate_cluster([
+        Rect2(176, 228, 48, 16),
+        Rect2(244, 238, 22, 18),
+        Rect2(244, 260, 30, 22)
+    ], _palette["crate_light"], _palette["crate_dark"]))
+    overlays.append(PandoraMapPrimitives.rect_outline(Rect2(462, 244, 60, 66), _palette["banner_trim"], 2.0))
+    overlays.append(PandoraMapPrimitives.rect_fill(Rect2(540, 246, 34, 58), _palette["corruption_patch"]))
+    overlays.append(PandoraMapPrimitives.rect_fill(Rect2(408, 246, 32, 50), _palette["checkpoint_booth"]))
+    return overlays
 
 
 func get_circle_draws() -> Array:
-    return [
-        {"position": Vector2(170, 124), "radius": 18.0, "color": Color(0.972549, 0.839216, 0.568627, 0.16)},
-        {"position": Vector2(214, 262), "radius": 18.0, "color": Color(0.796078, 0.74902, 0.560784, 0.14)},
-        {"position": Vector2(524, 136), "radius": 18.0, "color": Color(0.611765, 0.745098, 0.878431, 0.18)},
-        {"position": Vector2(500, 284), "radius": 16.0, "color": Color(0.639216, 0.72549, 0.866667, 0.18)}
-    ]
+    var circles := []
+    circles.append_array(PandoraMapPrimitives.glow_pair(Vector2(108, 116), 18.0, _palette["lantern_outer"], 12.0, _palette["lantern_inner"]))
+    circles.append({
+        "position": Vector2(212, 248),
+        "radius": 18.0,
+        "color": _palette["relief_glow"]
+    })
+    circles.append({
+        "position": Vector2(522, 126),
+        "radius": 16.0,
+        "color": _palette["gate_lantern"]
+    })
+    circles.append({
+        "position": Vector2(592, 126),
+        "radius": 16.0,
+        "color": _palette["gate_lantern"]
+    })
+    circles.append_array(PandoraMapPrimitives.glow_pair(Vector2(486, 278), 16.0, _palette["corruption_outer"], 14.0, _palette["corruption_inner"]))
+    return circles
 
 
 func get_line_draws() -> Array:
     return [
-        {"from": Vector2(332, 80), "to": Vector2(332, 352), "color": Color(0.301961, 0.317647, 0.360784, 1), "width": 2.0},
-        {"from": Vector2(86, 208), "to": Vector2(618, 208), "color": Color(0.301961, 0.317647, 0.360784, 1), "width": 2.0}
+        {"from": Vector2(252, 88), "to": Vector2(252, 346), "color": _palette["route_divider"], "width": 2.0},
+        {"from": Vector2(490, 88), "to": Vector2(490, 346), "color": _palette["route_divider"], "width": 2.0},
+        {"from": Vector2(86, 208), "to": Vector2(618, 208), "color": _palette["route_divider"], "width": 2.0},
+        {"from": Vector2(284, 106), "to": Vector2(438, 106), "color": _palette["queue_guide"], "width": 2.0},
+        {"from": Vector2(284, 138), "to": Vector2(438, 138), "color": _palette["queue_guide"], "width": 2.0},
+        {"from": Vector2(110, 344), "to": Vector2(596, 344), "color": _palette["wood_lane"], "width": 3.0},
+        {"from": Vector2(430, 240), "to": Vector2(430, 304), "color": _palette["checkpoint_mark"], "width": 2.0},
+        {"from": Vector2(552, 240), "to": Vector2(552, 304), "color": _palette["corruption_mark"], "width": 2.0}
     ]
 
 
@@ -91,10 +127,23 @@ func get_wall_rects() -> Array:
         Rect2(44, 354, 616, 18),
         Rect2(44, 62, 18, 292),
         Rect2(642, 62, 18, 292),
-        Rect2(320, 72, 18, 264),
-        Rect2(62, 198, 258, 18),
-        Rect2(338, 198, 304, 18),
-        Rect2(278, 336, 60, 18)
+        Rect2(62, 70, 184, 18),
+        Rect2(62, 88, 18, 120),
+        Rect2(228, 88, 18, 120),
+        Rect2(62, 190, 48, 18),
+        Rect2(144, 190, 102, 18),
+        Rect2(270, 176, 74, 14),
+        Rect2(376, 176, 96, 14),
+        Rect2(500, 78, 124, 18),
+        Rect2(500, 96, 18, 92),
+        Rect2(606, 96, 18, 92),
+        Rect2(500, 170, 36, 18),
+        Rect2(558, 170, 66, 18),
+        Rect2(390, 222, 214, 18),
+        Rect2(390, 240, 18, 94),
+        Rect2(586, 240, 18, 94),
+        Rect2(390, 316, 72, 18),
+        Rect2(496, 316, 108, 18)
     ]
 
 
@@ -114,7 +163,7 @@ func get_trigger_specs() -> Array:
             "prompt": "take shelter",
             "radius": 18.0,
             "position": Vector2(108, 170),
-            "color": Color(0.882353, 0.74902, 0.454902, 0.95),
+            "color": _palette["trigger_safe"],
             "lines": PackedStringArray([
                 "Pandora's crisis is visible before the court ever speaks.",
                 "The inn serves as the first stable node inside a kingdom already forcing its crisis inward."
@@ -132,7 +181,7 @@ func get_trigger_specs() -> Array:
             "prompt": "inspect the relief decrees",
             "radius": 18.0,
             "position": Vector2(170, 106),
-            "color": Color(0.952941, 0.772549, 0.423529, 0.95),
+            "color": _palette["trigger_notice"],
             "lines": PackedStringArray([
                 "Location: %s" % scene_location,
                 "Beat: %s" % str(scene.get("narrative_beat", "Pandora is controlling the visible surface of its crisis.")),
@@ -151,7 +200,7 @@ func get_trigger_specs() -> Array:
             "prompt": "hear the courier's account",
             "radius": 18.0,
             "position": Vector2(208, 264),
-            "color": Color(0.713725, 0.788235, 0.92549, 0.95),
+            "color": _palette["trigger_courier"],
             "lines": PackedStringArray([
                 "Quest pressure: %s" % str(quest_info_lines[0]) if not quest_info_lines.is_empty() else "Quest pressure: rumors are politically fragmented.",
                 "The stories about Dyluck do not disagree by accident; they disagree because each faction needs a different version.",
@@ -170,7 +219,7 @@ func get_trigger_specs() -> Array:
             "prompt": "read the district pressure",
             "radius": 18.0,
             "position": Vector2(474, 272),
-            "color": Color(0.611765, 0.717647, 0.85098, 0.95),
+            "color": _palette["trigger_echo"],
             "lines": PackedStringArray(scene_info_lines)
         }
     ]

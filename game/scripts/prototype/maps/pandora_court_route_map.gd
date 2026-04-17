@@ -1,5 +1,9 @@
 extends "res://scripts/prototype/prototype_map.gd"
 
+const PandoraMapPrimitives = preload("res://scripts/prototype/maps/pandora_map_primitives.gd")
+
+var _palette := PandoraMapPrimitives.court_palette()
+
 
 func get_map_id() -> String:
     return "pandora_court_route"
@@ -45,15 +49,15 @@ func get_spawn_position() -> Vector2:
 
 
 func get_background_color() -> Color:
-    return Color(0.0666667, 0.0745098, 0.0941176, 1)
+    return _palette["background"]
 
 
 func get_wall_color() -> Color:
-    return Color(0.203922, 0.215686, 0.239216, 1)
+    return _palette["wall"]
 
 
 func get_wall_outline_color() -> Color:
-    return Color(0.34902, 0.364706, 0.4, 1)
+    return _palette["wall_outline"]
 
 
 func get_floor_rects() -> Array:
