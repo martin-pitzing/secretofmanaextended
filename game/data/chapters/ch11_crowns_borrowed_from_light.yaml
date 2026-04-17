@@ -1,0 +1,28 @@
+id: ch11_crowns_borrowed_from_light
+title: Crowns Borrowed From Light
+source_doc: docs/chapters/chapter-11-crowns-borrowed-from-light.md
+status: draft_locked
+boundary: Tasnica high-pass arrival -> fortress quarantine and witness triage -> Queen Adrielle audience -> Jema's unfinished treaty archive -> Light Palace legitimacy dispute -> imperial forgery exposure -> alliance bargain under signal glass -> road to the Light Palace
+scene_ids:
+  - ch11_sc01_snow_gate_of_the_alliance
+  - ch11_sc02_the_quarantine_of_witnesses
+  - ch11_sc03_queen_adrielle_measures_the_cost
+  - ch11_sc04_jemas_unfinished_treaty
+  - ch11_sc05_the_registry_of_suns
+  - ch11_sc06_the_borrowed_proclamation
+  - ch11_sc07_terms_beneath_the_glass
+  - ch11_sc08_road_of_hard_omens
+quest_ids:
+  - q_ch11_001_cross_into_tasnica
+  - q_ch11_002_open_the_treaty_vault
+  - q_ch11_003_break_the_forged_omen_chain
+  - q_ch11_004_set_the_alliance_terms
+primary_flags:
+  - flag_region_tasnica_entered
+  - flag_faction_tasnica_court_contact_established
+  - flag_character_jema_treaty_history_exposed
+  - flag_faction_light_palace_envoys_seen
+  - flag_faction_empire_forged_omen_operation_seen
+  - flag_faction_tasnica_alliance_terms_set
+  - flag_route_light_palace_open
+  - flag_chapter_ch11_complete

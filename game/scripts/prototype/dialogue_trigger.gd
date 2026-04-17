@@ -2,7 +2,7 @@ extends Area2D
 
 class_name DialogueTrigger
 
-signal dialogue_requested(speaker: String, lines: PackedStringArray)
+signal trigger_activated(config: Dictionary)
 
 var trigger_id := ""
 var speaker := ""
@@ -13,9 +13,11 @@ var accent_color := Color(0.709804, 0.843137, 0.921569, 0.95)
 
 var _pulse := 0.0
 var _shape: CollisionShape2D
+var _config: Dictionary = {}
 
 
 func configure(config: Dictionary) -> void:
+    _config = config.duplicate(true)
     trigger_id = str(config.get("id", ""))
     speaker = str(config.get("speaker", ""))
     prompt_text = str(config.get("prompt", "Inspect"))
@@ -58,7 +60,7 @@ func _draw() -> void:
 
 
 func activate() -> void:
-    dialogue_requested.emit(speaker, lines)
+    trigger_activated.emit(_config)
 
 
 func get_prompt_text() -> String:

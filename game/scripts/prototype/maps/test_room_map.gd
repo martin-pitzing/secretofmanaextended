@@ -82,6 +82,7 @@ func get_wall_rects() -> Array:
 
 
 func get_trigger_specs() -> Array:
+    var scene := get_primary_scene_record()
     var primary_scene_id := get_primary_scene_id()
     var primary_quest_id := get_primary_quest_id()
     var scene_info_lines := scene_lines(primary_scene_id, 3)
@@ -90,6 +91,8 @@ func get_trigger_specs() -> Array:
     archive_lines.append_array(scene_info_lines)
     archive_lines.append_array(quest_info_lines)
     var counts := get_loaded_content_counts()
+    var requires_enemy_clear := _scene_needs_combat_clear(scene)
+    var exit_condition := str(scene.get("exit_condition", "Move onward through the current story route."))
 
     return [
         {
@@ -122,8 +125,28 @@ func get_trigger_specs() -> Array:
             "position": Vector2(482, 120),
             "color": Color(0.556863, 0.74902, 0.85098, 0.95),
             "lines": [
-                "Press N to complete the current Chapter 1 scene and advance to the next one in order.",
+                "Story scenes now advance through in-world gates instead of the old N-key debug skip.",
                 "Press R to restart Chapter 1, C to return to story-driven map routing, or 1, 2, 3 and Tab for manual benchmark inspection."
+            ]
+        },
+        {
+            "id": "story_gate",
+            "speaker": "Route Marker",
+            "prompt": "follow the story route",
+            "radius": 24.0,
+            "position": Vector2(324, 246),
+            "color": Color(0.945098, 0.839216, 0.505882, 0.95),
+            "completes_scene": true,
+            "requires_enemy_clear": requires_enemy_clear,
+            "blocked_status": "The staging route stays sealed until the nearby echo is cleared.",
+            "blocked_lines": [
+                "The route marker is still unstable.",
+                "Clear the nearby echo before taking the scene handoff."
+            ],
+            "completion_lines": [
+                "Exit condition: %s" % exit_condition,
+                "This staging marker stands in for the scene-specific exit until a dedicated graybox map exists.",
+                "Quest handoff remains tied to the editorial Chapter 1 mirrors."
             ]
         }
     ]
@@ -131,18 +154,7 @@ func get_trigger_specs() -> Array:
 
 func get_enemy_specs() -> Array:
     var scene := get_primary_scene_record()
-    var scene_title := str(scene.get("title", "")).to_lower()
-    var player_goal := str(scene.get("player_goal", "")).to_lower()
-    var gameplay_beat := list_to_sentence(scene.get("gameplay_beat", [])).to_lower()
-    var should_spawn_echo := (
-        scene_title.contains("forbidden") or
-        scene_title.contains("road") or
-        player_goal.contains("survive") or
-        gameplay_beat.contains("combat") or
-        gameplay_beat.contains("threat")
-    )
-
-    if not should_spawn_echo:
+    if not _scene_needs_combat_clear(scene):
         return []
 
     return [
@@ -155,3 +167,16 @@ func get_enemy_specs() -> Array:
             "hit_points": 2
         }
     ]
+
+
+func _scene_needs_combat_clear(scene: Dictionary) -> bool:
+    var scene_title := str(scene.get("title", "")).to_lower()
+    var player_goal := str(scene.get("player_goal", "")).to_lower()
+    var gameplay_beat := list_to_sentence(scene.get("gameplay_beat", [])).to_lower()
+    return (
+        scene_title.contains("forbidden") or
+        scene_title.contains("road") or
+        player_goal.contains("survive") or
+        gameplay_beat.contains("combat") or
+        gameplay_beat.contains("threat")
+    )

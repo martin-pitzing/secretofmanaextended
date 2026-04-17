@@ -163,6 +163,37 @@ func get_progress_summary() -> Dictionary:
     }
 
 
+func serialize_state() -> Dictionary:
+    return {
+        "chapter_id": _chapter_id,
+        "current_scene_index": _current_scene_index,
+        "completed_scene_ids": _completed_scene_ids.duplicate(),
+        "completed_quest_ids": _completed_quest_ids.duplicate(),
+        "active_quest_id": _active_quest_id,
+        "flags": _flags.duplicate()
+    }
+
+
+func restore_state(saved_state: Dictionary) -> bool:
+    if saved_state.is_empty():
+        return false
+    if str(saved_state.get("chapter_id", "")) != _chapter_id:
+        return false
+
+    _current_scene_index = clampi(int(saved_state.get("current_scene_index", 0)), 0, max(_scene_ids.size() - 1, 0))
+    _completed_scene_ids = _normalize_array(saved_state.get("completed_scene_ids", []))
+    _completed_quest_ids = _normalize_array(saved_state.get("completed_quest_ids", []))
+    _flags = _normalize_array(saved_state.get("flags", []))
+
+    var saved_active_quest_id := str(saved_state.get("active_quest_id", ""))
+    if saved_active_quest_id.is_empty() or not _quest_ids.has(saved_active_quest_id) or _completed_quest_ids.has(saved_active_quest_id):
+        _refresh_active_quest()
+    else:
+        _active_quest_id = saved_active_quest_id
+
+    return true
+
+
 func _refresh_active_quest() -> void:
     for quest_id in _quest_ids:
         var normalized := str(quest_id)

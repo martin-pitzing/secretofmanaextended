@@ -9,6 +9,7 @@ source_docs:
   - docs/chapters/chapter-08-salt-law-and-empty-wells.md
   - docs/chapters/chapter-09-the-sandship-and-the-split-towns.md
   - docs/chapters/chapter-10-the-moon-kept-truth.md
+  - docs/chapters/chapter-11-crowns-borrowed-from-light.md
 flags:
   - flag_chapter_ch01_started
   - flag_character_randi_has_mana_sword
@@ -128,3 +129,19 @@ flags:
   - flag_region_mountain_dreams_unsealed
   - flag_route_tasnica_high_pass_open
   - flag_chapter_ch10_complete
+  - flag_region_tasnica_entered
+  - flag_faction_tasnica_gate_clearance_granted
+  - flag_region_tasnica_witness_quarantine_seen
+  - flag_faction_tasnica_archive_protocol_visible
+  - flag_faction_tasnica_court_contact_established
+  - flag_character_jema_tasnica_debt_reopened
+  - flag_character_jema_treaty_history_exposed
+  - flag_region_light_palace_claims_contested
+  - flag_faction_light_palace_envoys_seen
+  - flag_faction_empire_forged_omen_operation_suspected
+  - flag_faction_empire_forged_omen_operation_seen
+  - flag_region_tasnica_signal_gallery_secured
+  - flag_faction_tasnica_alliance_terms_set
+  - flag_route_light_palace_open
+  - flag_region_tasnica_departure_corridor_open
+  - flag_chapter_ch11_complete

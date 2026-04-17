@@ -111,7 +111,19 @@ func get_trigger_specs() -> Array:
             "radius": 24.0,
             "position": Vector2(298, 198),
             "color": Color(0.956863, 0.776471, 0.423529, 0.95),
-            "lines": altar_dialogue
+            "lines": altar_dialogue,
+            "completes_scene": true,
+            "requires_enemy_clear": true,
+            "blocked_status": "The broken seal is still throwing off hostile echoes.",
+            "blocked_lines": [
+                "The altar is still unstable.",
+                "Clear the nearby echoes before reaching for the seal-stone."
+            ],
+            "completion_status": "The seal breach is quiet enough to pull the scene forward.",
+            "completion_lines": [
+                "Exit condition: %s" % str(primary_scene.get("exit_condition", "Randi survives the breach and commits to the sword pull.")),
+                "With the echoes cleared, the broken altar can finally serve as the scene's turning point."
+            ]
         },
         {
             "id": "warning_markers",

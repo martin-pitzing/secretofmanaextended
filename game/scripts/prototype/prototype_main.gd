@@ -3,6 +3,7 @@ extends Node2D
 const PrototypeInput = preload("res://scripts/prototype/prototype_input.gd")
 const ChapterContentRepositoryScript = preload("res://scripts/data/chapter_content_repository.gd")
 const ChapterRuntimeStateScript = preload("res://scripts/data/chapter_runtime_state.gd")
+const ChapterStateStoreScript = preload("res://scripts/data/chapter_state_store.gd")
 
 const DEBUG_MAPS := [
     {
@@ -29,8 +30,10 @@ var _current_map_index: int = 0
 var _current_map
 var _content_repository
 var _chapter_runtime
+var _chapter_state_store
 var _manual_map_override: int = -1
 var _map_status_text: String = ""
+var _pending_scene_completion: Dictionary = {}
 
 @onready var _map_root: Node2D = $MapRoot
 @onready var _player = $Player
@@ -48,12 +51,19 @@ func _ready() -> void:
     _content_repository.load_default_content()
     _chapter_runtime = ChapterRuntimeStateScript.new()
     _chapter_runtime.configure(_content_repository, "ch01_falls_to_pandora")
+    _chapter_state_store = ChapterStateStoreScript.new()
 
     _player.interact_requested.connect(_on_player_interact_requested)
     _player.prompt_changed.connect(_on_player_prompt_changed)
     _dialogue_box.closed.connect(_on_dialogue_closed)
 
-    _load_story_scene(true)
+    var resume_lines: PackedStringArray = _restore_saved_chapter_state()
+    if resume_lines.is_empty():
+        _load_story_scene(true)
+    else:
+        _load_story_scene(false)
+        resume_lines.append_array(_build_scene_intro_lines())
+        _open_dialogue("Story Ledger", resume_lines)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -63,10 +73,7 @@ func _unhandled_input(event: InputEvent) -> void:
             get_viewport().set_input_as_handled()
         return
 
-    if event.is_action_pressed("scene_advance"):
-        _advance_story_scene()
-        get_viewport().set_input_as_handled()
-    elif event.is_action_pressed("chapter_restart"):
+    if event.is_action_pressed("chapter_restart"):
         _restart_chapter()
         get_viewport().set_input_as_handled()
     elif event.is_action_pressed("chapter_story_mode"):
@@ -90,26 +97,9 @@ func _unhandled_input(event: InputEvent) -> void:
         get_viewport().set_input_as_handled()
 
 
-func _advance_story_scene() -> void:
-    var summary: Dictionary = _chapter_runtime.get_progress_summary()
-    if summary.get("chapter_complete", false):
-        _open_dialogue("Chapter 1", PackedStringArray([
-            "Chapter 1 is already complete in this prototype pass.",
-            "Press R to restart the sequence or continue exploring the current benchmark space."
-        ]))
-        return
-
-    var completion_result: Dictionary = _chapter_runtime.complete_current_scene()
-    if completion_result.get("chapter_complete", false):
-        _update_story_header()
-        _open_dialogue("Chapter 1 Complete", _build_completion_lines(completion_result))
-        return
-
-    _load_story_scene(true, completion_result)
-
-
 func _restart_chapter() -> void:
     _chapter_runtime.restart()
+    _clear_saved_chapter_state()
     _manual_map_override = -1
     _load_story_scene(true)
 
@@ -151,6 +141,7 @@ func _load_map_scene(index: int, content_bundle: Dictionary) -> void:
     if _current_map.has_method("apply_content_bundle"):
         _current_map.apply_content_bundle(content_bundle)
     _current_map.dialogue_requested.connect(_on_map_dialogue_requested)
+    _current_map.scene_completion_requested.connect(_on_map_scene_completion_requested)
     _current_map.status_changed.connect(_on_map_status_changed)
     _map_root.add_child(_current_map)
     _current_map.assign_player(_player)
@@ -200,7 +191,7 @@ func _update_story_header() -> void:
     var details := goal if not goal.is_empty() else beat
     if not _map_status_text.is_empty():
         details = "%s | %s" % [details, _map_status_text]
-    _control_label.text = "%s\nE interact | Space attack | N next scene | R restart | C story routing | 1/2/3 debug maps" % details
+    _control_label.text = "%s\nE interact | Space attack | R restart | C story routing | 1/2/3 debug maps" % details
 
 
 func _build_scene_intro_lines(completion_result: Dictionary = {}) -> PackedStringArray:
@@ -247,7 +238,33 @@ func _build_completion_lines(completion_result: Dictionary) -> PackedStringArray
     if not flags_added.is_empty():
         lines.append("Final flags added: %s" % ", ".join(flags_added))
 
-    lines.append("Next engineering step: replace manual scene advancement with trigger-based completion and chapter state persistence.")
+    lines.append("Next engineering step: bring the same trigger-based persistence pass to Chapter 2 and replace the remaining staging-room scenes with dedicated grayboxes.")
+    return lines
+
+
+func _build_scene_completion_feedback_lines(completion_result: Dictionary) -> PackedStringArray:
+    var lines := PackedStringArray()
+    var completed_scene_id := str(completion_result.get("scene_id", ""))
+    var completed_scene: Dictionary = _content_repository.get_scene(completed_scene_id)
+    if not completed_scene.is_empty():
+        lines.append("Scene complete: %s" % str(completed_scene.get("title", completed_scene_id)))
+
+    var quest_completed_id := str(completion_result.get("quest_completed_id", ""))
+    if not quest_completed_id.is_empty():
+        var completed_quest: Dictionary = _content_repository.get_quest(quest_completed_id)
+        lines.append("Quest complete: %s" % str(completed_quest.get("title", quest_completed_id)))
+
+    var new_flags: Array = []
+    new_flags.append_array(completion_result.get("scene_flags_added", []))
+    new_flags.append_array(completion_result.get("quest_flags_added", []))
+    if not new_flags.is_empty():
+        lines.append("Flags updated: %s" % ", ".join(new_flags))
+
+    if not completion_result.get("chapter_complete", false):
+        var next_scene: Dictionary = _chapter_runtime.get_current_scene_record()
+        if not next_scene.is_empty():
+            lines.append("Next scene: %s" % str(next_scene.get("title", "Next scene")))
+
     return lines
 
 
@@ -286,16 +303,80 @@ func _on_map_dialogue_requested(speaker: String, lines: PackedStringArray) -> vo
     _prompt_label.text = ""
 
 
+func _on_map_scene_completion_requested(payload: Dictionary) -> void:
+    if not _pending_scene_completion.is_empty():
+        return
+
+    var summary: Dictionary = _chapter_runtime.get_progress_summary()
+    if summary.get("chapter_complete", false):
+        _open_dialogue("Chapter 1", PackedStringArray([
+            "Chapter 1 is already complete in this runtime pass.",
+            "Press R to restart the sequence or continue exploring the current benchmark space."
+        ]))
+        return
+
+    var completion_result: Dictionary = _chapter_runtime.complete_current_scene()
+    _persist_chapter_state()
+
+    var lines := PackedStringArray(payload.get("lines", PackedStringArray()))
+    lines.append_array(_build_scene_completion_feedback_lines(completion_result))
+
+    if completion_result.get("chapter_complete", false):
+        lines.append_array(_build_completion_lines(completion_result))
+    _pending_scene_completion = {
+        "chapter_complete": bool(completion_result.get("chapter_complete", false))
+    }
+
+    _update_story_header()
+    _open_dialogue(str(payload.get("speaker", "Story Ledger")), lines)
+    _prompt_label.text = ""
+
+
 func _open_dialogue(speaker: String, lines: PackedStringArray) -> void:
     _player.set_controls_enabled(false)
     _dialogue_box.open_dialogue(speaker, lines)
 
 
 func _on_dialogue_closed() -> void:
+    var pending_completion := _pending_scene_completion.duplicate()
+    _pending_scene_completion.clear()
     _player.set_controls_enabled(true)
     _on_player_prompt_changed("")
+    if pending_completion.is_empty():
+        return
+    if pending_completion.get("chapter_complete", false):
+        _update_story_header()
+        return
+    _load_story_scene(true)
 
 
 func _on_map_status_changed(message: String) -> void:
     _map_status_text = message
     _update_story_header()
+
+
+func _persist_chapter_state() -> void:
+    _chapter_state_store.save_chapter_state(_chapter_runtime.get_chapter_id(), _chapter_runtime.serialize_state())
+
+
+func _clear_saved_chapter_state() -> void:
+    _chapter_state_store.clear_chapter_state(_chapter_runtime.get_chapter_id())
+
+
+func _restore_saved_chapter_state() -> PackedStringArray:
+    var saved_state: Dictionary = _chapter_state_store.load_chapter_state(_chapter_runtime.get_chapter_id())
+    if saved_state.is_empty():
+        return PackedStringArray()
+    if not _chapter_runtime.restore_state(saved_state):
+        return PackedStringArray()
+
+    var summary: Dictionary = _chapter_runtime.get_progress_summary()
+    var scene: Dictionary = _chapter_runtime.get_current_scene_record()
+    return PackedStringArray([
+        "Saved Chapter 1 progress restored.",
+        "Resuming at scene %d/%d: %s." % [
+            int(summary.get("scene_number", 0)),
+            int(summary.get("scene_total", 0)),
+            str(scene.get("title", "Current scene"))
+        ]
+    ])

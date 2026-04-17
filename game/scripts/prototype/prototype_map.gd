@@ -6,6 +6,7 @@ const DIALOGUE_TRIGGER_SCRIPT = preload("res://scripts/prototype/dialogue_trigge
 const PRACTICE_ENEMY_SCENE = preload("res://scenes/prototype/practice_enemy.tscn")
 
 signal dialogue_requested(speaker: String, lines: PackedStringArray)
+signal scene_completion_requested(payload: Dictionary)
 signal status_changed(message: String)
 
 var _collision_root: Node2D
@@ -286,7 +287,7 @@ func _build_triggers() -> void:
     for trigger_spec in get_trigger_specs():
         var trigger = DIALOGUE_TRIGGER_SCRIPT.new()
         trigger.configure(trigger_spec)
-        trigger.dialogue_requested.connect(_on_trigger_dialogue_requested)
+        trigger.trigger_activated.connect(_on_trigger_activated)
         _trigger_root.add_child(trigger)
 
 
@@ -320,10 +321,39 @@ func _add_blocker(rect: Rect2) -> void:
     _collision_root.add_child(blocker)
 
 
-func _on_trigger_dialogue_requested(speaker: String, lines: PackedStringArray) -> void:
-    dialogue_requested.emit(speaker, lines)
+func _on_trigger_activated(trigger_config: Dictionary) -> void:
+    var speaker := str(trigger_config.get("speaker", "Story Marker"))
+    if bool(trigger_config.get("completes_scene", false)):
+        if bool(trigger_config.get("requires_enemy_clear", false)) and _active_enemy_count > 0:
+            var blocked_status := str(trigger_config.get("blocked_status", "Clear the remaining threat before advancing the scene."))
+            status_changed.emit(blocked_status)
+            dialogue_requested.emit(speaker, _coerce_lines(trigger_config.get("blocked_lines", [
+                "The route is still unstable.",
+                "Clear the remaining threat before advancing."
+            ])))
+            return
+
+        var completion_status := str(trigger_config.get("completion_status", get_status_text()))
+        if not completion_status.is_empty():
+            status_changed.emit(completion_status)
+
+        scene_completion_requested.emit({
+            "trigger_id": str(trigger_config.get("id", "")),
+            "speaker": speaker,
+            "lines": _coerce_lines(trigger_config.get("completion_lines", trigger_config.get("lines", [])))
+        })
+        return
+
+    dialogue_requested.emit(speaker, _coerce_lines(trigger_config.get("lines", [])))
 
 
 func _on_enemy_defeated(_enemy) -> void:
     _active_enemy_count = max(_active_enemy_count - 1, 0)
     status_changed.emit(get_status_text())
+
+
+func _coerce_lines(raw_lines) -> PackedStringArray:
+    var output := PackedStringArray()
+    for value in raw_lines:
+        output.append(str(value))
+    return output

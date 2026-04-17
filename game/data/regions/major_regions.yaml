@@ -9,6 +9,7 @@ source_docs:
   - docs/chapters/chapter-08-salt-law-and-empty-wells.md
   - docs/chapters/chapter-09-the-sandship-and-the-split-towns.md
   - docs/chapters/chapter-10-the-moon-kept-truth.md
+  - docs/chapters/chapter-11-crowns-borrowed-from-light.md
 regions:
   - id: reg_potos
     title: Potos
@@ -58,3 +59,7 @@ regions:
     title: Night Wayhouse Network
   - id: reg_moon_palace
     title: Moon Palace
+  - id: reg_tasnica
+    title: Tasnica
+  - id: reg_light_palace
+    title: Light Palace

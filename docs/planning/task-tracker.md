@@ -28,6 +28,7 @@
 | Chapter 8 package | done | Kakkara occupation corridor, aquifer diversion, and sandship manifest handoff defined |
 | Chapter 9 package | done | Sandship transport network, split-town occupation, and mountain-route charter defined |
 | Chapter 10 package | done | Lofty Mountains scrutiny system, Moon Palace curated-grief arc, and Tasnica high-pass handoff defined |
+| Chapter 11 package | done | Tasnica alliance politics, Jema treaty fallout, and Light Palace legitimacy dispute defined |
 | Story and setting expansion pass | done | classic Mana-series motifs integrated into the setting direction |
 | Temple turn matrix | done | temples now have layered twists and regional consequences |
 | Core cast sheets | done | Randi, Primm, Popoi, Luka, Jema, and Thanatos aligned to the new mythology |
@@ -55,13 +56,14 @@
 | First playable benchmark spaces | done | Water Palace and Forbidden Falls graybox spaces are now live in-engine |
 | First data-driven runtime loading pass | done | current prototype now reads Chapter 1-2 scene and quest mirrors for benchmark metadata |
 | First Chapter 1 scene sequencing and quest-state runtime pass | done | prototype now advances through Chapter 1 scene order, active quests, and resulting flags |
+| First Chapter 1 trigger-based persistence pass | done | Chapter 1 now advances through in-world scene gates and restores saved runtime state |
 
 ## Immediate Follow-Up Tasks
 
 | Task | Status | Notes |
 | --- | --- | --- |
-| Replace manual scene advancement with in-world trigger completion and persistent chapter state | next | current runtime sequence works, but completion still rides on debug input rather than world events or saved state |
-| Continue narrative production with Chapter 11 | next | the Tasnica high pass now points directly into alliance politics, information control, and the next sacred conflict |
+| Extend trigger-based completion and persistence into Chapter 2 runtime | next | Chapter 1 now saves and advances through world gates, but Chapter 2 still exists only as data mirrors |
+| Continue narrative production with Chapter 12 | next | the Light Palace route now points directly into the legitimacy war and the Empire's forged-omen strategy |
 
 ## Open Pre-Programming Items
 

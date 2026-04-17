@@ -112,6 +112,9 @@ func get_trigger_specs() -> Array:
         elif participants.has("Archivist Neral"):
             speaker = "Archivist Neral"
             prompt = "request archive guidance"
+    var audience_completion := primary_scene_id == "ch01_sc05_water_palace_approach"
+    var basin_completion := primary_scene_id == "ch01_sc06_luka_charge"
+    var exit_condition := str(primary_scene.get("exit_condition", "Advance through the palace audience route."))
 
     return [
         {
@@ -121,7 +124,13 @@ func get_trigger_specs() -> Array:
             "radius": 22.0,
             "position": Vector2(288, 118),
             "color": Color(0.972549, 0.878431, 0.643137, 0.95),
-            "lines": audience_lines
+            "lines": audience_lines,
+            "completes_scene": audience_completion,
+            "completion_status": "Audience granted. The palace route is ready to hand the story forward.",
+            "completion_lines": [
+                "Exit condition: %s" % exit_condition,
+                "The attendants stop treating you like a petitioner and start treating you like a problem Luka has to answer."
+            ]
         },
         {
             "id": "neral_archive",
@@ -147,6 +156,12 @@ func get_trigger_specs() -> Array:
                 "Goal: %s" % str(primary_scene.get("player_goal", "Understand the immediate quest and the limits of what the palace can explain.")),
                 "Play focus: %s" % list_to_sentence(primary_scene.get("gameplay_beat", [])),
                 "The basin remains the benchmark VFX anchor for the Water Palace route."
-            ])
+            ]),
+            "completes_scene": basin_completion,
+            "completion_status": "Luka's charge is received. The road to Pandora is now the active route.",
+            "completion_lines": [
+                "Exit condition: %s" % exit_condition,
+                "The basin settles into a steadier glow as Luka's direction turns the scene outward toward Pandora."
+            ]
         }
     ]
