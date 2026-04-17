@@ -31,21 +31,22 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - the prototype now hands off from Chapter 1 into Chapter 2 and uses a dedicated Pandora benchmark map for the second playable slice
 - the Chapter 2 Pandora slice now routes across separate gate-district, court-route, and annex/lower-gate grayboxes instead of compressing the whole chapter into one civic-knot map
 - the runtime now opens with a visible continue/restart flow, saves a campaign-level checkpoint, and transitions between chapters through a dedicated chapter card instead of an abrupt dialogue jump
+- the first Pandora visual/blockout pass now covers the gate district, court route, and annex/lower-gate route with a shared palette and stronger district reads
+- a Chapter 2 headless playpass check now validates the full wired route end-to-end across all 8 scenes
 
 ## Immediate Priority Order
 
-### 1. Start The First Pandora Art And Blockout Pass
+### 1. Implement The First Chapter 2 Polish Pass
 
 Reason:
 
-- the Chapter 2 route is now structurally split into clearer grayboxes, so the next leverage point is to make one of those spaces read like a real district instead of a pure systems benchmark
+- the Pandora slice now reads as one city and validates end-to-end, so the highest-value next pass is to sharpen Primm's join beat, court-route pursuit tension, and ledger recovery clarity without overbuilding systems
 
 ## Pre-Programming Sequence After That
 
 1. Continue narrative production with Chapter 13
-2. Decide Chapter 2 party and combat polish scope
-3. Mirror later stable chapters into deeper scene and quest YAML only when needed
-4. Start the first persistence-aware controller, dialogue, and quest-state save pass
+2. Mirror later stable chapters into deeper scene and quest YAML only when needed
+3. Start the first persistence-aware controller, dialogue, and quest-state save pass
 
 ## Open Decisions That Still Matter
 

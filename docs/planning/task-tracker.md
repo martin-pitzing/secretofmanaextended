@@ -65,10 +65,12 @@
 | Task | Status | Notes |
 | --- | --- | --- |
 | Replace Chapter 2 staging-room fallbacks with more dedicated Pandora and court-route grayboxes | done | Chapter 2 now routes across dedicated gate-district, court-route, and annex/lower-gate benchmarks instead of one civic-knot map |
-| Start the first Pandora art and blockout pass | next | the Pandora slice now has enough runtime structure to justify a stronger visual/blockout pass |
+| Start the first Pandora art and blockout pass | done | gate district, court route, and annex/lower-gate route now share a stronger Pandora visual lane and more district-specific blockout reads |
 | Tighten campaign save and continue flow | done | startup flow now has visible continue/restart actions, chapter handoff uses a chapter card, and campaign checkpoints persist map context alongside chapter state |
+| Run a full Chapter 2 route validation pass | done | a headless Chapter 2 playpass check now validates map assignment, trigger placement, spawn sanity, quest completion order, and final flags across all 8 scenes |
 | Continue narrative production with Chapter 13 | open | the Light Palace route now points directly into the Dark Palace and the most openly dangerous sacred compromises |
-| Decide Chapter 2 party and combat polish scope | open | Primm join presentation, pursuit tension, and ledger-infiltration pressure should be scoped before deeper combat work |
+| Decide Chapter 2 party and combat polish scope | done | scope is now locked to Primm join presentation, court-route pursuit readability, and ledger-target clarity without adding full stealth or party systems; see `docs/planning/chapter-2-polish-scope.md` |
+| Implement the first Chapter 2 polish pass | next | apply the locked polish scope to the safehouse alliance beat, court pursuit route, and ledger recovery pressure |
 
 ## Open Pre-Programming Items
 

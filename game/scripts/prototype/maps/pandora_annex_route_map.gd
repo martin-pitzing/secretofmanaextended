@@ -62,38 +62,49 @@ func get_wall_outline_color() -> Color:
 
 func get_floor_rects() -> Array:
     return [
-        {"rect": Rect2(42, 44, 652, 344), "color": Color(0.509804, 0.494118, 0.454902, 1)},
-        {"rect": Rect2(86, 74, 252, 122), "color": Color(0.611765, 0.580392, 0.470588, 1)},
-        {"rect": Rect2(362, 74, 252, 122), "color": Color(0.588235, 0.560784, 0.490196, 1)},
-        {"rect": Rect2(94, 226, 228, 118), "color": Color(0.572549, 0.541176, 0.47451, 1)},
-        {"rect": Rect2(392, 220, 244, 132), "color": Color(0.47451, 0.447059, 0.403922, 1)},
-        {"rect": Rect2(118, 360, 202, 16), "color": Color(0.388235, 0.317647, 0.203922, 1)}
+        PandoraMapPrimitives.rect_fill(Rect2(42, 44, 652, 344), _palette["gate_yard"]),
+        PandoraMapPrimitives.rect_fill(Rect2(78, 76, 222, 114), _palette["gate_yard"]),
+        PandoraMapPrimitives.rect_fill(Rect2(320, 72, 176, 108), _palette["receiving_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(510, 72, 118, 130), _palette["archive_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(88, 224, 228, 118), _palette["relief_floor"]),
+        PandoraMapPrimitives.rect_fill(Rect2(334, 212, 110, 128), _palette["ledger_hall"]),
+        PandoraMapPrimitives.rect_fill(Rect2(390, 218, 246, 126), _palette["archive_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(116, 360, 202, 16), _palette["outbound_lane"]),
+        PandoraMapPrimitives.rect_fill(Rect2(336, 360, 160, 16), _palette["timber_mid"]),
+        PandoraMapPrimitives.rect_fill(Rect2(516, 360, 104, 16), _palette["timber_dark"])
     ]
 
 
 func get_overlay_rects() -> Array:
-    return [
-        {"rect": Rect2(372, 100, 104, 54), "color": Color(0.741176, 0.603922, 0.333333, 1)},
-        {"rect": Rect2(488, 100, 82, 54), "color": Color(0.721569, 0.701961, 0.647059, 1), "filled": false, "width": 2.0},
-        {"rect": Rect2(450, 250, 88, 66), "color": Color(0.682353, 0.643137, 0.529412, 1), "filled": false, "width": 2.0},
-        {"rect": Rect2(154, 252, 110, 34), "color": Color(0.780392, 0.733333, 0.545098, 1), "filled": false, "width": 2.0},
-        {"rect": Rect2(130, 98, 132, 18), "color": Color(0.768627, 0.631373, 0.392157, 1)}
-    ]
+    var overlays := []
+    overlays.append_array(PandoraMapPrimitives.hanging_banner(Rect2(362, 94, 104, 56), _palette["imperial_cloth"], _palette["banner_trim"], 6.0))
+    overlays.append_array(PandoraMapPrimitives.notice_grid(Vector2(520, 96), 2, 2, Vector2(34, 22), Vector2(10, 10), _palette["archive_frame"]))
+    overlays.append(PandoraMapPrimitives.rect_outline(Rect2(448, 248, 92, 66), _palette["banner_trim"], 2.0))
+    overlays.append(PandoraMapPrimitives.rect_fill(Rect2(562, 244, 24, 62), _palette["damage_mark"]))
+    overlays.append_array(PandoraMapPrimitives.crate_cluster([
+        Rect2(156, 248, 42, 20),
+        Rect2(204, 248, 34, 26),
+        Rect2(242, 258, 28, 20)
+    ], _palette["crate_light"], _palette["crate_dark"]))
+    overlays.append(PandoraMapPrimitives.rect_outline(Rect2(138, 240, 138, 40), _palette["notice_paper"], 2.0))
+    overlays.append_array(PandoraMapPrimitives.hanging_banner(Rect2(128, 96, 136, 18), _palette["banner_cloth"], _palette["banner_trim"], 4.0))
+    return overlays
 
 
 func get_circle_draws() -> Array:
     return [
-        {"position": Vector2(420, 144), "radius": 20.0, "color": Color(0.952941, 0.713725, 0.482353, 0.18)},
-        {"position": Vector2(516, 278), "radius": 18.0, "color": Color(0.639216, 0.764706, 0.905882, 0.18)},
-        {"position": Vector2(196, 270), "radius": 18.0, "color": Color(0.921569, 0.823529, 0.584314, 0.14)}
+        {"position": Vector2(420, 144), "radius": 20.0, "color": _palette["imperial_ember"]},
+        {"position": Vector2(516, 278), "radius": 18.0, "color": _palette["ledger_glow"]},
+        {"position": Vector2(196, 270), "radius": 18.0, "color": _palette["departure_glow"]}
     ]
 
 
 func get_line_draws() -> Array:
     return [
-        {"from": Vector2(350, 80), "to": Vector2(350, 372), "color": Color(0.309804, 0.32549, 0.364706, 1), "width": 2.0},
-        {"from": Vector2(84, 212), "to": Vector2(644, 212), "color": Color(0.309804, 0.32549, 0.364706, 1), "width": 2.0},
-        {"from": Vector2(114, 352), "to": Vector2(318, 352), "color": Color(0.423529, 0.337255, 0.227451, 1), "width": 3.0}
+        {"from": Vector2(318, 78), "to": Vector2(318, 374), "color": _palette["route_divider"], "width": 2.0},
+        {"from": Vector2(498, 78), "to": Vector2(498, 374), "color": _palette["route_divider"], "width": 2.0},
+        {"from": Vector2(84, 212), "to": Vector2(644, 212), "color": _palette["route_divider"], "width": 2.0},
+        {"from": Vector2(112, 352), "to": Vector2(618, 352), "color": _palette["wood_lane"], "width": 3.0}
     ]
 
 
@@ -103,10 +114,29 @@ func get_wall_rects() -> Array:
         Rect2(42, 370, 652, 18),
         Rect2(42, 62, 18, 308),
         Rect2(676, 62, 18, 308),
-        Rect2(340, 74, 18, 284),
-        Rect2(60, 204, 280, 18),
-        Rect2(358, 204, 318, 18),
-        Rect2(318, 352, 40, 18)
+        Rect2(78, 76, 222, 18),
+        Rect2(78, 94, 18, 110),
+        Rect2(282, 94, 18, 110),
+        Rect2(78, 186, 46, 18),
+        Rect2(154, 186, 146, 18),
+        Rect2(320, 72, 176, 18),
+        Rect2(320, 90, 18, 92),
+        Rect2(478, 90, 18, 92),
+        Rect2(320, 164, 58, 18),
+        Rect2(406, 164, 90, 18),
+        Rect2(510, 72, 118, 18),
+        Rect2(510, 90, 18, 114),
+        Rect2(610, 90, 18, 114),
+        Rect2(510, 186, 30, 18),
+        Rect2(564, 186, 64, 18),
+        Rect2(334, 212, 110, 18),
+        Rect2(334, 230, 18, 110),
+        Rect2(426, 230, 18, 110),
+        Rect2(390, 218, 246, 18),
+        Rect2(390, 236, 18, 108),
+        Rect2(618, 236, 18, 108),
+        Rect2(390, 326, 80, 18),
+        Rect2(500, 326, 136, 18)
     ]
 
 
@@ -123,7 +153,7 @@ func get_trigger_specs() -> Array:
             "prompt": "watch Kroll's address",
             "radius": 22.0,
             "position": Vector2(420, 142),
-            "color": Color(0.972549, 0.701961, 0.478431, 0.95),
+            "color": _palette["trigger_dais"],
             "lines": PackedStringArray([
                 "The dais is built to make coercion sound like administration.",
                 "Crowd choreography matters here: the Empire wants to be seen as inevitable, not brutal."
@@ -141,7 +171,7 @@ func get_trigger_specs() -> Array:
             "prompt": "search the annex ledger",
             "radius": 20.0,
             "position": Vector2(504, 278),
-            "color": Color(0.654902, 0.780392, 0.92549, 0.95),
+            "color": _palette["trigger_ledger"],
             "lines": PackedStringArray([
                 "Storage, archives, and relief offices share the same corridor language because someone wanted deniability.",
                 "This is where political sacrifice gets written down as logistics."
@@ -165,7 +195,7 @@ func get_trigger_specs() -> Array:
             "prompt": "leave through the lower gate",
             "radius": 22.0,
             "position": Vector2(198, 352),
-            "color": Color(0.952941, 0.843137, 0.545098, 0.95),
+            "color": _palette["trigger_departure"],
             "lines": PackedStringArray([
                 "The lower gate blends civilians, relief wagons, and militia remnants into one outbound pressure valve.",
                 "Leaving here feels chosen instead of accidental."
@@ -183,7 +213,7 @@ func get_trigger_specs() -> Array:
             "prompt": "read the route pressure",
             "radius": 18.0,
             "position": Vector2(210, 266),
-            "color": Color(0.611765, 0.717647, 0.85098, 0.95),
+            "color": _palette["trigger_echo"],
             "lines": PackedStringArray(scene_info_lines)
         }
     ]
@@ -196,7 +226,7 @@ func get_enemy_specs() -> Array:
     return [
         {
             "position": Vector2(468, 266),
-            "color": Color(0.831373, 0.505882, 0.337255, 1),
+            "color": _palette["enemy_guard_1"],
             "move_speed": 33.0,
             "idle_radius": 14.0,
             "aggro_radius": 112.0,
@@ -204,7 +234,7 @@ func get_enemy_specs() -> Array:
         },
         {
             "position": Vector2(584, 318),
-            "color": Color(0.905882, 0.580392, 0.372549, 1),
+            "color": _palette["enemy_guard_2"],
             "move_speed": 35.0,
             "idle_radius": 12.0,
             "aggro_radius": 112.0,

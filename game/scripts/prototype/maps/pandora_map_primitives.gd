@@ -26,7 +26,9 @@ static func shared_palette() -> Dictionary:
         "trigger_safe": Color(0.882353, 0.74902, 0.454902, 0.95),
         "trigger_notice": Color(0.952941, 0.772549, 0.423529, 0.95),
         "trigger_courier": Color(0.713725, 0.788235, 0.92549, 0.95),
-        "trigger_echo": Color(0.611765, 0.717647, 0.85098, 0.95)
+        "trigger_echo": Color(0.611765, 0.717647, 0.85098, 0.95),
+        "enemy_guard_1": Color(0.847059, 0.529412, 0.360784, 1),
+        "enemy_guard_2": Color(0.913725, 0.611765, 0.403922, 1)
     }
 
 
@@ -54,6 +56,21 @@ static func court_palette() -> Dictionary:
     palette["background"] = Color(0.0666667, 0.0745098, 0.0941176, 1)
     palette["wall"] = Color(0.203922, 0.215686, 0.239216, 1)
     palette["wall_outline"] = Color(0.34902, 0.364706, 0.4, 1)
+    palette["service_stone"] = Color(0.54902, 0.529412, 0.482353, 1)
+    palette["court_stone"] = Color(0.658824, 0.631373, 0.572549, 1)
+    palette["safehouse_stone"] = Color(0.494118, 0.458824, 0.411765, 1)
+    palette["archive_floor"] = Color(0.564706, 0.541176, 0.490196, 1)
+    palette["garden_patch"] = Color(0.431373, 0.541176, 0.419608, 1)
+    palette["screen_gold"] = Color(0.792157, 0.705882, 0.470588, 1)
+    palette["screen_frame"] = Color(0.713725, 0.654902, 0.513725, 1)
+    palette["damage_mark"] = Color(0.470588, 0.239216, 0.262745, 0.72)
+    palette["garden_guide"] = Color(0.478431, 0.658824, 0.466667, 0.65)
+    palette["safehouse_glow"] = Color(0.858824, 0.784314, 0.552941, 0.16)
+    palette["garden_glow"] = Color(0.678431, 0.870588, 0.627451, 0.2)
+    palette["court_glow"] = Color(0.917647, 0.815686, 0.588235, 0.16)
+    palette["trigger_breach"] = Color(0.65098, 0.878431, 0.611765, 0.95)
+    palette["trigger_safehouse"] = Color(0.933333, 0.862745, 0.556863, 0.95)
+    palette["trigger_court"] = Color(0.890196, 0.827451, 0.611765, 0.95)
     return palette
 
 
@@ -62,6 +79,20 @@ static func annex_palette() -> Dictionary:
     palette["background"] = Color(0.0705882, 0.0784314, 0.101961, 1)
     palette["wall"] = Color(0.188235, 0.203922, 0.227451, 1)
     palette["wall_outline"] = Color(0.337255, 0.356863, 0.392157, 1)
+    palette["gate_yard"] = Color(0.521569, 0.501961, 0.458824, 1)
+    palette["receiving_stone"] = Color(0.615686, 0.580392, 0.486275, 1)
+    palette["archive_stone"] = Color(0.54902, 0.529412, 0.478431, 1)
+    palette["relief_floor"] = Color(0.556863, 0.529412, 0.470588, 1)
+    palette["ledger_hall"] = Color(0.470588, 0.439216, 0.392157, 1)
+    palette["outbound_lane"] = Color(0.388235, 0.317647, 0.203922, 1)
+    palette["imperial_cloth"] = Color(0.576471, 0.270588, 0.231373, 1)
+    palette["imperial_ember"] = Color(0.952941, 0.713725, 0.482353, 0.18)
+    palette["ledger_glow"] = Color(0.639216, 0.764706, 0.905882, 0.18)
+    palette["departure_glow"] = Color(0.921569, 0.823529, 0.584314, 0.14)
+    palette["archive_frame"] = Color(0.721569, 0.701961, 0.647059, 1)
+    palette["trigger_dais"] = Color(0.972549, 0.701961, 0.478431, 0.95)
+    palette["trigger_ledger"] = Color(0.654902, 0.780392, 0.92549, 0.95)
+    palette["trigger_departure"] = Color(0.952941, 0.843137, 0.545098, 0.95)
     return palette
 
 

@@ -41,11 +41,11 @@ func get_spawn_position() -> Vector2:
         "ch02_sc03_court_wall_garden_breach":
             return Vector2(560, 296)
         "ch02_sc04_terms_of_alliance":
-            return Vector2(154, 126)
+            return Vector2(166, 270)
         "ch02_sc05_pandora_court_divides":
             return Vector2(398, 110)
         _:
-            return Vector2(154, 126)
+            return Vector2(166, 270)
 
 
 func get_background_color() -> Color:
@@ -62,38 +62,58 @@ func get_wall_outline_color() -> Color:
 
 func get_floor_rects() -> Array:
     return [
-        {"rect": Rect2(42, 42, 620, 330), "color": Color(0.513725, 0.509804, 0.47451, 1)},
-        {"rect": Rect2(78, 78, 206, 102), "color": Color(0.639216, 0.603922, 0.490196, 1)},
-        {"rect": Rect2(332, 74, 274, 118), "color": Color(0.576471, 0.556863, 0.505882, 1)},
-        {"rect": Rect2(110, 210, 186, 112), "color": Color(0.454902, 0.45098, 0.419608, 1)},
-        {"rect": Rect2(350, 224, 258, 118), "color": Color(0.533333, 0.521569, 0.47451, 1)},
-        {"rect": Rect2(520, 88, 68, 94), "color": Color(0.431373, 0.541176, 0.419608, 1)}
+        PandoraMapPrimitives.rect_fill(Rect2(42, 42, 620, 330), _palette["service_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(78, 78, 206, 102), _palette["service_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(306, 74, 214, 108), _palette["court_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(520, 74, 104, 110), _palette["garden_patch"]),
+        PandoraMapPrimitives.rect_fill(Rect2(102, 218, 182, 112), _palette["safehouse_stone"]),
+        PandoraMapPrimitives.rect_fill(Rect2(344, 214, 264, 118), _palette["archive_floor"]),
+        PandoraMapPrimitives.rect_fill(Rect2(108, 338, 488, 14), _palette["wood_lane"])
     ]
 
 
 func get_overlay_rects() -> Array:
-    return [
-        {"rect": Rect2(106, 104, 118, 42), "color": Color(0.803922, 0.752941, 0.556863, 1), "filled": false, "width": 2.0},
-        {"rect": Rect2(390, 96, 88, 54), "color": Color(0.721569, 0.611765, 0.352941, 1)},
-        {"rect": Rect2(538, 102, 30, 66), "color": Color(0.768627, 0.839216, 0.623529, 1), "filled": false, "width": 2.0},
-        {"rect": Rect2(138, 236, 104, 34), "color": Color(0.776471, 0.721569, 0.537255, 1), "filled": false, "width": 2.0},
-        {"rect": Rect2(432, 252, 76, 62), "color": Color(0.678431, 0.635294, 0.521569, 1), "filled": false, "width": 2.0}
-    ]
+    var overlays := []
+    overlays.append_array(PandoraMapPrimitives.hanging_banner(Rect2(118, 92, 126, 14), _palette["banner_cloth"], _palette["banner_trim"], 3.0))
+    overlays.append_array(PandoraMapPrimitives.notice_grid(Vector2(362, 96), 2, 2, Vector2(52, 22), Vector2(12, 10), _palette["screen_frame"]))
+    overlays.append(PandoraMapPrimitives.rect_fill(Rect2(392, 94, 42, 54), _palette["screen_gold"]))
+    overlays.append(PandoraMapPrimitives.rect_fill(Rect2(444, 94, 26, 54), _palette["damage_mark"]))
+    overlays.append(PandoraMapPrimitives.rect_outline(Rect2(536, 98, 34, 70), _palette["banner_trim"], 2.0))
+    overlays.append(PandoraMapPrimitives.rect_fill(Rect2(562, 100, 30, 58), _palette["garden_patch"]))
+    overlays.append(PandoraMapPrimitives.rect_fill(Rect2(144, 234, 96, 32), _palette["crate_dark"]))
+    overlays.append(PandoraMapPrimitives.rect_outline(Rect2(136, 228, 112, 44), _palette["notice_paper"], 2.0))
+    overlays.append(PandoraMapPrimitives.rect_fill(Rect2(430, 246, 92, 58), _palette["checkpoint_booth"]))
+    overlays.append(PandoraMapPrimitives.rect_outline(Rect2(526, 246, 44, 60), _palette["screen_frame"], 2.0))
+    overlays.append(PandoraMapPrimitives.rect_fill(Rect2(576, 246, 20, 52), _palette["damage_mark"]))
+    return overlays
 
 
 func get_circle_draws() -> Array:
-    return [
-        {"position": Vector2(540, 138), "radius": 18.0, "color": Color(0.678431, 0.870588, 0.627451, 0.2)},
-        {"position": Vector2(178, 254), "radius": 18.0, "color": Color(0.858824, 0.784314, 0.552941, 0.16)},
-        {"position": Vector2(462, 282), "radius": 16.0, "color": Color(0.917647, 0.815686, 0.588235, 0.16)}
-    ]
+    var circles := []
+    circles.append({
+        "position": Vector2(552, 138),
+        "radius": 18.0,
+        "color": _palette["garden_glow"]
+    })
+    circles.append({
+        "position": Vector2(176, 258),
+        "radius": 18.0,
+        "color": _palette["safehouse_glow"]
+    })
+    circles.append({
+        "position": Vector2(462, 282),
+        "radius": 16.0,
+        "color": _palette["court_glow"]
+    })
+    return circles
 
 
 func get_line_draws() -> Array:
     return [
-        {"from": Vector2(314, 80), "to": Vector2(314, 356), "color": Color(0.305882, 0.329412, 0.364706, 1), "width": 2.0},
-        {"from": Vector2(94, 198), "to": Vector2(610, 198), "color": Color(0.305882, 0.329412, 0.364706, 1), "width": 2.0},
-        {"from": Vector2(504, 94), "to": Vector2(596, 178), "color": Color(0.478431, 0.658824, 0.466667, 0.65), "width": 3.0}
+        {"from": Vector2(294, 78), "to": Vector2(294, 352), "color": _palette["route_divider"], "width": 2.0},
+        {"from": Vector2(94, 204), "to": Vector2(610, 204), "color": _palette["route_divider"], "width": 2.0},
+        {"from": Vector2(510, 94), "to": Vector2(604, 176), "color": _palette["garden_guide"], "width": 3.0},
+        {"from": Vector2(120, 340), "to": Vector2(594, 340), "color": _palette["wood_lane"], "width": 3.0}
     ]
 
 
@@ -103,10 +123,31 @@ func get_wall_rects() -> Array:
         Rect2(42, 354, 620, 18),
         Rect2(42, 60, 18, 294),
         Rect2(644, 60, 18, 294),
-        Rect2(296, 74, 18, 260),
-        Rect2(60, 190, 236, 18),
-        Rect2(314, 190, 330, 18),
-        Rect2(502, 74, 18, 84)
+        Rect2(60, 74, 228, 18),
+        Rect2(60, 92, 18, 112),
+        Rect2(270, 92, 18, 94),
+        Rect2(60, 186, 56, 18),
+        Rect2(146, 186, 142, 18),
+        Rect2(306, 74, 214, 18),
+        Rect2(306, 92, 18, 90),
+        Rect2(502, 92, 18, 90),
+        Rect2(306, 182, 64, 14),
+        Rect2(396, 182, 124, 14),
+        Rect2(520, 74, 104, 18),
+        Rect2(520, 92, 18, 88),
+        Rect2(606, 92, 18, 88),
+        Rect2(520, 162, 28, 18),
+        Rect2(570, 162, 54, 18),
+        Rect2(102, 218, 182, 18),
+        Rect2(102, 236, 18, 94),
+        Rect2(266, 236, 18, 94),
+        Rect2(102, 312, 52, 18),
+        Rect2(178, 312, 106, 18),
+        Rect2(344, 214, 264, 18),
+        Rect2(344, 232, 18, 100),
+        Rect2(590, 232, 18, 100),
+        Rect2(344, 314, 78, 18),
+        Rect2(454, 314, 154, 18)
     ]
 
 
@@ -122,8 +163,8 @@ func get_trigger_specs() -> Array:
             "speaker": "Service Gate Breach",
             "prompt": "slip through the garden breach",
             "radius": 20.0,
-            "position": Vector2(540, 138),
-            "color": Color(0.65098, 0.878431, 0.611765, 0.95),
+            "position": Vector2(552, 138),
+            "color": _palette["trigger_breach"],
             "lines": PackedStringArray([
                 "The wall divide between court and service routes is visible in the map itself.",
                 "Primm's escape path runs through spaces meant for servants, not nobles."
@@ -146,8 +187,8 @@ func get_trigger_specs() -> Array:
             "speaker": "Safehouse Lantern",
             "prompt": "take shelter",
             "radius": 18.0,
-            "position": Vector2(176, 252),
-            "color": Color(0.933333, 0.862745, 0.556863, 0.95),
+            "position": Vector2(176, 258),
+            "color": _palette["trigger_safehouse"],
             "lines": PackedStringArray([
                 "The quiet shelter compresses the city noise into one smaller decision: travel together or split.",
                 "Even the safehouse feels temporary, borrowed, and politically loaded."
@@ -165,7 +206,7 @@ func get_trigger_specs() -> Array:
             "prompt": "listen through the court screen",
             "radius": 18.0,
             "position": Vector2(434, 122),
-            "color": Color(0.890196, 0.827451, 0.611765, 0.95),
+            "color": _palette["trigger_court"],
             "lines": PackedStringArray([
                 "Court voices arrive as fragments, but the split is already legible: survival, pride, and fear are no longer aligned.",
                 "Documents and messenger routes matter as much as the actual speech."
@@ -183,7 +224,7 @@ func get_trigger_specs() -> Array:
             "prompt": "read the route pressure",
             "radius": 18.0,
             "position": Vector2(468, 278),
-            "color": Color(0.611765, 0.717647, 0.85098, 0.95),
+            "color": _palette["trigger_echo"],
             "lines": PackedStringArray(scene_info_lines)
         }
     ]
@@ -195,16 +236,16 @@ func get_enemy_specs() -> Array:
 
     return [
         {
-            "position": Vector2(494, 214),
-            "color": Color(0.847059, 0.529412, 0.360784, 1),
+            "position": Vector2(478, 248),
+            "color": _palette["enemy_guard_1"],
             "move_speed": 34.0,
             "idle_radius": 14.0,
             "aggro_radius": 118.0,
             "hit_points": 2
         },
         {
-            "position": Vector2(590, 248),
-            "color": Color(0.913725, 0.611765, 0.403922, 1),
+            "position": Vector2(552, 276),
+            "color": _palette["enemy_guard_2"],
             "move_speed": 36.0,
             "idle_radius": 12.0,
             "aggro_radius": 118.0,
