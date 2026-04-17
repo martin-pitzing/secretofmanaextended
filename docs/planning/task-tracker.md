@@ -29,6 +29,7 @@
 | Chapter 9 package | done | Sandship transport network, split-town occupation, and mountain-route charter defined |
 | Chapter 10 package | done | Lofty Mountains scrutiny system, Moon Palace curated-grief arc, and Tasnica high-pass handoff defined |
 | Chapter 11 package | done | Tasnica alliance politics, Jema treaty fallout, and Light Palace legitimacy dispute defined |
+| Chapter 12 package | done | Light Palace legitimacy war, corrected-record exposure, and Dark Palace route handoff defined |
 | Story and setting expansion pass | done | classic Mana-series motifs integrated into the setting direction |
 | Temple turn matrix | done | temples now have layered twists and regional consequences |
 | Core cast sheets | done | Randi, Primm, Popoi, Luka, Jema, and Thanatos aligned to the new mythology |
@@ -57,13 +58,14 @@
 | First data-driven runtime loading pass | done | current prototype now reads Chapter 1-2 scene and quest mirrors for benchmark metadata |
 | First Chapter 1 scene sequencing and quest-state runtime pass | done | prototype now advances through Chapter 1 scene order, active quests, and resulting flags |
 | First Chapter 1 trigger-based persistence pass | done | Chapter 1 now advances through in-world scene gates and restores saved runtime state |
+| First Chapter 2 trigger-based runtime pass | done | campaign now hands off from Chapter 1 into Chapter 2 and uses a dedicated Pandora benchmark map |
 
 ## Immediate Follow-Up Tasks
 
 | Task | Status | Notes |
 | --- | --- | --- |
-| Extend trigger-based completion and persistence into Chapter 2 runtime | next | Chapter 1 now saves and advances through world gates, but Chapter 2 still exists only as data mirrors |
-| Continue narrative production with Chapter 12 | next | the Light Palace route now points directly into the legitimacy war and the Empire's forged-omen strategy |
+| Replace Chapter 2 staging-room fallbacks with more dedicated Pandora and court-route grayboxes | next | Chapter 2 now runs in the campaign, but one civic-knot benchmark is still covering multiple scene types |
+| Continue narrative production with Chapter 13 | next | the Light Palace route now points directly into the Dark Palace and the most openly dangerous sacred compromises |
 
 ## Open Pre-Programming Items
 

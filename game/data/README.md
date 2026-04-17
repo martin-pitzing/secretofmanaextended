@@ -16,7 +16,7 @@ Do not add JSON or YAML here until IDs, templates, and Chapter 1 content are con
 
 Current status:
 
-- YAML starter shells now exist for Chapters 1-11, core cast, factions, regions, temples, and major story flags
+- YAML starter shells now exist for Chapters 1-12, core cast, factions, regions, temples, and major story flags
 - YAML scene and quest mirrors now exist for Chapters 1-2
-- the prototype now executes and saves a first linear Chapter 1 runtime sequence from those editorial mirrors
+- the prototype now executes and saves a first linear Chapters 1-2 runtime campaign from those editorial mirrors
 - these files are still editorial mirrors, not runtime-ready schemas

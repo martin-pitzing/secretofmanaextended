@@ -5,6 +5,11 @@ const ChapterContentRepositoryScript = preload("res://scripts/data/chapter_conte
 const ChapterRuntimeStateScript = preload("res://scripts/data/chapter_runtime_state.gd")
 const ChapterStateStoreScript = preload("res://scripts/data/chapter_state_store.gd")
 
+const CAMPAIGN_CHAPTER_IDS := [
+    "ch01_falls_to_pandora",
+    "ch02_pandora_under_strain"
+]
+
 const DEBUG_MAPS := [
     {
         "title": "Test Hall",
@@ -17,13 +22,26 @@ const DEBUG_MAPS := [
     {
         "title": "Forbidden Falls",
         "scene": preload("res://scenes/prototype/maps/forbidden_falls_benchmark.tscn")
+    },
+    {
+        "title": "Pandora District",
+        "scene": preload("res://scenes/prototype/maps/pandora_district_benchmark.tscn")
     }
 ]
 
 const STORY_MAP_INDEX_BY_SCENE := {
     "ch01_sc02_forbidden_falls": 2,
     "ch01_sc05_water_palace_approach": 1,
-    "ch01_sc06_luka_charge": 1
+    "ch01_sc06_luka_charge": 1,
+    "ch01_sc08_pandora_gate_district": 3,
+    "ch02_sc01_gate_district_morning_after": 3,
+    "ch02_sc02_rumors_of_dyluck": 3,
+    "ch02_sc03_court_wall_garden_breach": 3,
+    "ch02_sc04_terms_of_alliance": 3,
+    "ch02_sc05_pandora_court_divides": 3,
+    "ch02_sc06_kroll_offer": 3,
+    "ch02_sc07_mission_ledger": 3,
+    "ch02_sc08_departure_lower_gate": 3
 }
 
 var _current_map_index: int = 0
@@ -31,6 +49,7 @@ var _current_map
 var _content_repository
 var _chapter_runtime
 var _chapter_state_store
+var _current_chapter_index: int = 0
 var _manual_map_override: int = -1
 var _map_status_text: String = ""
 var _pending_scene_completion: Dictionary = {}
@@ -50,14 +69,13 @@ func _ready() -> void:
     _content_repository = ChapterContentRepositoryScript.new()
     _content_repository.load_default_content()
     _chapter_runtime = ChapterRuntimeStateScript.new()
-    _chapter_runtime.configure(_content_repository, "ch01_falls_to_pandora")
     _chapter_state_store = ChapterStateStoreScript.new()
 
     _player.interact_requested.connect(_on_player_interact_requested)
     _player.prompt_changed.connect(_on_player_prompt_changed)
     _dialogue_box.closed.connect(_on_dialogue_closed)
 
-    var resume_lines: PackedStringArray = _restore_saved_chapter_state()
+    var resume_lines: PackedStringArray = _restore_saved_campaign_state()
     if resume_lines.is_empty():
         _load_story_scene(true)
     else:
@@ -92,6 +110,10 @@ func _unhandled_input(event: InputEvent) -> void:
         _manual_map_override = 2
         _load_story_scene(false)
         get_viewport().set_input_as_handled()
+    elif event.is_action_pressed("map_pandora"):
+        _manual_map_override = 3
+        _load_story_scene(false)
+        get_viewport().set_input_as_handled()
     elif event.is_action_pressed("map_next"):
         _cycle_manual_override()
         get_viewport().set_input_as_handled()
@@ -115,7 +137,7 @@ func _cycle_manual_override() -> void:
 func _load_story_scene(show_intro: bool, completion_result: Dictionary = {}) -> void:
     var current_scene_id: String = _chapter_runtime.get_current_scene_id()
     var bundle: Dictionary = _chapter_runtime.build_current_bundle()
-    var map_index := _resolve_story_map_index(current_scene_id)
+    var map_index: int = _resolve_story_map_index(current_scene_id)
     if _manual_map_override != -1:
         map_index = _manual_map_override
 
@@ -191,7 +213,7 @@ func _update_story_header() -> void:
     var details := goal if not goal.is_empty() else beat
     if not _map_status_text.is_empty():
         details = "%s | %s" % [details, _map_status_text]
-    _control_label.text = "%s\nE interact | Space attack | R restart | C story routing | 1/2/3 debug maps" % details
+    _control_label.text = "%s\nE interact | Space attack | R restart | C story routing | 1/2/3/4 debug maps" % details
 
 
 func _build_scene_intro_lines(completion_result: Dictionary = {}) -> PackedStringArray:
@@ -227,9 +249,10 @@ func _build_scene_intro_lines(completion_result: Dictionary = {}) -> PackedStrin
     return PackedStringArray(lines.slice(0, 5))
 
 
-func _build_completion_lines(completion_result: Dictionary) -> PackedStringArray:
+func _build_completion_lines(completion_result: Dictionary, next_chapter_title: String = "") -> PackedStringArray:
+    var chapter_title := _get_current_chapter_title()
     var lines := PackedStringArray([
-        "Chapter 1 runtime pass is complete. The sequence reached Pandora and resolved all four main Chapter 1 quests."
+        "%s runtime pass is complete." % chapter_title
     ])
 
     var flags_added: Array = []
@@ -238,7 +261,10 @@ func _build_completion_lines(completion_result: Dictionary) -> PackedStringArray
     if not flags_added.is_empty():
         lines.append("Final flags added: %s" % ", ".join(flags_added))
 
-    lines.append("Next engineering step: bring the same trigger-based persistence pass to Chapter 2 and replace the remaining staging-room scenes with dedicated grayboxes.")
+    if not next_chapter_title.is_empty():
+        lines.append("Next chapter unlocked: %s" % next_chapter_title)
+    else:
+        lines.append("All currently wired prototype chapters are complete.")
     return lines
 
 
@@ -309,9 +335,9 @@ func _on_map_scene_completion_requested(payload: Dictionary) -> void:
 
     var summary: Dictionary = _chapter_runtime.get_progress_summary()
     if summary.get("chapter_complete", false):
-        _open_dialogue("Chapter 1", PackedStringArray([
-            "Chapter 1 is already complete in this runtime pass.",
-            "Press R to restart the sequence or continue exploring the current benchmark space."
+        _open_dialogue(_get_current_chapter_title(), PackedStringArray([
+            "%s is already complete in this runtime pass." % _get_current_chapter_title(),
+            "Press R to restart the chapter or continue exploring the current benchmark space."
         ]))
         return
 
@@ -321,10 +347,17 @@ func _on_map_scene_completion_requested(payload: Dictionary) -> void:
     var lines := PackedStringArray(payload.get("lines", PackedStringArray()))
     lines.append_array(_build_scene_completion_feedback_lines(completion_result))
 
+    var next_chapter_index := -1
     if completion_result.get("chapter_complete", false):
-        lines.append_array(_build_completion_lines(completion_result))
+        next_chapter_index = _get_next_chapter_index()
+        lines.append_array(_build_completion_lines(
+            completion_result,
+            _get_chapter_title(CAMPAIGN_CHAPTER_IDS[next_chapter_index]) if next_chapter_index != -1 else ""
+        ))
+
     _pending_scene_completion = {
-        "chapter_complete": bool(completion_result.get("chapter_complete", false))
+        "chapter_complete": bool(completion_result.get("chapter_complete", false)),
+        "next_chapter_index": next_chapter_index
     }
 
     _update_story_header()
@@ -345,6 +378,18 @@ func _on_dialogue_closed() -> void:
     if pending_completion.is_empty():
         return
     if pending_completion.get("chapter_complete", false):
+        var next_chapter_index := int(pending_completion.get("next_chapter_index", -1))
+        if next_chapter_index != -1:
+            _manual_map_override = -1
+            _set_active_chapter_by_index(next_chapter_index)
+            _load_story_scene(false)
+            var transition_lines := PackedStringArray([
+                "Campaign handoff complete.",
+                "%s begins." % _get_current_chapter_title()
+            ])
+            transition_lines.append_array(_build_scene_intro_lines())
+            _open_dialogue("Story Ledger", transition_lines)
+            return
         _update_story_header()
         return
     _load_story_scene(true)
@@ -363,20 +408,58 @@ func _clear_saved_chapter_state() -> void:
     _chapter_state_store.clear_chapter_state(_chapter_runtime.get_chapter_id())
 
 
-func _restore_saved_chapter_state() -> PackedStringArray:
-    var saved_state: Dictionary = _chapter_state_store.load_chapter_state(_chapter_runtime.get_chapter_id())
-    if saved_state.is_empty():
-        return PackedStringArray()
-    if not _chapter_runtime.restore_state(saved_state):
-        return PackedStringArray()
+func _restore_saved_campaign_state() -> PackedStringArray:
+    var last_completed_chapter_id: String = ""
 
-    var summary: Dictionary = _chapter_runtime.get_progress_summary()
-    var scene: Dictionary = _chapter_runtime.get_current_scene_record()
+    for chapter_index in range(CAMPAIGN_CHAPTER_IDS.size()):
+        _set_active_chapter_by_index(chapter_index)
+        var chapter_id: String = _chapter_runtime.get_chapter_id()
+        var saved_state: Dictionary = _chapter_state_store.load_chapter_state(chapter_id)
+        if saved_state.is_empty():
+            if not last_completed_chapter_id.is_empty():
+                return PackedStringArray([
+                    "%s remains complete." % _get_chapter_title(last_completed_chapter_id),
+                    "Starting %s." % _get_current_chapter_title()
+                ])
+            return PackedStringArray()
+
+        if not _chapter_runtime.restore_state(saved_state):
+            return PackedStringArray()
+
+        var summary: Dictionary = _chapter_runtime.get_progress_summary()
+        if not summary.get("chapter_complete", false):
+            return PackedStringArray([
+                "Saved %s progress restored." % _get_current_chapter_title(),
+                "Resuming at scene %d/%d: %s." % [
+                    int(summary.get("scene_number", 0)),
+                    int(summary.get("scene_total", 0)),
+                    str(_chapter_runtime.get_current_scene_record().get("title", "Current scene"))
+                ]
+            ])
+
+        last_completed_chapter_id = chapter_id
     return PackedStringArray([
-        "Saved Chapter 1 progress restored.",
-        "Resuming at scene %d/%d: %s." % [
-            int(summary.get("scene_number", 0)),
-            int(summary.get("scene_total", 0)),
-            str(scene.get("title", "Current scene"))
-        ]
+        "All currently wired chapters already have saved completion data.",
+        "Reloading the latest chapter for inspection."
     ])
+
+
+func _set_active_chapter_by_index(chapter_index: int) -> void:
+    _current_chapter_index = clampi(chapter_index, 0, CAMPAIGN_CHAPTER_IDS.size() - 1)
+    _chapter_runtime.configure(_content_repository, CAMPAIGN_CHAPTER_IDS[_current_chapter_index])
+
+
+func _get_next_chapter_index() -> int:
+    var next_index := _current_chapter_index + 1
+    if next_index >= CAMPAIGN_CHAPTER_IDS.size():
+        return -1
+    return next_index
+
+
+func _get_current_chapter_title() -> String:
+    return _get_chapter_title(_chapter_runtime.get_chapter_id())
+
+
+func _get_chapter_title(chapter_id: String) -> String:
+    var chapter_record: Dictionary = _content_repository.get_chapter(chapter_id)
+    return str(chapter_record.get("title", chapter_id))

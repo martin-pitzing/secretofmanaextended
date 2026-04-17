@@ -1,0 +1,27 @@
+id: ch12_ledgers_of_the_sun
+title: Ledgers Of The Sun
+source_doc: docs/chapters/chapter-12-ledgers-of-the-sun.md
+status: draft_locked
+boundary: Tasnica eastern road -> omen market approach -> Light Palace registrar halls -> observatory annex breach -> public rite disruption -> legitimacy archive exposure -> Light Seed restoration -> road toward the Dark Palace
+scene_ids:
+  - ch12_sc01_processional_road_of_claims
+  - ch12_sc02_hall_of_registrars
+  - ch12_sc03_omen_law_in_debate
+  - ch12_sc04_the_annex_of_corrected_suns
+  - ch12_sc05_the_public_rite_breaks
+  - ch12_sc06_the_ledger_under_the_altar
+  - ch12_sc07_the_seed_of_daylight
+  - ch12_sc08_road_beyond_the_brightness
+quest_ids:
+  - q_ch12_001_reach_the_legitimacy_engine
+  - q_ch12_002_read_the_split_in_omen_law
+  - q_ch12_003_break_the_rite_before_it_hardens
+  - q_ch12_004_restore_the_light_seed
+primary_flags:
+  - flag_region_light_palace_entered
+  - flag_faction_light_palace_legitimacy_machine_seen
+  - flag_faction_empire_omen_chain_confirmed
+  - flag_faction_light_palace_record_forgery_exposed
+  - flag_temple_light_seed_restored
+  - flag_route_dark_palace_open
+  - flag_chapter_ch12_complete

@@ -44,7 +44,7 @@ text = "Status pending"
 autowrap_mode = 3
 
 [node name="ControlLabel" type="Label" parent="CanvasLayer/TopBar/TopMargin/TopVBox"]
-text = "WASD move | E interact | Space attack | 1/2/3 maps"
+text = "WASD move | E interact | Space attack | 1/2/3/4 maps"
 autowrap_mode = 3
 
 [node name="PromptBar" type="PanelContainer" parent="CanvasLayer"]

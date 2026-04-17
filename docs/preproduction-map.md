@@ -31,6 +31,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `chapter 9 package`: `docs/chapters/chapter-09-the-sandship-and-the-split-towns.md`
 - `chapter 10 package`: `docs/chapters/chapter-10-the-moon-kept-truth.md`
 - `chapter 11 package`: `docs/chapters/chapter-11-crowns-borrowed-from-light.md`
+- `chapter 12 package`: `docs/chapters/chapter-12-ledgers-of-the-sun.md`
 - `Pandora character sheets`: `docs/characters/pandora-character-sheets.md`
 - `Empire character sheets`: `docs/characters/empire-character-sheets.md`
 - `core cast sheets`: `docs/characters/mana-core-character-sheets.md`
@@ -63,13 +64,14 @@ This is the authoritative map of the pre-programming package. It points to the c
 - Narrative source of truth remains Markdown during preproduction
 - Structured content should later mirror into JSON or YAML after templates stabilize
 - Chapters 1 and 2 now have scene-level and quest-level YAML mirrors for implementation planning
-- Chapters 1-11 now have chapter-level YAML mirrors for implementation planning
+- Chapters 1-12 now have chapter-level YAML mirrors for implementation planning
 - Tasnica remains rumor-only in Chapters 1-2 and becomes concrete through sky-route correspondence in Chapter 6
 - the initial Godot shell now exists under `game/`
 - the first prototype runtime slice now exists for controller, dialogue, and benchmark-map work
 - the prototype now reads Chapter 1-2 scene and quest mirrors for in-engine benchmark metadata
 - the prototype now executes a linear Chapter 1 scene sequence, active quest handoff, and resulting flag updates
 - the prototype now replaces manual scene advancement with in-world completion triggers and restores saved Chapter 1 runtime state
+- the prototype now hands off from Chapter 1 into Chapter 2 and uses a dedicated Pandora benchmark map for the second playable slice
 
 ## Canonical Terminology
 
@@ -107,6 +109,7 @@ The project is ready to begin systems implementation when:
 - Chapter 9 is stable enough to turn transport, split-town occupation, and Mana Engineering logistics into one continuous imperial machine
 - Chapter 10 is stable enough to carry the project from imperial transport systems back into the Moon Palace and Tasnica truth-governance arc
 - Chapter 11 is stable enough to move the project into Tasnica alliance politics and the Light Palace legitimacy war
+- Chapter 12 is stable enough to carry the project into the Light Palace legitimacy engine and open the Dark Palace route
 - faction leaders and recurring officers are named and placed in story flow
 - core cast sheets are stable enough to drive scene writing
 - temple dossiers define the sacred network in production-ready terms
@@ -118,5 +121,5 @@ The project is ready to begin systems implementation when:
 - IDs, flags, and content templates are locked
 - the first mirrored `game/data` manifests exist for chapters, cast, factions, regions, temples, and story flags
 - the first mirrored `game/data` scene and quest files exist for Chapters 1 and 2
-- the Godot folder scaffold, bootstrap rules, runtime wrapper, prototype scenes, editorial YAML loader, and first persisted Chapter 1 runtime sequence pass are in place
+- the Godot folder scaffold, bootstrap rules, runtime wrapper, prototype scenes, editorial YAML loader, and first persisted Chapters 1-2 runtime pass are in place
 - remaining open items are small enough that they do not block controller, dialogue, quest, and map framework work

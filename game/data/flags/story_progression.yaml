@@ -10,6 +10,7 @@ source_docs:
   - docs/chapters/chapter-09-the-sandship-and-the-split-towns.md
   - docs/chapters/chapter-10-the-moon-kept-truth.md
   - docs/chapters/chapter-11-crowns-borrowed-from-light.md
+  - docs/chapters/chapter-12-ledgers-of-the-sun.md
 flags:
   - flag_chapter_ch01_started
   - flag_character_randi_has_mana_sword
@@ -145,3 +146,17 @@ flags:
   - flag_route_light_palace_open
   - flag_region_tasnica_departure_corridor_open
   - flag_chapter_ch11_complete
+  - flag_region_light_palace_entered
+  - flag_faction_light_palace_processional_order_seen
+  - flag_faction_light_palace_legitimacy_machine_seen
+  - flag_faction_light_palace_split_visible
+  - flag_region_light_annex_reached
+  - flag_faction_empire_omen_chain_confirmed
+  - flag_region_light_public_rite_disrupted
+  - flag_faction_light_palace_record_forgery_exposed
+  - flag_region_light_hidden_ledger_opened
+  - flag_faction_light_palace_history_compromised_seen
+  - flag_temple_light_seed_restored
+  - flag_region_light_palace_reckoning_active
+  - flag_route_dark_palace_open
+  - flag_chapter_ch12_complete

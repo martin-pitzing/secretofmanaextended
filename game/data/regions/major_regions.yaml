@@ -10,6 +10,7 @@ source_docs:
   - docs/chapters/chapter-09-the-sandship-and-the-split-towns.md
   - docs/chapters/chapter-10-the-moon-kept-truth.md
   - docs/chapters/chapter-11-crowns-borrowed-from-light.md
+  - docs/chapters/chapter-12-ledgers-of-the-sun.md
 regions:
   - id: reg_potos
     title: Potos

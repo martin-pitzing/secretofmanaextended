@@ -105,7 +105,7 @@ func get_trigger_specs() -> Array:
             "lines": [
                 "This hall is the first runtime check: movement, collision, prompt range, and camera follow all have to feel stable before art arrives.",
                 "The loader currently has %d scene mirrors and %d quest mirrors from Chapters 1 and 2 available to the prototype." % [counts.get("scene_count", 0), counts.get("quest_count", 0)],
-                "When a Chapter 1 scene does not have a dedicated benchmark map yet, it lands here instead of falling back to placeholder-only UI."
+                "When a current story scene does not have a dedicated benchmark map yet, it lands here instead of falling back to placeholder-only UI."
             ]
         },
         {
@@ -126,7 +126,7 @@ func get_trigger_specs() -> Array:
             "color": Color(0.556863, 0.74902, 0.85098, 0.95),
             "lines": [
                 "Story scenes now advance through in-world gates instead of the old N-key debug skip.",
-                "Press R to restart Chapter 1, C to return to story-driven map routing, or 1, 2, 3 and Tab for manual benchmark inspection."
+                "Press R to restart the active chapter, C to return to story-driven map routing, or 1, 2, 3, 4 and Tab for manual benchmark inspection."
             ]
         },
         {
@@ -146,7 +146,7 @@ func get_trigger_specs() -> Array:
             "completion_lines": [
                 "Exit condition: %s" % exit_condition,
                 "This staging marker stands in for the scene-specific exit until a dedicated graybox map exists.",
-                "Quest handoff remains tied to the editorial Chapter 1 mirrors."
+                "Quest handoff remains tied to the editorial scene and quest mirrors."
             ]
         }
     ]
