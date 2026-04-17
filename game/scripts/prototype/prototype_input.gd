@@ -13,6 +13,8 @@ static func ensure_defaults() -> void:
     _ensure_action("map_water_palace", [KEY_2])
     _ensure_action("map_forbidden_falls", [KEY_3])
     _ensure_action("map_pandora", [KEY_4])
+    _ensure_action("map_pandora_court", [KEY_5])
+    _ensure_action("map_pandora_annex", [KEY_6])
     _ensure_action("chapter_restart", [KEY_R])
     _ensure_action("chapter_story_mode", [KEY_C])
 

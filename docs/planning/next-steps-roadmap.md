@@ -29,19 +29,21 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - the prototype now executes a linear Chapter 1 scene sequence with active quest state and resulting flag updates sourced from the editorial mirrors
 - the prototype now advances Chapter 1 through in-world completion triggers and restores saved runtime state from `user://`
 - the prototype now hands off from Chapter 1 into Chapter 2 and uses a dedicated Pandora benchmark map for the second playable slice
+- the Chapter 2 Pandora slice now routes across separate gate-district, court-route, and annex/lower-gate grayboxes instead of compressing the whole chapter into one civic-knot map
+- the runtime now opens with a visible continue/restart flow, saves a campaign-level checkpoint, and transitions between chapters through a dedicated chapter card instead of an abrupt dialogue jump
 
 ## Immediate Priority Order
 
-### 1. Replace Chapter 2 Fallback Spaces With More Dedicated Grayboxes
+### 1. Start The First Pandora Art And Blockout Pass
 
 Reason:
 
-- the runtime slice now sequences and saves Chapters 1-2, but Chapter 2 still compresses too many scene types into one Pandora civic-knot benchmark
+- the Chapter 2 route is now structurally split into clearer grayboxes, so the next leverage point is to make one of those spaces read like a real district instead of a pure systems benchmark
 
 ## Pre-Programming Sequence After That
 
 1. Continue narrative production with Chapter 13
-2. Decide which graybox benchmark receives the first tile/blockout art pass
+2. Decide Chapter 2 party and combat polish scope
 3. Mirror later stable chapters into deeper scene and quest YAML only when needed
 4. Start the first persistence-aware controller, dialogue, and quest-state save pass
 

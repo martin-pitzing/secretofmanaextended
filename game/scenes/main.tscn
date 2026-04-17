@@ -44,7 +44,7 @@ text = "Status pending"
 autowrap_mode = 3
 
 [node name="ControlLabel" type="Label" parent="CanvasLayer/TopBar/TopMargin/TopVBox"]
-text = "WASD move | E interact | Space attack | 1/2/3/4 maps"
+text = "WASD move | E interact | Space attack | 1/2/3/4/5/6 maps"
 autowrap_mode = 3
 
 [node name="PromptBar" type="PanelContainer" parent="CanvasLayer"]
@@ -65,3 +65,86 @@ theme_override_constants/margin_bottom = 4
 text = ""
 
 [node name="DialogueBox" parent="CanvasLayer" instance=ExtResource("3")]
+
+[node name="CampaignBackdrop" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="CampaignMenu" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+offset_left = 68.0
+offset_top = 30.0
+offset_right = 412.0
+offset_bottom = 240.0
+
+[node name="MenuMargin" type="MarginContainer" parent="CanvasLayer/CampaignMenu"]
+offset_right = 344.0
+offset_bottom = 210.0
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="MenuVBox" type="VBoxContainer" parent="CanvasLayer/CampaignMenu/MenuMargin"]
+offset_right = 316.0
+offset_bottom = 186.0
+theme_override_constants/separation = 8
+
+[node name="MenuTitle" type="Label" parent="CanvasLayer/CampaignMenu/MenuMargin/MenuVBox"]
+text = "Prototype Campaign Flow"
+
+[node name="MenuSummary" type="Label" parent="CanvasLayer/CampaignMenu/MenuMargin/MenuVBox"]
+text = "Saved campaign summary."
+autowrap_mode = 3
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/CampaignMenu/MenuMargin/MenuVBox"]
+text = "Continue"
+
+[node name="RestartChapterButton" type="Button" parent="CanvasLayer/CampaignMenu/MenuMargin/MenuVBox"]
+text = "Restart Current Chapter"
+
+[node name="RestartCampaignButton" type="Button" parent="CanvasLayer/CampaignMenu/MenuMargin/MenuVBox"]
+text = "Restart Campaign"
+
+[node name="TransitionBackdrop" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.705882)
+
+[node name="TransitionCard" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+offset_left = 74.0
+offset_top = 42.0
+offset_right = 406.0
+offset_bottom = 222.0
+
+[node name="CardMargin" type="MarginContainer" parent="CanvasLayer/TransitionCard"]
+offset_right = 332.0
+offset_bottom = 180.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="CardVBox" type="VBoxContainer" parent="CanvasLayer/TransitionCard/CardMargin"]
+offset_right = 300.0
+offset_bottom = 152.0
+theme_override_constants/separation = 10
+
+[node name="TransitionTitle" type="Label" parent="CanvasLayer/TransitionCard/CardMargin/CardVBox"]
+text = "Chapter"
+
+[node name="TransitionChapter" type="Label" parent="CanvasLayer/TransitionCard/CardMargin/CardVBox"]
+text = "Next Chapter"
+
+[node name="TransitionSummary" type="Label" parent="CanvasLayer/TransitionCard/CardMargin/CardVBox"]
+text = "Chapter handoff summary."
+autowrap_mode = 3
+
+[node name="TransitionContinueButton" type="Button" parent="CanvasLayer/TransitionCard/CardMargin/CardVBox"]
+text = "Enter Chapter"

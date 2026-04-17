@@ -64,8 +64,11 @@
 
 | Task | Status | Notes |
 | --- | --- | --- |
-| Replace Chapter 2 staging-room fallbacks with more dedicated Pandora and court-route grayboxes | next | Chapter 2 now runs in the campaign, but one civic-knot benchmark is still covering multiple scene types |
-| Continue narrative production with Chapter 13 | next | the Light Palace route now points directly into the Dark Palace and the most openly dangerous sacred compromises |
+| Replace Chapter 2 staging-room fallbacks with more dedicated Pandora and court-route grayboxes | done | Chapter 2 now routes across dedicated gate-district, court-route, and annex/lower-gate benchmarks instead of one civic-knot map |
+| Start the first Pandora art and blockout pass | next | the Pandora slice now has enough runtime structure to justify a stronger visual/blockout pass |
+| Tighten campaign save and continue flow | done | startup flow now has visible continue/restart actions, chapter handoff uses a chapter card, and campaign checkpoints persist map context alongside chapter state |
+| Continue narrative production with Chapter 13 | open | the Light Palace route now points directly into the Dark Palace and the most openly dangerous sacred compromises |
+| Decide Chapter 2 party and combat polish scope | open | Primm join presentation, pursuit tension, and ledger-infiltration pressure should be scoped before deeper combat work |
 
 ## Open Pre-Programming Items
 
