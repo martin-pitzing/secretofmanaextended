@@ -40,6 +40,7 @@
 | First temple authority dispute scene | done | Luka vs Falls shrine conflict now dramatized on-screen |
 | Subculture briefs | done | world texture converted into scene-ready groups |
 | Visual production decisions | done | first benchmark environment and portrait format are locked |
+| Chapter 1 environment production kits | done | Potos, Forbidden Falls, and Water Palace kits now define material, prop, dressing, and Godot-first benchmark priorities |
 | Water Palace benchmark checklist | done | first environment benchmark is now execution-ready |
 | Portrait Batch 01 locked | done | first real portrait production scope and expression tiers are fixed |
 | Chapter 1 combat benchmark locked | done | Forbidden Falls seal breach arena chosen as the first combat reference room |
@@ -71,6 +72,9 @@
 | Continue narrative production with Chapter 13 | open | the Light Palace route now points directly into the Dark Palace and the most openly dangerous sacred compromises |
 | Decide Chapter 2 party and combat polish scope | done | scope is now locked to Primm join presentation, court-route pursuit readability, and ledger-target clarity without adding full stealth or party systems; see `docs/planning/chapter-2-polish-scope.md` |
 | Implement the first Chapter 2 polish pass | next | apply the locked polish scope to the safehouse alliance beat, court pursuit route, and ledger recovery pressure |
+| Lock the first playable slice definition | done | current runnable scope, limits, and milestone order are now captured in `docs/planning/playable-slice-plan.md` |
+| Add a reviewer-friendly Chapter 1-2 access path | open | make it possible to inspect the current slice quickly without relying on hidden debug-map knowledge |
+| Package the Chapter 1-2 route as an internal playable thing | open | document launch, controls, smoke checks, and review expectations for the first real handoff |
 
 ## Open Pre-Programming Items
 

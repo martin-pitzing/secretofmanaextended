@@ -33,6 +33,7 @@ Move from broad preproduction into a tighter narrative production sequence witho
 - the runtime now opens with a visible continue/restart flow, saves a campaign-level checkpoint, and transitions between chapters through a dedicated chapter card instead of an abrupt dialogue jump
 - the first Pandora visual/blockout pass now covers the gate district, court route, and annex/lower-gate route with a shared palette and stronger district reads
 - a Chapter 2 headless playpass check now validates the full wired route end-to-end across all 8 scenes
+- the first playable-slice plan now defines what is runnable today, what remains editorial only, and what should happen next to turn the Chapter 1-2 route into an internal review build
 
 ## Immediate Priority Order
 
@@ -42,11 +43,23 @@ Reason:
 
 - the Pandora slice now reads as one city and validates end-to-end, so the highest-value next pass is to sharpen Primm's join beat, court-route pursuit tension, and ledger recovery clarity without overbuilding systems
 
+### 2. Add A Reviewer-Friendly Chapter 1-2 Access Path
+
+Reason:
+
+- the current slice can be played, but rapid review still leans too much on hidden debug-map knowledge and prior implementation context
+
+### 3. Package The Chapter 1-2 Route As The First Internal Playable Thing
+
+Reason:
+
+- once the current slice is easier to review, the next leverage comes from making it repeatable for other eyes instead of keeping it as an implementation-only prototype
+
 ## Pre-Programming Sequence After That
 
 1. Continue narrative production with Chapter 13
 2. Mirror later stable chapters into deeper scene and quest YAML only when needed
-3. Start the first persistence-aware controller, dialogue, and quest-state save pass
+3. Extend the current playable slice only after the Chapter 1-2 review build is stable
 
 ## Open Decisions That Still Matter
 

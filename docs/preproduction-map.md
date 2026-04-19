@@ -15,6 +15,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `world texture and peripheral cultures`: `docs/world-texture.md`
 - `magic doctrine and weapon schools`: `docs/magic-doctrine.md`
 - `visual production decisions`: `docs/visual-production-decisions.md`
+- `Chapter 1 environment production kits`: `docs/art/chapter-1-environment-production-kits.md`
 - `Water Palace benchmark checklist`: `docs/art/water-palace-benchmark-checklist.md`
 - `Portrait Batch 01 spec`: `docs/art/portrait-batch-01-spec.md`
 - `Forbidden Falls combat benchmark`: `docs/art/forbidden-falls-combat-benchmark-checklist.md`
