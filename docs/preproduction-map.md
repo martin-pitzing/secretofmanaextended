@@ -16,6 +16,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `magic doctrine and weapon schools`: `docs/magic-doctrine.md`
 - `visual production decisions`: `docs/visual-production-decisions.md`
 - `Chapter 1 environment production kits`: `docs/art/chapter-1-environment-production-kits.md`
+- `Chapter 1 sightline pass`: `docs/planning/chapter-1-sightline-pass.md`
 - `Water Palace benchmark checklist`: `docs/art/water-palace-benchmark-checklist.md`
 - `Portrait Batch 01 spec`: `docs/art/portrait-batch-01-spec.md`
 - `Forbidden Falls combat benchmark`: `docs/art/forbidden-falls-combat-benchmark-checklist.md`
@@ -73,6 +74,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - the prototype now executes a linear Chapter 1 scene sequence, active quest handoff, and resulting flag updates
 - the prototype now replaces manual scene advancement with in-world completion triggers and restores saved Chapter 1 runtime state
 - the prototype now hands off from Chapter 1 into Chapter 2 and uses a dedicated Pandora benchmark map for the second playable slice
+- every Chapter 1 scene now routes through a dedicated benchmark or a scene-specific story stage instead of the generic test hall fallback
 
 ## Canonical Terminology
 

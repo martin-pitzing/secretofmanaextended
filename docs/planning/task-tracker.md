@@ -66,6 +66,7 @@
 | Task | Status | Notes |
 | --- | --- | --- |
 | Replace Chapter 2 staging-room fallbacks with more dedicated Pandora and court-route grayboxes | done | Chapter 2 now routes across dedicated gate-district, court-route, and annex/lower-gate benchmarks instead of one civic-knot map |
+| Replace Chapter 1 staging-room fallbacks with scene-specific review stages | done | Potos, Exile Road, Water Palace approach, and Road to Pandora now route through chapter-specific story stages instead of the generic test hall |
 | Start the first Pandora art and blockout pass | done | gate district, court route, and annex/lower-gate route now share a stronger Pandora visual lane and more district-specific blockout reads |
 | Tighten campaign save and continue flow | done | startup flow now has visible continue/restart actions, chapter handoff uses a chapter card, and campaign checkpoints persist map context alongside chapter state |
 | Run a full Chapter 2 route validation pass | done | a headless Chapter 2 playpass check now validates map assignment, trigger placement, spawn sanity, quest completion order, and final flags across all 8 scenes |

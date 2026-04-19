@@ -6,3 +6,7 @@ Until then, the art source of truth lives in:
 
 - `docs/art-direction-brief.md`
 - `docs/chapters/chapter-01-falls-to-pandora.md`
+
+Placeholder review stills for Chapter 1 staging should live under:
+
+- `game/art/ch01/review_stills/`

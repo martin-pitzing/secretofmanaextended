@@ -43,13 +43,37 @@ const DEBUG_MAPS := [
         "title": "Pandora Annex Route",
         "map_id": "pandora_annex_route",
         "scene": preload("res://scenes/prototype/maps/pandora_annex_route_benchmark.tscn")
+    },
+    {
+        "title": "Potos Story Stage",
+        "map_id": "potos_story_stage",
+        "scene": preload("res://scenes/prototype/maps/potos_story_stage.tscn")
+    },
+    {
+        "title": "Exile Road Stage",
+        "map_id": "exile_road_stage",
+        "scene": preload("res://scenes/prototype/maps/exile_road_stage.tscn")
+    },
+    {
+        "title": "Water Palace Approach Stage",
+        "map_id": "water_palace_approach_stage",
+        "scene": preload("res://scenes/prototype/maps/water_palace_approach_stage.tscn")
+    },
+    {
+        "title": "Road To Pandora Stage",
+        "map_id": "road_to_pandora_stage",
+        "scene": preload("res://scenes/prototype/maps/road_to_pandora_stage.tscn")
     }
 ]
 
 const STORY_MAP_INDEX_BY_SCENE := {
+    "ch01_sc01_potos_morning": 6,
     "ch01_sc02_forbidden_falls": 2,
-    "ch01_sc05_water_palace_approach": 1,
+    "ch01_sc03_judgment_at_potos": 6,
+    "ch01_sc04_exile_procession": 7,
+    "ch01_sc05_water_palace_approach": 8,
     "ch01_sc06_luka_charge": 1,
+    "ch01_sc07_road_to_pandora": 9,
     "ch01_sc08_pandora_gate_district": 3,
     "ch02_sc01_gate_district_morning_after": 3,
     "ch02_sc02_rumors_of_dyluck": 3,
@@ -519,7 +543,7 @@ func _update_story_header() -> void:
     var details = goal if not goal.is_empty() else beat
     if not _map_status_text.is_empty():
         details = "%s | %s" % [details, _map_status_text]
-    _control_label.text = "%s\nE interact | Space attack | R restart | C story routing | 1/2/3/4/5/6 debug maps" % details
+    _control_label.text = "%s\nE interact | Space attack | R restart | C story routing | 1-6 shortcuts | Tab cycles all staged maps" % details
 
 
 func _build_scene_intro_lines(completion_result: Dictionary = {}) -> PackedStringArray:

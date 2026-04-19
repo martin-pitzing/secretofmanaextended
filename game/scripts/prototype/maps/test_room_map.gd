@@ -126,7 +126,7 @@ func get_trigger_specs() -> Array:
             "color": Color(0.556863, 0.74902, 0.85098, 0.95),
             "lines": [
                 "Story scenes now advance through in-world gates instead of the old N-key debug skip.",
-                "Press R to restart the active chapter, C to return to story-driven map routing, or 1, 2, 3, 4, 5, 6 and Tab for manual benchmark inspection."
+                "Press R to restart the active chapter, C to return to story-driven map routing, or use 1-6 plus Tab to cycle through every staged map."
             ]
         },
         {
