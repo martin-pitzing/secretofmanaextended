@@ -4,6 +4,7 @@ class_name PrototypeMap
 
 const DIALOGUE_TRIGGER_SCRIPT = preload("res://scripts/prototype/dialogue_trigger.gd")
 const PRACTICE_ENEMY_SCENE = preload("res://scenes/prototype/practice_enemy.tscn")
+const INTERACTION_ACTOR_SCENE = preload("res://scenes/prototype/interaction_actor.tscn")
 
 signal dialogue_requested(speaker: String, lines: PackedStringArray)
 signal scene_completion_requested(payload: Dictionary)
@@ -11,6 +12,7 @@ signal status_changed(message: String)
 
 var _collision_root: Node2D
 var _enemy_root: Node2D
+var _actor_root: Node2D
 var _trigger_root: Node2D
 var _active_enemy_count := 0
 var _content_bundle := {
@@ -30,12 +32,17 @@ func _ready() -> void:
     _enemy_root.name = "EnemyRoot"
     add_child(_enemy_root)
 
+    _actor_root = Node2D.new()
+    _actor_root.name = "ActorRoot"
+    add_child(_actor_root)
+
     _trigger_root = Node2D.new()
     _trigger_root.name = "TriggerRoot"
     add_child(_trigger_root)
 
     _build_world_bounds()
     _build_wall_colliders()
+    _build_actors()
     _build_triggers()
     _build_enemies()
 
@@ -127,6 +134,10 @@ func get_trigger_specs() -> Array:
 
 
 func get_enemy_specs() -> Array:
+    return []
+
+
+func get_actor_specs() -> Array:
     return []
 
 
@@ -304,6 +315,14 @@ func _build_triggers() -> void:
         _trigger_root.add_child(trigger)
 
 
+func _build_actors() -> void:
+    for actor_spec in get_actor_specs():
+        var actor = INTERACTION_ACTOR_SCENE.instantiate()
+        actor.configure(actor_spec)
+        actor.interaction_requested.connect(_on_actor_interaction_requested)
+        _actor_root.add_child(actor)
+
+
 func _build_enemies() -> void:
     _active_enemy_count = 0
     for enemy_spec in get_enemy_specs():
@@ -358,6 +377,11 @@ func _on_trigger_activated(trigger_config: Dictionary) -> void:
         return
 
     dialogue_requested.emit(speaker, _coerce_lines(trigger_config.get("lines", [])))
+
+
+func _on_actor_interaction_requested(actor_config: Dictionary) -> void:
+    var speaker := str(actor_config.get("speaker", "Resident"))
+    dialogue_requested.emit(speaker, _coerce_lines(actor_config.get("lines", [])))
 
 
 func _on_enemy_defeated(_enemy) -> void:

@@ -15,6 +15,7 @@ static func ensure_defaults() -> void:
     _ensure_action("map_pandora", [KEY_4])
     _ensure_action("map_pandora_court", [KEY_5])
     _ensure_action("map_pandora_annex", [KEY_6])
+    _ensure_action("map_character_sandbox", [KEY_7])
     _ensure_action("chapter_restart", [KEY_R])
     _ensure_action("chapter_story_mode", [KEY_C])
 

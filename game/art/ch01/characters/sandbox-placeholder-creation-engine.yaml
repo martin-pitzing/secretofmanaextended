@@ -1,0 +1,95 @@
+engine_id: ch01_sandbox_placeholder_sprites_v01
+purpose: >
+  Reusable creation engine for the first Chapter 1 character sandbox placeholder sprites.
+  Intended for manual art, AI image prompting, or paintover briefing.
+
+global_defaults:
+  style_lane:
+    - polished 2D Mana-lineage action RPG
+    - Secret of Mana + Alundra + Terranigma reference lane
+    - semi-overhead field readability
+    - pixel-authored look
+  output:
+    humans_canvas: 32x32
+    small_monster_canvas: 32x32
+    background: transparent
+    pose_count: 1
+    animation: none
+    file_name: sandbox_placeholder.png
+  readability_priorities:
+    - silhouette
+    - palette separation
+    - role read
+    - combat readability
+    - regional identity
+  forbidden_traits:
+    - toy-like 3D anime read
+    - HD-2D bloom look
+    - generic RPG Maker villager styling
+    - over-rendered texture noise
+    - role ambiguity caused by too much detail
+
+prompt_template: >
+  Create one single-frame placeholder pixel sprite for {label}. Use a {canvas} transparent canvas.
+  The target game is a polished 2D Mana-lineage action RPG in the Secret of Mana, Alundra,
+  and Terranigma lane. The sprite must read cleanly at gameplay distance in a semi-overhead field view.
+  Priority order: silhouette, regional identity, combat or interaction readability, then detail.
+  Core read: {core_read}. Silhouette anchor: {silhouette_anchor}. Dominant palette: {dominant_palette}.
+  Secondary palette: {secondary_palette}. Keep one visible accent from {accent_material}.
+  Avoid: {avoid}. Output a centered single-frame sprite with transparent background and no effects.
+
+targets:
+  - id: randi
+    label: Randi
+    output_path: game/art/ch01/characters/randi/sandbox_placeholder.png
+    canvas: 32x32
+    core_read: practical village boy becoming a hero
+    silhouette_anchor: blond hair mass, hooded travel cloth, satchel weight, sword-side asymmetry
+    dominant_palette: faded greens, warm blond hair, leather browns
+    secondary_palette: muted linen, soft metal, restrained warm accent
+    accent_material: practical travel strap, satchel, or sword grip
+    avoid: armor-heavy silhouettes, court polish, late-game mythic treatment, hard-locking overt elf coding too early
+
+  - id: potos_villager
+    label: Potos Villager
+    output_path: game/art/ch01/characters/potos_villager/sandbox_placeholder.png
+    canvas: 32x32
+    core_read: river-village civilian shaped by old ward culture
+    silhouette_anchor: workwear layer, shawl or apron, domestic ritual detail
+    dominant_palette: cedar, reed, linen, moss
+    secondary_palette: muted clay red, washed cyan, weathered rope
+    accent_material: charm knot, work cloth, or ward token
+    avoid: tavern-peasant cliché, ornate fantasy trim, military coding
+
+  - id: water_palace_attendant
+    label: Water Palace Attendant
+    output_path: game/art/ch01/characters/water_palace_attendant/sandbox_placeholder.png
+    canvas: 32x32
+    core_read: sacred institutional worker with calm authority
+    silhouette_anchor: clean robe drape, sash, practical ritual uniform
+    dominant_palette: ivory, turquoise, muted gold
+    secondary_palette: cool blue-white and pale stone tones
+    accent_material: basin-work trim, archive sash, or floor-marker motif
+    avoid: priest-king regalia, luxury servant styling, dark heavy palette
+
+  - id: pandora_refugee
+    label: Pandora Refugee
+    output_path: game/art/ch01/characters/pandora_refugee/sandbox_placeholder.png
+    canvas: 32x32
+    core_read: displaced civilian under civic pressure
+    silhouette_anchor: bundle carry, patched travel layer, forward weight
+    dominant_palette: worn crimson, dust neutrals, muted civic cloth
+    secondary_palette: faded brass, off-white wrappings, soot-softened gray
+    accent_material: travel bundle, scarf, civic sash remnant, or patch line
+    avoid: generic dirty peasant, full soldier read, comic destitution
+
+  - id: rabite_echo
+    label: Rabite Echo
+    output_path: game/art/ch01/characters/rabite_echo/sandbox_placeholder.png
+    canvas: 32x32
+    core_read: cute monster that still reads as an enemy target
+    silhouette_anchor: round body, strong ear shape, springy poised posture
+    dominant_palette: warm cream, soft tan, or blush body tone
+    secondary_palette: one combat accent such as coral, amber, or destabilized blue-white
+    accent_material: ear interior, cheek tone, or mana echo mark
+    avoid: plush-toy passivity, over-detailed face, muddy silhouette

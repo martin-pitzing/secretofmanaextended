@@ -72,6 +72,7 @@
 | Start the first Pandora art and blockout pass | done | gate district, court route, and annex/lower-gate route now share a stronger Pandora visual lane and more district-specific blockout reads |
 | Tighten campaign save and continue flow | done | startup flow now has visible continue/restart actions, chapter handoff uses a chapter card, and campaign checkpoints persist map context alongside chapter state |
 | Run a full Chapter 2 route validation pass | done | a headless Chapter 2 playpass check now validates map assignment, trigger placement, spawn sanity, quest completion order, and final flags across all 8 scenes |
+| Build a reusable Chapter 1 character sandbox bundle | done | visible interaction actors, a dedicated character sandbox map, and placeholder-sprite drop paths now exist for Chapter 1 actor and combat testing |
 | Continue narrative production with Chapter 13 | open | the Light Palace route now points directly into the Dark Palace and the most openly dangerous sacred compromises |
 | Decide Chapter 2 party and combat polish scope | done | scope is now locked to Primm join presentation, court-route pursuit readability, and ledger-target clarity without adding full stealth or party systems; see `docs/planning/chapter-2-polish-scope.md` |
 | Implement the first Chapter 2 polish pass | next | apply the locked polish scope to the safehouse alliance beat, court pursuit route, and ledger recovery pressure |
@@ -79,9 +80,9 @@
 | Lock modular build and story-safe chapter architecture plan | done | chapter-module, validator, and build-target planning now lives in `docs/planning/godot-modular-build-and-story-plan.md` |
 | Add a reviewer-friendly Chapter 1-2 access path | open | make it possible to inspect the current slice quickly without relying on hidden debug-map knowledge |
 | Package the Chapter 1-2 route as an internal playable thing | open | document launch, controls, smoke checks, and review expectations for the first real handoff |
-| Generalize chapter discovery beyond the current hard-coded runtime set | next | move the content repository toward manifest-driven chapter loading and away from Chapter 1-2-only assumptions |
-| Add Chapter 1 validator coverage and Chapter 1->2 handoff validation | next | match the existing Chapter 2 playpass discipline and make story changes safer |
-| Split core runtime systems from chapter-owned routing and presentation glue | open | reduce `prototype_main.gd` from a monolith into a reusable kernel plus chapter modules |
+| Generalize chapter discovery beyond the current hard-coded runtime set | done | the content repository now discovers chapter scene and quest mirrors dynamically instead of assuming only Chapter 1-2 folders |
+| Add Chapter 1 validator coverage and Chapter 1->2 handoff validation | done | Chapter 1 playpass and Chapter 1 -> 2 handoff checks now match the Chapter 2 validator pattern |
+| Split core runtime systems from chapter-owned routing and presentation glue | done | chapter routing, map ownership, and build-profile selection now live in shared prototype module and registry scripts instead of hard-coded scene maps in `prototype_main.gd` |
 
 ## Open Pre-Programming Items
 

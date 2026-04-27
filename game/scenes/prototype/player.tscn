@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/prototype/player.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/prototype/player_visual.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(14, 18)
@@ -19,14 +20,26 @@ z_index = -1
 color = Color(0, 0, 0, 0.22)
 polygon = PackedVector2Array(-8, 9, 8, 9, 10, 13, -10, 13)
 
-[node name="Body" type="Polygon2D" parent="."]
+[node name="PlayerVisual" type="Node2D" parent="."]
+script = ExtResource("2")
+
+[node name="FallbackRoot" type="Node2D" parent="PlayerVisual"]
+
+[node name="Body" type="Polygon2D" parent="PlayerVisual/FallbackRoot"]
 color = Color(0.843137, 0.831373, 0.756863, 1)
 polygon = PackedVector2Array(0, -12, 9, -5, 9, 7, 0, 12, -9, 7, -9, -5)
 
-[node name="FacingLine" type="Line2D" parent="."]
+[node name="FacingLine" type="Line2D" parent="PlayerVisual/FallbackRoot"]
 default_color = Color(0.219608, 0.243137, 0.313726, 1)
 width = 2.0
 points = PackedVector2Array(0, -4, 0, -14)
+
+[node name="SpriteRoot" type="Node2D" parent="PlayerVisual"]
+visible = false
+position = Vector2(0, -8)
+
+[node name="HeroSprite" type="AnimatedSprite2D" parent="PlayerVisual/SpriteRoot"]
+centered = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")

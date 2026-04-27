@@ -1,0 +1,635 @@
+{
+    "schema_version":  1,
+    "subject":  "randi",
+    "target_profile":  "native32_tall",
+    "target_atlas":  {
+                         "cell_px":  32,
+                         "columns":  10,
+                         "rows":  15,
+                         "atlas_px":  [
+                                          320,
+                                          480
+                                      ]
+                     },
+    "source_manifest":  "game/art/ch01/characters/randi/source_pages/manifests/normalized_manifest.json",
+    "default_fit":  {
+                        "mode":  "contain_bottom_center",
+                        "padding_px":  2
+                    },
+    "notes":  [
+                  "This is a second-pass transfer manifest from imported source pages to hero runtime atlas slots.",
+                  "Entries are grouped by gameplay value first, not by source page order.",
+                  "Side locomotion now favors cleaner isolated movement sources over denser page layouts.",
+                  "Front attack now uses direct sword-sway reference crops instead of stance proxies.",
+                  "Some entries are direct transfer candidates and some are proxy references for later authored cleanup.",
+                  "Up-facing locomotion is still a reference gap and is not solved by this manifest.",
+                  "This manifest was derived from randi_hero64_tall_pose_crop_manifest.json for strict native32_tall atlas comparison."
+              ],
+    "entries":  [
+                    {
+                        "entry_id":  "idle_down_0",
+                        "target_clip":  "idle_down",
+                        "frame_index":  0,
+                        "atlas_cell":  {
+                                           "col":  0,
+                                           "row":  0
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_advanced_combat_sheet",
+                                       "crop_rect":  [
+                                                         448,
+                                                         74,
+                                                         160,
+                                                         184
+                                                     ]
+                                   },
+                        "reference_confidence":  "medium",
+                        "notes":  "Front standing pose from advanced combat sheet."
+                    },
+                    {
+                        "entry_id":  "idle_down_1",
+                        "target_clip":  "idle_down",
+                        "frame_index":  1,
+                        "atlas_cell":  {
+                                           "col":  1,
+                                           "row":  0
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         46,
+                                                         704,
+                                                         146,
+                                                         144
+                                                     ]
+                                   },
+                        "reference_confidence":  "medium",
+                        "notes":  "Second down-facing idle proxy from front ready stance."
+                    },
+                    {
+                        "entry_id":  "idle_side_0",
+                        "target_clip":  "idle_side",
+                        "frame_index":  0,
+                        "atlas_cell":  {
+                                           "col":  2,
+                                           "row":  0
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_advanced_combat_sheet",
+                                       "crop_rect":  [
+                                                         628,
+                                                         74,
+                                                         164,
+                                                         184
+                                                     ]
+                                   },
+                        "reference_confidence":  "medium",
+                        "notes":  "Primary side idle from standing side pose."
+                    },
+                    {
+                        "entry_id":  "idle_side_1",
+                        "target_clip":  "idle_side",
+                        "frame_index":  1,
+                        "atlas_cell":  {
+                                           "col":  3,
+                                           "row":  0
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         178,
+                                                         80,
+                                                         140,
+                                                         244
+                                                     ]
+                                   },
+                        "reference_confidence":  "medium",
+                        "notes":  "Second side idle from isolated side-action walk stance."
+                    },
+                    {
+                        "entry_id":  "block_down_0",
+                        "target_clip":  "block_down",
+                        "frame_index":  0,
+                        "atlas_cell":  {
+                                           "col":  4,
+                                           "row":  0
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         36,
+                                                         960,
+                                                         168,
+                                                         180
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "High-guard front defense."
+                    },
+                    {
+                        "entry_id":  "block_down_1",
+                        "target_clip":  "block_down",
+                        "frame_index":  1,
+                        "atlas_cell":  {
+                                           "col":  5,
+                                           "row":  0
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         202,
+                                                         960,
+                                                         168,
+                                                         180
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Low-guard front defense."
+                    },
+                    {
+                        "entry_id":  "hit_down_0",
+                        "target_clip":  "hit_down",
+                        "frame_index":  0,
+                        "atlas_cell":  {
+                                           "col":  6,
+                                           "row":  0
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         500,
+                                                         980,
+                                                         160,
+                                                         160
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Impact front hit."
+                    },
+                    {
+                        "entry_id":  "hit_down_1",
+                        "target_clip":  "hit_down",
+                        "frame_index":  1,
+                        "atlas_cell":  {
+                                           "col":  7,
+                                           "row":  0
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         654,
+                                                         986,
+                                                         158,
+                                                         154
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Stagger front hit."
+                    },
+                    {
+                        "entry_id":  "walk_side_0",
+                        "target_clip":  "walk_side",
+                        "frame_index":  0,
+                        "atlas_cell":  {
+                                           "col":  0,
+                                           "row":  1
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         36,
+                                                         80,
+                                                         136,
+                                                         244
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Side walk contact from isolated side-action sheet."
+                    },
+                    {
+                        "entry_id":  "walk_side_1",
+                        "target_clip":  "walk_side",
+                        "frame_index":  1,
+                        "atlas_cell":  {
+                                           "col":  1,
+                                           "row":  1
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         178,
+                                                         80,
+                                                         140,
+                                                         244
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Side walk mid-stance from isolated side-action sheet."
+                    },
+                    {
+                        "entry_id":  "walk_side_2",
+                        "target_clip":  "walk_side",
+                        "frame_index":  2,
+                        "atlas_cell":  {
+                                           "col":  2,
+                                           "row":  1
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         320,
+                                                         80,
+                                                         154,
+                                                         244
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Side walk terminal stance from isolated side-action sheet."
+                    },
+                    {
+                        "entry_id":  "walk_side_3",
+                        "target_clip":  "walk_side",
+                        "frame_index":  3,
+                        "atlas_cell":  {
+                                           "col":  3,
+                                           "row":  1
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         178,
+                                                         80,
+                                                         140,
+                                                         244
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Loop-closing return to the mid-stance side walk pose."
+                    },
+                    {
+                        "entry_id":  "run_side_0",
+                        "target_clip":  "run_side",
+                        "frame_index":  0,
+                        "atlas_cell":  {
+                                           "col":  4,
+                                           "row":  1
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         480,
+                                                         104,
+                                                         170,
+                                                         212
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Run liftoff from isolated side-action sheet."
+                    },
+                    {
+                        "entry_id":  "run_side_1",
+                        "target_clip":  "run_side",
+                        "frame_index":  1,
+                        "atlas_cell":  {
+                                           "col":  5,
+                                           "row":  1
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         646,
+                                                         104,
+                                                         176,
+                                                         212
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Run flight from isolated side-action sheet."
+                    },
+                    {
+                        "entry_id":  "run_side_2",
+                        "target_clip":  "run_side",
+                        "frame_index":  2,
+                        "atlas_cell":  {
+                                           "col":  6,
+                                           "row":  1
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         32,
+                                                         360,
+                                                         180,
+                                                         228
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Run landing from isolated side-action sheet."
+                    },
+                    {
+                        "entry_id":  "run_side_3",
+                        "target_clip":  "run_side",
+                        "frame_index":  3,
+                        "atlas_cell":  {
+                                           "col":  7,
+                                           "row":  1
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         194,
+                                                         340,
+                                                         244,
+                                                         212
+                                                     ]
+                                   },
+                        "reference_confidence":  "medium",
+                        "notes":  "Run continuation with sword-held forward drive from side-action sheet."
+                    },
+                    {
+                        "entry_id":  "jump_side_0",
+                        "target_clip":  "jump_side",
+                        "frame_index":  0,
+                        "atlas_cell":  {
+                                           "col":  0,
+                                           "row":  2
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         50,
+                                                         426,
+                                                         140,
+                                                         140
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Jump crouch."
+                    },
+                    {
+                        "entry_id":  "jump_side_1",
+                        "target_clip":  "jump_side",
+                        "frame_index":  1,
+                        "atlas_cell":  {
+                                           "col":  1,
+                                           "row":  2
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         190,
+                                                         388,
+                                                         160,
+                                                         180
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Jump takeoff."
+                    },
+                    {
+                        "entry_id":  "jump_side_2",
+                        "target_clip":  "jump_side",
+                        "frame_index":  2,
+                        "atlas_cell":  {
+                                           "col":  2,
+                                           "row":  2
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         338,
+                                                         378,
+                                                         164,
+                                                         188
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Jump apex."
+                    },
+                    {
+                        "entry_id":  "jump_side_3",
+                        "target_clip":  "jump_side",
+                        "frame_index":  3,
+                        "atlas_cell":  {
+                                           "col":  3,
+                                           "row":  2
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         504,
+                                                         390,
+                                                         158,
+                                                         176
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Jump descent."
+                    },
+                    {
+                        "entry_id":  "jump_side_4",
+                        "target_clip":  "jump_side",
+                        "frame_index":  4,
+                        "atlas_cell":  {
+                                           "col":  4,
+                                           "row":  2
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         664,
+                                                         428,
+                                                         156,
+                                                         140
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Jump landing."
+                    },
+                    {
+                        "entry_id":  "attack_down_0",
+                        "target_clip":  "attack_down",
+                        "frame_index":  0,
+                        "atlas_cell":  {
+                                           "col":  5,
+                                           "row":  2
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         18,
+                                                         646,
+                                                         192,
+                                                         264
+                                                     ]
+                                   },
+                        "reference_confidence":  "medium",
+                        "notes":  "Front attack start from sword-swaying sheet."
+                    },
+                    {
+                        "entry_id":  "attack_down_1",
+                        "target_clip":  "attack_down",
+                        "frame_index":  1,
+                        "atlas_cell":  {
+                                           "col":  6,
+                                           "row":  2
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         186,
+                                                         646,
+                                                         190,
+                                                         264
+                                                     ]
+                                   },
+                        "reference_confidence":  "medium",
+                        "notes":  "Front attack transition from sword-swaying sheet."
+                    },
+                    {
+                        "entry_id":  "attack_down_2",
+                        "target_clip":  "attack_down",
+                        "frame_index":  2,
+                        "atlas_cell":  {
+                                           "col":  7,
+                                           "row":  2
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_action_sheet_b",
+                                       "crop_rect":  [
+                                                         360,
+                                                         642,
+                                                         220,
+                                                         220
+                                                     ]
+                                   },
+                        "reference_confidence":  "medium",
+                        "notes":  "Front attack release / low sweep from sword-swaying sheet."
+                    },
+                    {
+                        "entry_id":  "attack_three_quarter_0",
+                        "target_clip":  "attack_three_quarter",
+                        "frame_index":  0,
+                        "atlas_cell":  {
+                                           "col":  0,
+                                           "row":  3
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         496,
+                                                         700,
+                                                         148,
+                                                         156
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Mid-level slash."
+                    },
+                    {
+                        "entry_id":  "attack_three_quarter_1",
+                        "target_clip":  "attack_three_quarter",
+                        "frame_index":  1,
+                        "atlas_cell":  {
+                                           "col":  1,
+                                           "row":  3
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_comprehensive_action_sheet",
+                                       "crop_rect":  [
+                                                         652,
+                                                         706,
+                                                         146,
+                                                         150
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Low-level sweep."
+                    },
+                    {
+                        "entry_id":  "advanced_combo_0",
+                        "target_clip":  "advanced_combo",
+                        "frame_index":  0,
+                        "atlas_cell":  {
+                                           "col":  2,
+                                           "row":  3
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_advanced_combat_sheet",
+                                       "crop_rect":  [
+                                                         24,
+                                                         44,
+                                                         184,
+                                                         188
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Overhead slash pose."
+                    },
+                    {
+                        "entry_id":  "advanced_combo_1",
+                        "target_clip":  "advanced_combo",
+                        "frame_index":  1,
+                        "atlas_cell":  {
+                                           "col":  3,
+                                           "row":  3
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_advanced_combat_sheet",
+                                       "crop_rect":  [
+                                                         196,
+                                                         48,
+                                                         188,
+                                                         188
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Rear follow-through slash pose."
+                    },
+                    {
+                        "entry_id":  "advanced_combo_2",
+                        "target_clip":  "advanced_combo",
+                        "frame_index":  2,
+                        "atlas_cell":  {
+                                           "col":  4,
+                                           "row":  3
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_advanced_combat_sheet",
+                                       "crop_rect":  [
+                                                         26,
+                                                         204,
+                                                         188,
+                                                         192
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Low side sweep."
+                    },
+                    {
+                        "entry_id":  "advanced_combo_3",
+                        "target_clip":  "advanced_combo",
+                        "frame_index":  3,
+                        "atlas_cell":  {
+                                           "col":  5,
+                                           "row":  3
+                                       },
+                        "source":  {
+                                       "page_id":  "randi_advanced_combat_sheet",
+                                       "crop_rect":  [
+                                                         220,
+                                                         208,
+                                                         188,
+                                                         192
+                                                     ]
+                                   },
+                        "reference_confidence":  "high",
+                        "notes":  "Forward thrust / cross-body continuation."
+                    }
+                ],
+    "reference_gaps":  [
+                           "No clean imported up-facing locomotion cycle is present yet.",
+                           "No clean imported back-facing run sequence is present yet.",
+                           "Down-facing attack timing still needs authored in-betweens even though the source poses are now direct references."
+                       ]
+}

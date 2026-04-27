@@ -46,7 +46,7 @@ autowrap_mode = 3
 theme_override_font_sizes/font_size = 15
 
 [node name="ControlLabel" type="Label" parent="CanvasLayer/TopBar/TopMargin/TopVBox"]
-text = "WASD move | E interact | Space attack | 1-6 shortcuts | Tab cycles all staged maps"
+text = "Double-tap move to run | E interact | Space attack | 1-7 shortcuts | Tab cycles all staged maps"
 autowrap_mode = 3
 theme_override_font_sizes/font_size = 14
 

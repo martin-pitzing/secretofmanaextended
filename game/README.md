@@ -9,6 +9,7 @@ Current status:
 - structured editorial YAML mirrors exist under `data/`
 - first-pass gameplay logic now exists for controller, interaction, dialogue, and map switching
 - Water Palace, Forbidden Falls, Pandora, and scene-specific Chapter 1 story stages are live for in-engine review
+- a reusable `Chapter 1 Character Sandbox` now exists for visible actor interaction, combat spacing, and placeholder sprite review
 - current benchmark text and labels are driven by the Chapter 1-2 scene and quest YAML mirrors
 - the runtime is still prototype-grade and uses drawn shapes rather than imported production art
 

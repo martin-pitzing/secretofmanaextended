@@ -4,6 +4,7 @@ class_name PrototypeMapCatalog
 
 const ORDERED_MAP_IDS := [
     "test_room",
+    "ch01_character_sandbox",
     "water_palace_inner_chamber",
     "forbidden_falls",
     "pandora_gate_district",
@@ -19,6 +20,11 @@ const MAPS_BY_ID := {
     "test_room": {
         "title": "Test Hall",
         "scene": preload("res://scenes/prototype/maps/test_room.tscn"),
+        "dev_only": true
+    },
+    "ch01_character_sandbox": {
+        "title": "Chapter 1 Character Sandbox",
+        "scene": preload("res://scenes/prototype/maps/chapter1_character_sandbox.tscn"),
         "dev_only": true
     },
     "water_palace_inner_chamber": {

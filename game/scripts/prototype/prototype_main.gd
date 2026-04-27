@@ -149,6 +149,9 @@ func _unhandled_input(event: InputEvent) -> void:
     elif _can_use_manual_debug_maps() and event.is_action_pressed("map_pandora_annex"):
         _activate_manual_map("pandora_annex_route")
         get_viewport().set_input_as_handled()
+    elif _can_use_manual_debug_maps() and event.is_action_pressed("map_character_sandbox"):
+        _activate_manual_map("ch01_character_sandbox")
+        get_viewport().set_input_as_handled()
     elif _can_use_manual_debug_maps() and event.is_action_pressed("map_next"):
         _cycle_manual_override()
         get_viewport().set_input_as_handled()
@@ -474,9 +477,9 @@ func _update_story_header() -> void:
     var details = goal if not goal.is_empty() else beat
     if not _map_status_text.is_empty():
         details = "%s | %s" % [details, _map_status_text]
-    var controls = "E interact | Space attack | R restart | C story routing"
+    var controls = "Double-tap move to run | E interact | Space attack | R restart | C story routing"
     if _can_use_manual_debug_maps():
-        controls += " | 1-6 shortcuts | Tab cycles staged maps"
+        controls += " | 1-7 shortcuts | Tab cycles staged maps"
     _control_label.text = "%s\n%s" % [details, controls]
 
 

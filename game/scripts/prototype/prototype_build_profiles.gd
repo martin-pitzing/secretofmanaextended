@@ -69,7 +69,7 @@ static func build_profile(profile_id: String, force_dev_tools: bool = false) -> 
 
 
 static func _build_manual_debug_map_ids(chapter_ids: Array) -> Array:
-    var output := ["test_room"]
+    var output := ["test_room", "ch01_character_sandbox"]
     for raw_chapter_id in chapter_ids:
         var chapter_id := str(raw_chapter_id)
         var module = PrototypeChapterRegistryScript.get_module(chapter_id)

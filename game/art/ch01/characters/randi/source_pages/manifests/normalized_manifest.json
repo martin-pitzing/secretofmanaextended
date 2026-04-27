@@ -1,0 +1,210 @@
+﻿{
+    "schema_version":  1,
+    "subject":  "randi",
+    "notes":  [
+                  "These files are source artwork pages, not direct runtime atlases.",
+                  "Keep source page resolution separate from logical atlas cell resolution.",
+                  "Current files are SVG masters and should be preserved untouched."
+              ],
+    "target_profiles":  {
+                            "native32":  {
+                                             "cell_px":  32,
+                                             "columns":  10,
+                                             "rows":  10,
+                                             "atlas_px":  [
+                                                              320,
+                                                              320
+                                                          ],
+                                             "description":  "Legacy-style native atlas logic with 32x32 cells."
+                                         },
+                            "native32_tall":  {
+                                                  "cell_px":  32,
+                                                  "columns":  10,
+                                                  "rows":  15,
+                                                  "atlas_px":  [
+                                                                   320,
+                                                                   480
+                                                               ],
+                                                  "description":  "Tall native atlas logic for longer locomotion/state sheets."
+                                              },
+                            "hero64":  {
+                                           "cell_px":  64,
+                                           "columns":  10,
+                                           "rows":  10,
+                                           "atlas_px":  [
+                                                            640,
+                                                            640
+                                                        ],
+                                           "description":  "Hero runtime profile for higher-fidelity gameplay animation."
+                                       },
+                            "hero64_tall":  {
+                                                "cell_px":  64,
+                                                "columns":  10,
+                                                "rows":  15,
+                                                "atlas_px":  [
+                                                                 640,
+                                                                 960
+                                                             ],
+                                                "description":  "Tall hero runtime profile for extended hero sheets."
+                                            }
+                        },
+    "imported_at":  "2026-04-27T15:23:16",
+    "pages":  [
+                  {
+                      "id":  "randi_locomotion_sheet_a",
+                      "page_type":  "hero_reference_sheet",
+                      "source_file":  "i_want_the_character_from_my_she-0.svg",
+                      "svg_path":  "C:\\Dev\\secretofmana-extended\\game\\art\\ch01\\characters\\randi\\source_pages\\svg_master\\randi_locomotion_sheet_a.svg",
+                      "png_path":  "C:\\Dev\\secretofmana-extended\\game\\art\\ch01\\characters\\randi\\source_pages\\png_master\\randi_locomotion_sheet_a.png",
+                      "source_render_width":  896,
+                      "source_render_height":  1200,
+                      "source_viewbox_width":  1529,
+                      "source_viewbox_height":  2048,
+                      "clip_groups":  [
+                                          {
+                                              "id":  "walk_cycle",
+                                              "frame_count":  6
+                                          },
+                                          {
+                                              "id":  "run_cycle",
+                                              "frame_count":  6
+                                          },
+                                          {
+                                              "id":  "jump_sequence",
+                                              "frame_count":  4
+                                          },
+                                          {
+                                              "id":  "ready_stance",
+                                              "frame_count":  4
+                                          },
+                                          {
+                                              "id":  "defensive_block",
+                                              "frame_count":  4
+                                          },
+                                          {
+                                              "id":  "hit_reaction",
+                                              "frame_count":  4
+                                          }
+                                      ]
+                  },
+                  {
+                      "id":  "randi_action_sheet_b",
+                      "page_type":  "hero_reference_sheet",
+                      "source_file":  "i_want_the_character_from_my_she-1.svg",
+                      "svg_path":  "C:\\Dev\\secretofmana-extended\\game\\art\\ch01\\characters\\randi\\source_pages\\svg_master\\randi_action_sheet_b.svg",
+                      "png_path":  "C:\\Dev\\secretofmana-extended\\game\\art\\ch01\\characters\\randi\\source_pages\\png_master\\randi_action_sheet_b.png",
+                      "source_render_width":  896,
+                      "source_render_height":  1200,
+                      "source_viewbox_width":  1529,
+                      "source_viewbox_height":  2048,
+                      "clip_groups":  [
+                                          {
+                                              "id":  "walk_side",
+                                              "frame_count":  3
+                                          },
+                                          {
+                                              "id":  "run_side",
+                                              "frame_count":  3
+                                          },
+                                          {
+                                              "id":  "jump_side",
+                                              "frame_count":  4
+                                          },
+                                          {
+                                              "id":  "sword_swaying",
+                                              "frame_count":  3
+                                          },
+                                          {
+                                              "id":  "defending",
+                                              "frame_count":  1
+                                          },
+                                          {
+                                              "id":  "being_hit",
+                                              "frame_count":  3
+                                          }
+                                      ]
+                  },
+                  {
+                      "id":  "randi_comprehensive_action_sheet",
+                      "page_type":  "hero_reference_sheet",
+                      "source_file":  "i_want_the_character_from_my_she-2.svg",
+                      "svg_path":  "C:\\Dev\\secretofmana-extended\\game\\art\\ch01\\characters\\randi\\source_pages\\svg_master\\randi_comprehensive_action_sheet.svg",
+                      "png_path":  "C:\\Dev\\secretofmana-extended\\game\\art\\ch01\\characters\\randi\\source_pages\\png_master\\randi_comprehensive_action_sheet.png",
+                      "source_render_width":  896,
+                      "source_render_height":  1200,
+                      "source_viewbox_width":  1529,
+                      "source_viewbox_height":  2048,
+                      "clip_groups":  [
+                                          {
+                                              "id":  "walk_side_detailed",
+                                              "frame_count":  4
+                                          },
+                                          {
+                                              "id":  "run_side_detailed",
+                                              "frame_count":  4
+                                          },
+                                          {
+                                              "id":  "jump_side_detailed",
+                                              "frame_count":  5
+                                          },
+                                          {
+                                              "id":  "sword_front",
+                                              "frame_count":  3
+                                          },
+                                          {
+                                              "id":  "sword_three_quarter",
+                                              "frame_count":  3
+                                          },
+                                          {
+                                              "id":  "defending_front",
+                                              "frame_count":  2
+                                          },
+                                          {
+                                              "id":  "hit_front",
+                                              "frame_count":  2
+                                          }
+                                      ]
+                  },
+                  {
+                      "id":  "randi_advanced_combat_sheet",
+                      "page_type":  "hero_reference_sheet",
+                      "source_file":  "i_want_the_character_from_my_she-3.svg",
+                      "svg_path":  "C:\\Dev\\secretofmana-extended\\game\\art\\ch01\\characters\\randi\\source_pages\\svg_master\\randi_advanced_combat_sheet.svg",
+                      "png_path":  "C:\\Dev\\secretofmana-extended\\game\\art\\ch01\\characters\\randi\\source_pages\\png_master\\randi_advanced_combat_sheet.png",
+                      "source_render_width":  896,
+                      "source_render_height":  1200,
+                      "source_viewbox_width":  1529,
+                      "source_viewbox_height":  2048,
+                      "clip_groups":  [
+                                          {
+                                              "id":  "advanced_combo",
+                                              "frame_count":  4
+                                          },
+                                          {
+                                              "id":  "sword_swaying_angles",
+                                              "frame_count":  2
+                                          },
+                                          {
+                                              "id":  "defending_angles",
+                                              "frame_count":  2
+                                          },
+                                          {
+                                              "id":  "hit_variants",
+                                              "frame_count":  2
+                                          },
+                                          {
+                                              "id":  "movement_walk",
+                                              "frame_count":  3
+                                          },
+                                          {
+                                              "id":  "movement_jump",
+                                              "frame_count":  3
+                                          },
+                                          {
+                                              "id":  "movement_run",
+                                              "frame_count":  2
+                                          }
+                                      ]
+                  }
+              ]
+}
