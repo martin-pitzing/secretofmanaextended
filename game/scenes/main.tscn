@@ -19,43 +19,48 @@ position_smoothing_speed = 8.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TopBar" type="PanelContainer" parent="CanvasLayer"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 296.0
-offset_bottom = 140.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 456.0
+offset_bottom = 164.0
 
 [node name="TopMargin" type="MarginContainer" parent="CanvasLayer/TopBar"]
-offset_right = 288.0
-offset_bottom = 132.0
+offset_right = 440.0
+offset_bottom = 148.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 8
 
 [node name="TopVBox" type="VBoxContainer" parent="CanvasLayer/TopBar/TopMargin"]
-offset_right = 268.0
-offset_bottom = 116.0
+offset_right = 420.0
+offset_bottom = 132.0
 
 [node name="MapLabel" type="Label" parent="CanvasLayer/TopBar/TopMargin/TopVBox"]
 text = "Prototype loading..."
+theme_override_font_sizes/font_size = 18
 
 [node name="StatusLabel" type="Label" parent="CanvasLayer/TopBar/TopMargin/TopVBox"]
 text = "Status pending"
 autowrap_mode = 3
+theme_override_font_sizes/font_size = 15
 
 [node name="ControlLabel" type="Label" parent="CanvasLayer/TopBar/TopMargin/TopVBox"]
 text = "WASD move | E interact | Space attack | 1-6 shortcuts | Tab cycles all staged maps"
 autowrap_mode = 3
+theme_override_font_sizes/font_size = 14
 
 [node name="PromptBar" type="PanelContainer" parent="CanvasLayer"]
-offset_left = 8.0
-offset_top = 238.0
-offset_right = 220.0
-offset_bottom = 262.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -56.0
+offset_right = 336.0
+offset_bottom = -16.0
 
 [node name="PromptMargin" type="MarginContainer" parent="CanvasLayer/PromptBar"]
-offset_right = 212.0
-offset_bottom = 24.0
+offset_right = 320.0
+offset_bottom = 40.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 10
@@ -63,6 +68,7 @@ theme_override_constants/margin_bottom = 4
 
 [node name="PromptLabel" type="Label" parent="CanvasLayer/PromptBar/PromptMargin"]
 text = ""
+theme_override_font_sizes/font_size = 15
 
 [node name="DialogueBox" parent="CanvasLayer" instance=ExtResource("3")]
 
@@ -75,30 +81,39 @@ color = Color(0, 0, 0, 0.784314)
 
 [node name="CampaignMenu" type="PanelContainer" parent="CanvasLayer"]
 visible = false
-offset_left = 68.0
-offset_top = 30.0
-offset_right = 412.0
-offset_bottom = 240.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -130.0
+offset_right = 240.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MenuMargin" type="MarginContainer" parent="CanvasLayer/CampaignMenu"]
-offset_right = 344.0
-offset_bottom = 210.0
+offset_right = 480.0
+offset_bottom = 260.0
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 12
 
 [node name="MenuVBox" type="VBoxContainer" parent="CanvasLayer/CampaignMenu/MenuMargin"]
-offset_right = 316.0
-offset_bottom = 186.0
+offset_right = 452.0
+offset_bottom = 236.0
 theme_override_constants/separation = 8
 
 [node name="MenuTitle" type="Label" parent="CanvasLayer/CampaignMenu/MenuMargin/MenuVBox"]
 text = "Prototype Campaign Flow"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
 
 [node name="MenuSummary" type="Label" parent="CanvasLayer/CampaignMenu/MenuMargin/MenuVBox"]
 text = "Saved campaign summary."
 autowrap_mode = 3
+theme_override_font_sizes/font_size = 15
 
 [node name="ContinueButton" type="Button" parent="CanvasLayer/CampaignMenu/MenuMargin/MenuVBox"]
 text = "Continue"
@@ -118,33 +133,46 @@ color = Color(0, 0, 0, 0.705882)
 
 [node name="TransitionCard" type="PanelContainer" parent="CanvasLayer"]
 visible = false
-offset_left = 74.0
-offset_top = 42.0
-offset_right = 406.0
-offset_bottom = 222.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -104.0
+offset_right = 210.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CardMargin" type="MarginContainer" parent="CanvasLayer/TransitionCard"]
-offset_right = 332.0
-offset_bottom = 180.0
+offset_right = 420.0
+offset_bottom = 208.0
 theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 14
+theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 14
+theme_override_constants/margin_bottom = 12
 
 [node name="CardVBox" type="VBoxContainer" parent="CanvasLayer/TransitionCard/CardMargin"]
-offset_right = 300.0
-offset_bottom = 152.0
-theme_override_constants/separation = 10
+offset_right = 388.0
+offset_bottom = 184.0
+theme_override_constants/separation = 8
 
 [node name="TransitionTitle" type="Label" parent="CanvasLayer/TransitionCard/CardMargin/CardVBox"]
 text = "Chapter"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
 
 [node name="TransitionChapter" type="Label" parent="CanvasLayer/TransitionCard/CardMargin/CardVBox"]
 text = "Next Chapter"
+horizontal_alignment = 1
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 26
 
 [node name="TransitionSummary" type="Label" parent="CanvasLayer/TransitionCard/CardMargin/CardVBox"]
 text = "Chapter handoff summary."
 autowrap_mode = 3
+theme_override_font_sizes/font_size = 14
 
 [node name="TransitionContinueButton" type="Button" parent="CanvasLayer/TransitionCard/CardMargin/CardVBox"]
 text = "Enter Chapter"
+theme_override_font_sizes/font_size = 15
