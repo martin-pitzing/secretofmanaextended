@@ -126,10 +126,19 @@ game/art/ch01/review_stills/
 
 Recommended naming inside each scene folder:
 
-- `backdrop_v01.png`
+- `backdrop.png`
 - `backdrop_v02.png`
+- `backdrop_v01.png`
 - `notes.md`
 - `crop_reference.png`
+
+Runtime search order for the story stages is:
+
+1. `backdrop.*`
+2. `backdrop_v02.*`
+3. `backdrop_v01.*`
+
+Supported image extensions are `png`, `webp`, `jpg`, and `jpeg`.
 
 ## Original-Material Anchor Rules
 

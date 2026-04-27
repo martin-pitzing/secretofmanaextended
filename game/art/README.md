@@ -10,3 +10,5 @@ Until then, the art source of truth lives in:
 Placeholder review stills for Chapter 1 staging should live under:
 
 - `game/art/ch01/review_stills/`
+
+The Chapter 1 story stages auto-detect `backdrop.*`, then `backdrop_v02.*`, then `backdrop_v01.*` inside each scene folder.

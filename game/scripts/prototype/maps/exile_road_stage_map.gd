@@ -1,6 +1,7 @@
 extends "res://scripts/prototype/prototype_map.gd"
 
 const Chapter1MapPrimitives = preload("res://scripts/prototype/maps/chapter1_map_primitives.gd")
+const Chapter1StageBackdrops = preload("res://scripts/prototype/maps/chapter1_stage_backdrops.gd")
 
 var _palette := {
     "background": Color(0.0627451, 0.0901961, 0.0941176, 1),
@@ -20,6 +21,12 @@ var _palette := {
     "enemy_1": Color(0.807843, 0.505882, 0.345098, 1),
     "enemy_2": Color(0.898039, 0.584314, 0.376471, 1)
 }
+var _backdrop_texture: Texture2D
+
+
+func _ready() -> void:
+    _backdrop_texture = Chapter1StageBackdrops.load_for_scene(get_primary_scene_id())
+    super._ready()
 
 
 func get_map_id() -> String:
@@ -59,6 +66,10 @@ func get_spawn_position() -> Vector2:
 
 func get_background_color() -> Color:
     return _palette["background"]
+
+
+func get_backdrop_texture() -> Texture2D:
+    return _backdrop_texture
 
 
 func get_wall_color() -> Color:

@@ -98,6 +98,14 @@ func get_floor_rects() -> Array:
     return []
 
 
+func get_backdrop_texture() -> Texture2D:
+    return null
+
+
+func get_backdrop_modulate() -> Color:
+    return Color(1, 1, 1, 0.38)
+
+
 func get_overlay_rects() -> Array:
     return []
 
@@ -238,6 +246,11 @@ func _trim_lines(lines: PackedStringArray, max_lines: int) -> PackedStringArray:
 func _draw() -> void:
     draw_rect(get_world_rect(), get_background_color(), true)
     _draw_rect_entries(get_floor_rects())
+
+    var backdrop_texture := get_backdrop_texture()
+    if backdrop_texture != null:
+        draw_texture_rect(backdrop_texture, get_world_rect(), false, get_backdrop_modulate())
+
     _draw_rect_entries(get_overlay_rects())
 
     for wall_rect in get_wall_rects():

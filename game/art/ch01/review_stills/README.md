@@ -12,8 +12,17 @@ Expected scene folders:
 
 Recommended contents per scene folder:
 
-- `backdrop_v01.png`
+- `backdrop.png`
 - `backdrop_v02.png`
+- `backdrop_v01.png`
 - `notes.md`
+
+The Chapter 1 story stages automatically look for artwork in this order:
+
+1. `backdrop.*`
+2. `backdrop_v02.*`
+3. `backdrop_v01.*`
+
+Supported image extensions are `png`, `webp`, `jpg`, and `jpeg`.
 
 These stills are meant for in-engine review staging, not as a substitute for final tile or prop production.
