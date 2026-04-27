@@ -32,6 +32,8 @@ If we want the project to approach the quality of the older sheet, Randi must mo
 
 ## Locked Decisions
 
+- use `hero64_tall` as the primary Randi runtime atlas target
+- keep `native32_tall` as a comparison-only validation lane
 - keep `4-direction + side flip`
 - keep ears as a `subtle accent`
 - use `double tap in one direction` for run
@@ -42,6 +44,7 @@ If we want the project to approach the quality of the older sheet, Randi must mo
 ### Sprite Standard
 
 - use a `64x64` frame canvas for Randi's hero atlas
+- use the `hero64_tall` transfer manifest as the working source-to-slot contract
 - keep the visible body mass closer to `30-38 px` tall inside that frame
 - keep consistent grounded foot anchors across all clips
 - reserve empty space for:
@@ -54,6 +57,7 @@ Reason:
 - `32x32` is fine for placeholders and some NPCs
 - it is too cramped for the sheet quality we are trying to approach
 - `64x64` gives room for readable attack arcs and jump states without constantly changing sprite offsets
+- `hero64_tall` lets us prove animation feel first before deciding how aggressively to compress for smaller runtime variants
 
 ### Direction Set Options
 

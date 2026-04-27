@@ -9,6 +9,11 @@ Date: `2026-04-27`
 - `hero64_tall` and `native32_tall` companion manifests now exist
 - preview rebuild tooling exists and can regenerate both atlas previews on demand
 
+## Locked Target
+
+- `hero64_tall` is now the primary runtime-facing Randi atlas lane
+- `native32_tall` remains a strict comparison lane so we can judge how much fidelity survives tighter atlas compression
+
 ## Primary Files
 
 - `game/art/ch01/characters/randi/source_pages/manifests/randi_hero64_tall_pose_crop_manifest.json`
@@ -39,7 +44,7 @@ Date: `2026-04-27`
 
 ## Recommended Next Review Order
 
-1. compare `hero64_tall` and `native32_tall` previews side by side
-2. decide whether runtime should stay on `hero64_tall` first or force a stricter `native32_tall` lane
-3. author cleaned `idle` and `attack_down` final frames on top of the current slot order
+1. use `hero64_tall` as the active working atlas for the next runtime hook-up pass
+2. compare against `native32_tall` only to judge fidelity loss, not to redefine the target
+3. author cleaned `idle` and `attack_down` final frames on top of the current `hero64_tall` slot order
 4. start wiring the first real hero atlas clips into the player visual runtime

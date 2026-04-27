@@ -116,6 +116,8 @@ This list assumes the currently locked direction:
 - keep source page resolution separate from logical atlas cell resolution
 - use the new `source_pages` ingest pipeline before replacing any more generated hero frames
 - keep the first `Randi pose crop + atlas slot manifest` as the source-to-runtime transfer contract
+- keep `hero64_tall` as the primary Randi runtime authoring lane
+- use `native32_tall` only as a strict comparison and compression check
 - review crop rectangles in the preview atlas before repainting any final hero frames
 - lock `64x64` as the first Randi hero-spec atlas canvas
 - keep `4-direction + side flip` as the first Randi direction set
@@ -165,4 +167,4 @@ This list assumes the currently locked direction:
 3. Promote Randi from placeholder sprite to first `64x64` hero atlas and test only in the sandbox first.
 4. Replace the current attack presentation with clip-driven sword timing.
 5. Add jump as a real, combat-usable verb.
-6. Transfer the imported `pictures_artworks` source pages into authored runtime atlas frames instead of extending the procedural hero placeholder generator.
+6. Transfer the imported `pictures_artworks` source pages into cleaned `hero64_tall` runtime atlas frames instead of extending the procedural hero placeholder generator.
