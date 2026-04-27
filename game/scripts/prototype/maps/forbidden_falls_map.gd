@@ -2,7 +2,7 @@ extends "res://scripts/prototype/prototype_map.gd"
 
 
 func get_map_id() -> String:
-    return "forbidden_falls_seal_breach"
+    return "forbidden_falls"
 
 
 func get_map_title() -> String:

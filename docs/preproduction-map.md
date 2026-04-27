@@ -7,8 +7,10 @@ This is the authoritative map of the pre-programming package. It points to the c
 ## Current Source Of Truth
 
 - `story structure`: `docs/story-modules.md`
+- `repo agent guidance`: `AGENTS.md`
 - `factions and power map`: `docs/faction-bible.md`
 - `engine and pipeline direction`: `docs/development-framework.md`
+- `2D action RPG terminology and reference lane`: `docs/action-rpg-terminology.md`
 - `visual language`: `docs/art-direction-brief.md`
 - `story and setting expansion`: `docs/story-setting-expansion.md`
 - `temple twists and layered quest design`: `docs/temple-turns.md`
@@ -17,6 +19,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `visual production decisions`: `docs/visual-production-decisions.md`
 - `Chapter 1 environment production kits`: `docs/art/chapter-1-environment-production-kits.md`
 - `Chapter 1 sightline pass`: `docs/planning/chapter-1-sightline-pass.md`
+- `Godot modular build and story plan`: `docs/planning/godot-modular-build-and-story-plan.md`
 - `Water Palace benchmark checklist`: `docs/art/water-palace-benchmark-checklist.md`
 - `Portrait Batch 01 spec`: `docs/art/portrait-batch-01-spec.md`
 - `Forbidden Falls combat benchmark`: `docs/art/forbidden-falls-combat-benchmark-checklist.md`
@@ -43,6 +46,8 @@ This is the authoritative map of the pre-programming package. It points to the c
 - `subculture briefs`: `docs/briefs/subculture-briefs.md`
 - `first temple authority dispute scene`: `docs/scenes/water-palace-vs-falls-shrine-dispute.md`
 - `tracker and open items`: `docs/planning/task-tracker.md`, `docs/planning/open-items.md`
+- `project chapter-authoring skill`: `.agents/skills/somr-chapter-module-authoring/SKILL.md`
+- `project visual-style skill`: `.agents/skills/somr-visual-style-authoring/SKILL.md`
 - `Godot bootstrap rules`: `docs/godot-bootstrap.md`
 - `local Godot setup guide`: `docs/godot-local-setup.md`
 - `Godot project shell`: `game/project.godot`
@@ -54,7 +59,7 @@ This is the authoritative map of the pre-programming package. It points to the c
 ## Canonical Decisions Locked So Far
 
 - Engine: `Godot 4.4+`
-- Art style: dense, ornate, top-down pixel fantasy with no remake-style 3D presentation
+- Art style: dense, ornate, semi-overhead 2D action RPG presentation with jump-capable traversal and no remake-style 3D presentation
 - Tone: melancholic mythic adventure with political weight
 - Chapter 1 boundary: `Potos -> exile -> wilderness transition -> Water Palace approach -> Pandora arrival and first political contact`
 - Broader Mana-series motifs are being used as inspiration, not assumed direct continuity unless explicitly written into this project
@@ -75,10 +80,21 @@ This is the authoritative map of the pre-programming package. It points to the c
 - the prototype now replaces manual scene advancement with in-world completion triggers and restores saved Chapter 1 runtime state
 - the prototype now hands off from Chapter 1 into Chapter 2 and uses a dedicated Pandora benchmark map for the second playable slice
 - every Chapter 1 scene now routes through a dedicated benchmark or a scene-specific story stage instead of the generic test hall fallback
+- chapter packaging is locked to `one module per chapter`
+- runtime content authority is locked to `Markdown first, YAML mirror second`
+- build-target defaults are locked to `dev_all_content`, `review_slice_ch01`, and `review_slice_ch01_ch02`
+- story safety is locked to `validators + dependency declarations`
+- placeholder stills remain part of the modular chapter pipeline
 
 ## Canonical Terminology
 
 - `Mana`: the world-binding force that functions as ecology, memory, authority, and magical energy
+- `Mana-lineage action RPG`: the project's broad identity; use for the Secret of Mana plus Alundra plus Terranigma reference stack
+- `semi-overhead field view`: the default exploration and combat presentation lane
+- `map-native combat`: live combat occurring inside explorable maps rather than in separate battle scenes
+- `jump-capable traversal`: jumping is a real movement verb for exploration and combat support
+- `ring-command layer`: radial or fast-pause ability selection for spells, items, and party functions
+- `combat lane`: the readable pocket of space where enemy pressure, hazards, and movement interact
 - `Temple Orders`: regional custodians of mana practice, not branches of one unified church
 - `Gemma Tradition`: the inherited sword-and-seal guardianship structure represented by Jema and earlier keepers
 - `Imperial Blocs`: the internal power groupings inside the Empire of Vandole
@@ -89,13 +105,16 @@ This is the authoritative map of the pre-programming package. It points to the c
 ## Working Order
 
 1. Use `story-modules` and `faction-bible` to shape narrative decisions.
-2. Use `character sheets` when writing scenes or quest logic.
-3. Use `temple-turns`, `world-texture`, `subculture briefs`, and `magic-doctrine` when expanding regions and sacred sites.
-4. Use `character sheets`, the `Dyluck mission brief`, and the temple dispute scene when writing Pandora fallout and Chapter 3.
-5. Use `content conventions` and `templates` before drafting new content docs.
-6. Use the `chapter 1 package` and `chapter 2 package` as the production benchmark for later chapters.
-7. Use the structured `game/data/scenes/` and `game/data/quests/` mirrors when turning stable editorial scenes into implementation-facing content.
-8. Use `godot-bootstrap` when creating the project shell and mirrored data folders.
+2. Use `AGENTS.md` to confirm locked architecture, build, story-safety, and AI-workflow defaults.
+3. Use `action-rpg-terminology` before describing combat, traversal, camera, or scene types.
+4. Use `character sheets` when writing scenes or quest logic.
+5. Use `temple-turns`, `world-texture`, `subculture briefs`, and `magic-doctrine` when expanding regions and sacred sites.
+6. Use `character sheets`, the `Dyluck mission brief`, and the temple dispute scene when writing Pandora fallout and Chapter 3.
+7. Use `content conventions` and `templates` before drafting new content docs.
+8. Use the project skills when the task is primarily chapter-safe content work or visual/style work.
+9. Use the `chapter 1 package` and `chapter 2 package` as the production benchmark for later chapters.
+10. Use the structured `game/data/scenes/` and `game/data/quests/` mirrors when turning stable editorial scenes into implementation-facing content.
+11. Use `godot-bootstrap` when creating the project shell and mirrored data folders.
 
 ## Minimum Definition Of "Ready To Start Programming"
 

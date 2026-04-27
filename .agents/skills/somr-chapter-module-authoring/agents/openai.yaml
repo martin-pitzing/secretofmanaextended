@@ -1,0 +1,3 @@
+interface:
+  display_name: "SOMR Chapter Modules"
+  short_description: "Author chapter-safe content and modular runtime contracts"

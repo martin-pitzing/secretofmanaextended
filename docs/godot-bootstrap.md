@@ -7,7 +7,7 @@ This document defines the first project shell and the boundaries that should sti
 ## Engine Target
 
 - `Godot 4.4+`
-- 2D-first project
+- 2D-first action RPG project
 - GDScript as the default scripting language
 - C# only if a later system clearly needs it
 
@@ -22,6 +22,8 @@ This document defines the first project shell and the boundaries that should sti
 - target internal prototype resolution: `480x270`
 - prefer integer scale presentation whenever possible
 - lock pixel snapping and camera rules before broad content implementation
+- default gameplay lane is a semi-overhead 2D field presentation, not a flat non-jumping map abstraction
+- camera rules must support combat readability and jump-capable traversal
 - avoid post-processing that blurs authored sprites or mimics 3D remake gloss
 
 ## Folder Contract

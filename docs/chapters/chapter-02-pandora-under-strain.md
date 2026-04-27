@@ -30,6 +30,26 @@ Pandora is still standing, but only because every institution inside it is decid
 - learn the truth of Dyluck's mission as rumor before confirmation
 - survive the city's first direct encounter with imperial political pressure
 
+## Gameplay Lane For This Chapter
+
+Use the canonical terminology in `docs/action-rpg-terminology.md`.
+
+Primary scene roles in Chapter 2:
+
+- `social zone`: `Gate District Morning After`, `Rumors Of Dyluck`, `Terms Of Alliance`
+- `pursuit lane`: `Court Wall, Garden Breach`
+- `civic stage`: `The Court Divides`, `Kroll's Offer`
+- `infiltration route`: `The Mission Ledger`
+- `departure route`: `Departure Through The Lower Gate`
+
+The chapter should read as a city-scale action RPG route:
+
+- gate district scenes prove civic read and party-state setup
+- the breach proves pursuit readability and route pressure
+- the safehouse proves alliance lock and party-state transition
+- the annex proves objective clarity under infiltration and combat pressure
+- the lower gate proves outbound momentum rather than chapter drift
+
 ## Character Development Goals
 
 - Randi: learns that institutions weaponize symbols just as villages weaponize superstition

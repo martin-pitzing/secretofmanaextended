@@ -41,6 +41,8 @@
 | Subculture briefs | done | world texture converted into scene-ready groups |
 | Visual production decisions | done | first benchmark environment and portrait format are locked |
 | Chapter 1 environment production kits | done | Potos, Forbidden Falls, and Water Palace kits now define material, prop, dressing, and Godot-first benchmark priorities |
+| 2D ARPG terminology and reference lane | done | project terminology is now locked around the Secret of Mana + Alundra + Terranigma lane |
+| Repo agent guide and project skills | done | `AGENTS.md` plus repo-owned chapter and visual authoring skills now lock the main AI-assisted workflow defaults |
 | Water Palace benchmark checklist | done | first environment benchmark is now execution-ready |
 | Portrait Batch 01 locked | done | first real portrait production scope and expression tiers are fixed |
 | Chapter 1 combat benchmark locked | done | Forbidden Falls seal breach arena chosen as the first combat reference room |
@@ -74,8 +76,12 @@
 | Decide Chapter 2 party and combat polish scope | done | scope is now locked to Primm join presentation, court-route pursuit readability, and ledger-target clarity without adding full stealth or party systems; see `docs/planning/chapter-2-polish-scope.md` |
 | Implement the first Chapter 2 polish pass | next | apply the locked polish scope to the safehouse alliance beat, court pursuit route, and ledger recovery pressure |
 | Lock the first playable slice definition | done | current runnable scope, limits, and milestone order are now captured in `docs/planning/playable-slice-plan.md` |
+| Lock modular build and story-safe chapter architecture plan | done | chapter-module, validator, and build-target planning now lives in `docs/planning/godot-modular-build-and-story-plan.md` |
 | Add a reviewer-friendly Chapter 1-2 access path | open | make it possible to inspect the current slice quickly without relying on hidden debug-map knowledge |
 | Package the Chapter 1-2 route as an internal playable thing | open | document launch, controls, smoke checks, and review expectations for the first real handoff |
+| Generalize chapter discovery beyond the current hard-coded runtime set | next | move the content repository toward manifest-driven chapter loading and away from Chapter 1-2-only assumptions |
+| Add Chapter 1 validator coverage and Chapter 1->2 handoff validation | next | match the existing Chapter 2 playpass discipline and make story changes safer |
+| Split core runtime systems from chapter-owned routing and presentation glue | open | reduce `prototype_main.gd` from a monolith into a reusable kernel plus chapter modules |
 
 ## Open Pre-Programming Items
 

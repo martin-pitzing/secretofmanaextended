@@ -68,7 +68,7 @@ func get_world_rect() -> Rect2:
 func get_spawn_position() -> Vector2:
     if _is_judgment_scene():
         return Vector2(154, 294)
-    return Vector2(122, 314)
+    return Vector2(154, 286)
 
 
 func get_background_color() -> Color:
@@ -227,7 +227,7 @@ func get_trigger_specs() -> Array:
                 "speaker": "Boundary Staff",
                 "prompt": "read the exile marker",
                 "radius": 18.0,
-                "position": Vector2(520, 256),
+                "position": Vector2(548, 256),
                 "color": _palette["trigger_echo"],
                 "lines": PackedStringArray(scene_info_lines)
             }

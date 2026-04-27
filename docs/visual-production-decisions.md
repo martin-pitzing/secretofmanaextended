@@ -18,11 +18,12 @@ This document locks the first visual production decisions that would otherwise k
 
 ## What The Benchmark Must Prove
 
-- layered top-down pixel environment readability
+- layered semi-overhead 2D environment readability
 - ritual interaction staging
 - dialogue scene composition
 - palette discipline for sacred spaces
 - mana glow treatment without remake-style gloss
+- clear hero route and interaction read under the action-RPG camera lane
 - prop density for archive, temple, and water-channel storytelling
 
 ## Benchmark Room Lock

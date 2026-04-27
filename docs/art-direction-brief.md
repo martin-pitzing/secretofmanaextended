@@ -2,7 +2,7 @@
 
 ## Creative Target
 
-Make the game feel like a lost "definitive pixel version" of *Secret of Mana*, not a 3D remake and not a minimal retro throwback.
+Make the game feel like a lost, polished 2D action RPG reinterpretation of *Secret of Mana*, not a 3D remake and not a minimal retro throwback.
 
 The art should communicate:
 
@@ -14,7 +14,7 @@ The art should communicate:
 
 ## Style Statement
 
-This project should look like **ornate pixel fantasy with strong material storytelling**.
+This project should look like **ornate pixel fantasy with strong material storytelling and clear action-RPG readability**.
 
 That means:
 
@@ -30,6 +30,44 @@ It should not look like:
 - flat RPG Maker nostalgia
 - blurry HD-2D bloom overload
 - low-detail mobile pixel art
+
+## Reference Lane
+
+The visual target is not pure nostalgia and not pure imitation.
+
+Use this lane:
+
+- `Secret of Mana` for party-forward sacred fantasy, radial-menu identity, and regional tone
+- `Alundra` for jump-capable traversal, room-scale action staging, and dense 2D adventure-space reads
+- `Terranigma` for brisk hero movement, run-attack-jump verbs, and SNES-lineage combat rhythm
+
+The correct visual short-hand is:
+
+- `polished 2D Mana-lineage action RPG`
+
+Do not reduce it to:
+
+- `top-down pixel remake`
+- `just Secret of Mana but prettier`
+
+## Action-RPG Read Priorities
+
+No matter how attractive a scene is, it still has to read as an action RPG.
+
+Prioritize:
+
+- readable hero locomotion
+- committed attack animations
+- enemy anticipation and recovery
+- spatial combat lanes
+- damage feedback
+- camera support for combat
+- ability selection flow
+- party-state visibility
+- strong enemy silhouettes
+- clear interaction between melee, magic, and movement
+
+If these do not read clearly, the scene may still look beautiful, but it will read as an exploration prototype rather than an action RPG.
 
 ## Regional Art Modules
 
@@ -158,23 +196,24 @@ Use these as internal prompt starters for concept generation, paintovers, or bri
 
 ### Environment Prompt
 
-"Top-down pixel fantasy environment, sacred waterfall village built from wet cedar wood and mossy stone, layered foliage, carved protective charms, mist, ornate but readable tile design, detailed 16-bit-inspired pixel art pushed to modern density, no 3D look, no plastic shading."
+"Semi-overhead 2D action RPG environment, sacred waterfall village built from wet cedar wood and mossy stone, layered foliage, carved protective charms, mist, ornate but readable tile design, detailed 16-bit-inspired pixel art pushed to modern density, no 3D look, no plastic shading."
 
 ### Temple Prompt
 
-"Ancient water temple in detailed pixel art, ivory stone, turquoise channels, ritual basins, gold inlay, sacred geometry, soft reflected light, top-down action RPG environment, rich material storytelling, handcrafted pixel aesthetic, no remake-style 3D presentation."
+"Ancient water temple in detailed pixel art, ivory stone, turquoise channels, ritual basins, gold inlay, sacred geometry, soft reflected light, semi-overhead 2D action RPG environment, rich material storytelling, handcrafted pixel aesthetic, no remake-style 3D presentation."
 
 ### Imperial Prompt
 
-"Occupied fantasy port town in high-detail pixel art, banners, soldiers, mana machinery, checkpoints, market stalls under strain, warm dust and brass tones, readable top-down RPG composition, dramatic but grounded, not anime 3D, not low-detail retro."
+"Occupied fantasy port town in high-detail pixel art, banners, soldiers, mana machinery, checkpoints, market stalls under strain, warm dust and brass tones, readable semi-overhead action RPG composition, dramatic but grounded, not anime 3D, not low-detail retro."
 
 ### Character Prompt
 
-"Pixel art character sheet for a fantasy healer noblewoman turned fugitive, layered travel dress, practical boots, court embroidery mixed with repaired field gear, expressive poses, refined color blocking, top-down RPG readability, handcrafted sprite design."
+"Pixel art character sheet for a fantasy healer noblewoman turned fugitive, layered travel dress, practical boots, court embroidery mixed with repaired field gear, expressive poses, refined color blocking, semi-overhead action RPG readability, handcrafted sprite design."
 
 ## Art Approval Checklist
 
 - Does the scene read clearly at gameplay distance?
+- Do hero movement, attack arcs, and enemy telegraphs still read clearly at gameplay distance?
 - Does it still feel pixel-authored when zoomed in?
 - Is there a strong regional identity?
 - Are materials distinct without overtexturing?

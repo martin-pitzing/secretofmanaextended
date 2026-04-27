@@ -5,7 +5,7 @@ const ChapterRuntimeStateScript = preload("res://scripts/data/chapter_runtime_st
 const PrototypeChapterRegistryScript = preload("res://scripts/prototype/prototype_chapter_registry.gd")
 const PrototypePlaypassValidatorScript = preload("res://scripts/dev/prototype_playpass_validator.gd")
 
-const CHAPTER_ID := "ch02_pandora_under_strain"
+const CHAPTER_ID := "ch01_falls_to_pandora"
 
 
 func _initialize() -> void:
@@ -24,12 +24,12 @@ func _run_validation() -> void:
     var scene_count := Array(repository.get_chapter(CHAPTER_ID).get("scene_ids", [])).size()
 
     if failures.is_empty():
-        print("Chapter 2 playpass validation passed.")
-        print("Validated %d scenes across gate, court, and annex routes." % scene_count)
+        print("Chapter 1 playpass validation passed.")
+        print("Validated %d scenes across Potos, the falls, Water Palace, and Pandora entry." % scene_count)
         quit(0)
         return
 
-    push_error("Chapter 2 playpass validation failed.")
+    push_error("Chapter 1 playpass validation failed.")
     for failure in failures:
         push_error(failure)
     quit(1)

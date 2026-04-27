@@ -23,6 +23,26 @@ The world does not break in one dramatic instant. It reveals that it has already
 - witness that temple guidance is not politically neutral
 - arrive at Pandora and feel court strain before the broader party fully forms
 
+## Gameplay Lane For This Chapter
+
+Use the canonical terminology in `docs/action-rpg-terminology.md`.
+
+Primary scene roles in Chapter 1:
+
+- `social zone`: `Potos Morning`, `Judgment At Potos`, `Pandora At The Edge`
+- `combat benchmark room`: `The Forbidden Falls`
+- `traversal route`: `Exile Road`, `Road To Pandora`
+- `ritual chamber`: `Luka's Charge`
+- `ritual approach`: `Water Palace Approach`
+
+The chapter should read as a 2D action RPG route, not a flat exploration prototype:
+
+- Potos proves low-threat social traversal
+- Forbidden Falls proves first real combat lane and sacred-danger read
+- Exile Road proves movement under pressure outside village protection
+- Water Palace proves party-goal staging and authority read
+- Road To Pandora proves travel combat and route-state worldbuilding
+
 ## Character Development Goals
 
 - Randi: exile becomes a lived wound, not a quick tutorial beat
@@ -249,7 +269,7 @@ The world does not break in one dramatic instant. It reveals that it has already
 
 - locked combat benchmark beyond the exile road: `Forbidden Falls seal breach arena`
 - benchmark source scene: `ch01_sc02_forbidden_falls`
-- reason: it proves sacred-danger combat, seal-break VFX, and early melee readability more clearly than a generic field encounter
+- reason: it proves sacred-danger combat, seal-break VFX, jump-capable route pressure, and early melee readability more clearly than a generic field encounter
 
 ## Character Art Briefs Needed Before Implementation
 

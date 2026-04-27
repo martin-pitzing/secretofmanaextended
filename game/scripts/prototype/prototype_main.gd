@@ -4,94 +4,24 @@ const PrototypeInput = preload("res://scripts/prototype/prototype_input.gd")
 const ChapterContentRepositoryScript = preload("res://scripts/data/chapter_content_repository.gd")
 const ChapterRuntimeStateScript = preload("res://scripts/data/chapter_runtime_state.gd")
 const ChapterStateStoreScript = preload("res://scripts/data/chapter_state_store.gd")
-
-const CAMPAIGN_CHAPTER_IDS := [
-    "ch01_falls_to_pandora",
-    "ch02_pandora_under_strain"
-]
+const PrototypeBuildProfilesScript = preload("res://scripts/prototype/prototype_build_profiles.gd")
+const PrototypeChapterRegistryScript = preload("res://scripts/prototype/prototype_chapter_registry.gd")
+const PrototypeMapCatalogScript = preload("res://scripts/prototype/prototype_map_catalog.gd")
 
 const AUTOSAVE_INTERVAL := 1.5
 const AUTOSAVE_DISTANCE := 20.0
+const DEFAULT_MAP_ID := "test_room"
 
-const DEBUG_MAPS := [
-    {
-        "title": "Test Hall",
-        "map_id": "test_room",
-        "scene": preload("res://scenes/prototype/maps/test_room.tscn")
-    },
-    {
-        "title": "Water Palace",
-        "map_id": "water_palace",
-        "scene": preload("res://scenes/prototype/maps/water_palace_benchmark.tscn")
-    },
-    {
-        "title": "Forbidden Falls",
-        "map_id": "forbidden_falls",
-        "scene": preload("res://scenes/prototype/maps/forbidden_falls_benchmark.tscn")
-    },
-    {
-        "title": "Pandora Gate District",
-        "map_id": "pandora_gate_district",
-        "scene": preload("res://scenes/prototype/maps/pandora_district_benchmark.tscn")
-    },
-    {
-        "title": "Pandora Court Route",
-        "map_id": "pandora_court_route",
-        "scene": preload("res://scenes/prototype/maps/pandora_court_route_benchmark.tscn")
-    },
-    {
-        "title": "Pandora Annex Route",
-        "map_id": "pandora_annex_route",
-        "scene": preload("res://scenes/prototype/maps/pandora_annex_route_benchmark.tscn")
-    },
-    {
-        "title": "Potos Story Stage",
-        "map_id": "potos_story_stage",
-        "scene": preload("res://scenes/prototype/maps/potos_story_stage.tscn")
-    },
-    {
-        "title": "Exile Road Stage",
-        "map_id": "exile_road_stage",
-        "scene": preload("res://scenes/prototype/maps/exile_road_stage.tscn")
-    },
-    {
-        "title": "Water Palace Approach Stage",
-        "map_id": "water_palace_approach_stage",
-        "scene": preload("res://scenes/prototype/maps/water_palace_approach_stage.tscn")
-    },
-    {
-        "title": "Road To Pandora Stage",
-        "map_id": "road_to_pandora_stage",
-        "scene": preload("res://scenes/prototype/maps/road_to_pandora_stage.tscn")
-    }
-]
-
-const STORY_MAP_INDEX_BY_SCENE := {
-    "ch01_sc01_potos_morning": 6,
-    "ch01_sc02_forbidden_falls": 2,
-    "ch01_sc03_judgment_at_potos": 6,
-    "ch01_sc04_exile_procession": 7,
-    "ch01_sc05_water_palace_approach": 8,
-    "ch01_sc06_luka_charge": 1,
-    "ch01_sc07_road_to_pandora": 9,
-    "ch01_sc08_pandora_gate_district": 3,
-    "ch02_sc01_gate_district_morning_after": 3,
-    "ch02_sc02_rumors_of_dyluck": 3,
-    "ch02_sc03_court_wall_garden_breach": 4,
-    "ch02_sc04_terms_of_alliance": 4,
-    "ch02_sc05_pandora_court_divides": 4,
-    "ch02_sc06_kroll_offer": 5,
-    "ch02_sc07_mission_ledger": 5,
-    "ch02_sc08_departure_lower_gate": 5
-}
-
-var _current_map_index := 0
+var _build_profile := {}
+var _campaign_chapter_ids: Array = []
+var _manual_debug_map_ids: Array = []
 var _current_map
 var _content_repository
 var _chapter_runtime
 var _chapter_state_store
+var _current_chapter_module
 var _current_chapter_index := 0
-var _manual_map_override := -1
+var _manual_map_override_id := ""
 var _map_status_text := ""
 var _pending_scene_completion := {}
 var _pending_chapter_transition := {}
@@ -130,6 +60,7 @@ func _ready() -> void:
     PrototypeInput.ensure_defaults()
     _content_repository = ChapterContentRepositoryScript.new()
     _content_repository.load_default_content()
+    _configure_build_profile()
     _chapter_runtime = ChapterRuntimeStateScript.new()
     _chapter_state_store = ChapterStateStoreScript.new()
 
@@ -154,7 +85,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     if not _session_started:
         return
-    if _manual_map_override != -1:
+    if not _manual_map_override_id.is_empty():
         return
     if _dialogue_box.is_open():
         return
@@ -196,35 +127,29 @@ func _unhandled_input(event: InputEvent) -> void:
         _restart_active_chapter()
         get_viewport().set_input_as_handled()
     elif event.is_action_pressed("chapter_story_mode"):
-        _manual_map_override = -1
+        _manual_map_override_id = ""
         _load_story_scene(true)
         _persist_runtime_progress(true)
         get_viewport().set_input_as_handled()
-    elif event.is_action_pressed("map_test_room"):
-        _manual_map_override = 0
-        _load_story_scene(false)
+    elif _can_use_manual_debug_maps() and event.is_action_pressed("map_test_room"):
+        _activate_manual_map("test_room")
         get_viewport().set_input_as_handled()
-    elif event.is_action_pressed("map_water_palace"):
-        _manual_map_override = 1
-        _load_story_scene(false)
+    elif _can_use_manual_debug_maps() and event.is_action_pressed("map_water_palace"):
+        _activate_manual_map("water_palace_inner_chamber")
         get_viewport().set_input_as_handled()
-    elif event.is_action_pressed("map_forbidden_falls"):
-        _manual_map_override = 2
-        _load_story_scene(false)
+    elif _can_use_manual_debug_maps() and event.is_action_pressed("map_forbidden_falls"):
+        _activate_manual_map("forbidden_falls")
         get_viewport().set_input_as_handled()
-    elif event.is_action_pressed("map_pandora"):
-        _manual_map_override = 3
-        _load_story_scene(false)
+    elif _can_use_manual_debug_maps() and event.is_action_pressed("map_pandora"):
+        _activate_manual_map("pandora_gate_district")
         get_viewport().set_input_as_handled()
-    elif event.is_action_pressed("map_pandora_court"):
-        _manual_map_override = 4
-        _load_story_scene(false)
+    elif _can_use_manual_debug_maps() and event.is_action_pressed("map_pandora_court"):
+        _activate_manual_map("pandora_court_route")
         get_viewport().set_input_as_handled()
-    elif event.is_action_pressed("map_pandora_annex"):
-        _manual_map_override = 5
-        _load_story_scene(false)
+    elif _can_use_manual_debug_maps() and event.is_action_pressed("map_pandora_annex"):
+        _activate_manual_map("pandora_annex_route")
         get_viewport().set_input_as_handled()
-    elif event.is_action_pressed("map_next"):
+    elif _can_use_manual_debug_maps() and event.is_action_pressed("map_next"):
         _cycle_manual_override()
         get_viewport().set_input_as_handled()
 
@@ -318,7 +243,7 @@ func _on_transition_continue_button_pressed() -> void:
 
     _pending_chapter_transition.clear()
     _hide_transition_card()
-    _manual_map_override = -1
+    _manual_map_override_id = ""
     _load_story_scene(false)
     _persist_runtime_progress(true)
 
@@ -330,8 +255,8 @@ func _on_transition_continue_button_pressed() -> void:
 
 
 func _start_new_campaign() -> void:
-    _chapter_state_store.clear_all_runtime_state(CAMPAIGN_CHAPTER_IDS)
-    _manual_map_override = -1
+    _chapter_state_store.clear_all_runtime_state(_campaign_chapter_ids)
+    _manual_map_override_id = ""
     _pending_scene_completion.clear()
     _pending_chapter_transition.clear()
     _set_active_chapter_by_index(0)
@@ -343,12 +268,12 @@ func _start_new_campaign() -> void:
 
 func _continue_saved_campaign() -> void:
     var chapter_index = int(_resume_option.get("chapter_index", 0))
-    var chapter_id = str(_resume_option.get("chapter_id", CAMPAIGN_CHAPTER_IDS[chapter_index]))
+    var chapter_id = str(_resume_option.get("chapter_id", _get_campaign_chapter_id(chapter_index)))
     var restore_context: Dictionary = _resume_option.get("restore_context", {})
     var transition_pending = bool(_resume_option.get("transition_pending", false))
     var chapter_state = _chapter_state_store.load_chapter_state(chapter_id)
 
-    _manual_map_override = -1
+    _manual_map_override_id = ""
     _pending_scene_completion.clear()
     _pending_chapter_transition.clear()
     _set_active_chapter_by_index(chapter_index)
@@ -371,11 +296,11 @@ func _continue_saved_campaign() -> void:
 
 func _restart_saved_chapter() -> void:
     var chapter_index = int(_resume_option.get("chapter_index", 0))
-    var chapter_id = str(_resume_option.get("chapter_id", CAMPAIGN_CHAPTER_IDS[chapter_index]))
+    var chapter_id = str(_resume_option.get("chapter_id", _get_campaign_chapter_id(chapter_index)))
 
     _chapter_state_store.clear_campaign_state()
     _chapter_state_store.clear_chapter_state(chapter_id)
-    _manual_map_override = -1
+    _manual_map_override_id = ""
     _pending_scene_completion.clear()
     _pending_chapter_transition.clear()
     _set_active_chapter_by_index(chapter_index)
@@ -386,8 +311,8 @@ func _restart_saved_chapter() -> void:
 
 
 func _restart_campaign() -> void:
-    _chapter_state_store.clear_all_runtime_state(CAMPAIGN_CHAPTER_IDS)
-    _manual_map_override = -1
+    _chapter_state_store.clear_all_runtime_state(_campaign_chapter_ids)
+    _manual_map_override_id = ""
     _pending_scene_completion.clear()
     _pending_chapter_transition.clear()
     _set_active_chapter_by_index(0)
@@ -412,7 +337,7 @@ func _restart_active_chapter() -> void:
 
     _chapter_state_store.clear_campaign_state()
     _chapter_state_store.clear_chapter_state(_chapter_runtime.get_chapter_id())
-    _manual_map_override = -1
+    _manual_map_override_id = ""
     _pending_scene_completion.clear()
     _pending_chapter_transition.clear()
     _hide_transition_card()
@@ -422,29 +347,36 @@ func _restart_active_chapter() -> void:
 
 
 func _cycle_manual_override() -> void:
-    if _manual_map_override == -1:
-        _manual_map_override = 0
+    if not _can_use_manual_debug_maps():
+        return
+
+    if _manual_map_override_id.is_empty():
+        _manual_map_override_id = str(_manual_debug_map_ids[0])
     else:
-        _manual_map_override = wrapi(_manual_map_override + 1, 0, DEBUG_MAPS.size())
+        var current_index := _manual_debug_map_ids.find(_manual_map_override_id)
+        if current_index == -1:
+            _manual_map_override_id = str(_manual_debug_map_ids[0])
+        else:
+            var next_index := wrapi(current_index + 1, 0, _manual_debug_map_ids.size())
+            _manual_map_override_id = str(_manual_debug_map_ids[next_index])
     _load_story_scene(false)
 
 
 func _load_story_scene(show_intro: bool, completion_result: Dictionary = {}, restore_context: Dictionary = {}) -> void:
     var current_scene_id = _chapter_runtime.get_current_scene_id()
     var bundle = _chapter_runtime.build_current_bundle()
-    var map_index = _resolve_story_map_index(current_scene_id)
-    if _manual_map_override != -1:
-        map_index = _manual_map_override
+    var map_id = _get_story_map_id_for_scene(current_scene_id)
+    if not _manual_map_override_id.is_empty():
+        map_id = _manual_map_override_id
 
-    _load_map_scene(map_index, bundle, restore_context)
+    _load_map_scene(map_id, bundle, restore_context)
     _update_story_header()
 
     if show_intro:
         _open_dialogue(_resolve_scene_brief_speaker(), _build_scene_intro_lines(completion_result))
 
 
-func _load_map_scene(index: int, content_bundle: Dictionary, restore_context: Dictionary = {}) -> void:
-    _current_map_index = wrapi(index, 0, DEBUG_MAPS.size())
+func _load_map_scene(map_id: String, content_bundle: Dictionary, restore_context: Dictionary = {}) -> void:
     _map_status_text = ""
 
     if is_instance_valid(_current_map):
@@ -454,7 +386,12 @@ func _load_map_scene(index: int, content_bundle: Dictionary, restore_context: Di
     _dialogue_box.hide_immediately()
     _player.set_controls_enabled(true)
 
-    _current_map = DEBUG_MAPS[_current_map_index]["scene"].instantiate()
+    var resolved_map_id := map_id
+    if not PrototypeMapCatalogScript.has_map(resolved_map_id):
+        resolved_map_id = DEFAULT_MAP_ID
+
+    var map_scene = PrototypeMapCatalogScript.get_map_scene(resolved_map_id)
+    _current_map = map_scene.instantiate()
     if _current_map.has_method("apply_content_bundle"):
         _current_map.apply_content_bundle(content_bundle)
     _current_map.dialogue_requested.connect(_on_map_dialogue_requested)
@@ -470,7 +407,7 @@ func _load_map_scene(index: int, content_bundle: Dictionary, restore_context: Di
 
 func _resolve_player_spawn(restore_context: Dictionary) -> Vector2:
     var fallback_spawn = _current_map.get_spawn_position()
-    if _manual_map_override != -1:
+    if not _manual_map_override_id.is_empty():
         return fallback_spawn
     if restore_context.is_empty():
         return fallback_spawn
@@ -489,20 +426,14 @@ func _resolve_player_spawn(restore_context: Dictionary) -> Vector2:
     return Vector2(float(raw_position.get("x", fallback_spawn.x)), float(raw_position.get("y", fallback_spawn.y)))
 
 
-func _resolve_story_map_index(scene_id: String) -> int:
-    return int(STORY_MAP_INDEX_BY_SCENE.get(scene_id, 0))
-
-
 func _get_story_map_id_for_scene(scene_id: String) -> String:
-    var map_index = _resolve_story_map_index(scene_id)
-    return str(DEBUG_MAPS[map_index].get("map_id", ""))
+    if _current_chapter_module == null:
+        return DEFAULT_MAP_ID
+    return str(_current_chapter_module.get_story_map_id(scene_id))
 
 
 func _get_map_title_by_id(map_id: String) -> String:
-    for map_record in DEBUG_MAPS:
-        if str(map_record.get("map_id", "")) == map_id:
-            return str(map_record.get("title", map_id))
-    return ""
+    return PrototypeMapCatalogScript.get_map_title(map_id)
 
 
 func _update_camera_limits(world_rect: Rect2) -> void:
@@ -534,7 +465,7 @@ func _update_story_header() -> void:
     var map_title = "Map pending"
     if is_instance_valid(_current_map):
         map_title = "Map: %s" % _current_map.get_map_title()
-    if _manual_map_override != -1:
+    if not _manual_map_override_id.is_empty():
         map_title += " [manual override]"
     _status_label.text = "%s\n%s | Flags: %d" % [quest_state, map_title, int(summary.get("flag_count", 0))]
 
@@ -543,7 +474,10 @@ func _update_story_header() -> void:
     var details = goal if not goal.is_empty() else beat
     if not _map_status_text.is_empty():
         details = "%s | %s" % [details, _map_status_text]
-    _control_label.text = "%s\nE interact | Space attack | R restart | C story routing | 1-6 shortcuts | Tab cycles all staged maps" % details
+    var controls = "E interact | Space attack | R restart | C story routing"
+    if _can_use_manual_debug_maps():
+        controls += " | 1-6 shortcuts | Tab cycles staged maps"
+    _control_label.text = "%s\n%s" % [details, controls]
 
 
 func _build_scene_intro_lines(completion_result: Dictionary = {}) -> PackedStringArray:
@@ -685,7 +619,7 @@ func _on_map_scene_completion_requested(payload: Dictionary) -> void:
         next_chapter_index = _get_next_chapter_index()
         lines.append_array(_build_completion_lines(
             completion_result,
-            _get_chapter_title(CAMPAIGN_CHAPTER_IDS[next_chapter_index]) if next_chapter_index != -1 else ""
+            _get_chapter_title(_get_campaign_chapter_id(next_chapter_index)) if next_chapter_index != -1 else ""
         ))
 
     _pending_scene_completion = {
@@ -725,7 +659,7 @@ func _on_dialogue_closed() -> void:
 
 
 func _prepare_next_chapter_transition(next_chapter_index: int) -> void:
-    _manual_map_override = -1
+    _manual_map_override_id = ""
     _set_active_chapter_by_index(next_chapter_index)
     _persist_runtime_progress(false, true)
     _pending_chapter_transition = {
@@ -774,7 +708,7 @@ func _build_campaign_state_snapshot(include_player_context: bool, transition_pen
         "transition_pending": transition_pending
     }
 
-    if include_player_context and _manual_map_override == -1 and is_instance_valid(_current_map):
+    if include_player_context and _manual_map_override_id.is_empty() and is_instance_valid(_current_map):
         if _current_map.get_map_id() == story_map_id:
             snapshot["player_position"] = {
                 "x": _player.global_position.x,
@@ -795,7 +729,7 @@ func _build_resume_option() -> Dictionary:
 
 func _build_resume_option_from_campaign_state(campaign_state: Dictionary) -> Dictionary:
     var chapter_id = str(campaign_state.get("current_chapter_id", ""))
-    var chapter_index = CAMPAIGN_CHAPTER_IDS.find(chapter_id)
+    var chapter_index = _campaign_chapter_ids.find(chapter_id)
     if chapter_index == -1:
         return {"has_save": false}
 
@@ -813,7 +747,7 @@ func _build_resume_option_from_campaign_state(campaign_state: Dictionary) -> Dic
 func _build_legacy_resume_option() -> Dictionary:
     var last_completed_chapter_id = ""
 
-    for chapter_index in range(CAMPAIGN_CHAPTER_IDS.size()):
+    for chapter_index in range(_campaign_chapter_ids.size()):
         _set_active_chapter_by_index(chapter_index)
         var chapter_id = _chapter_runtime.get_chapter_id()
         var saved_state = _chapter_state_store.load_chapter_state(chapter_id)
@@ -846,12 +780,12 @@ func _build_legacy_resume_option() -> Dictionary:
 
         last_completed_chapter_id = chapter_id
 
-    if CAMPAIGN_CHAPTER_IDS.is_empty():
+    if _campaign_chapter_ids.is_empty():
         return {"has_save": false}
 
-    var final_index = CAMPAIGN_CHAPTER_IDS.size() - 1
+    var final_index = _campaign_chapter_ids.size() - 1
     _set_active_chapter_by_index(final_index)
-    var final_state = _chapter_state_store.load_chapter_state(CAMPAIGN_CHAPTER_IDS[final_index])
+    var final_state = _chapter_state_store.load_chapter_state(_campaign_chapter_ids[final_index])
     if not final_state.is_empty():
         _chapter_runtime.restore_state(final_state)
 
@@ -868,7 +802,7 @@ func _build_legacy_resume_option() -> Dictionary:
 func _build_resume_option_from_runtime(chapter_index: int, campaign_state: Dictionary, prefix_lines: PackedStringArray = PackedStringArray()) -> Dictionary:
     var summary = _chapter_runtime.get_progress_summary()
     var scene = _chapter_runtime.get_current_scene_record()
-    var chapter_title = str(summary.get("chapter_title", CAMPAIGN_CHAPTER_IDS[chapter_index]))
+    var chapter_title = str(summary.get("chapter_title", _get_campaign_chapter_id(chapter_index)))
     var scene_title = str(scene.get("title", campaign_state.get("scene_title", "Current scene")))
     var scene_number = int(summary.get("scene_number", max(int(campaign_state.get("current_scene_number", 1)), 1)))
     var scene_total = int(summary.get("scene_total", _chapter_runtime.get_total_scene_count()))
@@ -906,14 +840,71 @@ func _build_resume_option_from_runtime(chapter_index: int, campaign_state: Dicti
     }
 
 
+func _configure_build_profile() -> void:
+    _build_profile = PrototypeBuildProfilesScript.resolve_runtime_profile()
+    _campaign_chapter_ids.clear()
+
+    for raw_chapter_id in _build_profile.get("chapter_ids", []):
+        var chapter_id := str(raw_chapter_id)
+        if chapter_id.is_empty():
+            continue
+        if not PrototypeChapterRegistryScript.has_module(chapter_id):
+            continue
+        if _content_repository.get_chapter(chapter_id).is_empty():
+            continue
+        _campaign_chapter_ids.append(chapter_id)
+
+    if _campaign_chapter_ids.is_empty():
+        for raw_chapter_id in PrototypeChapterRegistryScript.get_available_chapter_ids():
+            var chapter_id := str(raw_chapter_id)
+            if _content_repository.get_chapter(chapter_id).is_empty():
+                continue
+            _campaign_chapter_ids.append(chapter_id)
+
+    _manual_debug_map_ids.clear()
+    for raw_map_id in _build_profile.get("manual_debug_map_ids", []):
+        var map_id := str(raw_map_id)
+        if map_id.is_empty():
+            continue
+        if not PrototypeMapCatalogScript.has_map(map_id):
+            continue
+        _manual_debug_map_ids.append(map_id)
+
+func _can_use_manual_debug_maps() -> bool:
+    return bool(_build_profile.get("dev_tools_enabled", false)) and not _manual_debug_map_ids.is_empty()
+
+
+func _activate_manual_map(map_id: String) -> void:
+    if not _can_use_manual_debug_maps():
+        return
+    if not _manual_debug_map_ids.has(map_id):
+        return
+    _manual_map_override_id = map_id
+    _load_story_scene(false)
+
+
+func _get_campaign_chapter_id(chapter_index: int) -> String:
+    if _campaign_chapter_ids.is_empty():
+        return ""
+    var safe_index := clampi(chapter_index, 0, _campaign_chapter_ids.size() - 1)
+    return str(_campaign_chapter_ids[safe_index])
+
+
 func _set_active_chapter_by_index(chapter_index: int) -> void:
-    _current_chapter_index = clampi(chapter_index, 0, CAMPAIGN_CHAPTER_IDS.size() - 1)
-    _chapter_runtime.configure(_content_repository, CAMPAIGN_CHAPTER_IDS[_current_chapter_index])
+    if _campaign_chapter_ids.is_empty():
+        _current_chapter_index = 0
+        _current_chapter_module = null
+        return
+
+    _current_chapter_index = clampi(chapter_index, 0, _campaign_chapter_ids.size() - 1)
+    var chapter_id = str(_campaign_chapter_ids[_current_chapter_index])
+    _current_chapter_module = PrototypeChapterRegistryScript.get_module(chapter_id)
+    _chapter_runtime.configure(_content_repository, chapter_id)
 
 
 func _get_next_chapter_index() -> int:
     var next_index = _current_chapter_index + 1
-    if next_index >= CAMPAIGN_CHAPTER_IDS.size():
+    if next_index >= _campaign_chapter_ids.size():
         return -1
     return next_index
 

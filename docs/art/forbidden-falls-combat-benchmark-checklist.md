@@ -27,7 +27,9 @@ It complements the Water Palace inner chamber by proving the opposite half of th
 ## What The Benchmark Must Prove
 
 - player and enemy readability in a dense natural-sacred space
+- readable hero locomotion near water edges and altar approach lanes
 - early melee spacing around environmental edges and a central focal point
+- clear attack commitment, enemy anticipation, and enemy recovery at early-game speeds
 - seal-break VFX that feel dangerous and pixel-authored rather than glossy
 - environmental storytelling before, during, and after a fight
 - clean transition from exploration to combat to sword-pull moment
@@ -37,6 +39,7 @@ It complements the Water Palace inner chamber by proving the opposite half of th
 - waterfall-edge arena
 - one altar or seal-stone focal structure
 - one combat approach lane
+- one small jump, broken-footing, or landing read that proves traversal belongs in the action vocabulary without turning the room into a platform gauntlet
 - one hazard edge or knockback-danger zone
 - one post-fight visual state change showing the seal destabilized
 
@@ -54,6 +57,7 @@ It complements the Water Palace inner chamber by proving the opposite half of th
 
 - one destabilized monster family with readable telegraphs
 - melee hit-confirm readability at early-game weapon speeds
+- clear punish windows after enemy commitment
 - enough open floor space for first danger teaching
 - at least one environmental pressure element:
   - slippery edge
@@ -82,6 +86,7 @@ It complements the Water Palace inner chamber by proving the opposite half of th
 - first monster emergence or leap
 - sword pull or contact beat
 - altar crack or seal pulse
+- one attack startup and recovery read that remains clear at gameplay distance
 - one knockback or stagger animation readable in tight space
 
 ## Audio And Mood Checklist

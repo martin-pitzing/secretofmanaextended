@@ -8,7 +8,7 @@ Why:
 
 - best balance of 2D tooling, low overhead, source control friendliness, and custom pixel workflows
 - easier to keep a handcrafted pixel identity than in heavier 3D-first engines
-- good fit for action RPG combat, tilemaps, shaders, dialogue tools, and moddable data-driven content
+- good fit for semi-overhead 2D action RPG combat, jump-capable traversal, ring-command UI, shaders, dialogue tools, and moddable data-driven content
 - practical for a greenfield indie project without forcing a huge rendering or build pipeline
 
 Do **not** start in a 3D engine if the goal is "detailed pixel RPG that does not resemble the HD remake."
@@ -18,7 +18,9 @@ Do **not** start in a 3D engine if the goal is "detailed pixel RPG that does not
 ### Godot 4.4+
 
 Best fit if you want:
-- top-down action combat
+- semi-overhead action combat
+- jump-capable traversal
+- live combat inside explorable maps
 - layered tilemaps and event-driven maps
 - custom lighting and weather over pixel art
 - fast iteration with a small team
@@ -50,7 +52,9 @@ Reason:
 
 Target:
 
-- top-down pixel action RPG
+- semi-overhead 2D action RPG
+- jump-capable traversal in the Alundra / Terranigma lane
+- Secret of Mana-style party rhythm and ring-command identity
 - high-detail environments
 - readable combat silhouettes
 - painterly lighting without abandoning crisp sprites
@@ -65,9 +69,14 @@ Avoid:
 
 Reference lane:
 
+- `Secret of Mana` for party rhythm, world tone, and ring-command identity
+- `Alundra` for jump-capable traversal and room-scale action structure
+- `Terranigma` for movement verbs built from run, attack, and jump
 - "hand-authored pixel diorama" rather than "retro nostalgia filter"
 - dense environmental storytelling
 - expressive animation priority on idle, cast, hit, and traversal states
+
+Canonical terminology lives in `docs/action-rpg-terminology.md` and should be used when describing combat, movement, camera, benchmarks, and scene types.
 
 ## Pixel Spec Recommendation
 
@@ -149,8 +158,10 @@ Preserve the spirit of *Secret of Mana* without copying its rough edges blindly.
 Keep:
 
 - real-time melee spacing
+- jump-capable traversal as a combat-supporting verb
 - weapon identity
 - companion synergy
+- ring-command style ability selection
 - elemental magic acquisition through spirits
 - layered towns/fields/dungeons rhythm
 
@@ -159,6 +170,7 @@ Improve:
 - hit feedback and enemy telegraphing
 - collision clarity
 - AI companion reliability
+- ability-selection flow under pressure
 - spell readability in crowded scenes
 - boss phase identity
 - traversal and puzzle integration with magic
@@ -227,7 +239,9 @@ Best slice:
 The slice should prove:
 
 - camera and movement feel
+- jump read and landing read
 - combat readability
+- combat-lane clarity
 - dialogue and cutscene pacing
 - tile density and lighting style
 - one temple-adjacent story beat
@@ -238,13 +252,14 @@ The slice should prove:
 1. Player controller
 2. Party follow and swap system
 3. Melee and hit reaction framework
-4. Spell casting and elemental affinity system
-5. Dialogue and portrait framework
-6. Quest/state flag system
-7. Tile interaction and traversal tools
-8. Boss state machine
-9. Save/load and world-state persistence
-10. Content authoring format for chapters and cutscenes
+4. Ring-command layer and ability-selection flow
+5. Spell casting and elemental affinity system
+6. Dialogue and portrait framework
+7. Quest/state flag system
+8. Jump, landing, ledge, and traversal tools
+9. Boss state machine
+10. Save/load and world-state persistence
+11. Content authoring format for chapters and cutscenes
 
 ## Recommended Milestones
 
