@@ -4,9 +4,16 @@ class_name PrototypePlayerVisual
 
 const HERO_FRAME_ROOT := "res://art/ch01/characters/randi/hero"
 const HERO_ANIMATIONS := {
+    "attack_down": 3,
+    "attack_side": 3,
+    "attack_up": 3,
+    "hit_down": 2,
     "idle_down": 2,
     "idle_up": 2,
     "idle_side": 2,
+    "jump_down": 5,
+    "jump_side": 5,
+    "jump_up": 5,
     "walk_down": 4,
     "walk_up": 4,
     "walk_side": 4,
@@ -15,7 +22,10 @@ const HERO_ANIMATIONS := {
     "run_side": 4
 }
 const HERO_ANIMATION_FPS := {
+    "attack": 12.0,
+    "hit": 9.0,
     "idle": 2.0,
+    "jump": 11.0,
     "walk": 7.0,
     "run": 11.0
 }
@@ -49,18 +59,18 @@ func has_hero_frames() -> bool:
 func update_motion(state_name: String, facing: Vector2, attacking: bool = false) -> void:
     var direction := _cardinalize(facing)
     var direction_name := _direction_to_name(direction)
-    var animation_name := "%s_%s" % [state_name, direction_name]
-    var use_sprite := prefer_sprite_visual and _hero_frames_ready and _hero_sprite.sprite_frames and _hero_sprite.sprite_frames.has_animation(animation_name)
+    var animation_name := _resolve_animation_name(state_name, direction_name)
+    var use_sprite := prefer_sprite_visual and _hero_frames_ready and _hero_sprite.sprite_frames and animation_name != ""
 
     _fallback_root.visible = not use_sprite
     _sprite_root.visible = use_sprite
 
     if use_sprite:
-        _hero_sprite.flip_h = direction_name == "side" and direction.x < 0.0
-        _hero_sprite.modulate = Color(1.0, 0.95, 0.86, 1.0) if attacking else Color.WHITE
+        _hero_sprite.flip_h = animation_name.ends_with("_side") and direction.x < 0.0
+        _hero_sprite.modulate = Color(1.0, 0.97, 0.9, 1.0) if attacking and animation_name.begins_with("idle_") else Color.WHITE
         if _hero_sprite.animation != animation_name:
             _hero_sprite.play(animation_name)
-        else:
+        elif not _hero_sprite.is_playing():
             _hero_sprite.play()
         _hero_sprite.speed_scale = _speed_scale_for_state(state_name)
     else:
@@ -84,7 +94,7 @@ func _load_hero_frames() -> bool:
 
     for animation_name in HERO_ANIMATIONS.keys():
         sprite_frames.add_animation(animation_name)
-        sprite_frames.set_animation_loop(animation_name, true)
+        sprite_frames.set_animation_loop(animation_name, not _is_one_shot_animation(animation_name))
 
         var animation_parts: PackedStringArray = animation_name.split("_", false, 1)
         var state_name: String = animation_parts[0]
@@ -121,7 +131,13 @@ func _direction_to_name(direction: Vector2) -> String:
 
 func _speed_scale_for_state(state_name: String) -> float:
     match state_name:
+        "attack":
+            return 1.0
+        "hit":
+            return 1.0
         "idle":
+            return 1.0
+        "jump":
             return 1.0
         "walk":
             return 1.0
@@ -137,3 +153,37 @@ func _cardinalize(direction: Vector2) -> Vector2:
     if direction.y == 0.0:
         return Vector2.DOWN
     return Vector2(0.0, sign(direction.y))
+
+
+func _resolve_animation_name(state_name: String, direction_name: String) -> String:
+    if not _hero_sprite.sprite_frames:
+        return ""
+
+    var requested := "%s_%s" % [state_name, direction_name]
+    if _hero_sprite.sprite_frames.has_animation(requested):
+        return requested
+
+    if state_name == "attack":
+        var attack_fallback := "idle_%s" % direction_name
+        if _hero_sprite.sprite_frames.has_animation(attack_fallback):
+            return attack_fallback
+    elif state_name == "jump":
+        if _hero_sprite.sprite_frames.has_animation(requested):
+            return requested
+        if _hero_sprite.sprite_frames.has_animation("jump_side"):
+            return "jump_side"
+    elif state_name == "hit":
+        if _hero_sprite.sprite_frames.has_animation(requested):
+            return requested
+        if _hero_sprite.sprite_frames.has_animation("hit_down"):
+            return "hit_down"
+
+    var idle_fallback := "idle_%s" % direction_name
+    if _hero_sprite.sprite_frames.has_animation(idle_fallback):
+        return idle_fallback
+
+    return ""
+
+
+func _is_one_shot_animation(animation_name: String) -> bool:
+    return animation_name.begins_with("attack_") or animation_name.begins_with("jump_") or animation_name.begins_with("hit_")

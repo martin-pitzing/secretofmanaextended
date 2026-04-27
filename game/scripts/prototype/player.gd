@@ -23,6 +23,10 @@ enum MotionState {
 @export var run_speed := 136.0
 @export var run_double_tap_window := 0.24
 @export var prefer_sprite_visual := true
+@export var attack_cooldown := 0.38
+@export var attack_active_duration := 0.24
+@export var jump_preview_duration := 0.42
+@export var hit_preview_duration := 0.26
 
 var controls_enabled := true
 var facing := Vector2.DOWN
@@ -36,6 +40,8 @@ var _run_tap_direction := Vector2.ZERO
 var _run_tap_remaining := 0.0
 var _run_direction := Vector2.ZERO
 var _run_active := false
+var _jump_preview_remaining := 0.0
+var _hit_preview_remaining := 0.0
 
 @onready var _visual = $PlayerVisual
 @onready var _attack_area: Area2D = $AttackArea
@@ -54,6 +60,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
     _tick_attack(delta)
+    _tick_preview_states(delta)
     _tick_run_window(delta)
     _capture_run_taps()
 
@@ -66,10 +73,18 @@ func _physics_process(delta: float) -> void:
         _refresh_visuals()
         return
 
+    if Input.is_action_just_pressed("debug_hit_preview"):
+        _start_hit_preview()
+
     var input_vector := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+    if Input.is_action_just_pressed("jump"):
+        _start_jump_preview(input_vector)
+
     _update_run_state(input_vector)
 
-    if input_vector != Vector2.ZERO:
+    if _hit_preview_remaining > 0.0 or _jump_preview_remaining > 0.0:
+        velocity = Vector2.ZERO
+    elif input_vector != Vector2.ZERO:
         facing = _cardinalize(input_vector)
         var active_speed := run_speed if _run_active else walk_speed
         velocity = input_vector.normalized() * active_speed
@@ -96,6 +111,8 @@ func set_controls_enabled(value: bool) -> void:
         velocity = Vector2.ZERO
         _run_active = false
         _run_direction = Vector2.ZERO
+        _jump_preview_remaining = 0.0
+        _hit_preview_remaining = 0.0
         _set_motion_state(MotionState.IDLE)
         _refresh_visuals()
 
@@ -153,8 +170,8 @@ func _start_attack() -> void:
         return
 
     var direction := _cardinalize(facing)
-    _attack_cooldown_remaining = 0.32
-    _attack_time_remaining = 0.11
+    _attack_cooldown_remaining = attack_cooldown
+    _attack_time_remaining = attack_active_duration
     _hit_targets_this_swing.clear()
     _attack_area.monitoring = true
     _attack_area.position = direction * 20.0
@@ -178,6 +195,12 @@ func _tick_attack(delta: float) -> void:
         _slash_visual.visible = false
         if velocity == Vector2.ZERO:
             _set_motion_state(MotionState.IDLE)
+
+
+func _tick_preview_states(delta: float) -> void:
+    _jump_preview_remaining = max(_jump_preview_remaining - delta, 0.0)
+    _hit_preview_remaining = max(_hit_preview_remaining - delta, 0.0)
+
 
 func _refresh_visuals() -> void:
     _visual.update_motion(_motion_state_to_visual_name(), facing, _attack_time_remaining > 0.0)
@@ -246,6 +269,11 @@ func _capture_run_tap(action_name: String, direction: Vector2) -> void:
 
 
 func _update_run_state(input_vector: Vector2) -> void:
+    if _jump_preview_remaining > 0.0 or _hit_preview_remaining > 0.0:
+        _run_active = false
+        _run_direction = Vector2.ZERO
+        return
+
     if input_vector == Vector2.ZERO:
         _run_active = false
         _run_direction = Vector2.ZERO
@@ -277,6 +305,20 @@ func _is_direction_action_pressed(direction: Vector2) -> bool:
 
 
 func _update_motion_state(input_vector: Vector2) -> void:
+    if _hit_preview_remaining > 0.0:
+        _set_motion_state(MotionState.HIT)
+        return
+
+    if _jump_preview_remaining > 0.0:
+        var jump_progress := 1.0 - (_jump_preview_remaining / jump_preview_duration)
+        if jump_progress < 0.22:
+            _set_motion_state(MotionState.JUMP_START)
+        elif jump_progress < 0.78:
+            _set_motion_state(MotionState.JUMP_AIR)
+        else:
+            _set_motion_state(MotionState.JUMP_LAND)
+        return
+
     if _attack_time_remaining > 0.0:
         _set_motion_state(MotionState.ATTACK_ACTIVE)
         return
@@ -298,9 +340,40 @@ func _set_motion_state(next_state: int) -> void:
 
 func _motion_state_to_visual_name() -> String:
     match _motion_state:
+        MotionState.ATTACK_ACTIVE:
+            return "attack"
+        MotionState.HIT:
+            return "hit"
+        MotionState.JUMP_START, MotionState.JUMP_AIR, MotionState.JUMP_LAND:
+            return "jump"
         MotionState.RUN:
             return "run"
         MotionState.WALK:
             return "walk"
         _:
             return "idle"
+
+
+func _start_jump_preview(input_vector: Vector2) -> void:
+    if not controls_enabled or _attack_time_remaining > 0.0 or _hit_preview_remaining > 0.0:
+        return
+    if input_vector != Vector2.ZERO:
+        facing = _cardinalize(input_vector)
+    _jump_preview_remaining = jump_preview_duration
+    _set_motion_state(MotionState.JUMP_START)
+    _refresh_visuals()
+
+
+func _start_hit_preview() -> void:
+    if not controls_enabled or _attack_time_remaining > 0.0:
+        return
+    _hit_preview_remaining = hit_preview_duration
+    _jump_preview_remaining = 0.0
+    _set_motion_state(MotionState.HIT)
+    _refresh_visuals()
+
+
+func receive_hit(damage: int = 1, knockback := Vector2.ZERO) -> void:
+    if knockback != Vector2.ZERO:
+        facing = _cardinalize(-knockback)
+    _start_hit_preview()

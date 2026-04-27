@@ -28,11 +28,15 @@
       "frame_index": 0,
       "atlas_cell": { "col": 0, "row": 0 },
       "source": {
-        "page_id": "randi_advanced_combat_sheet",
-        "crop_rect": [448, 74, 160, 184]
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [0, 0],
+        "scale_multiplier": 1.0
       },
       "reference_confidence": "medium",
-      "notes": "Front standing pose from advanced combat sheet."
+      "notes": "Front standing idle from turnaround reference."
     },
     {
       "entry_id": "idle_down_1",
@@ -40,11 +44,15 @@
       "frame_index": 1,
       "atlas_cell": { "col": 1, "row": 0 },
       "source": {
-        "page_id": "randi_comprehensive_action_sheet",
-        "crop_rect": [46, 704, 146, 144]
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [1, -1],
+        "scale_multiplier": 1.0
       },
       "reference_confidence": "medium",
-      "notes": "Second down-facing idle proxy from front ready stance."
+      "notes": "Front standing idle sway from turnaround reference."
     },
     {
       "entry_id": "idle_side_0",
@@ -52,11 +60,15 @@
       "frame_index": 0,
       "atlas_cell": { "col": 2, "row": 0 },
       "source": {
-        "page_id": "randi_advanced_combat_sheet",
-        "crop_rect": [628, 74, 164, 184]
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [820, 160, 320, 710]
+      },
+      "render": {
+        "offset_px": [0, 0],
+        "scale_multiplier": 1.0
       },
       "reference_confidence": "medium",
-      "notes": "Primary side idle from standing side pose."
+      "notes": "Primary side idle from turnaround reference."
     },
     {
       "entry_id": "idle_side_1",
@@ -64,11 +76,15 @@
       "frame_index": 1,
       "atlas_cell": { "col": 3, "row": 0 },
       "source": {
-        "page_id": "randi_action_sheet_b",
-        "crop_rect": [178, 80, 140, 244]
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [820, 160, 320, 710]
+      },
+      "render": {
+        "offset_px": [1, -1],
+        "scale_multiplier": 0.99
       },
       "reference_confidence": "medium",
-      "notes": "Second side idle from isolated side-action walk stance."
+      "notes": "Secondary side idle sway from turnaround reference."
     },
     {
       "entry_id": "block_down_0",
@@ -381,11 +397,531 @@
       },
       "reference_confidence": "high",
       "notes": "Forward thrust / cross-body continuation."
+    },
+    {
+      "entry_id": "idle_up_0",
+      "target_clip": "idle_up",
+      "frame_index": 0,
+      "atlas_cell": { "col": 6, "row": 3 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [0, 0],
+        "scale_multiplier": 1.0
+      },
+      "reference_confidence": "medium",
+      "notes": "Back-standing idle from turnaround reference."
+    },
+    {
+      "entry_id": "idle_up_1",
+      "target_clip": "idle_up",
+      "frame_index": 1,
+      "atlas_cell": { "col": 7, "row": 3 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [1, -1],
+        "scale_multiplier": 0.99
+      },
+      "reference_confidence": "medium",
+      "notes": "Back-standing idle sway variant from turnaround reference."
+    },
+    {
+      "entry_id": "walk_down_0",
+      "target_clip": "walk_down",
+      "frame_index": 0,
+      "atlas_cell": { "col": 0, "row": 4 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [-1, 0],
+        "scale_multiplier": 1.0
+      },
+      "reference_confidence": "medium",
+      "notes": "Front walk bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "walk_down_1",
+      "target_clip": "walk_down",
+      "frame_index": 1,
+      "atlas_cell": { "col": 1, "row": 4 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [1, -1],
+        "scale_multiplier": 1.01
+      },
+      "reference_confidence": "medium",
+      "notes": "Front walk sway bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "walk_down_2",
+      "target_clip": "walk_down",
+      "frame_index": 2,
+      "atlas_cell": { "col": 2, "row": 4 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [1, 0],
+        "scale_multiplier": 1.0
+      },
+      "reference_confidence": "medium",
+      "notes": "Front walk return bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "walk_down_3",
+      "target_clip": "walk_down",
+      "frame_index": 3,
+      "atlas_cell": { "col": 3, "row": 4 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [-1, -1],
+        "scale_multiplier": 1.01
+      },
+      "reference_confidence": "medium",
+      "notes": "Front walk loop-closing sway bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "walk_up_0",
+      "target_clip": "walk_up",
+      "frame_index": 0,
+      "atlas_cell": { "col": 4, "row": 4 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [-1, 0],
+        "scale_multiplier": 1.0
+      },
+      "reference_confidence": "medium",
+      "notes": "Back walk bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "walk_up_1",
+      "target_clip": "walk_up",
+      "frame_index": 1,
+      "atlas_cell": { "col": 5, "row": 4 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [1, -1],
+        "scale_multiplier": 0.99
+      },
+      "reference_confidence": "medium",
+      "notes": "Back walk sway bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "walk_up_2",
+      "target_clip": "walk_up",
+      "frame_index": 2,
+      "atlas_cell": { "col": 6, "row": 4 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [1, 0],
+        "scale_multiplier": 1.0
+      },
+      "reference_confidence": "medium",
+      "notes": "Back walk return bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "walk_up_3",
+      "target_clip": "walk_up",
+      "frame_index": 3,
+      "atlas_cell": { "col": 7, "row": 4 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [-1, -1],
+        "scale_multiplier": 1.01
+      },
+      "reference_confidence": "medium",
+      "notes": "Back walk loop-closing sway bridge frame."
+    },
+    {
+      "entry_id": "run_down_0",
+      "target_clip": "run_down",
+      "frame_index": 0,
+      "atlas_cell": { "col": 0, "row": 5 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [-2, -1],
+        "scale_multiplier": 1.02
+      },
+      "reference_confidence": "medium",
+      "notes": "Front run bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "run_down_1",
+      "target_clip": "run_down",
+      "frame_index": 1,
+      "atlas_cell": { "col": 1, "row": 5 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [1, -2],
+        "scale_multiplier": 1.04
+      },
+      "reference_confidence": "medium",
+      "notes": "Front run lifted bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "run_down_2",
+      "target_clip": "run_down",
+      "frame_index": 2,
+      "atlas_cell": { "col": 2, "row": 5 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [2, -1],
+        "scale_multiplier": 1.02
+      },
+      "reference_confidence": "medium",
+      "notes": "Front run return bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "run_down_3",
+      "target_clip": "run_down",
+      "frame_index": 3,
+      "atlas_cell": { "col": 3, "row": 5 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [-1, -2],
+        "scale_multiplier": 1.04
+      },
+      "reference_confidence": "medium",
+      "notes": "Front run loop-closing bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "run_up_0",
+      "target_clip": "run_up",
+      "frame_index": 0,
+      "atlas_cell": { "col": 4, "row": 5 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [-2, -1],
+        "scale_multiplier": 1.02
+      },
+      "reference_confidence": "medium",
+      "notes": "Back run bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "run_up_1",
+      "target_clip": "run_up",
+      "frame_index": 1,
+      "atlas_cell": { "col": 5, "row": 5 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [1, -3],
+        "scale_multiplier": 1.06
+      },
+      "reference_confidence": "medium",
+      "notes": "Back run lifted bridge frame."
+    },
+    {
+      "entry_id": "run_up_2",
+      "target_clip": "run_up",
+      "frame_index": 2,
+      "atlas_cell": { "col": 6, "row": 5 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [2, -1],
+        "scale_multiplier": 1.02
+      },
+      "reference_confidence": "medium",
+      "notes": "Back run return bridge frame from turnaround reference."
+    },
+    {
+      "entry_id": "run_up_3",
+      "target_clip": "run_up",
+      "frame_index": 3,
+      "atlas_cell": { "col": 7, "row": 5 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [-1, -3],
+        "scale_multiplier": 1.05
+      },
+      "reference_confidence": "medium",
+      "notes": "Back run loop-closing bridge frame."
+    },
+    {
+      "entry_id": "attack_side_0",
+      "target_clip": "attack_side",
+      "frame_index": 0,
+      "atlas_cell": { "col": 0, "row": 6 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [840, 160, 300, 710]
+      },
+      "reference_confidence": "medium",
+      "notes": "Side attack windup from turnaround reference."
+    },
+    {
+      "entry_id": "attack_side_1",
+      "target_clip": "attack_side",
+      "frame_index": 1,
+      "atlas_cell": { "col": 1, "row": 6 },
+      "source": {
+        "page_id": "randi_advanced_combat_sheet",
+        "crop_rect": [220, 208, 188, 192]
+      },
+      "reference_confidence": "high",
+      "notes": "Primary side attack slash from advanced combat sheet."
+    },
+    {
+      "entry_id": "attack_side_2",
+      "target_clip": "attack_side",
+      "frame_index": 2,
+      "atlas_cell": { "col": 2, "row": 6 },
+      "source": {
+        "page_id": "randi_advanced_combat_sheet",
+        "crop_rect": [26, 204, 188, 192]
+      },
+      "reference_confidence": "high",
+      "notes": "Side attack recovery from advanced combat sheet."
+    },
+    {
+      "entry_id": "attack_up_0",
+      "target_clip": "attack_up",
+      "frame_index": 0,
+      "atlas_cell": { "col": 3, "row": 6 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "reference_confidence": "medium",
+      "notes": "Back-facing attack windup from turnaround reference."
+    },
+    {
+      "entry_id": "attack_up_1",
+      "target_clip": "attack_up",
+      "frame_index": 1,
+      "atlas_cell": { "col": 4, "row": 6 },
+      "source": {
+        "page_id": "randi_attack_quadrants_reference",
+        "crop_rect": [770, 90, 520, 350]
+      },
+      "reference_confidence": "high",
+      "notes": "Back-facing attack active frame from original attack quadrant reference."
+    },
+    {
+      "entry_id": "attack_up_2",
+      "target_clip": "attack_up",
+      "frame_index": 2,
+      "atlas_cell": { "col": 5, "row": 6 },
+      "source": {
+        "page_id": "randi_advanced_combat_sheet",
+        "crop_rect": [196, 48, 188, 188]
+      },
+      "reference_confidence": "medium",
+      "notes": "Back-facing attack recovery from advanced combat follow-through."
+    },
+    {
+      "entry_id": "jump_down_0",
+      "target_clip": "jump_down",
+      "frame_index": 0,
+      "atlas_cell": { "col": 6, "row": 6 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [0, 2],
+        "scale_multiplier": 0.96
+      },
+      "reference_confidence": "medium",
+      "notes": "Front jump crouch bridge frame."
+    },
+    {
+      "entry_id": "jump_down_1",
+      "target_clip": "jump_down",
+      "frame_index": 1,
+      "atlas_cell": { "col": 7, "row": 6 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [0, -2],
+        "scale_multiplier": 1.0
+      },
+      "reference_confidence": "medium",
+      "notes": "Front jump takeoff bridge frame."
+    },
+    {
+      "entry_id": "jump_down_2",
+      "target_clip": "jump_down",
+      "frame_index": 2,
+      "atlas_cell": { "col": 0, "row": 7 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [0, -10],
+        "scale_multiplier": 1.02
+      },
+      "reference_confidence": "medium",
+      "notes": "Front jump apex bridge frame."
+    },
+    {
+      "entry_id": "jump_down_3",
+      "target_clip": "jump_down",
+      "frame_index": 3,
+      "atlas_cell": { "col": 1, "row": 7 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [0, -5],
+        "scale_multiplier": 1.01
+      },
+      "reference_confidence": "medium",
+      "notes": "Front jump descent bridge frame."
+    },
+    {
+      "entry_id": "jump_down_4",
+      "target_clip": "jump_down",
+      "frame_index": 4,
+      "atlas_cell": { "col": 2, "row": 7 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [120, 170, 320, 710]
+      },
+      "render": {
+        "offset_px": [0, 1],
+        "scale_multiplier": 0.97
+      },
+      "reference_confidence": "medium",
+      "notes": "Front jump landing bridge frame."
+    },
+    {
+      "entry_id": "jump_up_0",
+      "target_clip": "jump_up",
+      "frame_index": 0,
+      "atlas_cell": { "col": 3, "row": 7 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [0, 2],
+        "scale_multiplier": 0.96
+      },
+      "reference_confidence": "medium",
+      "notes": "Back jump crouch bridge frame."
+    },
+    {
+      "entry_id": "jump_up_1",
+      "target_clip": "jump_up",
+      "frame_index": 1,
+      "atlas_cell": { "col": 4, "row": 7 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [0, -2],
+        "scale_multiplier": 1.0
+      },
+      "reference_confidence": "medium",
+      "notes": "Back jump takeoff bridge frame."
+    },
+    {
+      "entry_id": "jump_up_2",
+      "target_clip": "jump_up",
+      "frame_index": 2,
+      "atlas_cell": { "col": 5, "row": 7 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [0, -10],
+        "scale_multiplier": 1.02
+      },
+      "reference_confidence": "medium",
+      "notes": "Back jump apex bridge frame."
+    },
+    {
+      "entry_id": "jump_up_3",
+      "target_clip": "jump_up",
+      "frame_index": 3,
+      "atlas_cell": { "col": 6, "row": 7 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [0, -5],
+        "scale_multiplier": 1.01
+      },
+      "reference_confidence": "medium",
+      "notes": "Back jump descent bridge frame."
+    },
+    {
+      "entry_id": "jump_up_4",
+      "target_clip": "jump_up",
+      "frame_index": 4,
+      "atlas_cell": { "col": 7, "row": 7 },
+      "source": {
+        "page_id": "randi_turnaround_reference",
+        "crop_rect": [500, 170, 300, 700]
+      },
+      "render": {
+        "offset_px": [0, 1],
+        "scale_multiplier": 0.97
+      },
+      "reference_confidence": "medium",
+      "notes": "Back jump landing bridge frame."
     }
   ],
   "reference_gaps": [
-    "No clean imported up-facing locomotion cycle is present yet.",
     "No clean imported back-facing run sequence is present yet.",
-    "Down-facing attack timing still needs authored in-betweens even though the source poses are now direct references."
+    "The new up and down locomotion bridge loops are sourced from turnaround poses with per-frame offsets, not from a full authored locomotion sheet yet.",
+    "Down-facing, side-facing, and up-facing attack timing still need authored in-betweens even though the source poses are now direct references."
   ]
 }

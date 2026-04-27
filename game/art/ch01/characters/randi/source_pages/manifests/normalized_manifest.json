@@ -205,6 +205,40 @@
                                               "frame_count":  2
                                           }
                                       ]
+                  },
+                  {
+                      "id":  "randi_turnaround_reference",
+                      "page_type":  "manual_reference_sheet",
+                      "source_file":  "ChatGPT Image 27. Apr. 2026, 13_15_16.png",
+                      "svg_path":  "",
+                      "png_path":  "C:\\Dev\\secretofmana-extended\\game\\art\\ch01\\characters\\randi\\source_pages\\png_master\\randi_turnaround_reference.png",
+                      "source_render_width":  1536,
+                      "source_render_height":  1024,
+                      "source_viewbox_width":  1536,
+                      "source_viewbox_height":  1024,
+                      "clip_groups":  [
+                                          {
+                                              "id":  "front_back_side_turnaround",
+                                              "frame_count":  4
+                                          }
+                                      ]
+                  },
+                  {
+                      "id":  "randi_attack_quadrants_reference",
+                      "page_type":  "manual_reference_sheet",
+                      "source_file":  "ChatGPT Image 27. Apr. 2026, 13_15_23.png",
+                      "svg_path":  "",
+                      "png_path":  "C:\\Dev\\secretofmana-extended\\game\\art\\ch01\\characters\\randi\\source_pages\\png_master\\randi_attack_quadrants_reference.png",
+                      "source_render_width":  1536,
+                      "source_render_height":  1024,
+                      "source_viewbox_width":  1536,
+                      "source_viewbox_height":  1024,
+                      "clip_groups":  [
+                                          {
+                                              "id":  "attack_quadrants",
+                                              "frame_count":  4
+                                          }
+                                      ]
                   }
               ]
 }

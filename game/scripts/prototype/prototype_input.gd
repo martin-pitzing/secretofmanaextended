@@ -8,6 +8,8 @@ static func ensure_defaults() -> void:
     _ensure_action("move_down", [KEY_S, KEY_DOWN])
     _ensure_action("interact", [KEY_E, KEY_ENTER])
     _ensure_action("attack", [KEY_SPACE, KEY_J])
+    _ensure_action("jump", [KEY_K])
+    _ensure_action("debug_hit_preview", [KEY_H])
     _ensure_action("map_next", [KEY_TAB])
     _ensure_action("map_test_room", [KEY_1])
     _ensure_action("map_water_palace", [KEY_2])

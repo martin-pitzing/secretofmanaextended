@@ -62,7 +62,8 @@ function Draw-FitCrop {
         [Parameter(Mandatory = $true)]
         [int]$CellPx,
         [Parameter(Mandatory = $true)]
-        [int]$PaddingPx
+        [int]$PaddingPx,
+        [object]$RenderOptions = $null
     )
 
     $sourceRect = New-Object System.Drawing.Rectangle $CropRect[0], $CropRect[1], $CropRect[2], $CropRect[3]
@@ -76,13 +77,46 @@ function Draw-FitCrop {
     $scaleX = $innerWidth / [double]$sourceRect.Width
     $scaleY = $innerHeight / [double]$sourceRect.Height
     $scale = [Math]::Min($scaleX, $scaleY)
+    $scaleMultiplier = 1.0
+    $offsetX = 0
+    $offsetY = 0
+    $flipH = $false
+
+    if ($RenderOptions) {
+        if ($RenderOptions.PSObject.Properties.Name -contains "scale_multiplier") {
+            $scaleMultiplier = [double]$RenderOptions.scale_multiplier
+        }
+        if ($RenderOptions.PSObject.Properties.Name -contains "offset_px" -and $RenderOptions.offset_px.Count -ge 2) {
+            $offsetX = [int]$RenderOptions.offset_px[0]
+            $offsetY = [int]$RenderOptions.offset_px[1]
+        }
+        if ($RenderOptions.PSObject.Properties.Name -contains "flip_h") {
+            $flipH = [bool]$RenderOptions.flip_h
+        }
+    }
+
+    $scale *= $scaleMultiplier
     $drawWidth = [Math]::Max(1, [int][Math]::Round($sourceRect.Width * $scale))
     $drawHeight = [Math]::Max(1, [int][Math]::Round($sourceRect.Height * $scale))
-    $drawX = $CellX + [int][Math]::Round(($CellPx - $drawWidth) / 2.0)
-    $drawY = $CellY + $CellPx - $PaddingPx - $drawHeight
+    $drawX = $CellX + [int][Math]::Round(($CellPx - $drawWidth) / 2.0) + $offsetX
+    $drawY = $CellY + $CellPx - $PaddingPx - $drawHeight + $offsetY
 
     $destinationRect = New-Object System.Drawing.Rectangle $drawX, $drawY, $drawWidth, $drawHeight
-    $Graphics.DrawImage($SourceBitmap, $destinationRect, $sourceRect, [System.Drawing.GraphicsUnit]::Pixel)
+    if (-not $flipH) {
+        $Graphics.DrawImage($SourceBitmap, $destinationRect, $sourceRect, [System.Drawing.GraphicsUnit]::Pixel)
+        return
+    }
+
+    $state = $Graphics.Save()
+    try {
+        $Graphics.TranslateTransform($drawX + $drawWidth, $drawY)
+        $Graphics.ScaleTransform(-1.0, 1.0)
+        $flippedDestination = New-Object System.Drawing.Rectangle 0, 0, $drawWidth, $drawHeight
+        $Graphics.DrawImage($SourceBitmap, $flippedDestination, $sourceRect, [System.Drawing.GraphicsUnit]::Pixel)
+    }
+    finally {
+        $Graphics.Restore($state)
+    }
 }
 
 function Draw-CellGuides {
@@ -144,6 +178,7 @@ $entryCounter = 0
 try {
     foreach ($entry in $poseManifest.entries) {
         $pageId = [string]$entry.source.page_id
+        $renderOptions = if ($entry.PSObject.Properties.Name -contains "render") { $entry.render } else { $null }
         if (-not $pageMap.ContainsKey($pageId)) {
             throw "Source page '$pageId' was not found in normalized manifest."
         }
@@ -170,7 +205,8 @@ try {
             -CellX $cellX `
             -CellY $cellY `
             -CellPx $cellPx `
-            -PaddingPx $paddingPx
+            -PaddingPx $paddingPx `
+            -RenderOptions $renderOptions
 
         $entryCounter++
     }
@@ -218,6 +254,7 @@ try {
             $sheetGraphics.DrawRectangle($guidePen, $frameRect)
 
             $pageId = [string]$entry.source.page_id
+            $renderOptions = if ($entry.PSObject.Properties.Name -contains "render") { $entry.render } else { $null }
             $cropRect = @(
                 [int]$entry.source.crop_rect[0],
                 [int]$entry.source.crop_rect[1],
@@ -231,7 +268,8 @@ try {
                 -CellX ($tileX + 28) `
                 -CellY ($tileY + 12) `
                 -CellPx 64 `
-                -PaddingPx 2
+                -PaddingPx 2 `
+                -RenderOptions $renderOptions
 
             $label = "{0} [{1},{2}]" -f $entry.entry_id, $entry.atlas_cell.col, $entry.atlas_cell.row
             $sheetGraphics.DrawString($label, $font, $brush, ($tileX + 8), ($tileY + 94))
