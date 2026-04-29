@@ -11,7 +11,10 @@ from pathlib import Path
 
 from rich.console import Console
 
+from dataclasses import asdict as _asdict
+
 from ._lib.cache import JobCache
+from ._lib.config import REPO_ROOT
 from ._lib.manifests import MonsterManifest
 from ._lib.plan import Plan, PlanStep
 from ._lib.style import StyleAnchor, resolve_anchor_path
@@ -33,6 +36,14 @@ def build_plan(manifest_path: Path) -> Plan:
         default_output_root=out_root,
     )
 
+    primary = manifest.primary_canon()
+    canon_image = ""
+    if primary:
+        if primary.image_url:
+            canon_image = primary.image_url
+        elif primary.local_path:
+            canon_image = str((REPO_ROOT / primary.local_path).resolve().as_posix())
+
     for lane in manifest.lanes:
         params = {
             "subject_id": manifest.id,
@@ -43,7 +54,9 @@ def build_plan(manifest_path: Path) -> Plan:
             "style_adaptation": manifest.style_adaptation,
             "lane": asdict(lane),
             "cell_px": manifest.cell_px,
-            "style_references": [str(p) for p in anchor.references],
+            "biome_anchor_references": [str(p) for p in anchor.references],
+            "canon_style_image": canon_image,
+            "canon_references": [_asdict(r) for r in manifest.canon_references],
         }
         plan.add(
             PlanStep(

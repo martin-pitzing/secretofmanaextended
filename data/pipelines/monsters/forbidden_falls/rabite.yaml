@@ -3,17 +3,30 @@ canon_name: Rabite
 biome: forbidden_falls
 tier: minor
 art_brief: >
-  The canon Rabite reframed for Forbidden Falls — small leaping fanged tuft.
-  Reads as a hostile river-spirit reflex, not a cute mascot. Slightly
-  damp-matted fur, water beading in the side and attack lanes.
+  The canon Rabite reframed for Forbidden Falls — small fanged tuft creature
+  with floppy ears, a round bunny-like body, and prominent buck teeth. It is
+  the canonical SoM '93 Rabite; only the palette and damp fur readout change.
+  Reads as a hostile river-spirit reflex, not a cute mascot.
 style_adaptation: >
-  Departs from SoM '93 yellow Rabite. Forbidden Falls Rabites are basalt-grey
-  with a single rust accent on the ear-tips and incisors. Eyes are pale
-  bioluminescent dots, not dark beads. Silhouette unchanged so the canon
-  reference still reads at thumbnail size.
+  Silhouette is fully canon: keep the rounded body, long floppy ears, single
+  pair of buck teeth, short stubby legs, and the iconic ear-flop. ONLY the
+  palette and surface detail change — Forbidden Falls Rabites are basalt-grey
+  with a single rust accent on the ear-tips and incisors, fur slightly
+  damp-matted, eyes are pale bioluminescent dots (not dark beads). Do NOT
+  alter the body plan; if the result looks like a rat, mouse, dog, or cat,
+  it is wrong.
 style_anchor: style/forbidden_falls_anchor.yaml
+canon_references:
+  - source: https://wikiofmana.com/wiki/Rabite
+    notes: SoM '93 overworld sprite, front-facing — primary silhouette anchor
+    role: primary
+    local_path: data/pipelines/references/monsters/forbidden_falls/rabite/rabite_front.png
+  - source: https://wikiofmana.com/wiki/Rabite
+    notes: SoM '93 overworld sprite, side-facing — used for direction lanes
+    role: secondary
+    local_path: data/pipelines/references/monsters/forbidden_falls/rabite/rabite_side.png
 output_dir: game/art/monsters/forbidden_falls/rabite
-cell_px: 64
+cell_px: 128
 stats:
   hp: 6
   damage: 2

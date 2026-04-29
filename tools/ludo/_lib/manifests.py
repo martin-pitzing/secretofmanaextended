@@ -76,6 +76,24 @@ class MonsterLane:
 
 
 @dataclass
+class CanonReference:
+    """Source artwork that defines what the creature *is*.
+
+    The plan builder picks the entry with role=primary as the `style_image`
+    fed to Ludo. Other entries are listed in the prompt as auxiliary hints
+    (e.g. "side-facing canon sprite for direction lanes").
+    """
+    source: str            # human-readable provenance: "wikiofmana.com/wiki/Rabite"
+    notes: str = ""        # what this reference represents
+    role: str = "primary"  # primary | secondary
+    image_url: str = ""    # direct image URL (preferred when stable)
+    local_path: str = ""   # repo-relative path to a local copy
+
+    def has_image(self) -> bool:
+        return bool(self.image_url or self.local_path)
+
+
+@dataclass
 class MonsterManifest:
     id: str
     canon_name: str   # SoM '93 reference, e.g. "Rabite"
@@ -87,12 +105,14 @@ class MonsterManifest:
     art_brief: str
     style_adaptation: str  # how this monster is restyled vs canon
     lanes: list[MonsterLane]
+    canon_references: list[CanonReference] = field(default_factory=list)
     stats: dict[str, Any] = field(default_factory=dict)
 
     @classmethod
     def load(cls, path: Path) -> "MonsterManifest":
         data = yaml.safe_load(path.read_text(encoding="utf-8"))
         lanes = [MonsterLane(**lane) for lane in data["lanes"]]
+        refs = [CanonReference(**r) for r in data.get("canon_references", [])]
         return cls(
             id=data["id"],
             canon_name=data["canon_name"],
@@ -100,12 +120,22 @@ class MonsterManifest:
             tier=data.get("tier", "standard"),
             style_anchor=data["style_anchor"],
             output_dir=data["output_dir"],
-            cell_px=int(data.get("cell_px", 64)),
+            cell_px=int(data.get("cell_px", 128)),
             art_brief=data["art_brief"],
             style_adaptation=data.get("style_adaptation", ""),
             lanes=lanes,
+            canon_references=refs,
             stats=data.get("stats", {}),
         )
 
     def output_path(self) -> Path:
         return (REPO_ROOT / self.output_dir).resolve()
+
+    def primary_canon(self) -> CanonReference | None:
+        for r in self.canon_references:
+            if r.role == "primary" and r.has_image():
+                return r
+        for r in self.canon_references:
+            if r.has_image():
+                return r
+        return None

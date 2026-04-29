@@ -2,33 +2,42 @@
 
 Results format (one entry per plan step):
 
-    plan_id: character-primm-abc12345
+    plan_id: monster-rabite-abc12345
     results:
       - step_id: idle_down
         status: completed
-        job_ids: [j1, j2, j3, j4]
-        # one of the following two, depending on intent:
-        frame_urls: [https://..., https://...]      # animation_lane
-        image_url:  https://...                     # portrait_emotion / biome_kind
+        job_ids: [j1, j2, j3]
+        # animation_lane — provide ONE of:
+        frame_urls: [https://..., https://...]            # pre-sliced frames
+        spritesheet_url: https://...                      # full sheet, ingest will slice
+        num_frames: 4                                     # required with spritesheet_url
+        grid: [2, 2]                                      # optional; default sqrt(num_frames)
+        frame_size: 64                                    # optional; downscale after slice
+        keep_frames: [0, 2]                               # optional; subset to keep
+        # portrait_emotion / biome_kind:
+        image_url: https://...
 
-Ingest downloads the URLs to the paths declared in the plan's expected_outputs,
-records each file in data/pipelines/_manifest/manifest.yaml, and (for monster
-plans) emits a SpriteFrames .tres so the runtime can pick up the atlas.
+Ingest downloads + slices as needed, records each file in
+data/pipelines/_manifest/manifest.yaml, and (for monster plans) emits a
+SpriteFrames .tres so the runtime can pick up the atlas.
 """
 from __future__ import annotations
 
+import math
 from pathlib import Path
 from typing import Any
 
 import httpx
+from PIL import Image
 from rich.console import Console
 
 from .cache import JobCache
-from .config import REPO_ROOT
+from .config import CACHE_DIR, REPO_ROOT
 from .manifest import record
 from .plan import Plan, PlanStep, load_plan, load_results
 
 console = Console()
+SPRITESHEET_CACHE = CACHE_DIR / "spritesheets"
 
 
 def ingest(plan_path: Path, results_path: Path) -> None:
@@ -56,7 +65,7 @@ def ingest(plan_path: Path, results_path: Path) -> None:
                 console.print(f"[red]skip[/] {step.step_id} (status={r.get('status')})")
                 continue
 
-            files = _ingest_step(http, step, r)
+            files = _ingest_step(http, plan, step, r)
             for f in files:
                 rel = _repo_rel(f)
                 record(
@@ -88,18 +97,30 @@ def ingest(plan_path: Path, results_path: Path) -> None:
     console.print(f"[green]ingested[/] {len(written)} files for plan {plan.plan_id}")
 
 
-def _ingest_step(http: httpx.Client, step: PlanStep, r: dict[str, Any]) -> list[Path]:
+def _ingest_step(
+    http: httpx.Client, plan: Plan, step: PlanStep, r: dict[str, Any]
+) -> list[Path]:
     eo = step.expected_outputs
     if step.intent == "animation_lane":
-        urls = r.get("frame_urls") or []
         out_dir = Path(eo["output_dir"])
         out_dir.mkdir(parents=True, exist_ok=True)
-        files: list[Path] = []
-        for idx, url in enumerate(urls):
-            target = out_dir / f"{eo['basename']}_{idx}.png"
-            _download(http, url, target)
-            files.append(target)
-        return files
+        if r.get("frame_urls"):
+            return _ingest_frame_urls(http, r["frame_urls"], out_dir, eo["basename"])
+        if r.get("spritesheet_url"):
+            return _ingest_spritesheet(
+                http=http,
+                url=r["spritesheet_url"],
+                num_frames=int(r["num_frames"]),
+                grid=tuple(r["grid"]) if r.get("grid") else None,
+                frame_size=int(r["frame_size"]) if r.get("frame_size") else None,
+                keep_frames=r.get("keep_frames"),
+                out_dir=out_dir,
+                basename=eo["basename"],
+                cache_key=f"{plan.pipeline}-{Path(plan.manifest_path).stem}-{step.step_id}",
+            )
+        raise ValueError(
+            f"animation_lane step '{step.step_id}' has neither frame_urls nor spritesheet_url"
+        )
     if step.intent in ("portrait_emotion", "biome_kind"):
         url = r.get("image_url")
         target = Path(eo["output_path"])
@@ -111,7 +132,73 @@ def _ingest_step(http: httpx.Client, step: PlanStep, r: dict[str, Any]) -> list[
     raise ValueError(f"Unknown intent: {step.intent}")
 
 
+def _ingest_frame_urls(
+    http: httpx.Client, urls: list[str], out_dir: Path, basename: str
+) -> list[Path]:
+    files: list[Path] = []
+    for idx, url in enumerate(urls):
+        target = out_dir / f"{basename}_{idx}.png"
+        _download(http, url, target)
+        files.append(target)
+    return files
+
+
+def _ingest_spritesheet(
+    *,
+    http: httpx.Client,
+    url: str,
+    num_frames: int,
+    grid: tuple[int, int] | None,
+    frame_size: int | None,
+    keep_frames: list[int] | None,
+    out_dir: Path,
+    basename: str,
+    cache_key: str,
+) -> list[Path]:
+    if grid is None:
+        side = int(math.isqrt(num_frames))
+        if side * side != num_frames:
+            raise ValueError(
+                f"num_frames={num_frames} is not a perfect square; "
+                f"specify `grid: [cols, rows]` in the result"
+            )
+        grid = (side, side)
+
+    SPRITESHEET_CACHE.mkdir(parents=True, exist_ok=True)
+    suffix = Path(url).suffix or ".webp"
+    sheet_path = SPRITESHEET_CACHE / f"{cache_key}{suffix}"
+    _download(http, url, sheet_path)
+
+    sheet = Image.open(sheet_path).convert("RGBA")
+    W, H = sheet.size
+    cols, rows = grid
+    fw, fh = W // cols, H // rows
+    if fw == 0 or fh == 0:
+        raise ValueError(f"Spritesheet {W}x{H} cannot be split into {cols}x{rows}")
+
+    indices = keep_frames if keep_frames else list(range(num_frames))
+    files: list[Path] = []
+    for out_idx, src_idx in enumerate(indices):
+        if src_idx >= num_frames:
+            raise ValueError(f"keep_frames index {src_idx} >= num_frames {num_frames}")
+        r, c = divmod(src_idx, cols)
+        box = (c * fw, r * fh, (c + 1) * fw, (r + 1) * fh)
+        frame = sheet.crop(box)
+        if frame_size and (frame.size[0] != frame_size or frame.size[1] != frame_size):
+            frame = frame.resize((frame_size, frame_size), Image.NEAREST)
+        target = out_dir / f"{basename}_{out_idx}.png"
+        frame.save(target, format="PNG")
+        files.append(target)
+
+    console.print(
+        f"  sliced {sheet_path.name} ({W}x{H}, {cols}x{rows}) -> "
+        f"{len(files)} frame(s) at {basename}_*.png"
+    )
+    return files
+
+
 def _download(http: httpx.Client, url: str, target: Path) -> None:
+    target.parent.mkdir(parents=True, exist_ok=True)
     with http.stream("GET", url) as resp:
         resp.raise_for_status()
         with target.open("wb") as fh:

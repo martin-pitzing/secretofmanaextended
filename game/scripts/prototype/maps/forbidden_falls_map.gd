@@ -144,19 +144,25 @@ func get_trigger_specs() -> Array:
 func get_enemy_specs() -> Array:
     return [
         {
+            "monster_id": "rabite",
+            "sprite_frames_path": "res://art/monsters/forbidden_falls/rabite/rabite.tres",
             "position": Vector2(240, 238),
-            "color": Color(0.835294, 0.501961, 0.333333, 1),
             "move_speed": 34.0,
             "idle_radius": 14.0,
             "aggro_radius": 128.0,
-            "hit_points": 2
+            "attack_radius": 22.0,
+            "attack_cooldown": 1.4,
+            "hit_points": 6
         },
         {
+            "monster_id": "rabite",
+            "sprite_frames_path": "res://art/monsters/forbidden_falls/rabite/rabite.tres",
             "position": Vector2(360, 216),
-            "color": Color(0.917647, 0.592157, 0.356863, 1),
             "move_speed": 36.0,
             "idle_radius": 12.0,
             "aggro_radius": 128.0,
-            "hit_points": 2
+            "attack_radius": 22.0,
+            "attack_cooldown": 1.4,
+            "hit_points": 6
         }
     ]

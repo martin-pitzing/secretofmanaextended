@@ -1,2 +1,198 @@
+assets:
+  game/art/monsters/forbidden_falls/rabite/attack_side_0.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-attack-side
+    pipeline: monster
+    prompt_hash: 690f5ec9554086c609b4f139903c4709
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/attack_side_1.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-attack-side
+    pipeline: monster
+    prompt_hash: 690f5ec9554086c609b4f139903c4709
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/attack_side_2.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-attack-side
+    pipeline: monster
+    prompt_hash: 690f5ec9554086c609b4f139903c4709
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/attack_side_3.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-attack-side
+    pipeline: monster
+    prompt_hash: 690f5ec9554086c609b4f139903c4709
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/defeat_side_0.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-defeat-side
+    pipeline: monster
+    prompt_hash: 82b3d3e0ff128cc52312a616993c2d4f
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/defeat_side_1.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-defeat-side
+    pipeline: monster
+    prompt_hash: 82b3d3e0ff128cc52312a616993c2d4f
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/defeat_side_2.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-defeat-side
+    pipeline: monster
+    prompt_hash: 82b3d3e0ff128cc52312a616993c2d4f
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/defeat_side_3.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-defeat-side
+    pipeline: monster
+    prompt_hash: 82b3d3e0ff128cc52312a616993c2d4f
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/hurt_side_0.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-hurt-side-2
+    pipeline: monster
+    prompt_hash: 6dc1926e4560b5dae2d5ac34381a676a
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/hurt_side_1.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-hurt-side-2
+    pipeline: monster
+    prompt_hash: 6dc1926e4560b5dae2d5ac34381a676a
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/hurt_side_2.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-hurt-side-2
+    pipeline: monster
+    prompt_hash: 6dc1926e4560b5dae2d5ac34381a676a
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/hurt_side_3.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-hurt-side-2
+    pipeline: monster
+    prompt_hash: 6dc1926e4560b5dae2d5ac34381a676a
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/idle_down_0.png:
+    generated_at: '2026-04-29T12:52:18+00:00'
+    ludo_job_id: som-rabite-canon-jpeg-v4,som-rabite-canon-clean-v4,som-rabite-canon-anim-v4
+    pipeline: monster
+    prompt_hash: 08ddc7527ea13e49e1b4fe7f536df8a8
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/idle_down_1.png:
+    generated_at: '2026-04-29T12:52:18+00:00'
+    ludo_job_id: som-rabite-canon-jpeg-v4,som-rabite-canon-clean-v4,som-rabite-canon-anim-v4
+    pipeline: monster
+    prompt_hash: 08ddc7527ea13e49e1b4fe7f536df8a8
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/idle_down_2.png:
+    generated_at: '2026-04-29T12:52:18+00:00'
+    ludo_job_id: som-rabite-canon-jpeg-v4,som-rabite-canon-clean-v4,som-rabite-canon-anim-v4
+    pipeline: monster
+    prompt_hash: 08ddc7527ea13e49e1b4fe7f536df8a8
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/idle_down_3.png:
+    generated_at: '2026-04-29T12:52:18+00:00'
+    ludo_job_id: som-rabite-canon-jpeg-v4,som-rabite-canon-clean-v4,som-rabite-canon-anim-v4
+    pipeline: monster
+    prompt_hash: 08ddc7527ea13e49e1b4fe7f536df8a8
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/idle_side_0.png:
+    generated_at: '2026-04-29T12:52:18+00:00'
+    ludo_job_id: rabite-idle-side
+    pipeline: monster
+    prompt_hash: c39d9155fbec8c2817d05afb6e954723
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/idle_side_1.png:
+    generated_at: '2026-04-29T12:52:18+00:00'
+    ludo_job_id: rabite-idle-side
+    pipeline: monster
+    prompt_hash: c39d9155fbec8c2817d05afb6e954723
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/idle_side_2.png:
+    generated_at: '2026-04-29T12:52:18+00:00'
+    ludo_job_id: rabite-idle-side
+    pipeline: monster
+    prompt_hash: c39d9155fbec8c2817d05afb6e954723
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/idle_side_3.png:
+    generated_at: '2026-04-29T12:52:18+00:00'
+    ludo_job_id: rabite-idle-side
+    pipeline: monster
+    prompt_hash: c39d9155fbec8c2817d05afb6e954723
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/walk_down_0.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-walk-down
+    pipeline: monster
+    prompt_hash: 6faeb97eab186e142b08da792157b313
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/walk_down_1.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-walk-down
+    pipeline: monster
+    prompt_hash: 6faeb97eab186e142b08da792157b313
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/walk_down_2.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-walk-down
+    pipeline: monster
+    prompt_hash: 6faeb97eab186e142b08da792157b313
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/walk_down_3.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-walk-down
+    pipeline: monster
+    prompt_hash: 6faeb97eab186e142b08da792157b313
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/walk_side_0.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-walk-side
+    pipeline: monster
+    prompt_hash: f1e01d79b7f5561ac52473a8aa3b3574
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/walk_side_1.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-walk-side
+    pipeline: monster
+    prompt_hash: f1e01d79b7f5561ac52473a8aa3b3574
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/walk_side_2.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-walk-side
+    pipeline: monster
+    prompt_hash: f1e01d79b7f5561ac52473a8aa3b3574
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
+  game/art/monsters/forbidden_falls/rabite/walk_side_3.png:
+    generated_at: '2026-04-29T12:52:19+00:00'
+    ludo_job_id: rabite-walk-side
+    pipeline: monster
+    prompt_hash: f1e01d79b7f5561ac52473a8aa3b3574
+    source_manifest: data/pipelines/monsters/forbidden_falls/rabite.yaml
+    style_anchor: forbidden_falls_anchor
 schema_version: 1
-assets: {}

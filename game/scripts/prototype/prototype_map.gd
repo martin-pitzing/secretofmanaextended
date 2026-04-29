@@ -4,6 +4,7 @@ class_name PrototypeMap
 
 const DIALOGUE_TRIGGER_SCRIPT = preload("res://scripts/prototype/dialogue_trigger.gd")
 const PRACTICE_ENEMY_SCENE = preload("res://scenes/prototype/practice_enemy.tscn")
+const PROTOTYPE_MONSTER_SCENE = preload("res://scenes/prototype/monsters/prototype_monster.tscn")
 const INTERACTION_ACTOR_SCENE = preload("res://scenes/prototype/interaction_actor.tscn")
 
 signal dialogue_requested(speaker: String, lines: PackedStringArray)
@@ -326,9 +327,17 @@ func _build_actors() -> void:
 func _build_enemies() -> void:
     _active_enemy_count = 0
     for enemy_spec in get_enemy_specs():
-        var enemy = PRACTICE_ENEMY_SCENE.instantiate()
+        var enemy
+        if enemy_spec.has("monster_id"):
+            enemy = PROTOTYPE_MONSTER_SCENE.instantiate()
+            enemy.monster_id = enemy_spec.get("monster_id", enemy.monster_id)
+            enemy.sprite_frames_path = enemy_spec.get("sprite_frames_path", enemy.sprite_frames_path)
+            enemy.attack_radius = enemy_spec.get("attack_radius", enemy.attack_radius)
+            enemy.attack_cooldown = enemy_spec.get("attack_cooldown", enemy.attack_cooldown)
+        else:
+            enemy = PRACTICE_ENEMY_SCENE.instantiate()
+            enemy.base_color = enemy_spec.get("color", enemy.base_color)
         enemy.position = enemy_spec.get("position", Vector2.ZERO)
-        enemy.base_color = enemy_spec.get("color", enemy.base_color)
         enemy.move_speed = enemy_spec.get("move_speed", enemy.move_speed)
         enemy.aggro_radius = enemy_spec.get("aggro_radius", enemy.aggro_radius)
         enemy.idle_radius = enemy_spec.get("idle_radius", enemy.idle_radius)

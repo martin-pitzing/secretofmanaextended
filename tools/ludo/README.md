@@ -30,13 +30,25 @@ The flow has three stages:
 - `portrait_pipeline` — emotion-tagged portrait sheet per speaker.
 - `biome_pipeline` — environment kit (ground / wall / cliff / water / prop).
 
-## Style anchoring
+## Style anchoring (two layers)
 
-The four SVG masters in `pictures_artworks/` are the canonical character style
-anchors (see `data/pipelines/style/randi_anchor.yaml`). All character generation
-is style-locked against them. Monster styling adapts the SoM '93 bestiary into
-chapter-coded palettes — each monster manifest declares its own biome anchor,
-not the hero anchor.
+**Characters** are style-locked against the four SVG masters in
+`pictures_artworks/` (see `data/pipelines/style/randi_anchor.yaml`). The
+anchor drives both silhouette and palette because all party members share a
+consistent look.
+
+**Monsters** are layered:
+
+1. **Canon reference** (`canon_references` in the manifest) defines the
+   silhouette/body plan — e.g. the SoM '93 Rabite sprite. The plan builder
+   picks the `role: primary` entry as the `style_image` fed to Ludo.
+2. **Biome anchor** (`style_anchor`) shapes palette and lighting for the
+   chapter. It does NOT drive silhouette.
+3. **Style adaptation** notes in the manifest text-prompt the diff between
+   canon and our chapter version (e.g. "basalt-grey, rust accents only").
+
+Reference assets live under `data/pipelines/references/monsters/{biome}/{id}/`.
+See `data/pipelines/references/README.md` for the convention.
 
 ## Setup
 
