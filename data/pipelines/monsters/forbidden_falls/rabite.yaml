@@ -1,0 +1,29 @@
+id: rabite
+canon_name: Rabite
+biome: forbidden_falls
+tier: minor
+art_brief: >
+  The canon Rabite reframed for Forbidden Falls — small leaping fanged tuft.
+  Reads as a hostile river-spirit reflex, not a cute mascot. Slightly
+  damp-matted fur, water beading in the side and attack lanes.
+style_adaptation: >
+  Departs from SoM '93 yellow Rabite. Forbidden Falls Rabites are basalt-grey
+  with a single rust accent on the ear-tips and incisors. Eyes are pale
+  bioluminescent dots, not dark beads. Silhouette unchanged so the canon
+  reference still reads at thumbnail size.
+style_anchor: style/forbidden_falls_anchor.yaml
+output_dir: game/art/monsters/forbidden_falls/rabite
+cell_px: 64
+stats:
+  hp: 6
+  damage: 2
+  speed: 110
+  knockback: 36
+lanes:
+  - { state: idle,    direction: down, frame_count: 2, fps: 3,  loop: true }
+  - { state: idle,    direction: side, frame_count: 2, fps: 3,  loop: true }
+  - { state: walk,    direction: down, frame_count: 4, fps: 8,  loop: true }
+  - { state: walk,    direction: side, frame_count: 4, fps: 8,  loop: true }
+  - { state: attack,  direction: side, frame_count: 4, fps: 14, loop: false, notes: lunge bite }
+  - { state: hurt,    direction: side, frame_count: 2, fps: 10, loop: false }
+  - { state: defeat,  direction: side, frame_count: 4, fps: 8,  loop: false, notes: dissolve into spray }

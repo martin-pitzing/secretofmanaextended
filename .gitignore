@@ -5,3 +5,19 @@ game/.godot/
 tools/godot/*
 !tools/godot/.gitignore
 !tools/godot/README.md
+
+# MCP config (contains Ludo.ai API key)
+.mcp.json
+
+# Local Ludo pipeline secrets and caches (never commit API keys or large transient artifacts)
+tools/ludo/.env
+tools/ludo/.cache/
+tools/ludo/.venv/
+data/pipelines/_manifest/runs/
+
+# Editor / agent local state
+.claude/
+
+# Python bytecode
+__pycache__/
+*.pyc

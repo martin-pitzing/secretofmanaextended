@@ -1,0 +1,33 @@
+schema_version: 1
+description: >
+  Adaptation roadmap. Each entry is a SoM '93 canon creature mapped onto our
+  chapter biomes with bespoke style notes. Manifest files in this directory are
+  generated from this list — DO NOT keep this YAML in sync by editing two
+  places; treat manifests as the source of truth and update this index when a
+  manifest lands.
+
+minor:
+  - { id: rabite,        canon: Rabite,        biome: forbidden_falls, status: drafted }
+  - { id: mushboom,      canon: Mushboom,      biome: potos_outskirts, status: planned  }
+  - { id: chobin,        canon: Chobin Hood,   biome: forbidden_falls, status: planned  }
+
+standard:
+  - { id: goblin_river,  canon: Goblin,        biome: forbidden_falls, status: planned  }
+  - { id: tropicallo,    canon: Tropicallo,    biome: pandora_canopy,  status: planned  }
+  - { id: spikey_tiger,  canon: Spikey Tiger,  biome: forbidden_falls, status: planned  }
+  - { id: pebbler,       canon: Pebbler,       biome: pandora_quarry,  status: planned  }
+
+elite:
+  - { id: mantis_ant,    canon: Mantis Ant,    biome: forbidden_falls, status: planned  }
+  - { id: court_sentinel, canon: Empire Lancer, biome: pandora_court,  status: planned, notes: "Pandora-original adaptation" }
+
+miniboss:
+  - { id: tropicallo_elder, canon: Tropicallo (boss), biome: pandora_canopy, status: planned }
+  - { id: spring_beast,     canon: Spring Beak,       biome: forbidden_falls, status: planned }
+
+style_principles:
+  - "Adapt palette to biome anchor; never reuse SoM '93 hue 1:1."
+  - "Preserve canonical silhouette so the reference reads at thumbnail size."
+  - "One bright accent per creature so readability is preserved on dark UI backplate."
+  - "Pandora-faction creatures lean ceramic-on-brass automaton, not iron golem."
+  - "Forbidden Falls creatures are damp, basalt-toned, with rust or ember accents."

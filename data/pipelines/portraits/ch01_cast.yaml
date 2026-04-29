@@ -1,0 +1,28 @@
+id: ch01_cast
+style_anchor: style/randi_anchor.yaml
+output_dir: game/art/portraits
+speakers:
+  - id: randi
+    faction: mana_core
+    emotions: [neutral, concerned, resolved, angry, hurt]
+    art_brief: >
+      Hero portrait, headshot framed three-quarter. Match the Randi sprite
+      anchors exactly — bandana visible, eye color and skin tone identical
+      to the source SVG character.
+  - id: primm
+    faction: mana_core
+    emotions: [neutral, concerned, resolved, angry, hurt]
+    art_brief: >
+      Quiet sprite-mage; ash-blue refugee shawl visible at the shoulder.
+  - id: jema
+    faction: mana_core
+    emotions: [neutral, concerned, resolved, stern]
+    art_brief: >
+      Water Palace contact, weathered knight. Brass-clasped cloak, one scar
+      across the temple.
+  - id: elder_potos
+    faction: pandora
+    emotions: [neutral, stern, regretful]
+    art_brief: >
+      Potos elder delivering exile verdict. Robes worn over working clothes;
+      reads as authority through restraint, not regalia.

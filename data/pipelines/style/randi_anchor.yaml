@@ -1,0 +1,21 @@
+id: randi_anchor
+description: >
+  Canonical character style anchor for Secret of Mana Extended. Built from the
+  four hero reference SVGs delivered for Randi (pictures_artworks/) — these define
+  silhouette weight, line economy, palette family, and animation rhythm that all
+  cast members must align with. Mirror copies live under
+  game/art/ch01/characters/randi/source_pages/svg_master/ for runtime atlas tooling.
+references:
+  - pictures_artworks/i_want_the_character_from_my_she-0.svg
+  - pictures_artworks/i_want_the_character_from_my_she-1.svg
+  - pictures_artworks/i_want_the_character_from_my_she-2.svg
+  - pictures_artworks/i_want_the_character_from_my_she-3.svg
+palette_notes: >
+  Saturated mid-tones with one cool accent (Randi's blue bandana / sash). High
+  contrast against dark UI backplate (#0c1219). Skin tones warm, garment shading
+  uses two flats + one highlight. No outlines below 1.5px at 64x64 cell scale.
+rendering_notes: >
+  64px cell, head ~22px tall (one-third silhouette). Cardinal directions
+  authored in {down, up, side}; side is mirrored at runtime. Action poses
+  prioritize readable silhouette over anatomical detail; weapon and accessory
+  highlights are always the brightest tone.

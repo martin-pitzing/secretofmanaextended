@@ -1,0 +1,14 @@
+id: pandora_anchor
+description: >
+  Biome style anchor for Pandora (Ch01-Ch02) — chalk-white limestone, brass
+  fittings, ash-blue refugee canvas. Used by Pandora-faction monster constructs
+  and refugee NPCs.
+references:
+  - pictures_artworks/i_want_the_character_from_my_she-2.svg
+palette_notes: >
+  Dominant cool stone neutrals, brass accent for state/civic, ash-blue for
+  refugee tarpaulin. Constructs (court guard automata, sentinels) lean
+  ceramic-on-brass, not iron.
+rendering_notes: >
+  64px cell. Constructs read as tall, narrow silhouettes with one bright pivot
+  point (eye, glyph) so they're legible against pale Pandora stone.

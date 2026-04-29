@@ -1,0 +1,39 @@
+id: primm
+chapter: ch01
+faction: mana_core
+art_brief: >
+  Primm — sprite-mage exile, late teens, defensive caster with a quiet
+  resolve. Body language reads as poised but tired: she has just survived
+  Pandora's gate refusal. Outfit is travel-worn court whites with an
+  ash-blue refugee shawl tied at the hip. Spells originate from a small
+  carved focus held in the off-hand, never from open palms.
+silhouette_notes: >
+  Slimmer than Randi, shoulders narrower, hair length to mid-back tied back
+  to keep silhouette readable in side stances. Off-hand focus is the
+  brightest highlight tone in every action lane.
+palette_notes: >
+  Whites and ash-blues against a single warm accent (focus crystal amber).
+  No greens — Primm reads cool against Pandora's pale stone.
+sources:
+  - docs/characters/mana-core-character-sheets.md
+  - docs/chapters/chapter-01-falls-to-pandora.md
+style_anchor: style/randi_anchor.yaml
+output_dir: game/art/ch01/characters/primm
+cell_px: 64
+lanes:
+  - { state: idle,   direction: down, frame_count: 2, fps: 2,  loop: true,  notes: breathing }
+  - { state: idle,   direction: up,   frame_count: 2, fps: 2,  loop: true }
+  - { state: idle,   direction: side, frame_count: 2, fps: 2,  loop: true }
+  - { state: walk,   direction: down, frame_count: 4, fps: 7,  loop: true }
+  - { state: walk,   direction: up,   frame_count: 4, fps: 7,  loop: true }
+  - { state: walk,   direction: side, frame_count: 4, fps: 7,  loop: true }
+  - { state: run,    direction: down, frame_count: 4, fps: 11, loop: true }
+  - { state: run,    direction: up,   frame_count: 4, fps: 11, loop: true }
+  - { state: run,    direction: side, frame_count: 4, fps: 11, loop: true }
+  - { state: attack, direction: down, frame_count: 3, fps: 12, loop: false, notes: focus-cast forward }
+  - { state: attack, direction: up,   frame_count: 3, fps: 12, loop: false }
+  - { state: attack, direction: side, frame_count: 3, fps: 12, loop: false }
+  - { state: jump,   direction: down, frame_count: 5, fps: 11, loop: false }
+  - { state: jump,   direction: up,   frame_count: 5, fps: 11, loop: false }
+  - { state: jump,   direction: side, frame_count: 5, fps: 11, loop: false }
+  - { state: hit,    direction: down, frame_count: 2, fps: 9,  loop: false }

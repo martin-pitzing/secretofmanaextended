@@ -1,0 +1,8 @@
+id: forbidden_falls
+style_anchor: style/forbidden_falls_anchor.yaml
+output_dir: game/art/environments/forbidden_falls
+kinds:
+  - { kind: ground, variants: 4, art_brief: "wet basalt with moss patches; tileable; 64x64 cell" }
+  - { kind: cliff,  variants: 3, art_brief: "vertical basalt face with mineral seams" }
+  - { kind: water,  variants: 2, art_brief: "shallow rapids with white-foam edge; tileable" }
+  - { kind: prop,   variants: 5, art_brief: "totem stones, broken aqueduct fragments, fern clusters" }

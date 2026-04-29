@@ -1,0 +1,15 @@
+id: forbidden_falls_anchor
+description: >
+  Biome style anchor for Forbidden Falls (Ch01) — wet basalt, mossy uplift,
+  bioluminescent spray. Used by monster manifests whose biome is `forbidden_falls`
+  so creature palettes harmonize with the environment without copying canon SoM
+  '93 hues 1:1.
+references:
+  - pictures_artworks/i_want_the_character_from_my_she-0.svg
+palette_notes: >
+  Cold base (basalt blues, fog grey), one warm accent per creature (rust, ember,
+  bone). Avoid pure greens — read as algae against the wet rock instead.
+rendering_notes: >
+  Same 64px cell and silhouette discipline as randi_anchor; creatures should
+  read at thumbnail size so primary mass is one solid value, secondary mass one
+  step lighter, accents the highlight tone only.
